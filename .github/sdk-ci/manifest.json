@@ -1,0 +1,19 @@
+{
+  "formatVersion": 1,
+  "family": "php",
+  "image": "composer@sha256:9715c7f69044da2a212a5fbde29ee7da24e364d426560ae6367b060236f847d7",
+  "contractSha256": "ea1576c82a7ad69122985805e2f3303b4ddf8592b4fcbc22cd1435ba1289f020",
+  "recordingIndexSha256": "ff806fb5d2b230cb0bb415449876854a038f6ffb29c6b48505e7f11c5d10332d",
+  "recordedScenarios": 40,
+  "files": {
+    "cases.json": "ff7a5c0a7855efd30b9839e2062b35619bfe786f334db5991fa1277af6bf4e47",
+    "run.mjs": "671f5f3df1a1f839e397f3264907f6a9563c9ed5aea0b9672cb984df2d5c94c0",
+    "php.sh": "32ac33c25b2a9e76201d3be833693e6a69a106cfc0525e64c6b8bf3998e59a32",
+    "replay-server.mjs": "3f7b872956c781b087c07112eccfc3a1119f734b8e06a762cddbade8c6ad8dcd",
+    "stream-server.mjs": "a63f2c6c0d8a3f6ea7742301e0a173824c1a58cf6438a09cfb8115cdafeaccfe",
+    "recording.php": "bd2a66a4cfbebfe5ee5cf47bcfb10b5c3a18538d9a2ec576f339ecb56ecf042f",
+    "stream.php": "6efc8d193380328928bd7b64fa6b0658f4c525b14e313fe496eae3b746dcae25"
+  },
+  "evidence": "reviewed-response-replay-and-synthetic-streaming",
+  "publishable": false
+}
