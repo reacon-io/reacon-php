@@ -144,6 +144,7 @@ lib/Model/InspectExcelWorkbookRequest.php
 lib/Model/InspectGoogleSheetRequest.php
 lib/Model/IntegrationCapabilityResponse.php
 lib/Model/IntegrationCapabilityResponseOutput.php
+lib/Model/IntegrationCapabilityResponseOutputNonNull.php
 lib/Model/IntegrationConnection.php
 lib/Model/IntegrationConnectionHealth.php
 lib/Model/IntegrationConnectionList.php

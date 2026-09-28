@@ -281,12 +281,12 @@ class ProductLeadCreateInput implements ModelInterface, ArrayAccess, \JsonSerial
     public function __construct(?array $data = null)
     {
         $this->setIfExists('attributes', $data ?? [], null);
-        $this->setIfExists('company', $data ?? [], '');
+        $this->setIfExists('company', $data ?? [], null);
         $this->setIfExists('email', $data ?? [], null);
-        $this->setIfExists('first_name', $data ?? [], '');
+        $this->setIfExists('first_name', $data ?? [], null);
         $this->setIfExists('idempotency_key', $data ?? [], null);
-        $this->setIfExists('last_name', $data ?? [], '');
-        $this->setIfExists('position', $data ?? [], '');
+        $this->setIfExists('last_name', $data ?? [], null);
+        $this->setIfExists('position', $data ?? [], null);
     }
 
     /**
