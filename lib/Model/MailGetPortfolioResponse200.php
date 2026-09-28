@@ -81,7 +81,7 @@ class MailGetPortfolioResponse200 implements ModelInterface, ArrayAccess, \JsonS
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'portfolio' => false,
+        'portfolio' => true,
         'suppressions' => false,
         'teams' => false
     ];
@@ -288,7 +288,7 @@ class MailGetPortfolioResponse200 implements ModelInterface, ArrayAccess, \JsonS
     {
         $invalidProperties = [];
 
-        if ($this->container['portfolio'] === null) {
+        if ($this->container['portfolio'] === null && !$this->isNullableSetToNull('portfolio')) {
             $invalidProperties[] = "'portfolio' can't be null";
         }
         if ($this->container['suppressions'] === null) {
@@ -331,8 +331,9 @@ class MailGetPortfolioResponse200 implements ModelInterface, ArrayAccess, \JsonS
      */
     public function setPortfolio($portfolio)
     {
+        $this->openAPINullablesSetToNull = array_values(array_diff($this->openAPINullablesSetToNull, ['portfolio']));
         if (is_null($portfolio)) {
-            throw new \InvalidArgumentException('non-nullable portfolio cannot be null');
+            $this->openAPINullablesSetToNull[] = 'portfolio';
         }
         $this->container['portfolio'] = $portfolio;
 

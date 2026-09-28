@@ -234,6 +234,7 @@ class MailPostSuppressionsRequest implements ModelInterface, ArrayAccess, \JsonS
         return self::$openAPIModelName;
     }
 
+    public const SCOPE_EMAIL = 'email';
     public const SCOPE_DOMAIN = 'domain';
 
     /**
@@ -244,6 +245,7 @@ class MailPostSuppressionsRequest implements ModelInterface, ArrayAccess, \JsonS
     public function getScopeAllowableValues()
     {
         return [
+            self::SCOPE_EMAIL,
             self::SCOPE_DOMAIN,
         ];
     }
@@ -309,18 +311,6 @@ class MailPostSuppressionsRequest implements ModelInterface, ArrayAccess, \JsonS
         if ($this->container['value'] === null) {
             $invalidProperties[] = "'value' can't be null";
         }
-        if ((mb_strlen($this->container['value']) > 253)) {
-            $invalidProperties[] = "invalid value for 'value', the character length must be smaller than or equal to 253.";
-        }
-
-        if ((mb_strlen($this->container['value']) < 1)) {
-            $invalidProperties[] = "invalid value for 'value', the character length must be bigger than or equal to 1.";
-        }
-
-        if (!preg_match("/^(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?$/", $this->container['value'])) {
-            $invalidProperties[] = "invalid value for 'value', must be conform to the pattern /^(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?$/.";
-        }
-
         return $invalidProperties;
     }
 
@@ -395,16 +385,6 @@ class MailPostSuppressionsRequest implements ModelInterface, ArrayAccess, \JsonS
         if (is_null($value)) {
             throw new \InvalidArgumentException('non-nullable value cannot be null');
         }
-        if ((mb_strlen($value) > 253)) {
-            throw new \InvalidArgumentException('invalid length for $value when calling MailPostSuppressionsRequest., must be smaller than or equal to 253.');
-        }
-        if ((mb_strlen($value) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $value when calling MailPostSuppressionsRequest., must be bigger than or equal to 1.');
-        }
-        if ((!preg_match("/^(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?$/", ObjectSerializer::toString($value)))) {
-            throw new \InvalidArgumentException("invalid value for \$value when calling MailPostSuppressionsRequest., must conform to the pattern /^(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?$/.");
-        }
-
         $this->container['value'] = $value;
 
         return $this;
