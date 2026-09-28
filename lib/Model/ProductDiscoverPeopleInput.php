@@ -264,8 +264,8 @@ class ProductDiscoverPeopleInput implements ModelInterface, ArrayAccess, \JsonSe
     {
         $this->setIfExists('domain', $data ?? [], null);
         $this->setIfExists('job_title', $data ?? [], null);
-        $this->setIfExists('limit', $data ?? [], 25);
-        $this->setIfExists('query', $data ?? [], '');
+        $this->setIfExists('limit', $data ?? [], null);
+        $this->setIfExists('query', $data ?? [], null);
     }
 
     /**

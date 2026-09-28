@@ -1,6 +1,6 @@
 <?php
 /**
- * IntegrationCapabilityResponse
+ * IntegrationCapabilityResponseOutputNonNull
  *
  * PHP version 8.1
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Reacon\Sdk\ObjectSerializer;
 
 /**
- * IntegrationCapabilityResponse Class Doc Comment
+ * IntegrationCapabilityResponseOutputNonNull Class Doc Comment
  *
  * @category Class
  * @package  Reacon\Sdk
@@ -40,7 +40,7 @@ use \Reacon\Sdk\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class IntegrationCapabilityResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class IntegrationCapabilityResponseOutputNonNull implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class IntegrationCapabilityResponse implements ModelInterface, ArrayAccess, \Jso
      *
      * @var string
      */
-    protected static $openAPIModelName = 'IntegrationCapabilityResponse';
+    protected static $openAPIModelName = 'IntegrationCapabilityResponseOutputNonNull';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -57,15 +57,17 @@ class IntegrationCapabilityResponse implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $openAPITypes = [
-        'actual_credits' => 'int',
-        'capability' => 'string',
-        'charged' => 'bool',
-        'emulated' => 'bool',
-        'estimated_credits' => 'int',
-        'execution_id' => 'string',
-        'mode' => 'string',
-        'output' => '\Reacon\Sdk\Model\IntegrationCapabilityResponseOutputNonNull',
-        'replay' => 'bool'
+        'confidence' => 'float',
+        'email' => 'string',
+        'freshness' => 'string',
+        'status' => 'string',
+        'checked_at' => 'string',
+        'details' => '\Reacon\Sdk\Model\CapabilityEmailVerifiedDetails',
+        'score' => 'float',
+        'sources' => 'int',
+        'contacts' => '\Reacon\Sdk\Model\CapabilityDomainSearchContactsInner[]',
+        'domain' => 'string',
+        'organization' => 'string'
     ];
 
     /**
@@ -76,15 +78,17 @@ class IntegrationCapabilityResponse implements ModelInterface, ArrayAccess, \Jso
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'actual_credits' => null,
-        'capability' => null,
-        'charged' => null,
-        'emulated' => null,
-        'estimated_credits' => null,
-        'execution_id' => null,
-        'mode' => null,
-        'output' => null,
-        'replay' => null
+        'confidence' => null,
+        'email' => null,
+        'freshness' => null,
+        'status' => null,
+        'checked_at' => null,
+        'details' => null,
+        'score' => null,
+        'sources' => null,
+        'contacts' => null,
+        'domain' => null,
+        'organization' => null
     ];
 
     /**
@@ -93,15 +97,17 @@ class IntegrationCapabilityResponse implements ModelInterface, ArrayAccess, \Jso
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'actual_credits' => false,
-        'capability' => false,
-        'charged' => false,
-        'emulated' => false,
-        'estimated_credits' => false,
-        'execution_id' => false,
-        'mode' => false,
-        'output' => true,
-        'replay' => false
+        'confidence' => false,
+        'email' => false,
+        'freshness' => false,
+        'status' => false,
+        'checked_at' => false,
+        'details' => false,
+        'score' => false,
+        'sources' => false,
+        'contacts' => false,
+        'domain' => false,
+        'organization' => false
     ];
 
     /**
@@ -190,15 +196,17 @@ class IntegrationCapabilityResponse implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $attributeMap = [
-        'actual_credits' => 'actualCredits',
-        'capability' => 'capability',
-        'charged' => 'charged',
-        'emulated' => 'emulated',
-        'estimated_credits' => 'estimatedCredits',
-        'execution_id' => 'executionId',
-        'mode' => 'mode',
-        'output' => 'output',
-        'replay' => 'replay'
+        'confidence' => 'confidence',
+        'email' => 'email',
+        'freshness' => 'freshness',
+        'status' => 'status',
+        'checked_at' => 'checkedAt',
+        'details' => 'details',
+        'score' => 'score',
+        'sources' => 'sources',
+        'contacts' => 'contacts',
+        'domain' => 'domain',
+        'organization' => 'organization'
     ];
 
     /**
@@ -207,15 +215,17 @@ class IntegrationCapabilityResponse implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $setters = [
-        'actual_credits' => 'setActualCredits',
-        'capability' => 'setCapability',
-        'charged' => 'setCharged',
-        'emulated' => 'setEmulated',
-        'estimated_credits' => 'setEstimatedCredits',
-        'execution_id' => 'setExecutionId',
-        'mode' => 'setMode',
-        'output' => 'setOutput',
-        'replay' => 'setReplay'
+        'confidence' => 'setConfidence',
+        'email' => 'setEmail',
+        'freshness' => 'setFreshness',
+        'status' => 'setStatus',
+        'checked_at' => 'setCheckedAt',
+        'details' => 'setDetails',
+        'score' => 'setScore',
+        'sources' => 'setSources',
+        'contacts' => 'setContacts',
+        'domain' => 'setDomain',
+        'organization' => 'setOrganization'
     ];
 
     /**
@@ -224,15 +234,17 @@ class IntegrationCapabilityResponse implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $getters = [
-        'actual_credits' => 'getActualCredits',
-        'capability' => 'getCapability',
-        'charged' => 'getCharged',
-        'emulated' => 'getEmulated',
-        'estimated_credits' => 'getEstimatedCredits',
-        'execution_id' => 'getExecutionId',
-        'mode' => 'getMode',
-        'output' => 'getOutput',
-        'replay' => 'getReplay'
+        'confidence' => 'getConfidence',
+        'email' => 'getEmail',
+        'freshness' => 'getFreshness',
+        'status' => 'getStatus',
+        'checked_at' => 'getCheckedAt',
+        'details' => 'getDetails',
+        'score' => 'getScore',
+        'sources' => 'getSources',
+        'contacts' => 'getContacts',
+        'domain' => 'getDomain',
+        'organization' => 'getOrganization'
     ];
 
     /**
@@ -292,15 +304,17 @@ class IntegrationCapabilityResponse implements ModelInterface, ArrayAccess, \Jso
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('actual_credits', $data ?? [], null);
-        $this->setIfExists('capability', $data ?? [], null);
-        $this->setIfExists('charged', $data ?? [], null);
-        $this->setIfExists('emulated', $data ?? [], null);
-        $this->setIfExists('estimated_credits', $data ?? [], null);
-        $this->setIfExists('execution_id', $data ?? [], null);
-        $this->setIfExists('mode', $data ?? [], null);
-        $this->setIfExists('output', $data ?? [], null);
-        $this->setIfExists('replay', $data ?? [], null);
+        $this->setIfExists('confidence', $data ?? [], null);
+        $this->setIfExists('email', $data ?? [], null);
+        $this->setIfExists('freshness', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], null);
+        $this->setIfExists('checked_at', $data ?? [], null);
+        $this->setIfExists('details', $data ?? [], null);
+        $this->setIfExists('score', $data ?? [], null);
+        $this->setIfExists('sources', $data ?? [], null);
+        $this->setIfExists('contacts', $data ?? [], null);
+        $this->setIfExists('domain', $data ?? [], null);
+        $this->setIfExists('organization', $data ?? [], null);
     }
 
     /**
@@ -330,32 +344,35 @@ class IntegrationCapabilityResponse implements ModelInterface, ArrayAccess, \Jso
     {
         $invalidProperties = [];
 
-        if ($this->container['actual_credits'] === null) {
-            $invalidProperties[] = "'actual_credits' can't be null";
+        if ($this->container['confidence'] === null) {
+            $invalidProperties[] = "'confidence' can't be null";
         }
-        if ($this->container['capability'] === null) {
-            $invalidProperties[] = "'capability' can't be null";
+        if ($this->container['email'] === null) {
+            $invalidProperties[] = "'email' can't be null";
         }
-        if ($this->container['charged'] === null) {
-            $invalidProperties[] = "'charged' can't be null";
+        if ($this->container['freshness'] === null) {
+            $invalidProperties[] = "'freshness' can't be null";
         }
-        if ($this->container['emulated'] === null) {
-            $invalidProperties[] = "'emulated' can't be null";
+        if ($this->container['status'] === null) {
+            $invalidProperties[] = "'status' can't be null";
         }
-        if ($this->container['estimated_credits'] === null) {
-            $invalidProperties[] = "'estimated_credits' can't be null";
+        if ($this->container['checked_at'] === null) {
+            $invalidProperties[] = "'checked_at' can't be null";
         }
-        if ($this->container['execution_id'] === null) {
-            $invalidProperties[] = "'execution_id' can't be null";
+        if ($this->container['details'] === null) {
+            $invalidProperties[] = "'details' can't be null";
         }
-        if ($this->container['mode'] === null) {
-            $invalidProperties[] = "'mode' can't be null";
+        if ($this->container['score'] === null) {
+            $invalidProperties[] = "'score' can't be null";
         }
-        if ($this->container['output'] === null && !$this->isNullableSetToNull('output')) {
-            $invalidProperties[] = "'output' can't be null";
+        if ($this->container['sources'] === null) {
+            $invalidProperties[] = "'sources' can't be null";
         }
-        if ($this->container['replay'] === null) {
-            $invalidProperties[] = "'replay' can't be null";
+        if ($this->container['contacts'] === null) {
+            $invalidProperties[] = "'contacts' can't be null";
+        }
+        if ($this->container['domain'] === null) {
+            $invalidProperties[] = "'domain' can't be null";
         }
         return $invalidProperties;
     }
@@ -373,245 +390,298 @@ class IntegrationCapabilityResponse implements ModelInterface, ArrayAccess, \Jso
 
 
     /**
-     * Gets actual_credits
+     * Gets confidence
+     *
+     * @return float
+     */
+    public function getConfidence()
+    {
+        return $this->container['confidence'];
+    }
+
+    /**
+     * Sets confidence
+     *
+     * @param float $confidence confidence
+     *
+     * @return self
+     */
+    public function setConfidence($confidence)
+    {
+        if (is_null($confidence)) {
+            throw new \InvalidArgumentException('non-nullable confidence cannot be null');
+        }
+        $this->container['confidence'] = $confidence;
+
+        return $this;
+    }
+
+    /**
+     * Gets email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->container['email'];
+    }
+
+    /**
+     * Sets email
+     *
+     * @param string $email email
+     *
+     * @return self
+     */
+    public function setEmail($email)
+    {
+        if (is_null($email)) {
+            throw new \InvalidArgumentException('non-nullable email cannot be null');
+        }
+        $this->container['email'] = $email;
+
+        return $this;
+    }
+
+    /**
+     * Gets freshness
+     *
+     * @return string
+     */
+    public function getFreshness()
+    {
+        return $this->container['freshness'];
+    }
+
+    /**
+     * Sets freshness
+     *
+     * @param string $freshness freshness
+     *
+     * @return self
+     */
+    public function setFreshness($freshness)
+    {
+        if (is_null($freshness)) {
+            throw new \InvalidArgumentException('non-nullable freshness cannot be null');
+        }
+        $this->container['freshness'] = $freshness;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string $status status
+     *
+     * @return self
+     */
+    public function setStatus($status)
+    {
+        if (is_null($status)) {
+            throw new \InvalidArgumentException('non-nullable status cannot be null');
+        }
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets checked_at
+     *
+     * @return string
+     */
+    public function getCheckedAt()
+    {
+        return $this->container['checked_at'];
+    }
+
+    /**
+     * Sets checked_at
+     *
+     * @param string $checked_at checked_at
+     *
+     * @return self
+     */
+    public function setCheckedAt($checked_at)
+    {
+        if (is_null($checked_at)) {
+            throw new \InvalidArgumentException('non-nullable checked_at cannot be null');
+        }
+        $this->container['checked_at'] = $checked_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets details
+     *
+     * @return \Reacon\Sdk\Model\CapabilityEmailVerifiedDetails
+     */
+    public function getDetails()
+    {
+        return $this->container['details'];
+    }
+
+    /**
+     * Sets details
+     *
+     * @param \Reacon\Sdk\Model\CapabilityEmailVerifiedDetails $details details
+     *
+     * @return self
+     */
+    public function setDetails($details)
+    {
+        if (is_null($details)) {
+            throw new \InvalidArgumentException('non-nullable details cannot be null');
+        }
+        $this->container['details'] = $details;
+
+        return $this;
+    }
+
+    /**
+     * Gets score
+     *
+     * @return float
+     */
+    public function getScore()
+    {
+        return $this->container['score'];
+    }
+
+    /**
+     * Sets score
+     *
+     * @param float $score score
+     *
+     * @return self
+     */
+    public function setScore($score)
+    {
+        if (is_null($score)) {
+            throw new \InvalidArgumentException('non-nullable score cannot be null');
+        }
+        $this->container['score'] = $score;
+
+        return $this;
+    }
+
+    /**
+     * Gets sources
      *
      * @return int
      */
-    public function getActualCredits()
+    public function getSources()
     {
-        return $this->container['actual_credits'];
+        return $this->container['sources'];
     }
 
     /**
-     * Sets actual_credits
+     * Sets sources
      *
-     * @param int $actual_credits actual_credits
+     * @param int $sources sources
      *
      * @return self
      */
-    public function setActualCredits($actual_credits)
+    public function setSources($sources)
     {
-        if (is_null($actual_credits)) {
-            throw new \InvalidArgumentException('non-nullable actual_credits cannot be null');
+        if (is_null($sources)) {
+            throw new \InvalidArgumentException('non-nullable sources cannot be null');
         }
-        $this->container['actual_credits'] = $actual_credits;
+        $this->container['sources'] = $sources;
 
         return $this;
     }
 
     /**
-     * Gets capability
+     * Gets contacts
+     *
+     * @return \Reacon\Sdk\Model\CapabilityDomainSearchContactsInner[]
+     */
+    public function getContacts()
+    {
+        return $this->container['contacts'];
+    }
+
+    /**
+     * Sets contacts
+     *
+     * @param \Reacon\Sdk\Model\CapabilityDomainSearchContactsInner[] $contacts contacts
+     *
+     * @return self
+     */
+    public function setContacts($contacts)
+    {
+        if (is_null($contacts)) {
+            throw new \InvalidArgumentException('non-nullable contacts cannot be null');
+        }
+        $this->container['contacts'] = $contacts;
+
+        return $this;
+    }
+
+    /**
+     * Gets domain
      *
      * @return string
      */
-    public function getCapability()
+    public function getDomain()
     {
-        return $this->container['capability'];
+        return $this->container['domain'];
     }
 
     /**
-     * Sets capability
+     * Sets domain
      *
-     * @param string $capability Known values: email.find, email.verify, domain.search. Clients preserve future values.
+     * @param string $domain domain
      *
      * @return self
      */
-    public function setCapability($capability)
+    public function setDomain($domain)
     {
-        if (is_null($capability)) {
-            throw new \InvalidArgumentException('non-nullable capability cannot be null');
+        if (is_null($domain)) {
+            throw new \InvalidArgumentException('non-nullable domain cannot be null');
         }
-        $this->container['capability'] = $capability;
+        $this->container['domain'] = $domain;
 
         return $this;
     }
 
     /**
-     * Gets charged
+     * Gets organization
      *
-     * @return bool
+     * @return string|null
      */
-    public function getCharged()
+    public function getOrganization()
     {
-        return $this->container['charged'];
+        return $this->container['organization'];
     }
 
     /**
-     * Sets charged
+     * Sets organization
      *
-     * @param bool $charged charged
+     * @param string|null $organization organization
      *
      * @return self
      */
-    public function setCharged($charged)
+    public function setOrganization($organization)
     {
-        if (is_null($charged)) {
-            throw new \InvalidArgumentException('non-nullable charged cannot be null');
+        if (is_null($organization)) {
+            throw new \InvalidArgumentException('non-nullable organization cannot be null');
         }
-        $this->container['charged'] = $charged;
-
-        return $this;
-    }
-
-    /**
-     * Gets emulated
-     *
-     * @return bool
-     */
-    public function getEmulated()
-    {
-        return $this->container['emulated'];
-    }
-
-    /**
-     * Sets emulated
-     *
-     * @param bool $emulated emulated
-     *
-     * @return self
-     */
-    public function setEmulated($emulated)
-    {
-        if (is_null($emulated)) {
-            throw new \InvalidArgumentException('non-nullable emulated cannot be null');
-        }
-        $this->container['emulated'] = $emulated;
-
-        return $this;
-    }
-
-    /**
-     * Gets estimated_credits
-     *
-     * @return int
-     */
-    public function getEstimatedCredits()
-    {
-        return $this->container['estimated_credits'];
-    }
-
-    /**
-     * Sets estimated_credits
-     *
-     * @param int $estimated_credits estimated_credits
-     *
-     * @return self
-     */
-    public function setEstimatedCredits($estimated_credits)
-    {
-        if (is_null($estimated_credits)) {
-            throw new \InvalidArgumentException('non-nullable estimated_credits cannot be null');
-        }
-        $this->container['estimated_credits'] = $estimated_credits;
-
-        return $this;
-    }
-
-    /**
-     * Gets execution_id
-     *
-     * @return string
-     */
-    public function getExecutionId()
-    {
-        return $this->container['execution_id'];
-    }
-
-    /**
-     * Sets execution_id
-     *
-     * @param string $execution_id execution_id
-     *
-     * @return self
-     */
-    public function setExecutionId($execution_id)
-    {
-        if (is_null($execution_id)) {
-            throw new \InvalidArgumentException('non-nullable execution_id cannot be null');
-        }
-        $this->container['execution_id'] = $execution_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets mode
-     *
-     * @return string
-     */
-    public function getMode()
-    {
-        return $this->container['mode'];
-    }
-
-    /**
-     * Sets mode
-     *
-     * @param string $mode Known values: preview, live. Clients preserve future values.
-     *
-     * @return self
-     */
-    public function setMode($mode)
-    {
-        if (is_null($mode)) {
-            throw new \InvalidArgumentException('non-nullable mode cannot be null');
-        }
-        $this->container['mode'] = $mode;
-
-        return $this;
-    }
-
-    /**
-     * Gets output
-     *
-     * @return \Reacon\Sdk\Model\IntegrationCapabilityResponseOutputNonNull
-     */
-    public function getOutput()
-    {
-        return $this->container['output'];
-    }
-
-    /**
-     * Sets output
-     *
-     * @param \Reacon\Sdk\Model\IntegrationCapabilityResponseOutputNonNull $output output
-     *
-     * @return self
-     */
-    public function setOutput($output)
-    {
-        $this->openAPINullablesSetToNull = array_values(array_diff($this->openAPINullablesSetToNull, ['output']));
-        if (is_null($output)) {
-            $this->openAPINullablesSetToNull[] = 'output';
-        }
-        $this->container['output'] = $output;
-
-        return $this;
-    }
-
-    /**
-     * Gets replay
-     *
-     * @return bool
-     */
-    public function getReplay()
-    {
-        return $this->container['replay'];
-    }
-
-    /**
-     * Sets replay
-     *
-     * @param bool $replay replay
-     *
-     * @return self
-     */
-    public function setReplay($replay)
-    {
-        if (is_null($replay)) {
-            throw new \InvalidArgumentException('non-nullable replay cannot be null');
-        }
-        $this->container['replay'] = $replay;
+        $this->container['organization'] = $organization;
 
         return $this;
     }

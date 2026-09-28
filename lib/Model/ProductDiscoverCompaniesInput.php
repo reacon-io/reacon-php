@@ -263,9 +263,9 @@ class ProductDiscoverCompaniesInput implements ModelInterface, ArrayAccess, \Jso
     public function __construct(?array $data = null)
     {
         $this->setIfExists('industry', $data ?? [], null);
-        $this->setIfExists('limit', $data ?? [], 25);
+        $this->setIfExists('limit', $data ?? [], null);
         $this->setIfExists('location', $data ?? [], null);
-        $this->setIfExists('query', $data ?? [], '');
+        $this->setIfExists('query', $data ?? [], null);
     }
 
     /**
