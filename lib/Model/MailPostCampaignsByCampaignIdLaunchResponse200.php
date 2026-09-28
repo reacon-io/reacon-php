@@ -57,7 +57,7 @@ class MailPostCampaignsByCampaignIdLaunchResponse200 implements ModelInterface, 
      * @var string[]
      */
     protected static $openAPITypes = [
-        'campaign' => '\Reacon\Sdk\Model\MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign',
+        'campaign' => '\Reacon\Sdk\Model\MailCampaignProgress',
         'draft' => '\Reacon\Sdk\Model\MailCampaignDraftRecord',
         'sequences' => '\Reacon\Sdk\Model\MailSequenceRunRecord[]'
     ];
@@ -81,7 +81,7 @@ class MailPostCampaignsByCampaignIdLaunchResponse200 implements ModelInterface, 
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'campaign' => false,
+        'campaign' => true,
         'draft' => false,
         'sequences' => false
     ];
@@ -288,7 +288,7 @@ class MailPostCampaignsByCampaignIdLaunchResponse200 implements ModelInterface, 
     {
         $invalidProperties = [];
 
-        if ($this->container['campaign'] === null) {
+        if ($this->container['campaign'] === null && !$this->isNullableSetToNull('campaign')) {
             $invalidProperties[] = "'campaign' can't be null";
         }
         if ($this->container['draft'] === null) {
@@ -315,7 +315,7 @@ class MailPostCampaignsByCampaignIdLaunchResponse200 implements ModelInterface, 
     /**
      * Gets campaign
      *
-     * @return \Reacon\Sdk\Model\MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign
+     * @return \Reacon\Sdk\Model\MailCampaignProgress
      */
     public function getCampaign()
     {
@@ -325,14 +325,15 @@ class MailPostCampaignsByCampaignIdLaunchResponse200 implements ModelInterface, 
     /**
      * Sets campaign
      *
-     * @param \Reacon\Sdk\Model\MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign $campaign campaign
+     * @param \Reacon\Sdk\Model\MailCampaignProgress $campaign campaign
      *
      * @return self
      */
     public function setCampaign($campaign)
     {
+        $this->openAPINullablesSetToNull = array_values(array_diff($this->openAPINullablesSetToNull, ['campaign']));
         if (is_null($campaign)) {
-            throw new \InvalidArgumentException('non-nullable campaign cannot be null');
+            $this->openAPINullablesSetToNull[] = 'campaign';
         }
         $this->container['campaign'] = $campaign;
 
