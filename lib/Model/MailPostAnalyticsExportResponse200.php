@@ -88,7 +88,7 @@ class MailPostAnalyticsExportResponse200 implements ModelInterface, ArrayAccess,
         'content' => false,
         'content_type' => false,
         'filename' => false,
-        'next_cursor' => false,
+        'next_cursor' => true,
         'row_count' => false
     ];
 
@@ -333,8 +333,8 @@ class MailPostAnalyticsExportResponse200 implements ModelInterface, ArrayAccess,
         if ($this->container['filename'] === null) {
             $invalidProperties[] = "'filename' can't be null";
         }
-        if ($this->container['next_cursor'] === null) {
-            $invalidProperties[] = "'next_cursor' can't be null";
+        if ($this->container['next_cursor'] === null && !$this->isNullableSetToNull('next_cursor')) {
+            $invalidProperties[] = "'next_cursor' is required";
         }
         if ($this->container['row_count'] === null) {
             $invalidProperties[] = "'row_count' can't be null";
@@ -448,7 +448,7 @@ class MailPostAnalyticsExportResponse200 implements ModelInterface, ArrayAccess,
     /**
      * Gets next_cursor
      *
-     * @return \Reacon\Sdk\Model\MailPostAnalyticsExportResponse200NextCursor
+     * @return \Reacon\Sdk\Model\MailPostAnalyticsExportResponse200NextCursor|null
      */
     public function getNextCursor()
     {
@@ -458,14 +458,21 @@ class MailPostAnalyticsExportResponse200 implements ModelInterface, ArrayAccess,
     /**
      * Sets next_cursor
      *
-     * @param \Reacon\Sdk\Model\MailPostAnalyticsExportResponse200NextCursor $next_cursor next_cursor
+     * @param \Reacon\Sdk\Model\MailPostAnalyticsExportResponse200NextCursor|null $next_cursor next_cursor
      *
      * @return self
      */
     public function setNextCursor($next_cursor)
     {
         if (is_null($next_cursor)) {
-            throw new \InvalidArgumentException('non-nullable next_cursor cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'next_cursor');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('next_cursor', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['next_cursor'] = $next_cursor;
 

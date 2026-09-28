@@ -307,7 +307,6 @@ lib/Model/MailPostAnalyticsExportRequest.php
 lib/Model/MailPostAnalyticsExportRequestAfter.php
 lib/Model/MailPostAnalyticsExportResponse200.php
 lib/Model/MailPostAnalyticsExportResponse200NextCursor.php
-lib/Model/MailPostAnalyticsExportResponse200NextCursorAnyOf.php
 lib/Model/MailPostCadenceCampaignsByCampaignIdStateRequest.php
 lib/Model/MailPostCadenceCampaignsByCampaignIdStateResponse200.php
 lib/Model/MailPostCadenceCampaignsByCampaignIdStateResponse200AnyOf.php
