@@ -260,6 +260,7 @@ lib/Model/MailGetPortfolioOverviewResponse200.php
 lib/Model/MailGetPortfolioResponse200.php
 lib/Model/MailGetPortfolioResponse200AnyOf.php
 lib/Model/MailGetPortfolioResponse200AnyOf1.php
+lib/Model/MailGetPortfolioResponse200Portfolio.php
 lib/Model/MailGetQueueResponse200.php
 lib/Model/MailGetReplyAutomationsResponse200.php
 lib/Model/MailGetSignaturesResponse200.php
@@ -342,7 +343,7 @@ lib/Model/MailPostCampaignsByCampaignIdLaunchRequest.php
 lib/Model/MailPostCampaignsByCampaignIdLaunchResponse200.php
 lib/Model/MailPostCampaignsByCampaignIdLaunchResponse200AnyOf.php
 lib/Model/MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1.php
-lib/Model/MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign.php
+lib/Model/MailPostCampaignsByCampaignIdLaunchResponse200Campaign.php
 lib/Model/MailPostCampaignsByCampaignIdStateRequest.php
 lib/Model/MailPostCampaignsByCampaignIdStateResponse200.php
 lib/Model/MailPostCampaignsRequest.php

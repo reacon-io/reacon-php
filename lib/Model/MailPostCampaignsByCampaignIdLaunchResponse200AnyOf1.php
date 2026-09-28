@@ -57,7 +57,7 @@ class MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1 implements ModelInter
      * @var string[]
      */
     protected static $openAPITypes = [
-        'campaign' => '\Reacon\Sdk\Model\MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign',
+        'campaign' => '\Reacon\Sdk\Model\MailPostCampaignsByCampaignIdLaunchResponse200Campaign',
         'draft' => '\Reacon\Sdk\Model\MailCampaignDraftRecord',
         'sequences' => '\Reacon\Sdk\Model\MailSequenceRunRecord[]'
     ];
@@ -315,7 +315,7 @@ class MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1 implements ModelInter
     /**
      * Gets campaign
      *
-     * @return \Reacon\Sdk\Model\MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign
+     * @return \Reacon\Sdk\Model\MailPostCampaignsByCampaignIdLaunchResponse200Campaign
      */
     public function getCampaign()
     {
@@ -325,7 +325,7 @@ class MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1 implements ModelInter
     /**
      * Sets campaign
      *
-     * @param \Reacon\Sdk\Model\MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign $campaign campaign
+     * @param \Reacon\Sdk\Model\MailPostCampaignsByCampaignIdLaunchResponse200Campaign $campaign campaign
      *
      * @return self
      */

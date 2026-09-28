@@ -1,6 +1,6 @@
 <?php
 /**
- * MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign
+ * MailGetPortfolioResponse200Portfolio
  *
  * PHP version 8.1
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Reacon\Sdk\ObjectSerializer;
 
 /**
- * MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign Class Doc Comment
+ * MailGetPortfolioResponse200Portfolio Class Doc Comment
  *
  * @category Class
  * @package  Reacon\Sdk
@@ -40,7 +40,7 @@ use \Reacon\Sdk\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
+class MailGetPortfolioResponse200Portfolio implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign implements Mod
      *
      * @var string
      */
-    protected static $openAPIModelName = 'MailPostCampaignsByCampaignIdLaunchResponse200_anyOf_campaign';
+    protected static $openAPIModelName = 'MailGetPortfolioResponse200_portfolio';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -58,14 +58,10 @@ class MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign implements Mod
      */
     protected static $openAPITypes = [
         'created_at' => '\DateTime',
+        'created_by_actor_id' => 'string',
         'id' => 'string',
-        'message_counts' => '\Reacon\Sdk\Model\MailCampaignProgressMessageCounts',
         'name' => 'string',
-        'recipient_count' => 'float',
-        'sequence_run_ids' => 'string[]',
-        'status' => 'string',
-        'tenant_id' => 'string',
-        'total_messages' => 'float',
+        'owner_team_id' => 'string',
         'updated_at' => '\DateTime'
     ];
 
@@ -78,14 +74,10 @@ class MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign implements Mod
      */
     protected static $openAPIFormats = [
         'created_at' => 'date-time',
+        'created_by_actor_id' => null,
         'id' => null,
-        'message_counts' => null,
         'name' => null,
-        'recipient_count' => null,
-        'sequence_run_ids' => null,
-        'status' => null,
-        'tenant_id' => null,
-        'total_messages' => null,
+        'owner_team_id' => null,
         'updated_at' => 'date-time'
     ];
 
@@ -96,14 +88,10 @@ class MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign implements Mod
      */
     protected static array $openAPINullables = [
         'created_at' => false,
+        'created_by_actor_id' => false,
         'id' => false,
-        'message_counts' => false,
         'name' => false,
-        'recipient_count' => false,
-        'sequence_run_ids' => false,
-        'status' => false,
-        'tenant_id' => false,
-        'total_messages' => false,
+        'owner_team_id' => false,
         'updated_at' => false
     ];
 
@@ -194,14 +182,10 @@ class MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign implements Mod
      */
     protected static $attributeMap = [
         'created_at' => 'createdAt',
+        'created_by_actor_id' => 'createdByActorId',
         'id' => 'id',
-        'message_counts' => 'messageCounts',
         'name' => 'name',
-        'recipient_count' => 'recipientCount',
-        'sequence_run_ids' => 'sequenceRunIds',
-        'status' => 'status',
-        'tenant_id' => 'tenantId',
-        'total_messages' => 'totalMessages',
+        'owner_team_id' => 'ownerTeamId',
         'updated_at' => 'updatedAt'
     ];
 
@@ -212,14 +196,10 @@ class MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign implements Mod
      */
     protected static $setters = [
         'created_at' => 'setCreatedAt',
+        'created_by_actor_id' => 'setCreatedByActorId',
         'id' => 'setId',
-        'message_counts' => 'setMessageCounts',
         'name' => 'setName',
-        'recipient_count' => 'setRecipientCount',
-        'sequence_run_ids' => 'setSequenceRunIds',
-        'status' => 'setStatus',
-        'tenant_id' => 'setTenantId',
-        'total_messages' => 'setTotalMessages',
+        'owner_team_id' => 'setOwnerTeamId',
         'updated_at' => 'setUpdatedAt'
     ];
 
@@ -230,14 +210,10 @@ class MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign implements Mod
      */
     protected static $getters = [
         'created_at' => 'getCreatedAt',
+        'created_by_actor_id' => 'getCreatedByActorId',
         'id' => 'getId',
-        'message_counts' => 'getMessageCounts',
         'name' => 'getName',
-        'recipient_count' => 'getRecipientCount',
-        'sequence_run_ids' => 'getSequenceRunIds',
-        'status' => 'getStatus',
-        'tenant_id' => 'getTenantId',
-        'total_messages' => 'getTotalMessages',
+        'owner_team_id' => 'getOwnerTeamId',
         'updated_at' => 'getUpdatedAt'
     ];
 
@@ -299,14 +275,10 @@ class MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign implements Mod
     public function __construct(?array $data = null)
     {
         $this->setIfExists('created_at', $data ?? [], null);
+        $this->setIfExists('created_by_actor_id', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('message_counts', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('recipient_count', $data ?? [], null);
-        $this->setIfExists('sequence_run_ids', $data ?? [], null);
-        $this->setIfExists('status', $data ?? [], null);
-        $this->setIfExists('tenant_id', $data ?? [], null);
-        $this->setIfExists('total_messages', $data ?? [], null);
+        $this->setIfExists('owner_team_id', $data ?? [], null);
         $this->setIfExists('updated_at', $data ?? [], null);
     }
 
@@ -340,29 +312,17 @@ class MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign implements Mod
         if ($this->container['created_at'] === null) {
             $invalidProperties[] = "'created_at' can't be null";
         }
+        if ($this->container['created_by_actor_id'] === null) {
+            $invalidProperties[] = "'created_by_actor_id' can't be null";
+        }
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['message_counts'] === null) {
-            $invalidProperties[] = "'message_counts' can't be null";
         }
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
-        if ($this->container['recipient_count'] === null) {
-            $invalidProperties[] = "'recipient_count' can't be null";
-        }
-        if ($this->container['sequence_run_ids'] === null) {
-            $invalidProperties[] = "'sequence_run_ids' can't be null";
-        }
-        if ($this->container['status'] === null) {
-            $invalidProperties[] = "'status' can't be null";
-        }
-        if ($this->container['tenant_id'] === null) {
-            $invalidProperties[] = "'tenant_id' can't be null";
-        }
-        if ($this->container['total_messages'] === null) {
-            $invalidProperties[] = "'total_messages' can't be null";
+        if ($this->container['owner_team_id'] === null) {
+            $invalidProperties[] = "'owner_team_id' can't be null";
         }
         if ($this->container['updated_at'] === null) {
             $invalidProperties[] = "'updated_at' can't be null";
@@ -410,6 +370,33 @@ class MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign implements Mod
     }
 
     /**
+     * Gets created_by_actor_id
+     *
+     * @return string
+     */
+    public function getCreatedByActorId()
+    {
+        return $this->container['created_by_actor_id'];
+    }
+
+    /**
+     * Sets created_by_actor_id
+     *
+     * @param string $created_by_actor_id created_by_actor_id
+     *
+     * @return self
+     */
+    public function setCreatedByActorId($created_by_actor_id)
+    {
+        if (is_null($created_by_actor_id)) {
+            throw new \InvalidArgumentException('non-nullable created_by_actor_id cannot be null');
+        }
+        $this->container['created_by_actor_id'] = $created_by_actor_id;
+
+        return $this;
+    }
+
+    /**
      * Gets id
      *
      * @return string
@@ -432,33 +419,6 @@ class MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign implements Mod
             throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
         $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets message_counts
-     *
-     * @return \Reacon\Sdk\Model\MailCampaignProgressMessageCounts
-     */
-    public function getMessageCounts()
-    {
-        return $this->container['message_counts'];
-    }
-
-    /**
-     * Sets message_counts
-     *
-     * @param \Reacon\Sdk\Model\MailCampaignProgressMessageCounts $message_counts message_counts
-     *
-     * @return self
-     */
-    public function setMessageCounts($message_counts)
-    {
-        if (is_null($message_counts)) {
-            throw new \InvalidArgumentException('non-nullable message_counts cannot be null');
-        }
-        $this->container['message_counts'] = $message_counts;
 
         return $this;
     }
@@ -491,136 +451,28 @@ class MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign implements Mod
     }
 
     /**
-     * Gets recipient_count
-     *
-     * @return float
-     */
-    public function getRecipientCount()
-    {
-        return $this->container['recipient_count'];
-    }
-
-    /**
-     * Sets recipient_count
-     *
-     * @param float $recipient_count recipient_count
-     *
-     * @return self
-     */
-    public function setRecipientCount($recipient_count)
-    {
-        if (is_null($recipient_count)) {
-            throw new \InvalidArgumentException('non-nullable recipient_count cannot be null');
-        }
-        $this->container['recipient_count'] = $recipient_count;
-
-        return $this;
-    }
-
-    /**
-     * Gets sequence_run_ids
-     *
-     * @return string[]
-     */
-    public function getSequenceRunIds()
-    {
-        return $this->container['sequence_run_ids'];
-    }
-
-    /**
-     * Sets sequence_run_ids
-     *
-     * @param string[] $sequence_run_ids sequence_run_ids
-     *
-     * @return self
-     */
-    public function setSequenceRunIds($sequence_run_ids)
-    {
-        if (is_null($sequence_run_ids)) {
-            throw new \InvalidArgumentException('non-nullable sequence_run_ids cannot be null');
-        }
-        $this->container['sequence_run_ids'] = $sequence_run_ids;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
+     * Gets owner_team_id
      *
      * @return string
      */
-    public function getStatus()
+    public function getOwnerTeamId()
     {
-        return $this->container['status'];
+        return $this->container['owner_team_id'];
     }
 
     /**
-     * Sets status
+     * Sets owner_team_id
      *
-     * @param string $status status
+     * @param string $owner_team_id owner_team_id
      *
      * @return self
      */
-    public function setStatus($status)
+    public function setOwnerTeamId($owner_team_id)
     {
-        if (is_null($status)) {
-            throw new \InvalidArgumentException('non-nullable status cannot be null');
+        if (is_null($owner_team_id)) {
+            throw new \InvalidArgumentException('non-nullable owner_team_id cannot be null');
         }
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets tenant_id
-     *
-     * @return string
-     */
-    public function getTenantId()
-    {
-        return $this->container['tenant_id'];
-    }
-
-    /**
-     * Sets tenant_id
-     *
-     * @param string $tenant_id tenant_id
-     *
-     * @return self
-     */
-    public function setTenantId($tenant_id)
-    {
-        if (is_null($tenant_id)) {
-            throw new \InvalidArgumentException('non-nullable tenant_id cannot be null');
-        }
-        $this->container['tenant_id'] = $tenant_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_messages
-     *
-     * @return float
-     */
-    public function getTotalMessages()
-    {
-        return $this->container['total_messages'];
-    }
-
-    /**
-     * Sets total_messages
-     *
-     * @param float $total_messages total_messages
-     *
-     * @return self
-     */
-    public function setTotalMessages($total_messages)
-    {
-        if (is_null($total_messages)) {
-            throw new \InvalidArgumentException('non-nullable total_messages cannot be null');
-        }
-        $this->container['total_messages'] = $total_messages;
+        $this->container['owner_team_id'] = $owner_team_id;
 
         return $this;
     }
