@@ -91,7 +91,7 @@ class IdentityApi
         ?HeaderSelector $selector = null,
         int $hostIndex = 0
     ) {
-        $this->client = $client ?: new Client();
+        $this->client = $client ?: \Reacon\Sdk\Http\RequestPolicy::client();
         $this->config = $config ?: Configuration::getDefaultConfiguration();
         $this->headerSelector = $selector ?: new HeaderSelector();
         $this->hostIndex = $hostIndex;
@@ -156,158 +156,8 @@ class IdentityApi
     public function getApiKeyIdentityWithHttpInfo(string $contentType = self::contentTypes['getApiKeyIdentity'][0])
     {
         $request = $this->getApiKeyIdentityRequest($contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-
-            switch($statusCode) {
-                case 200:
-                    return $this->handleResponseWithDataType(
-                        '\Reacon\Sdk\Model\ApiKeyIdentity',
-                        $request,
-                        $response,
-                    );
-                case 400:
-                    return $this->handleResponseWithDataType(
-                        '\Reacon\Sdk\Model\ApiError',
-                        $request,
-                        $response,
-                    );
-                case 401:
-                    return $this->handleResponseWithDataType(
-                        '\Reacon\Sdk\Model\ApiError',
-                        $request,
-                        $response,
-                    );
-                case 403:
-                    return $this->handleResponseWithDataType(
-                        '\Reacon\Sdk\Model\ApiError',
-                        $request,
-                        $response,
-                    );
-                case 429:
-                    return $this->handleResponseWithDataType(
-                        '\Reacon\Sdk\Model\ApiError',
-                        $request,
-                        $response,
-                    );
-                case 500:
-                    return $this->handleResponseWithDataType(
-                        '\Reacon\Sdk\Model\ApiError',
-                        $request,
-                        $response,
-                    );
-                default:
-                    return $this->handleResponseWithDataType(
-                        '\Reacon\Sdk\Model\ApiError',
-                        $request,
-                        $response,
-                    );
-            }
-
-            
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            return $this->handleResponseWithDataType(
-                '\Reacon\Sdk\Model\ApiKeyIdentity',
-                $request,
-                $response,
-            );
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Reacon\Sdk\Model\ApiKeyIdentity',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Reacon\Sdk\Model\ApiError',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Reacon\Sdk\Model\ApiError',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Reacon\Sdk\Model\ApiError',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 429:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Reacon\Sdk\Model\ApiError',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Reacon\Sdk\Model\ApiError',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                default:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Reacon\Sdk\Model\ApiError',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-            }
-        
-
-            throw $e;
-        }
+        $response = \Reacon\Sdk\Http\RequestPolicy::send($this->client, $request, $this->config, $this->createHttpClientOption())->wait();
+        return \Reacon\Sdk\Http\RequestPolicy::decode($response, '\Reacon\Sdk\Model\ApiKeyIdentity');
     }
 
     /**
@@ -342,43 +192,9 @@ class IdentityApi
      */
     public function getApiKeyIdentityAsyncWithHttpInfo(string $contentType = self::contentTypes['getApiKeyIdentity'][0])
     {
-        $returnType = '\Reacon\Sdk\Model\ApiKeyIdentity';
         $request = $this->getApiKeyIdentityRequest($contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
+        return \Reacon\Sdk\Http\RequestPolicy::send($this->client, $request, $this->config, $this->createHttpClientOption())
+            ->then(static fn ($response) => \Reacon\Sdk\Http\RequestPolicy::decode($response, '\Reacon\Sdk\Model\ApiKeyIdentity'));
     }
 
     /**
@@ -472,6 +288,15 @@ class IdentityApi
      * @throws \RuntimeException on file opening failure
      * @return array of http client options
      */
+    /** Clone this resource and its configuration; keep the shared client unchanged. */
+    public function withRequestTimeout(float $seconds): self
+    {
+        $copy = clone $this;
+        $copy->config = clone $this->config;
+        $copy->config->setRequestTimeout($seconds);
+        return $copy;
+    }
+
     protected function createHttpClientOption()
     {
         $options = [];

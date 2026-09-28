@@ -100,7 +100,7 @@ class WebhooksApi
         ?HeaderSelector $selector = null,
         int $hostIndex = 0
     ) {
-        $this->client = $client ?: new Client();
+        $this->client = $client ?: \Reacon\Sdk\Http\RequestPolicy::client();
         $this->config = $config ?: Configuration::getDefaultConfiguration();
         $this->headerSelector = $selector ?: new HeaderSelector();
         $this->hostIndex = $hostIndex;
@@ -167,158 +167,8 @@ class WebhooksApi
     public function createAutomationHookWithHttpInfo($create_automation_hook_request, string $contentType = self::contentTypes['createAutomationHook'][0])
     {
         $request = $this->createAutomationHookRequest($create_automation_hook_request, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-
-            switch($statusCode) {
-                case 201:
-                    return $this->handleResponseWithDataType(
-                        '\Reacon\Sdk\Model\AutomationHookCreated',
-                        $request,
-                        $response,
-                    );
-                case 400:
-                    return $this->handleResponseWithDataType(
-                        '\Reacon\Sdk\Model\ApiError',
-                        $request,
-                        $response,
-                    );
-                case 401:
-                    return $this->handleResponseWithDataType(
-                        '\Reacon\Sdk\Model\ApiError',
-                        $request,
-                        $response,
-                    );
-                case 409:
-                    return $this->handleResponseWithDataType(
-                        '\Reacon\Sdk\Model\ApiError',
-                        $request,
-                        $response,
-                    );
-                case 429:
-                    return $this->handleResponseWithDataType(
-                        '\Reacon\Sdk\Model\ApiError',
-                        $request,
-                        $response,
-                    );
-                case 500:
-                    return $this->handleResponseWithDataType(
-                        '\Reacon\Sdk\Model\ApiError',
-                        $request,
-                        $response,
-                    );
-                default:
-                    return $this->handleResponseWithDataType(
-                        '\Reacon\Sdk\Model\ApiError',
-                        $request,
-                        $response,
-                    );
-            }
-
-            
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            return $this->handleResponseWithDataType(
-                '\Reacon\Sdk\Model\AutomationHookCreated',
-                $request,
-                $response,
-            );
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 201:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Reacon\Sdk\Model\AutomationHookCreated',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Reacon\Sdk\Model\ApiError',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Reacon\Sdk\Model\ApiError',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 409:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Reacon\Sdk\Model\ApiError',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 429:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Reacon\Sdk\Model\ApiError',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Reacon\Sdk\Model\ApiError',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                default:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Reacon\Sdk\Model\ApiError',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-            }
-        
-
-            throw $e;
-        }
+        $response = \Reacon\Sdk\Http\RequestPolicy::send($this->client, $request, $this->config, $this->createHttpClientOption())->wait();
+        return \Reacon\Sdk\Http\RequestPolicy::decode($response, '\Reacon\Sdk\Model\AutomationHookCreated');
     }
 
     /**
@@ -355,43 +205,9 @@ class WebhooksApi
      */
     public function createAutomationHookAsyncWithHttpInfo($create_automation_hook_request, string $contentType = self::contentTypes['createAutomationHook'][0])
     {
-        $returnType = '\Reacon\Sdk\Model\AutomationHookCreated';
         $request = $this->createAutomationHookRequest($create_automation_hook_request, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
+        return \Reacon\Sdk\Http\RequestPolicy::send($this->client, $request, $this->config, $this->createHttpClientOption())
+            ->then(static fn ($response) => \Reacon\Sdk\Http\RequestPolicy::decode($response, '\Reacon\Sdk\Model\AutomationHookCreated'));
     }
 
     /**
@@ -531,144 +347,8 @@ class WebhooksApi
     public function createSegmentInstallationWithHttpInfo($create_segment_installation_request, string $contentType = self::contentTypes['createSegmentInstallation'][0])
     {
         $request = $this->createSegmentInstallationRequest($create_segment_installation_request, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-
-            switch($statusCode) {
-                case 201:
-                    return $this->handleResponseWithDataType(
-                        '\Reacon\Sdk\Model\SegmentInstallationCreated',
-                        $request,
-                        $response,
-                    );
-                case 400:
-                    return $this->handleResponseWithDataType(
-                        '\Reacon\Sdk\Model\ApiError',
-                        $request,
-                        $response,
-                    );
-                case 401:
-                    return $this->handleResponseWithDataType(
-                        '\Reacon\Sdk\Model\ApiError',
-                        $request,
-                        $response,
-                    );
-                case 429:
-                    return $this->handleResponseWithDataType(
-                        '\Reacon\Sdk\Model\ApiError',
-                        $request,
-                        $response,
-                    );
-                case 500:
-                    return $this->handleResponseWithDataType(
-                        '\Reacon\Sdk\Model\ApiError',
-                        $request,
-                        $response,
-                    );
-                default:
-                    return $this->handleResponseWithDataType(
-                        '\Reacon\Sdk\Model\ApiError',
-                        $request,
-                        $response,
-                    );
-            }
-
-            
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            return $this->handleResponseWithDataType(
-                '\Reacon\Sdk\Model\SegmentInstallationCreated',
-                $request,
-                $response,
-            );
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 201:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Reacon\Sdk\Model\SegmentInstallationCreated',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Reacon\Sdk\Model\ApiError',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Reacon\Sdk\Model\ApiError',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 429:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Reacon\Sdk\Model\ApiError',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Reacon\Sdk\Model\ApiError',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                default:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Reacon\Sdk\Model\ApiError',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-            }
-        
-
-            throw $e;
-        }
+        $response = \Reacon\Sdk\Http\RequestPolicy::send($this->client, $request, $this->config, $this->createHttpClientOption())->wait();
+        return \Reacon\Sdk\Http\RequestPolicy::decode($response, '\Reacon\Sdk\Model\SegmentInstallationCreated');
     }
 
     /**
@@ -705,43 +385,9 @@ class WebhooksApi
      */
     public function createSegmentInstallationAsyncWithHttpInfo($create_segment_installation_request, string $contentType = self::contentTypes['createSegmentInstallation'][0])
     {
-        $returnType = '\Reacon\Sdk\Model\SegmentInstallationCreated';
         $request = $this->createSegmentInstallationRequest($create_segment_installation_request, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
+        return \Reacon\Sdk\Http\RequestPolicy::send($this->client, $request, $this->config, $this->createHttpClientOption())
+            ->then(static fn ($response) => \Reacon\Sdk\Http\RequestPolicy::decode($response, '\Reacon\Sdk\Model\SegmentInstallationCreated'));
     }
 
     /**
@@ -880,86 +526,8 @@ class WebhooksApi
     public function deleteAutomationHookWithHttpInfo($hook_id, string $contentType = self::contentTypes['deleteAutomationHook'][0])
     {
         $request = $this->deleteAutomationHookRequest($hook_id, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-
-            return [null, $statusCode, $response->getHeaders()];
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Reacon\Sdk\Model\ApiError',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Reacon\Sdk\Model\ApiError',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Reacon\Sdk\Model\ApiError',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 429:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Reacon\Sdk\Model\ApiError',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Reacon\Sdk\Model\ApiError',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                default:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Reacon\Sdk\Model\ApiError',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-            }
-        
-
-            throw $e;
-        }
+        $response = \Reacon\Sdk\Http\RequestPolicy::send($this->client, $request, $this->config, $this->createHttpClientOption())->wait();
+        return \Reacon\Sdk\Http\RequestPolicy::decode($response, '');
     }
 
     /**
@@ -996,30 +564,9 @@ class WebhooksApi
      */
     public function deleteAutomationHookAsyncWithHttpInfo($hook_id, string $contentType = self::contentTypes['deleteAutomationHook'][0])
     {
-        $returnType = '';
         $request = $this->deleteAutomationHookRequest($hook_id, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
+        return \Reacon\Sdk\Http\RequestPolicy::send($this->client, $request, $this->config, $this->createHttpClientOption())
+            ->then(static fn ($response) => \Reacon\Sdk\Http\RequestPolicy::decode($response, ''));
     }
 
     /**
@@ -1161,86 +708,8 @@ class WebhooksApi
     public function deleteSegmentInstallationWithHttpInfo($installation_id, string $contentType = self::contentTypes['deleteSegmentInstallation'][0])
     {
         $request = $this->deleteSegmentInstallationRequest($installation_id, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-
-            return [null, $statusCode, $response->getHeaders()];
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Reacon\Sdk\Model\ApiError',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Reacon\Sdk\Model\ApiError',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Reacon\Sdk\Model\ApiError',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 429:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Reacon\Sdk\Model\ApiError',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Reacon\Sdk\Model\ApiError',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                default:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Reacon\Sdk\Model\ApiError',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-            }
-        
-
-            throw $e;
-        }
+        $response = \Reacon\Sdk\Http\RequestPolicy::send($this->client, $request, $this->config, $this->createHttpClientOption())->wait();
+        return \Reacon\Sdk\Http\RequestPolicy::decode($response, '');
     }
 
     /**
@@ -1277,30 +746,9 @@ class WebhooksApi
      */
     public function deleteSegmentInstallationAsyncWithHttpInfo($installation_id, string $contentType = self::contentTypes['deleteSegmentInstallation'][0])
     {
-        $returnType = '';
         $request = $this->deleteSegmentInstallationRequest($installation_id, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
+        return \Reacon\Sdk\Http\RequestPolicy::send($this->client, $request, $this->config, $this->createHttpClientOption())
+            ->then(static fn ($response) => \Reacon\Sdk\Http\RequestPolicy::decode($response, ''));
     }
 
     /**
@@ -1416,6 +864,15 @@ class WebhooksApi
      * @throws \RuntimeException on file opening failure
      * @return array of http client options
      */
+    /** Clone this resource and its configuration; keep the shared client unchanged. */
+    public function withRequestTimeout(float $seconds): self
+    {
+        $copy = clone $this;
+        $copy->config = clone $this->config;
+        $copy->config->setRequestTimeout($seconds);
+        return $copy;
+    }
+
     protected function createHttpClientOption()
     {
         $options = [];
