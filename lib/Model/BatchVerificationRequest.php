@@ -278,6 +278,7 @@ class BatchVerificationRequest implements ModelInterface, ArrayAccess, \JsonSeri
         $this->setIfExists('cache_max_age', $data ?? [], null);
         $this->setIfExists('emails', $data ?? [], null);
         $this->setIfExists('only_if_free', $data ?? [], null);
+        if (array_key_exists('only_if_free', $data ?? [])) $this->setOnlyIfFree($data['only_if_free']);
     }
 
     /**
@@ -409,7 +410,7 @@ class BatchVerificationRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets only_if_free
      *
-     * @return \Reacon\Sdk\Model\BatchVerificationRequestOnlyIfFree|null
+     * @return bool|string|null
      */
     public function getOnlyIfFree()
     {
@@ -419,7 +420,7 @@ class BatchVerificationRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets only_if_free
      *
-     * @param \Reacon\Sdk\Model\BatchVerificationRequestOnlyIfFree|null $only_if_free only_if_free
+     * @param bool|string|null $only_if_free only_if_free
      *
      * @return self
      */
@@ -428,7 +429,7 @@ class BatchVerificationRequest implements ModelInterface, ArrayAccess, \JsonSeri
         if (is_null($only_if_free)) {
             throw new \InvalidArgumentException('non-nullable only_if_free cannot be null');
         }
-        $this->container['only_if_free'] = $only_if_free;
+        $this->container['only_if_free'] = ObjectSerializer::deserialize($only_if_free, '\Reacon\Sdk\Model\BatchVerificationRequestOnlyIfFree');
 
         return $this;
     }

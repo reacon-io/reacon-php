@@ -78,7 +78,7 @@ class ObjectSerializer
             foreach ($data as $property => $value) {
                 $data[$property] = self::sanitizeForSerialization($value);
             }
-            return $data;
+            return is_string($type) && str_starts_with($type, "array<string,") ? (object) $data : $data;
         }
 
         if (is_object($data)) {
@@ -397,6 +397,10 @@ class ObjectSerializer
      */
     public static function deserialize($data, $class, $httpHeaders = null)
     {
+        if (is_string($class) && ltrim($class, '\\') === 'Reacon\\Sdk\\Model\\BatchVerificationRequestOnlyIfFree') {
+            if (is_bool($data) || $data === 'true' || $data === 'false') return $data;
+            throw new \InvalidArgumentException('onlyIfFree must be a boolean or the string true/false');
+        }
         if (is_string($class) && is_subclass_of($class, \Reacon\Sdk\Model\ObjectUnion::class)) return $class::fromWire($data);
         if (null === $data) {
             return null;

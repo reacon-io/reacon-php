@@ -527,7 +527,7 @@ class WebhooksApi
     {
         $request = $this->deleteAutomationHookRequest($hook_id, $contentType);
         $response = \Reacon\Sdk\Http\RequestPolicy::send($this->client, $request, $this->config, $this->createHttpClientOption())->wait();
-        return \Reacon\Sdk\Http\RequestPolicy::decode($response, '');
+        return \Reacon\Sdk\Http\RequestPolicy::decode($response, null);
     }
 
     /**
@@ -566,7 +566,7 @@ class WebhooksApi
     {
         $request = $this->deleteAutomationHookRequest($hook_id, $contentType);
         return \Reacon\Sdk\Http\RequestPolicy::send($this->client, $request, $this->config, $this->createHttpClientOption())
-            ->then(static fn ($response) => \Reacon\Sdk\Http\RequestPolicy::decode($response, ''));
+            ->then(static fn ($response) => \Reacon\Sdk\Http\RequestPolicy::decode($response, null));
     }
 
     /**
@@ -709,7 +709,7 @@ class WebhooksApi
     {
         $request = $this->deleteSegmentInstallationRequest($installation_id, $contentType);
         $response = \Reacon\Sdk\Http\RequestPolicy::send($this->client, $request, $this->config, $this->createHttpClientOption())->wait();
-        return \Reacon\Sdk\Http\RequestPolicy::decode($response, '');
+        return \Reacon\Sdk\Http\RequestPolicy::decode($response, null);
     }
 
     /**
@@ -748,7 +748,7 @@ class WebhooksApi
     {
         $request = $this->deleteSegmentInstallationRequest($installation_id, $contentType);
         return \Reacon\Sdk\Http\RequestPolicy::send($this->client, $request, $this->config, $this->createHttpClientOption())
-            ->then(static fn ($response) => \Reacon\Sdk\Http\RequestPolicy::decode($response, ''));
+            ->then(static fn ($response) => \Reacon\Sdk\Http\RequestPolicy::decode($response, null));
     }
 
     /**

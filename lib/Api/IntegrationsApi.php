@@ -3180,7 +3180,7 @@ class IntegrationsApi
     {
         $request = $this->disableMcpIdentityRequest($team_id, $identity_id, $contentType);
         $response = \Reacon\Sdk\Http\RequestPolicy::send($this->client, $request, $this->config, $this->createHttpClientOption())->wait();
-        return \Reacon\Sdk\Http\RequestPolicy::decode($response, '');
+        return \Reacon\Sdk\Http\RequestPolicy::decode($response, null);
     }
 
     /**
@@ -3221,7 +3221,7 @@ class IntegrationsApi
     {
         $request = $this->disableMcpIdentityRequest($team_id, $identity_id, $contentType);
         return \Reacon\Sdk\Http\RequestPolicy::send($this->client, $request, $this->config, $this->createHttpClientOption())
-            ->then(static fn ($response) => \Reacon\Sdk\Http\RequestPolicy::decode($response, ''));
+            ->then(static fn ($response) => \Reacon\Sdk\Http\RequestPolicy::decode($response, null));
     }
 
     /**
