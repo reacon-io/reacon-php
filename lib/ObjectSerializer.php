@@ -65,6 +65,7 @@ class ObjectSerializer
      */
     public static function sanitizeForSerialization($data, $type = null, $format = null)
     {
+        if ($data instanceof \Reacon\Sdk\Model\ObjectUnion) return $data->jsonSerialize();
         if (is_scalar($data) || null === $data) {
             return $data;
         }
@@ -396,6 +397,7 @@ class ObjectSerializer
      */
     public static function deserialize($data, $class, $httpHeaders = null)
     {
+        if (is_string($class) && is_subclass_of($class, \Reacon\Sdk\Model\ObjectUnion::class)) return $class::fromWire($data);
         if (null === $data) {
             return null;
         }

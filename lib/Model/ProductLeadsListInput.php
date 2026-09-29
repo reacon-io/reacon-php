@@ -256,9 +256,9 @@ class ProductLeadsListInput implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('limit', $data ?? [], 25);
+        $this->setIfExists('limit', $data ?? [], null);
         $this->setIfExists('list_id', $data ?? [], null);
-        $this->setIfExists('offset', $data ?? [], 0);
+        $this->setIfExists('offset', $data ?? [], null);
     }
 
     /**

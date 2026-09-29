@@ -258,7 +258,7 @@ class ProductCompanyTrackInput implements ModelInterface, ArrayAccess, \JsonSeri
     {
         $this->setIfExists('domain', $data ?? [], null);
         $this->setIfExists('idempotency_key', $data ?? [], null);
-        $this->setIfExists('name', $data ?? [], '');
+        $this->setIfExists('name', $data ?? [], null);
     }
 
     /**
