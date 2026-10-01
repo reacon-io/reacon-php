@@ -59,7 +59,7 @@ class MailMailboxConnectionRecord implements ModelInterface, ArrayAccess, \JsonS
     protected static $openAPITypes = [
         'created_at' => '\DateTime',
         'credential_id' => 'string',
-        'cursors' => 'object',
+        'cursors' => 'array<string,\Reacon\Sdk\Model\MailImapCursor>',
         'imap' => '\Reacon\Sdk\Model\MailStoredImapSettings',
         'integration_connection_id' => 'string',
         'last_error_code' => 'string',
@@ -481,7 +481,7 @@ class MailMailboxConnectionRecord implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets cursors
      *
-     * @return object
+     * @return array<string,\Reacon\Sdk\Model\MailImapCursor>
      */
     public function getCursors()
     {
@@ -491,7 +491,7 @@ class MailMailboxConnectionRecord implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets cursors
      *
-     * @param object $cursors cursors
+     * @param array<string,\Reacon\Sdk\Model\MailImapCursor> $cursors cursors
      *
      * @return self
      */

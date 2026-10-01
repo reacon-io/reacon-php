@@ -58,7 +58,7 @@ class MailExperimentOutcomeRecord implements ModelInterface, ArrayAccess, \JsonS
      */
     protected static $openAPITypes = [
         'experiment_key' => 'string',
-        'metadata' => 'object',
+        'metadata' => 'array<string,mixed>',
         'occurred_at' => '\DateTime',
         'outcome' => 'string',
         'revision' => 'float',
@@ -402,7 +402,7 @@ class MailExperimentOutcomeRecord implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets metadata
      *
-     * @return object
+     * @return array<string,mixed>
      */
     public function getMetadata()
     {
@@ -412,7 +412,7 @@ class MailExperimentOutcomeRecord implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets metadata
      *
-     * @param object $metadata metadata
+     * @param array<string,mixed> $metadata metadata
      *
      * @return self
      */

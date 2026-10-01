@@ -58,7 +58,7 @@ class MailContactRecord implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     protected static $openAPITypes = [
         'created_at' => '\DateTime',
-        'custom_fields' => 'object',
+        'custom_fields' => 'array<string,string>',
         'email' => 'string',
         'id' => 'string',
         'name' => 'string',
@@ -379,7 +379,7 @@ class MailContactRecord implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets custom_fields
      *
-     * @return object
+     * @return array<string,string>
      */
     public function getCustomFields()
     {
@@ -389,7 +389,7 @@ class MailContactRecord implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets custom_fields
      *
-     * @param object $custom_fields custom_fields
+     * @param array<string,string> $custom_fields custom_fields
      *
      * @return self
      */

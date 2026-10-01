@@ -69,7 +69,7 @@ class MailMessageRecord implements ModelInterface, ArrayAccess, \JsonSerializabl
         'lease_expires_at' => '\DateTime',
         'lease_owner' => 'string',
         'mailbox_id' => 'string',
-        'metadata' => 'object',
+        'metadata' => 'array<string,string>',
         'next_attempt_at' => '\DateTime',
         'parent_message_id' => 'string',
         'policy' => '\Reacon\Sdk\Model\MailMessagePolicy',
@@ -866,7 +866,7 @@ class MailMessageRecord implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets metadata
      *
-     * @return object
+     * @return array<string,string>
      */
     public function getMetadata()
     {
@@ -876,7 +876,7 @@ class MailMessageRecord implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets metadata
      *
-     * @param object $metadata metadata
+     * @param array<string,string> $metadata metadata
      *
      * @return self
      */

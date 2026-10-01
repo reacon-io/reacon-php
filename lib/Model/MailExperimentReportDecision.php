@@ -63,7 +63,7 @@ class MailExperimentReportDecision implements ModelInterface, ArrayAccess, \Json
         'id' => 'string',
         'method' => 'string',
         'reason' => 'string',
-        'result_snapshot' => 'object',
+        'result_snapshot' => 'array<string,mixed>',
         'revision' => 'float',
         'tenant_id' => 'string',
         'winner_variant_id' => 'string'
@@ -547,7 +547,7 @@ class MailExperimentReportDecision implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets result_snapshot
      *
-     * @return object
+     * @return array<string,mixed>
      */
     public function getResultSnapshot()
     {
@@ -557,7 +557,7 @@ class MailExperimentReportDecision implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets result_snapshot
      *
-     * @param object $result_snapshot result_snapshot
+     * @param array<string,mixed> $result_snapshot result_snapshot
      *
      * @return self
      */

@@ -1,6 +1,6 @@
 <?php
 /**
- * MailPostCampaignsByCampaignIdLaunchResponse200AnyOf
+ * MailImapCursor
  *
  * PHP version 8.1
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Reacon\Sdk\ObjectSerializer;
 
 /**
- * MailPostCampaignsByCampaignIdLaunchResponse200AnyOf Class Doc Comment
+ * MailImapCursor Class Doc Comment
  *
  * @category Class
  * @package  Reacon\Sdk
@@ -40,7 +40,7 @@ use \Reacon\Sdk\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class MailPostCampaignsByCampaignIdLaunchResponse200AnyOf implements ModelInterface, ArrayAccess, \JsonSerializable
+class MailImapCursor implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class MailPostCampaignsByCampaignIdLaunchResponse200AnyOf implements ModelInterf
      *
      * @var string
      */
-    protected static $openAPIModelName = 'MailPostCampaignsByCampaignIdLaunchResponse200_anyOf';
+    protected static $openAPIModelName = 'MailImapCursor';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +57,9 @@ class MailPostCampaignsByCampaignIdLaunchResponse200AnyOf implements ModelInterf
      * @var string[]
      */
     protected static $openAPITypes = [
-        'campaign' => '\Reacon\Sdk\Model\MailPostCampaignsByCampaignIdLaunchResponse200Campaign',
-        'draft' => '\Reacon\Sdk\Model\MailCampaignDraftRecord',
-        'sequences' => 'object[]'
+        'last_uid' => 'float',
+        'mailbox_path' => 'string',
+        'uid_validity' => 'string'
     ];
 
     /**
@@ -70,9 +70,9 @@ class MailPostCampaignsByCampaignIdLaunchResponse200AnyOf implements ModelInterf
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'campaign' => null,
-        'draft' => null,
-        'sequences' => null
+        'last_uid' => null,
+        'mailbox_path' => null,
+        'uid_validity' => null
     ];
 
     /**
@@ -81,9 +81,9 @@ class MailPostCampaignsByCampaignIdLaunchResponse200AnyOf implements ModelInterf
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'campaign' => false,
-        'draft' => false,
-        'sequences' => false
+        'last_uid' => false,
+        'mailbox_path' => false,
+        'uid_validity' => false
     ];
 
     /**
@@ -172,9 +172,9 @@ class MailPostCampaignsByCampaignIdLaunchResponse200AnyOf implements ModelInterf
      * @var string[]
      */
     protected static $attributeMap = [
-        'campaign' => 'campaign',
-        'draft' => 'draft',
-        'sequences' => 'sequences'
+        'last_uid' => 'lastUid',
+        'mailbox_path' => 'mailboxPath',
+        'uid_validity' => 'uidValidity'
     ];
 
     /**
@@ -183,9 +183,9 @@ class MailPostCampaignsByCampaignIdLaunchResponse200AnyOf implements ModelInterf
      * @var string[]
      */
     protected static $setters = [
-        'campaign' => 'setCampaign',
-        'draft' => 'setDraft',
-        'sequences' => 'setSequences'
+        'last_uid' => 'setLastUid',
+        'mailbox_path' => 'setMailboxPath',
+        'uid_validity' => 'setUidValidity'
     ];
 
     /**
@@ -194,9 +194,9 @@ class MailPostCampaignsByCampaignIdLaunchResponse200AnyOf implements ModelInterf
      * @var string[]
      */
     protected static $getters = [
-        'campaign' => 'getCampaign',
-        'draft' => 'getDraft',
-        'sequences' => 'getSequences'
+        'last_uid' => 'getLastUid',
+        'mailbox_path' => 'getMailboxPath',
+        'uid_validity' => 'getUidValidity'
     ];
 
     /**
@@ -256,9 +256,9 @@ class MailPostCampaignsByCampaignIdLaunchResponse200AnyOf implements ModelInterf
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('campaign', $data ?? [], null);
-        $this->setIfExists('draft', $data ?? [], null);
-        $this->setIfExists('sequences', $data ?? [], null);
+        $this->setIfExists('last_uid', $data ?? [], null);
+        $this->setIfExists('mailbox_path', $data ?? [], null);
+        $this->setIfExists('uid_validity', $data ?? [], null);
     }
 
     /**
@@ -288,23 +288,15 @@ class MailPostCampaignsByCampaignIdLaunchResponse200AnyOf implements ModelInterf
     {
         $invalidProperties = [];
 
-        if ($this->container['campaign'] === null) {
-            $invalidProperties[] = "'campaign' can't be null";
+        if ($this->container['last_uid'] === null) {
+            $invalidProperties[] = "'last_uid' can't be null";
         }
-        if ($this->container['draft'] === null) {
-            $invalidProperties[] = "'draft' can't be null";
+        if ($this->container['mailbox_path'] === null) {
+            $invalidProperties[] = "'mailbox_path' can't be null";
         }
-        if ($this->container['sequences'] === null) {
-            $invalidProperties[] = "'sequences' can't be null";
+        if ($this->container['uid_validity'] === null) {
+            $invalidProperties[] = "'uid_validity' can't be null";
         }
-        if ((count($this->container['sequences']) > 0)) {
-            $invalidProperties[] = "invalid value for 'sequences', number of items must be less than or equal to 0.";
-        }
-
-        if ((count($this->container['sequences']) < 0)) {
-            $invalidProperties[] = "invalid value for 'sequences', number of items must be greater than or equal to 0.";
-        }
-
         return $invalidProperties;
     }
 
@@ -321,88 +313,82 @@ class MailPostCampaignsByCampaignIdLaunchResponse200AnyOf implements ModelInterf
 
 
     /**
-     * Gets campaign
+     * Gets last_uid
      *
-     * @return \Reacon\Sdk\Model\MailPostCampaignsByCampaignIdLaunchResponse200Campaign
+     * @return float
      */
-    public function getCampaign()
+    public function getLastUid()
     {
-        return $this->container['campaign'];
+        return $this->container['last_uid'];
     }
 
     /**
-     * Sets campaign
+     * Sets last_uid
      *
-     * @param \Reacon\Sdk\Model\MailPostCampaignsByCampaignIdLaunchResponse200Campaign $campaign campaign
+     * @param float $last_uid last_uid
      *
      * @return self
      */
-    public function setCampaign($campaign)
+    public function setLastUid($last_uid)
     {
-        if (is_null($campaign)) {
-            throw new \InvalidArgumentException('non-nullable campaign cannot be null');
+        if (is_null($last_uid)) {
+            throw new \InvalidArgumentException('non-nullable last_uid cannot be null');
         }
-        $this->container['campaign'] = $campaign;
+        $this->container['last_uid'] = $last_uid;
 
         return $this;
     }
 
     /**
-     * Gets draft
+     * Gets mailbox_path
      *
-     * @return \Reacon\Sdk\Model\MailCampaignDraftRecord
+     * @return string
      */
-    public function getDraft()
+    public function getMailboxPath()
     {
-        return $this->container['draft'];
+        return $this->container['mailbox_path'];
     }
 
     /**
-     * Sets draft
+     * Sets mailbox_path
      *
-     * @param \Reacon\Sdk\Model\MailCampaignDraftRecord $draft draft
+     * @param string $mailbox_path mailbox_path
      *
      * @return self
      */
-    public function setDraft($draft)
+    public function setMailboxPath($mailbox_path)
     {
-        if (is_null($draft)) {
-            throw new \InvalidArgumentException('non-nullable draft cannot be null');
+        if (is_null($mailbox_path)) {
+            throw new \InvalidArgumentException('non-nullable mailbox_path cannot be null');
         }
-        $this->container['draft'] = $draft;
+        $this->container['mailbox_path'] = $mailbox_path;
 
         return $this;
     }
 
     /**
-     * Gets sequences
+     * Gets uid_validity
      *
-     * @return object[]
+     * @return string
      */
-    public function getSequences()
+    public function getUidValidity()
     {
-        return $this->container['sequences'];
+        return $this->container['uid_validity'];
     }
 
     /**
-     * Sets sequences
+     * Sets uid_validity
      *
-     * @param object[] $sequences sequences
+     * @param string $uid_validity uid_validity
      *
      * @return self
      */
-    public function setSequences($sequences)
+    public function setUidValidity($uid_validity)
     {
-        if (is_null($sequences)) {
-            throw new \InvalidArgumentException('non-nullable sequences cannot be null');
+        if (is_null($uid_validity)) {
+            throw new \InvalidArgumentException('non-nullable uid_validity cannot be null');
         }
-        if ((count($sequences) > 0)) {
-            throw new \InvalidArgumentException('invalid value for $sequences when calling MailPostCampaignsByCampaignIdLaunchResponse200AnyOf., number of items must be less than or equal to 0.');
-        }
-        if ((count($sequences) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $sequences when calling MailPostCampaignsByCampaignIdLaunchResponse200AnyOf., number of items must be greater than or equal to 0.');
-        }
-        $this->container['sequences'] = $sequences;
+        $this->container['uid_validity'] = $uid_validity;
 
         return $this;
     }
