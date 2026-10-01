@@ -60,7 +60,7 @@ class MailWebhookEventSnapshot implements ModelInterface, ArrayAccess, \JsonSeri
         'aggregate_id' => 'string',
         'id' => 'string',
         'occurred_at' => '\DateTime',
-        'payload' => 'object',
+        'payload' => 'array<string,mixed>',
         'type' => 'string'
     ];
 
@@ -416,7 +416,7 @@ class MailWebhookEventSnapshot implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets payload
      *
-     * @return object
+     * @return array<string,mixed>
      */
     public function getPayload()
     {
@@ -426,7 +426,7 @@ class MailWebhookEventSnapshot implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets payload
      *
-     * @param object $payload payload
+     * @param array<string,mixed> $payload payload
      *
      * @return self
      */
