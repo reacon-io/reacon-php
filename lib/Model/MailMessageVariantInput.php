@@ -61,7 +61,7 @@ class MailMessageVariantInput implements ModelInterface, ArrayAccess, \JsonSeria
         'id' => 'string',
         'subject' => 'string',
         'text' => 'string',
-        'variables' => 'object',
+        'variables' => 'array<string,mixed>',
         'weight' => 'float'
     ];
 
@@ -447,7 +447,7 @@ class MailMessageVariantInput implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets variables
      *
-     * @return object|null
+     * @return array<string,mixed>|null
      */
     public function getVariables()
     {
@@ -457,7 +457,7 @@ class MailMessageVariantInput implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets variables
      *
-     * @param object|null $variables variables
+     * @param array<string,mixed>|null $variables variables
      *
      * @return self
      */

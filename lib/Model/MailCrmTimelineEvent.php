@@ -61,7 +61,7 @@ class MailCrmTimelineEvent implements ModelInterface, ArrayAccess, \JsonSerializ
         'contact_id' => 'string',
         'id' => 'string',
         'occurred_at' => '\DateTime',
-        'payload' => 'object',
+        'payload' => 'array<string,mixed>',
         'tenant_id' => 'string',
         'type' => 'string'
     ];
@@ -460,7 +460,7 @@ class MailCrmTimelineEvent implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets payload
      *
-     * @return object
+     * @return array<string,mixed>
      */
     public function getPayload()
     {
@@ -470,7 +470,7 @@ class MailCrmTimelineEvent implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets payload
      *
-     * @param object $payload payload
+     * @param array<string,mixed> $payload payload
      *
      * @return self
      */

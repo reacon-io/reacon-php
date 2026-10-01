@@ -271,6 +271,7 @@ lib/Model/MailGetTrackingDomainResponse200.php
 lib/Model/MailGetTrackingDomainResponse200Domain.php
 lib/Model/MailGetWebhooksResponse200.php
 lib/Model/MailGetWebhooksResponse200SubscriptionsInner.php
+lib/Model/MailImapCursor.php
 lib/Model/MailInboxMessageRecord.php
 lib/Model/MailMailAddress.php
 lib/Model/MailMailPortfolio.php
@@ -341,8 +342,6 @@ lib/Model/MailPostCadencesResponse200.php
 lib/Model/MailPostCampaignsByCampaignIdDuplicateResponse201.php
 lib/Model/MailPostCampaignsByCampaignIdLaunchRequest.php
 lib/Model/MailPostCampaignsByCampaignIdLaunchResponse200.php
-lib/Model/MailPostCampaignsByCampaignIdLaunchResponse200AnyOf.php
-lib/Model/MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1.php
 lib/Model/MailPostCampaignsByCampaignIdLaunchResponse200Campaign.php
 lib/Model/MailPostCampaignsByCampaignIdStateRequest.php
 lib/Model/MailPostCampaignsByCampaignIdStateResponse200.php

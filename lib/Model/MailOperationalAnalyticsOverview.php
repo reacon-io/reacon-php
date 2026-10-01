@@ -58,10 +58,10 @@ class MailOperationalAnalyticsOverview implements ModelInterface, ArrayAccess, \
      */
     protected static $openAPITypes = [
         'cadence_steps' => '\Reacon\Sdk\Model\MailOperationalAnalyticsOverviewCadenceStepsInner[]',
-        'reply_labels' => 'object',
+        'reply_labels' => 'array<string,float>',
         'sample_limited' => 'bool',
-        'stages' => 'object',
-        'task_outcomes' => 'object'
+        'stages' => 'array<string,float>',
+        'task_outcomes' => 'array<string,float>'
     ];
 
     /**
@@ -362,7 +362,7 @@ class MailOperationalAnalyticsOverview implements ModelInterface, ArrayAccess, \
     /**
      * Gets reply_labels
      *
-     * @return object
+     * @return array<string,float>
      */
     public function getReplyLabels()
     {
@@ -372,7 +372,7 @@ class MailOperationalAnalyticsOverview implements ModelInterface, ArrayAccess, \
     /**
      * Sets reply_labels
      *
-     * @param object $reply_labels reply_labels
+     * @param array<string,float> $reply_labels reply_labels
      *
      * @return self
      */
@@ -416,7 +416,7 @@ class MailOperationalAnalyticsOverview implements ModelInterface, ArrayAccess, \
     /**
      * Gets stages
      *
-     * @return object
+     * @return array<string,float>
      */
     public function getStages()
     {
@@ -426,7 +426,7 @@ class MailOperationalAnalyticsOverview implements ModelInterface, ArrayAccess, \
     /**
      * Sets stages
      *
-     * @param object $stages stages
+     * @param array<string,float> $stages stages
      *
      * @return self
      */
@@ -443,7 +443,7 @@ class MailOperationalAnalyticsOverview implements ModelInterface, ArrayAccess, \
     /**
      * Gets task_outcomes
      *
-     * @return object
+     * @return array<string,float>
      */
     public function getTaskOutcomes()
     {
@@ -453,7 +453,7 @@ class MailOperationalAnalyticsOverview implements ModelInterface, ArrayAccess, \
     /**
      * Sets task_outcomes
      *
-     * @param object $task_outcomes task_outcomes
+     * @param array<string,float> $task_outcomes task_outcomes
      *
      * @return self
      */

@@ -58,8 +58,8 @@ class MailGetPortfolioResponse200AnyOf implements ModelInterface, ArrayAccess, \
      */
     protected static $openAPITypes = [
         'portfolio' => 'object',
-        'suppressions' => 'object[]',
-        'teams' => 'object[]'
+        'suppressions' => '\Reacon\Sdk\Model\MailMailPortfolioSuppression[]',
+        'teams' => '\Reacon\Sdk\Model\MailMailPortfolioTeam[]'
     ];
 
     /**
@@ -365,7 +365,7 @@ class MailGetPortfolioResponse200AnyOf implements ModelInterface, ArrayAccess, \
     /**
      * Gets suppressions
      *
-     * @return object[]
+     * @return \Reacon\Sdk\Model\MailMailPortfolioSuppression[]
      */
     public function getSuppressions()
     {
@@ -375,7 +375,7 @@ class MailGetPortfolioResponse200AnyOf implements ModelInterface, ArrayAccess, \
     /**
      * Sets suppressions
      *
-     * @param object[] $suppressions suppressions
+     * @param \Reacon\Sdk\Model\MailMailPortfolioSuppression[] $suppressions suppressions
      *
      * @return self
      */
@@ -398,7 +398,7 @@ class MailGetPortfolioResponse200AnyOf implements ModelInterface, ArrayAccess, \
     /**
      * Gets teams
      *
-     * @return object[]
+     * @return \Reacon\Sdk\Model\MailMailPortfolioTeam[]
      */
     public function getTeams()
     {
@@ -408,7 +408,7 @@ class MailGetPortfolioResponse200AnyOf implements ModelInterface, ArrayAccess, \
     /**
      * Sets teams
      *
-     * @param object[] $teams teams
+     * @param \Reacon\Sdk\Model\MailMailPortfolioTeam[] $teams teams
      *
      * @return self
      */
