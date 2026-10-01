@@ -32,7 +32,8 @@ class VerificationEvent
 /** Per-instance credentials; streaming owns its transport separately from generated Guzzle JSON resources. */
 final class VerificationStreamClient
 {
-    public function __construct(private string $apiKey, private string $baseUrl = 'https://api.reacon.io', private ?string $caFile = null)
+    private const API_ORIGIN = 'https://api.reacon.io';
+    public function __construct(private string $apiKey, private ?string $caFile = null)
     { if (trim($apiKey) === '') throw new \InvalidArgumentException('apiKey is required'); }
     /** Creating this object does no I/O. Always close it in finally when breaking iteration early. */
     public function streamVerification(string $email, array $options = [], ?callable $isCancelled = null): VerificationStream
@@ -43,7 +44,7 @@ final class VerificationStreamClient
         $query = ['email' => $email];
         if ($options['onlyIfFree'] !== null) $query['onlyIfFree'] = is_bool($options['onlyIfFree']) ? ($options['onlyIfFree'] ? 'true' : 'false') : $options['onlyIfFree'];
         if ($options['cacheMaxAge'] !== null) $query['cacheMaxAge'] = $options['cacheMaxAge'];
-        return new VerificationStream(rtrim($this->baseUrl, '/').'/v1/verify?'.http_build_query($query, '', '&', PHP_QUERY_RFC3986), $this->apiKey, $this->caFile, (float)$options['idleTimeout'], (float)$options['totalTimeout'], $isCancelled);
+        return new VerificationStream(self::API_ORIGIN.'/v1/verify?'.http_build_query($query, '', '&', PHP_QUERY_RFC3986), $this->apiKey, $this->caFile, (float)$options['idleTimeout'], (float)$options['totalTimeout'], $isCancelled);
     }
 }
 
