@@ -4,8 +4,15 @@ require getenv('SDK_DIRECTORY').'/vendor/autoload.php';
 use Reacon\Sdk\Streaming\{VerificationStreamClient, StreamApiException, StreamProtocolException, StreamTransportException, StreamTimeoutException, StreamCancelledException};
 function check(bool $value, string $message): void { if (!$value) throw new RuntimeException($message); }
 $url = getenv('REACON_TEST_URL');
-$client = new VerificationStreamClient('synthetic-php', $url);
-$isolated = new VerificationStreamClient('isolated-php', $url);
+$proxy=parse_url(getenv('REACON_FIXTURE_PROXY_ENDPOINT'));
+$encoded=rtrim(strtr(base64_encode($url), '+/', '-_'), '=');
+putenv('https_proxy=http://'.$encoded.':'.$proxy['pass'].'@'.$proxy['host'].':'.$proxy['port']);
+putenv('no_proxy='); putenv('NO_PROXY=');
+$ca=tempnam(sys_get_temp_dir(), 'reacon-fixture-ca-');
+file_put_contents($ca, getenv('REACON_FIXTURE_CA_PEM'));
+register_shutdown_function(static fn() => unlink($ca));
+$client = new VerificationStreamClient('synthetic-php', $ca);
+$isolated = new VerificationStreamClient('isolated-php', $ca);
 $client->streamVerification('never@example.test');
 $collect = function (string $scenario, ?VerificationStreamClient $owner = null, array $options = []) use ($client): array {
     $stream = ($owner ?? $client)->streamVerification($scenario.'@example.test', ['onlyIfFree' => true] + $options);
