@@ -29,6 +29,7 @@ lib/Model/AirtableMappingOptionsResponseOptionsTablesInner.php
 lib/Model/AirtableMappingOptionsResponseOptionsTablesInnerFieldsInner.php
 lib/Model/ApiError.php
 lib/Model/ApiKeyIdentity.php
+lib/Model/ApiValidationIssue.php
 lib/Model/AutomationHookCreated.php
 lib/Model/BatchVerificationError.php
 lib/Model/BatchVerificationItem.php
