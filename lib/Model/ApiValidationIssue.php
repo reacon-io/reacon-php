@@ -1,6 +1,6 @@
 <?php
 /**
- * ApiError
+ * ApiValidationIssue
  *
  * PHP version 8.1
  *
@@ -32,15 +32,16 @@ use \ArrayAccess;
 use \Reacon\Sdk\ObjectSerializer;
 
 /**
- * ApiError Class Doc Comment
+ * ApiValidationIssue Class Doc Comment
  *
  * @category Class
+ * @description Validation issue details. code identifies the validation rule and message explains the failure. Additional rule-specific properties, including the field path, are preserved.
  * @package  Reacon\Sdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ApiError implements ModelInterface, ArrayAccess, \JsonSerializable
+class ApiValidationIssue implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class ApiError implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @var string
      */
-    protected static $openAPIModelName = 'ApiError';
+    protected static $openAPIModelName = 'ApiValidationIssue';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -58,14 +59,7 @@ class ApiError implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $openAPITypes = [
         'code' => 'string',
-        'details' => 'string',
-        'error' => 'string',
-        'issues' => '\Reacon\Sdk\Model\ApiValidationIssue[]',
-        'message' => 'string',
-        'remaining_credits' => 'float',
-        'request_id' => 'string',
-        'status_code' => 'int',
-        'updated_at' => '\DateTime'
+        'message' => 'string'
     ];
 
     /**
@@ -77,14 +71,7 @@ class ApiError implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $openAPIFormats = [
         'code' => null,
-        'details' => null,
-        'error' => null,
-        'issues' => null,
-        'message' => null,
-        'remaining_credits' => null,
-        'request_id' => null,
-        'status_code' => null,
-        'updated_at' => 'date-time'
+        'message' => null
     ];
 
     /**
@@ -94,14 +81,7 @@ class ApiError implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static array $openAPINullables = [
         'code' => false,
-        'details' => false,
-        'error' => false,
-        'issues' => false,
-        'message' => false,
-        'remaining_credits' => false,
-        'request_id' => false,
-        'status_code' => false,
-        'updated_at' => false
+        'message' => false
     ];
 
     /**
@@ -191,14 +171,7 @@ class ApiError implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'code' => 'code',
-        'details' => 'details',
-        'error' => 'error',
-        'issues' => 'issues',
-        'message' => 'message',
-        'remaining_credits' => 'remainingCredits',
-        'request_id' => 'requestId',
-        'status_code' => 'statusCode',
-        'updated_at' => 'updatedAt'
+        'message' => 'message'
     ];
 
     /**
@@ -208,14 +181,7 @@ class ApiError implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'code' => 'setCode',
-        'details' => 'setDetails',
-        'error' => 'setError',
-        'issues' => 'setIssues',
-        'message' => 'setMessage',
-        'remaining_credits' => 'setRemainingCredits',
-        'request_id' => 'setRequestId',
-        'status_code' => 'setStatusCode',
-        'updated_at' => 'setUpdatedAt'
+        'message' => 'setMessage'
     ];
 
     /**
@@ -225,14 +191,7 @@ class ApiError implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'code' => 'getCode',
-        'details' => 'getDetails',
-        'error' => 'getError',
-        'issues' => 'getIssues',
-        'message' => 'getMessage',
-        'remaining_credits' => 'getRemainingCredits',
-        'request_id' => 'getRequestId',
-        'status_code' => 'getStatusCode',
-        'updated_at' => 'getUpdatedAt'
+        'message' => 'getMessage'
     ];
 
     /**
@@ -293,14 +252,7 @@ class ApiError implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(?array $data = null)
     {
         $this->setIfExists('code', $data ?? [], null);
-        $this->setIfExists('details', $data ?? [], null);
-        $this->setIfExists('error', $data ?? [], null);
-        $this->setIfExists('issues', $data ?? [], null);
         $this->setIfExists('message', $data ?? [], null);
-        $this->setIfExists('remaining_credits', $data ?? [], null);
-        $this->setIfExists('request_id', $data ?? [], null);
-        $this->setIfExists('status_code', $data ?? [], null);
-        $this->setIfExists('updated_at', $data ?? [], null);
     }
 
     /**
@@ -330,9 +282,6 @@ class ApiError implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['error'] === null) {
-            $invalidProperties[] = "'error' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -376,87 +325,6 @@ class ApiError implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets details
-     *
-     * @return string|null
-     */
-    public function getDetails()
-    {
-        return $this->container['details'];
-    }
-
-    /**
-     * Sets details
-     *
-     * @param string|null $details details
-     *
-     * @return self
-     */
-    public function setDetails($details)
-    {
-        if (is_null($details)) {
-            throw new \InvalidArgumentException('non-nullable details cannot be null');
-        }
-        $this->container['details'] = $details;
-
-        return $this;
-    }
-
-    /**
-     * Gets error
-     *
-     * @return string
-     */
-    public function getError()
-    {
-        return $this->container['error'];
-    }
-
-    /**
-     * Sets error
-     *
-     * @param string $error error
-     *
-     * @return self
-     */
-    public function setError($error)
-    {
-        if (is_null($error)) {
-            throw new \InvalidArgumentException('non-nullable error cannot be null');
-        }
-        $this->container['error'] = $error;
-
-        return $this;
-    }
-
-    /**
-     * Gets issues
-     *
-     * @return \Reacon\Sdk\Model\ApiValidationIssue[]|null
-     */
-    public function getIssues()
-    {
-        return $this->container['issues'];
-    }
-
-    /**
-     * Sets issues
-     *
-     * @param \Reacon\Sdk\Model\ApiValidationIssue[]|null $issues issues
-     *
-     * @return self
-     */
-    public function setIssues($issues)
-    {
-        if (is_null($issues)) {
-            throw new \InvalidArgumentException('non-nullable issues cannot be null');
-        }
-        $this->container['issues'] = $issues;
-
-        return $this;
-    }
-
-    /**
      * Gets message
      *
      * @return string|null
@@ -479,114 +347,6 @@ class ApiError implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable message cannot be null');
         }
         $this->container['message'] = $message;
-
-        return $this;
-    }
-
-    /**
-     * Gets remaining_credits
-     *
-     * @return float|null
-     */
-    public function getRemainingCredits()
-    {
-        return $this->container['remaining_credits'];
-    }
-
-    /**
-     * Sets remaining_credits
-     *
-     * @param float|null $remaining_credits remaining_credits
-     *
-     * @return self
-     */
-    public function setRemainingCredits($remaining_credits)
-    {
-        if (is_null($remaining_credits)) {
-            throw new \InvalidArgumentException('non-nullable remaining_credits cannot be null');
-        }
-        $this->container['remaining_credits'] = $remaining_credits;
-
-        return $this;
-    }
-
-    /**
-     * Gets request_id
-     *
-     * @return string|null
-     */
-    public function getRequestId()
-    {
-        return $this->container['request_id'];
-    }
-
-    /**
-     * Sets request_id
-     *
-     * @param string|null $request_id request_id
-     *
-     * @return self
-     */
-    public function setRequestId($request_id)
-    {
-        if (is_null($request_id)) {
-            throw new \InvalidArgumentException('non-nullable request_id cannot be null');
-        }
-        $this->container['request_id'] = $request_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets status_code
-     *
-     * @return int|null
-     */
-    public function getStatusCode()
-    {
-        return $this->container['status_code'];
-    }
-
-    /**
-     * Sets status_code
-     *
-     * @param int|null $status_code status_code
-     *
-     * @return self
-     */
-    public function setStatusCode($status_code)
-    {
-        if (is_null($status_code)) {
-            throw new \InvalidArgumentException('non-nullable status_code cannot be null');
-        }
-        $this->container['status_code'] = $status_code;
-
-        return $this;
-    }
-
-    /**
-     * Gets updated_at
-     *
-     * @return \DateTime|null
-     */
-    public function getUpdatedAt()
-    {
-        return $this->container['updated_at'];
-    }
-
-    /**
-     * Sets updated_at
-     *
-     * @param \DateTime|null $updated_at updated_at
-     *
-     * @return self
-     */
-    public function setUpdatedAt($updated_at)
-    {
-        if (is_null($updated_at)) {
-            throw new \InvalidArgumentException('non-nullable updated_at cannot be null');
-        }
-        $this->container['updated_at'] = $updated_at;
 
         return $this;
     }
