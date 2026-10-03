@@ -1,15 +1,15 @@
 # Reacon PHP SDK
 
-Package `reacon-io/sdk`, version `2.0.6-beta.1`.
+Package `reacon-io/sdk`, version `2.0.7-beta.1`.
 
-[API reference and SDK examples](https://docs.reacon.io).
+[API reference and SDK examples](https://docs.reacon.io). Select your language on an endpoint page for SDK calls and response schemas.
 
 
 
 ## Installation
 
 ```sh
-composer require reacon-io/sdk:2.0.6-beta.1
+composer require reacon-io/sdk:2.0.7-beta.1
 ```
 
 Requires PHP 8.1 or later. Composer resolves the package from Packagist.
@@ -63,787 +63,787 @@ All URIs are relative to *https://api.reacon.io*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*CompaniesApi* | [**listCompanies**](docs/Api/CompaniesApi.md#listcompanies) | **GET** /v1/companies | List companies
-*DomainsApi* | [**getDomainCatchAll**](docs/Api/DomainsApi.md#getdomaincatchall) | **GET** /v1/domains/{domain}/catch-all | Read domain catch-all status
-*DomainsApi* | [**getDomainCompanyContext**](docs/Api/DomainsApi.md#getdomaincompanycontext) | **GET** /v1/domains/{domain}/company-context | Get company context for a domain
-*DomainsApi* | [**getDomainCounts**](docs/Api/DomainsApi.md#getdomaincounts) | **GET** /v1/domains/{domain}/counts | Count known emails for a domain
-*EmailsApi* | [**deleteEmail**](docs/Api/EmailsApi.md#deleteemail) | **DELETE** /v1/emails/{email} | Delete an email and its mentions
-*EmailsApi* | [**listEmailMentions**](docs/Api/EmailsApi.md#listemailmentions) | **GET** /v1/emails/{email}/mentions | List sources mentioning an email
-*EmailsApi* | [**listEmails**](docs/Api/EmailsApi.md#listemails) | **GET** /v1/emails | List and reveal emails for a domain
-*EmailsApi* | [**revealEmail**](docs/Api/EmailsApi.md#revealemail) | **GET** /v1/emails/{email} | Reveal an email profile
-*EmailsApi* | [**revealEmailById**](docs/Api/EmailsApi.md#revealemailbyid) | **GET** /v1/emails/id/{id} | Reveal an email profile by ID
-*IdentityApi* | [**getApiKeyIdentity**](docs/Api/IdentityApi.md#getapikeyidentity) | **GET** /v1/whoami | Get API-key identity
-*InsightsApi* | [**getEmailInsights**](docs/Api/InsightsApi.md#getemailinsights) | **GET** /v1/insights/{email} | Extract insights associated with an email
-*IntegrationsApi* | [**bindTypeformForm**](docs/Api/IntegrationsApi.md#bindtypeformform) | **POST** /v1/teams/{teamId}/integrations/typeform/oauth/bind | Bind a Typeform OAuth form
-*IntegrationsApi* | [**bindWebflowForm**](docs/Api/IntegrationsApi.md#bindwebflowform) | **POST** /v1/teams/{teamId}/integrations/webflow/oauth/bind | Bind a Webflow OAuth form
-*IntegrationsApi* | [**cancelIntegrationJob**](docs/Api/IntegrationsApi.md#cancelintegrationjob) | **POST** /v1/teams/{teamId}/integrations/jobs/{jobId}/cancel | Cancel an integration job
-*IntegrationsApi* | [**configureAirtableMapping**](docs/Api/IntegrationsApi.md#configureairtablemapping) | **POST** /v1/teams/{teamId}/integrations/connections/{connectionId}/airtable-mapping/configure | Configure Airtable field mapping
-*IntegrationsApi* | [**configureCoda**](docs/Api/IntegrationsApi.md#configurecoda) | **POST** /v1/teams/{teamId}/integrations/coda | Configure a Coda connection
-*IntegrationsApi* | [**configureCrmMapping**](docs/Api/IntegrationsApi.md#configurecrmmapping) | **POST** /v1/teams/{teamId}/integrations/connections/{connectionId}/crm-mapping/configure | Configure CRM field mapping
-*IntegrationsApi* | [**configureCrmSync**](docs/Api/IntegrationsApi.md#configurecrmsync) | **POST** /v1/teams/{teamId}/integrations/connections/{connectionId}/crm-sync/configure | Configure CRM synchronization
-*IntegrationsApi* | [**configureFreshsales**](docs/Api/IntegrationsApi.md#configurefreshsales) | **POST** /v1/teams/{teamId}/integrations/freshsales | Configure a Freshsales connection
-*IntegrationsApi* | [**configureNotificationRoutes**](docs/Api/IntegrationsApi.md#configurenotificationroutes) | **POST** /v1/teams/{teamId}/integrations/connections/{connectionId}/notification-routes | Configure notification routes
-*IntegrationsApi* | [**configureSlackDestination**](docs/Api/IntegrationsApi.md#configureslackdestination) | **POST** /v1/teams/{teamId}/integrations/connections/{connectionId}/slack-destination | Configure a Slack destination
-*IntegrationsApi* | [**configureTeamsWorkflow**](docs/Api/IntegrationsApi.md#configureteamsworkflow) | **POST** /v1/teams/{teamId}/integrations/microsoft-teams | Configure a Microsoft Teams workflow
-*IntegrationsApi* | [**configureTypeformForm**](docs/Api/IntegrationsApi.md#configuretypeformform) | **POST** /v1/teams/{teamId}/integrations/typeform | Configure a Typeform form
-*IntegrationsApi* | [**configureWarehouse**](docs/Api/IntegrationsApi.md#configurewarehouse) | **POST** /v1/teams/{teamId}/integrations/warehouses | Configure a warehouse connection
-*IntegrationsApi* | [**configureWebflowForm**](docs/Api/IntegrationsApi.md#configurewebflowform) | **POST** /v1/teams/{teamId}/integrations/webflow | Configure a Webflow form
-*IntegrationsApi* | [**disableMcpIdentity**](docs/Api/IntegrationsApi.md#disablemcpidentity) | **DELETE** /v1/teams/{teamId}/integrations/mcp-identities/{identityId} | Disable an MCP identity
-*IntegrationsApi* | [**executeIntegrationCapability**](docs/Api/IntegrationsApi.md#executeintegrationcapability) | **POST** /v1/actions/{capability} | Execute an integration capability
-*IntegrationsApi* | [**getAirtableMappingOptions**](docs/Api/IntegrationsApi.md#getairtablemappingoptions) | **GET** /v1/teams/{teamId}/integrations/connections/{connectionId}/airtable-mapping-options | Get Airtable mapping options
-*IntegrationsApi* | [**getCrmMappingOptions**](docs/Api/IntegrationsApi.md#getcrmmappingoptions) | **GET** /v1/teams/{teamId}/integrations/connections/{connectionId}/crm-mapping-options | Get CRM mapping options
-*IntegrationsApi* | [**getHubSpotConfigurationOptions**](docs/Api/IntegrationsApi.md#gethubspotconfigurationoptions) | **GET** /v1/teams/{teamId}/integrations/connections/{connectionId}/hubspot-configuration-options | Get HubSpot configuration options
-*IntegrationsApi* | [**getIntegrationJob**](docs/Api/IntegrationsApi.md#getintegrationjob) | **GET** /v1/teams/{teamId}/integrations/jobs/{jobId} | Get an integration job
-*IntegrationsApi* | [**inspectCodaTable**](docs/Api/IntegrationsApi.md#inspectcodatable) | **POST** /v1/teams/{teamId}/integrations/coda/inspect | Inspect Coda table columns
-*IntegrationsApi* | [**inspectExcelWorkbook**](docs/Api/IntegrationsApi.md#inspectexcelworkbook) | **POST** /v1/teams/{teamId}/integrations/microsoft-excel/inspect | Inspect an Excel workbook
-*IntegrationsApi* | [**inspectGoogleSheet**](docs/Api/IntegrationsApi.md#inspectgooglesheet) | **POST** /v1/teams/{teamId}/integrations/google-sheets/inspect | Inspect a Google spreadsheet
-*IntegrationsApi* | [**linkMcpIdentity**](docs/Api/IntegrationsApi.md#linkmcpidentity) | **POST** /v1/teams/{teamId}/integrations/mcp-identities | Link an MCP identity
-*IntegrationsApi* | [**listIntegrationConnections**](docs/Api/IntegrationsApi.md#listintegrationconnections) | **GET** /v1/teams/{teamId}/integrations/connections | List integration connections
-*IntegrationsApi* | [**listIntegrationJobs**](docs/Api/IntegrationsApi.md#listintegrationjobs) | **GET** /v1/teams/{teamId}/integrations/jobs | List integration jobs
-*IntegrationsApi* | [**listIntegrationProviders**](docs/Api/IntegrationsApi.md#listintegrationproviders) | **GET** /v1/integrations/providers | List integration providers
-*IntegrationsApi* | [**listMcpIdentities**](docs/Api/IntegrationsApi.md#listmcpidentities) | **GET** /v1/teams/{teamId}/integrations/mcp-identities | List linked MCP identities
-*IntegrationsApi* | [**listSheetWorkflows**](docs/Api/IntegrationsApi.md#listsheetworkflows) | **GET** /v1/teams/{teamId}/integrations/spreadsheet-workflows | List spreadsheet workflows
-*IntegrationsApi* | [**previewSheetWorkflow**](docs/Api/IntegrationsApi.md#previewsheetworkflow) | **POST** /v1/teams/{teamId}/integrations/spreadsheet-workflows/{workflowId}/preview | Preview spreadsheet workflow inputs
-*IntegrationsApi* | [**queueIntegrationLeadExport**](docs/Api/IntegrationsApi.md#queueintegrationleadexport) | **POST** /v1/teams/{teamId}/integrations/connections/{connectionId}/export-leads | Queue lead export to an integration
-*IntegrationsApi* | [**queueNotificationTest**](docs/Api/IntegrationsApi.md#queuenotificationtest) | **POST** /v1/teams/{teamId}/integrations/connections/{connectionId}/notification-test | Queue a test notification
-*IntegrationsApi* | [**rotateCodaCredential**](docs/Api/IntegrationsApi.md#rotatecodacredential) | **POST** /v1/teams/{teamId}/integrations/connections/{connectionId}/credentials/coda/rotate | Rotate a Coda credential
-*IntegrationsApi* | [**rotateFreshsalesCredential**](docs/Api/IntegrationsApi.md#rotatefreshsalescredential) | **POST** /v1/teams/{teamId}/integrations/connections/{connectionId}/credentials/freshsales/rotate | Rotate a Freshsales credential
-*IntegrationsApi* | [**runSheetWorkflow**](docs/Api/IntegrationsApi.md#runsheetworkflow) | **POST** /v1/teams/{teamId}/integrations/spreadsheet-workflows/{workflowId}/run | Queue a spreadsheet workflow
-*IntegrationsApi* | [**saveSheetWorkflow**](docs/Api/IntegrationsApi.md#savesheetworkflow) | **POST** /v1/teams/{teamId}/integrations/spreadsheet-workflows | Create or update a spreadsheet workflow
-*IntegrationsApi* | [**startAttioOAuth**](docs/Api/IntegrationsApi.md#startattiooauth) | **POST** /v1/teams/{teamId}/integrations/attio/oauth/start | Start Attio authorization
-*IntegrationsApi* | [**startGoogleSheetsOAuth**](docs/Api/IntegrationsApi.md#startgooglesheetsoauth) | **POST** /v1/teams/{teamId}/integrations/google-sheets/oauth/start | Start Google Sheets authorization
-*IntegrationsApi* | [**startIntegrationOAuth**](docs/Api/IntegrationsApi.md#startintegrationoauth) | **POST** /v1/teams/{teamId}/integrations/{provider}/oauth/start | Start provider authorization
-*IntegrationsApi* | [**testIntegrationConnection**](docs/Api/IntegrationsApi.md#testintegrationconnection) | **POST** /v1/teams/{teamId}/integrations/connections/{connectionId}/test | Test an integration connection
-*IntegrationsApi* | [**updateIntegrationConnectionState**](docs/Api/IntegrationsApi.md#updateintegrationconnectionstate) | **POST** /v1/teams/{teamId}/integrations/connections/{connectionId}/state | Change integration connection state
-*IntegrationsApi* | [**updateSheetWorkflowState**](docs/Api/IntegrationsApi.md#updatesheetworkflowstate) | **POST** /v1/teams/{teamId}/integrations/spreadsheet-workflows/{workflowId}/state | Change spreadsheet workflow state
-*LeadsApi* | [**createLead**](docs/Api/LeadsApi.md#createlead) | **POST** /v1/teams/{teamId}/leads | Create a lead in a team
-*LeadsApi* | [**deleteLead**](docs/Api/LeadsApi.md#deletelead) | **DELETE** /v1/leads/{leadId} | Delete a lead
-*LeadsApi* | [**exportLeads**](docs/Api/LeadsApi.md#exportleads) | **POST** /v1/teams/{teamId}/leads/export | Export selected leads
-*LeadsApi* | [**getLead**](docs/Api/LeadsApi.md#getlead) | **GET** /v1/leads/{leadId} | Retrieve a lead
-*LeadsApi* | [**listLeads**](docs/Api/LeadsApi.md#listleads) | **GET** /v1/teams/{teamId}/leads | List team leads
-*LeadsApi* | [**updateLead**](docs/Api/LeadsApi.md#updatelead) | **POST** /v1/leads/{leadId}/update | Update a lead
-*MailApi* | [**addMailPortfolioTeam**](docs/Api/MailApi.md#addmailportfolioteam) | **POST** /v1/teams/{teamId}/mail/portfolio/teams | Add a team to a portfolio
-*MailApi* | [**archiveMailExperiment**](docs/Api/MailApi.md#archivemailexperiment) | **POST** /v1/teams/{teamId}/mail/experiments/{experimentKey}/archive | Archive an experiment
-*MailApi* | [**cancelMailMessage**](docs/Api/MailApi.md#cancelmailmessage) | **POST** /v1/teams/{teamId}/mail/messages/{messageId}/cancel | Cancel a queued message
-*MailApi* | [**changeMailCadenceCampaignState**](docs/Api/MailApi.md#changemailcadencecampaignstate) | **POST** /v1/teams/{teamId}/mail/cadence-campaigns/{campaignId}/state | Change a cadence campaign state
-*MailApi* | [**changeMailCadenceRunState**](docs/Api/MailApi.md#changemailcadencerunstate) | **POST** /v1/teams/{teamId}/mail/cadence-runs/{runId}/state | Change a cadence run state
-*MailApi* | [**changeMailCampaignState**](docs/Api/MailApi.md#changemailcampaignstate) | **POST** /v1/teams/{teamId}/mail/campaigns/{campaignId}/state | Change a campaign state
-*MailApi* | [**classifyMailReply**](docs/Api/MailApi.md#classifymailreply) | **POST** /v1/teams/{teamId}/mail/crm/classify-reply | Classify a reply
-*MailApi* | [**completeMailCrmTask**](docs/Api/MailApi.md#completemailcrmtask) | **POST** /v1/teams/{teamId}/mail/crm/tasks/{taskId}/complete | Complete a CRM task
-*MailApi* | [**configureMailDeliverability**](docs/Api/MailApi.md#configuremaildeliverability) | **POST** /v1/teams/{teamId}/mail/deliverability/mailboxes/{mailboxId} | Configure a mailbox sending ramp
-*MailApi* | [**configureMailTrackingDomain**](docs/Api/MailApi.md#configuremailtrackingdomain) | **POST** /v1/teams/{teamId}/mail/tracking-domain | Configure a tracking domain
-*MailApi* | [**copyMailCadence**](docs/Api/MailApi.md#copymailcadence) | **POST** /v1/teams/{teamId}/mail/cadences/{cadenceId}/copy | Copy a cadence to another team
-*MailApi* | [**copyMailTemplate**](docs/Api/MailApi.md#copymailtemplate) | **POST** /v1/teams/{teamId}/mail/templates/{templateId}/copy | Copy a template to another team
-*MailApi* | [**createMailCampaignDraft**](docs/Api/MailApi.md#createmailcampaigndraft) | **POST** /v1/teams/{teamId}/mail/campaigns | Create a campaign draft
-*MailApi* | [**createMailCrmNote**](docs/Api/MailApi.md#createmailcrmnote) | **POST** /v1/teams/{teamId}/mail/crm/notes | Add a contact note
-*MailApi* | [**createMailCrmTask**](docs/Api/MailApi.md#createmailcrmtask) | **POST** /v1/teams/{teamId}/mail/crm/tasks | Create a CRM task
-*MailApi* | [**createMailMailboxPool**](docs/Api/MailApi.md#createmailmailboxpool) | **POST** /v1/teams/{teamId}/mail/deliverability/pools | Create a mailbox pool
-*MailApi* | [**createMailPortfolio**](docs/Api/MailApi.md#createmailportfolio) | **POST** /v1/teams/{teamId}/mail/portfolio | Create a mail portfolio
-*MailApi* | [**createMailPortfolioSuppression**](docs/Api/MailApi.md#createmailportfoliosuppression) | **POST** /v1/teams/{teamId}/mail/portfolio/suppressions | Create a portfolio suppression
-*MailApi* | [**createMailSuppression**](docs/Api/MailApi.md#createmailsuppression) | **POST** /v1/teams/{teamId}/mail/suppressions | Suppress an email or domain
-*MailApi* | [**createMailWebhook**](docs/Api/MailApi.md#createmailwebhook) | **POST** /v1/teams/{teamId}/mail/webhooks | Create a mail webhook
-*MailApi* | [**decideMailExperiment**](docs/Api/MailApi.md#decidemailexperiment) | **POST** /v1/teams/{teamId}/mail/experiments/{experimentKey}/decide | Record an experiment decision
-*MailApi* | [**deleteMailCampaignDraft**](docs/Api/MailApi.md#deletemailcampaigndraft) | **DELETE** /v1/teams/{teamId}/mail/campaigns/{campaignId} | Delete a campaign draft
-*MailApi* | [**deleteMailReplyAutomation**](docs/Api/MailApi.md#deletemailreplyautomation) | **DELETE** /v1/teams/{teamId}/mail/reply-automations/{automationId} | Delete a reply automation
-*MailApi* | [**deleteMailTrackingDomain**](docs/Api/MailApi.md#deletemailtrackingdomain) | **DELETE** /v1/teams/{teamId}/mail/tracking-domain | Delete a tracking domain
-*MailApi* | [**deleteMailWebhook**](docs/Api/MailApi.md#deletemailwebhook) | **DELETE** /v1/teams/{teamId}/mail/webhooks/{subscriptionId} | Delete a mail webhook
-*MailApi* | [**disconnectMailMailbox**](docs/Api/MailApi.md#disconnectmailmailbox) | **DELETE** /v1/teams/{teamId}/mail/mailboxes/{mailboxId} | Disconnect a mailbox
-*MailApi* | [**duplicateMailCampaignDraft**](docs/Api/MailApi.md#duplicatemailcampaigndraft) | **POST** /v1/teams/{teamId}/mail/campaigns/{campaignId}/duplicate | Duplicate a campaign draft
-*MailApi* | [**enqueueMailMessage**](docs/Api/MailApi.md#enqueuemailmessage) | **POST** /v1/teams/{teamId}/mail/messages | Queue an outbound message
-*MailApi* | [**enrollMailCadence**](docs/Api/MailApi.md#enrollmailcadence) | **POST** /v1/teams/{teamId}/mail/cadence-runs | Enroll contacts in a cadence
-*MailApi* | [**exportMailAnalytics**](docs/Api/MailApi.md#exportmailanalytics) | **POST** /v1/teams/{teamId}/mail/analytics/export | Export mail analytics
-*MailApi* | [**exportMailPortfolio**](docs/Api/MailApi.md#exportmailportfolio) | **POST** /v1/teams/{teamId}/mail/portfolio/export | Export portfolio analytics
-*MailApi* | [**getMailAnalytics**](docs/Api/MailApi.md#getmailanalytics) | **GET** /v1/teams/{teamId}/mail/analytics | Get mail analytics
-*MailApi* | [**getMailCampaignDraft**](docs/Api/MailApi.md#getmailcampaigndraft) | **GET** /v1/teams/{teamId}/mail/campaigns/{campaignId} | Get a campaign draft
-*MailApi* | [**getMailCampaignProgress**](docs/Api/MailApi.md#getmailcampaignprogress) | **GET** /v1/teams/{teamId}/mail/campaign-progress | Get campaign progress
-*MailApi* | [**getMailChannels**](docs/Api/MailApi.md#getmailchannels) | **GET** /v1/teams/{teamId}/mail/channels | Get channel availability
-*MailApi* | [**getMailContactStates**](docs/Api/MailApi.md#getmailcontactstates) | **POST** /v1/teams/{teamId}/mail/crm/states/batch | Get contact CRM states in a batch
-*MailApi* | [**getMailContacts**](docs/Api/MailApi.md#getmailcontacts) | **POST** /v1/teams/{teamId}/mail/crm/contacts/batch | Get mail contacts in a batch
-*MailApi* | [**getMailDeliverability**](docs/Api/MailApi.md#getmaildeliverability) | **GET** /v1/teams/{teamId}/mail/deliverability | Get deliverability configuration
-*MailApi* | [**getMailExperimentReport**](docs/Api/MailApi.md#getmailexperimentreport) | **GET** /v1/teams/{teamId}/mail/experiments/{experimentKey}/report | Get an experiment report
-*MailApi* | [**getMailExperimentsOverview**](docs/Api/MailApi.md#getmailexperimentsoverview) | **GET** /v1/teams/{teamId}/mail/experiments-overview | Get experiment overview
-*MailApi* | [**getMailOverview**](docs/Api/MailApi.md#getmailoverview) | **GET** /v1/teams/{teamId}/mail/overview | Get mail overview
-*MailApi* | [**getMailPortfolio**](docs/Api/MailApi.md#getmailportfolio) | **GET** /v1/teams/{teamId}/mail/portfolio | Get a mail portfolio
-*MailApi* | [**getMailPortfolioOverview**](docs/Api/MailApi.md#getmailportfoliooverview) | **GET** /v1/teams/{teamId}/mail/portfolio/overview | Get portfolio analytics
-*MailApi* | [**getMailQueue**](docs/Api/MailApi.md#getmailqueue) | **GET** /v1/teams/{teamId}/mail/queue | Get mail queue status
-*MailApi* | [**getMailTrackingDomain**](docs/Api/MailApi.md#getmailtrackingdomain) | **GET** /v1/teams/{teamId}/mail/tracking-domain | Get tracking domain configuration
-*MailApi* | [**inspectMailDomainHealth**](docs/Api/MailApi.md#inspectmaildomainhealth) | **POST** /v1/teams/{teamId}/mail/deliverability/domain-health | Inspect domain authentication
-*MailApi* | [**launchMailCadenceCampaign**](docs/Api/MailApi.md#launchmailcadencecampaign) | **POST** /v1/teams/{teamId}/mail/cadence-campaigns | Queue a cadence campaign
-*MailApi* | [**launchMailCampaignDraft**](docs/Api/MailApi.md#launchmailcampaigndraft) | **POST** /v1/teams/{teamId}/mail/campaigns/{campaignId}/launch | Launch a campaign draft
-*MailApi* | [**listMailAudienceLists**](docs/Api/MailApi.md#listmailaudiencelists) | **GET** /v1/teams/{teamId}/mail/audience-lists | List campaign audience lists
-*MailApi* | [**listMailCadenceCampaigns**](docs/Api/MailApi.md#listmailcadencecampaigns) | **GET** /v1/teams/{teamId}/mail/cadence-campaigns | List cadence campaigns
-*MailApi* | [**listMailCadenceRuns**](docs/Api/MailApi.md#listmailcadenceruns) | **GET** /v1/teams/{teamId}/mail/cadence-runs | List cadence runs
-*MailApi* | [**listMailCadences**](docs/Api/MailApi.md#listmailcadences) | **GET** /v1/teams/{teamId}/mail/cadences | List cadences
-*MailApi* | [**listMailCampaignDrafts**](docs/Api/MailApi.md#listmailcampaigndrafts) | **GET** /v1/teams/{teamId}/mail/campaigns | List campaign drafts
-*MailApi* | [**listMailContactStates**](docs/Api/MailApi.md#listmailcontactstates) | **GET** /v1/teams/{teamId}/mail/crm/states | List contact CRM states
-*MailApi* | [**listMailCrmTasks**](docs/Api/MailApi.md#listmailcrmtasks) | **GET** /v1/teams/{teamId}/mail/crm/tasks | List CRM tasks
-*MailApi* | [**listMailCrmTimeline**](docs/Api/MailApi.md#listmailcrmtimeline) | **GET** /v1/teams/{teamId}/mail/crm/timeline | List CRM timeline events
-*MailApi* | [**listMailExperiments**](docs/Api/MailApi.md#listmailexperiments) | **GET** /v1/teams/{teamId}/mail/experiments | List mail experiments
-*MailApi* | [**listMailInbox**](docs/Api/MailApi.md#listmailinbox) | **GET** /v1/teams/{teamId}/mail/inbox | List inbox messages
-*MailApi* | [**listMailInboxThreads**](docs/Api/MailApi.md#listmailinboxthreads) | **GET** /v1/teams/{teamId}/mail/inbox/threads | List inbox conversation threads
-*MailApi* | [**listMailMailboxes**](docs/Api/MailApi.md#listmailmailboxes) | **GET** /v1/teams/{teamId}/mail/mailboxes | List mailboxes and connections
-*MailApi* | [**listMailMessages**](docs/Api/MailApi.md#listmailmessages) | **GET** /v1/teams/{teamId}/mail/messages | List mail delivery activity
-*MailApi* | [**listMailReplyAutomations**](docs/Api/MailApi.md#listmailreplyautomations) | **GET** /v1/teams/{teamId}/mail/reply-automations | List reply automations
-*MailApi* | [**listMailSignatures**](docs/Api/MailApi.md#listmailsignatures) | **GET** /v1/teams/{teamId}/mail/signatures | List extracted signatures
-*MailApi* | [**listMailSuppressions**](docs/Api/MailApi.md#listmailsuppressions) | **GET** /v1/teams/{teamId}/mail/suppressions | List mail suppressions
-*MailApi* | [**listMailTemplates**](docs/Api/MailApi.md#listmailtemplates) | **GET** /v1/teams/{teamId}/mail/templates | List message templates
-*MailApi* | [**listMailWebhooks**](docs/Api/MailApi.md#listmailwebhooks) | **GET** /v1/teams/{teamId}/mail/webhooks | List mail webhooks and deliveries
-*MailApi* | [**pauseMailExperiment**](docs/Api/MailApi.md#pausemailexperiment) | **POST** /v1/teams/{teamId}/mail/experiments/{experimentKey}/pause | Pause an experiment
-*MailApi* | [**pauseMailMailbox**](docs/Api/MailApi.md#pausemailmailbox) | **POST** /v1/teams/{teamId}/mail/deliverability/mailboxes/{mailboxId}/pause | Pause a mailbox
-*MailApi* | [**preflightMailCadenceEnrollment**](docs/Api/MailApi.md#preflightmailcadenceenrollment) | **POST** /v1/teams/{teamId}/mail/cadence-runs/preflight | Check cadence enrollment
-*MailApi* | [**provisionMailMailbox**](docs/Api/MailApi.md#provisionmailmailbox) | **POST** /v1/teams/{teamId}/mail/mailboxes/manual | Connect an SMTP/IMAP mailbox
-*MailApi* | [**reconcileMailMailboxHealth**](docs/Api/MailApi.md#reconcilemailmailboxhealth) | **POST** /v1/teams/{teamId}/mail/deliverability/mailboxes/{mailboxId}/reconcile | Reconcile mailbox health
-*MailApi* | [**reconcileMailWebhook**](docs/Api/MailApi.md#reconcilemailwebhook) | **POST** /v1/teams/{teamId}/mail/webhooks/{subscriptionId}/reconcile | Reconcile a mail webhook
-*MailApi* | [**recordMailExperimentConversion**](docs/Api/MailApi.md#recordmailexperimentconversion) | **POST** /v1/teams/{teamId}/mail/experiments/{experimentKey}/conversions | Record an experiment conversion
-*MailApi* | [**removeMailMailboxPoolMember**](docs/Api/MailApi.md#removemailmailboxpoolmember) | **DELETE** /v1/teams/{teamId}/mail/deliverability/pools/{poolId}/members/{mailboxId} | Remove a mailbox pool member
-*MailApi* | [**removeMailPortfolioTeam**](docs/Api/MailApi.md#removemailportfolioteam) | **DELETE** /v1/teams/{teamId}/mail/portfolio/teams/{memberTeamId} | Remove a team from a portfolio
-*MailApi* | [**replayMailWebhookDelivery**](docs/Api/MailApi.md#replaymailwebhookdelivery) | **POST** /v1/teams/{teamId}/mail/webhooks/deliveries/{deliveryId}/replay | Replay a webhook delivery
-*MailApi* | [**replyToMailInboxMessage**](docs/Api/MailApi.md#replytomailinboxmessage) | **POST** /v1/teams/{teamId}/mail/inbox/{messageId}/reply | Queue an inbox reply
-*MailApi* | [**resumeMailExperiment**](docs/Api/MailApi.md#resumemailexperiment) | **POST** /v1/teams/{teamId}/mail/experiments/{experimentKey}/resume | Resume an experiment
-*MailApi* | [**resumeMailMailbox**](docs/Api/MailApi.md#resumemailmailbox) | **POST** /v1/teams/{teamId}/mail/deliverability/mailboxes/{mailboxId}/resume | Resume a mailbox
-*MailApi* | [**retryMailMessage**](docs/Api/MailApi.md#retrymailmessage) | **POST** /v1/teams/{teamId}/mail/messages/{messageId}/retry | Retry a message explicitly
-*MailApi* | [**rotateMailWebhookSecret**](docs/Api/MailApi.md#rotatemailwebhooksecret) | **POST** /v1/teams/{teamId}/mail/webhooks/{subscriptionId}/rotate-secret | Rotate a mail webhook secret
-*MailApi* | [**saveMailCadence**](docs/Api/MailApi.md#savemailcadence) | **POST** /v1/teams/{teamId}/mail/cadences | Save a cadence version
-*MailApi* | [**saveMailReplyAutomation**](docs/Api/MailApi.md#savemailreplyautomation) | **POST** /v1/teams/{teamId}/mail/reply-automations | Save a reply automation
-*MailApi* | [**saveMailTemplate**](docs/Api/MailApi.md#savemailtemplate) | **POST** /v1/teams/{teamId}/mail/templates | Save a message template
-*MailApi* | [**setMailContactState**](docs/Api/MailApi.md#setmailcontactstate) | **PUT** /v1/teams/{teamId}/mail/crm/states | Set a contact CRM state
-*MailApi* | [**setMailMailboxPoolMember**](docs/Api/MailApi.md#setmailmailboxpoolmember) | **PUT** /v1/teams/{teamId}/mail/deliverability/pools/{poolId}/members/{mailboxId} | Set a mailbox pool member
-*MailApi* | [**setMailWebhookStatus**](docs/Api/MailApi.md#setmailwebhookstatus) | **POST** /v1/teams/{teamId}/mail/webhooks/{subscriptionId}/status | Set a mail webhook status
-*MailApi* | [**startMailOAuth**](docs/Api/MailApi.md#startmailoauth) | **POST** /v1/teams/{teamId}/mail/oauth/begin | Start mailbox authorization
-*MailApi* | [**updateMailCampaignDraft**](docs/Api/MailApi.md#updatemailcampaigndraft) | **PATCH** /v1/teams/{teamId}/mail/campaigns/{campaignId} | Update a campaign draft
-*MailApi* | [**updateMailInboxMessage**](docs/Api/MailApi.md#updatemailinboxmessage) | **POST** /v1/teams/{teamId}/mail/inbox/{messageId} | Update an inbox message
-*MailApi* | [**updateMailWebhook**](docs/Api/MailApi.md#updatemailwebhook) | **PATCH** /v1/teams/{teamId}/mail/webhooks/{subscriptionId} | Update a mail webhook
-*MailApi* | [**verifyMailTrackingDomain**](docs/Api/MailApi.md#verifymailtrackingdomain) | **POST** /v1/teams/{teamId}/mail/tracking-domain/verify | Verify a tracking domain
-*NamesApi* | [**listNamePatterns**](docs/Api/NamesApi.md#listnamepatterns) | **GET** /v1/name/schemas | List supported email name patterns
-*NamesApi* | [**verifyName**](docs/Api/NamesApi.md#verifyname) | **GET** /v1/name/verify | Verify name-based email patterns
-*ProductToolsApi* | [**executeProductTool**](docs/Api/ProductToolsApi.md#executeproducttool) | **POST** /v1/product/tools/{tool} | Execute a product tool
-*StatsApi* | [**getStats**](docs/Api/StatsApi.md#getstats) | **GET** /v1/stats | Get public dataset statistics
-*VerificationApi* | [**verifyBatch**](docs/Api/VerificationApi.md#verifybatch) | **POST** /v1/verify/batch | Verify a batch of email addresses
-*VerificationApi* | [**verifyEmail**](docs/Api/VerificationApi.md#verifyemail) | **GET** /v1/verify | Verify an email address
-*WebhooksApi* | [**createAutomationHook**](docs/Api/WebhooksApi.md#createautomationhook) | **POST** /v1/hooks | Create an automation webhook
-*WebhooksApi* | [**createSegmentInstallation**](docs/Api/WebhooksApi.md#createsegmentinstallation) | **POST** /v1/origin-installations/segment | Create a Segment origin installation
-*WebhooksApi* | [**deleteAutomationHook**](docs/Api/WebhooksApi.md#deleteautomationhook) | **DELETE** /v1/hooks/{hookId} | Delete an automation webhook
-*WebhooksApi* | [**deleteSegmentInstallation**](docs/Api/WebhooksApi.md#deletesegmentinstallation) | **DELETE** /v1/origin-installations/segment/{installationId} | Delete a Segment origin installation
+*CompaniesApi* | [**listCompanies**](https://docs.reacon.io/api-reference/listCompanies) | **GET** /v1/companies | List companies
+*DomainsApi* | [**getDomainCatchAll**](https://docs.reacon.io/api-reference/getDomainCatchAll) | **GET** /v1/domains/{domain}/catch-all | Read domain catch-all status
+*DomainsApi* | [**getDomainCompanyContext**](https://docs.reacon.io/api-reference/getDomainCompanyContext) | **GET** /v1/domains/{domain}/company-context | Get company context for a domain
+*DomainsApi* | [**getDomainCounts**](https://docs.reacon.io/api-reference/getDomainCounts) | **GET** /v1/domains/{domain}/counts | Count known emails for a domain
+*EmailsApi* | [**deleteEmail**](https://docs.reacon.io/api-reference/deleteEmail) | **DELETE** /v1/emails/{email} | Delete an email and its mentions
+*EmailsApi* | [**listEmailMentions**](https://docs.reacon.io/api-reference/listEmailMentions) | **GET** /v1/emails/{email}/mentions | List sources mentioning an email
+*EmailsApi* | [**listEmails**](https://docs.reacon.io/api-reference/listEmails) | **GET** /v1/emails | List and reveal emails for a domain
+*EmailsApi* | [**revealEmail**](https://docs.reacon.io/api-reference/revealEmail) | **GET** /v1/emails/{email} | Reveal an email profile
+*EmailsApi* | [**revealEmailById**](https://docs.reacon.io/api-reference/revealEmailById) | **GET** /v1/emails/id/{id} | Reveal an email profile by ID
+*IdentityApi* | [**getApiKeyIdentity**](https://docs.reacon.io/api-reference/getApiKeyIdentity) | **GET** /v1/whoami | Get API-key identity
+*InsightsApi* | [**getEmailInsights**](https://docs.reacon.io/api-reference/getEmailInsights) | **GET** /v1/insights/{email} | Extract insights associated with an email
+*IntegrationsApi* | [**bindTypeformForm**](https://docs.reacon.io/api-reference/bindTypeformForm) | **POST** /v1/teams/{teamId}/integrations/typeform/oauth/bind | Bind a Typeform OAuth form
+*IntegrationsApi* | [**bindWebflowForm**](https://docs.reacon.io/api-reference/bindWebflowForm) | **POST** /v1/teams/{teamId}/integrations/webflow/oauth/bind | Bind a Webflow OAuth form
+*IntegrationsApi* | [**cancelIntegrationJob**](https://docs.reacon.io/api-reference/cancelIntegrationJob) | **POST** /v1/teams/{teamId}/integrations/jobs/{jobId}/cancel | Cancel an integration job
+*IntegrationsApi* | [**configureAirtableMapping**](https://docs.reacon.io/api-reference/configureAirtableMapping) | **POST** /v1/teams/{teamId}/integrations/connections/{connectionId}/airtable-mapping/configure | Configure Airtable field mapping
+*IntegrationsApi* | [**configureCoda**](https://docs.reacon.io/api-reference/configureCoda) | **POST** /v1/teams/{teamId}/integrations/coda | Configure a Coda connection
+*IntegrationsApi* | [**configureCrmMapping**](https://docs.reacon.io/api-reference/configureCrmMapping) | **POST** /v1/teams/{teamId}/integrations/connections/{connectionId}/crm-mapping/configure | Configure CRM field mapping
+*IntegrationsApi* | [**configureCrmSync**](https://docs.reacon.io/api-reference/configureCrmSync) | **POST** /v1/teams/{teamId}/integrations/connections/{connectionId}/crm-sync/configure | Configure CRM synchronization
+*IntegrationsApi* | [**configureFreshsales**](https://docs.reacon.io/api-reference/configureFreshsales) | **POST** /v1/teams/{teamId}/integrations/freshsales | Configure a Freshsales connection
+*IntegrationsApi* | [**configureNotificationRoutes**](https://docs.reacon.io/api-reference/configureNotificationRoutes) | **POST** /v1/teams/{teamId}/integrations/connections/{connectionId}/notification-routes | Configure notification routes
+*IntegrationsApi* | [**configureSlackDestination**](https://docs.reacon.io/api-reference/configureSlackDestination) | **POST** /v1/teams/{teamId}/integrations/connections/{connectionId}/slack-destination | Configure a Slack destination
+*IntegrationsApi* | [**configureTeamsWorkflow**](https://docs.reacon.io/api-reference/configureTeamsWorkflow) | **POST** /v1/teams/{teamId}/integrations/microsoft-teams | Configure a Microsoft Teams workflow
+*IntegrationsApi* | [**configureTypeformForm**](https://docs.reacon.io/api-reference/configureTypeformForm) | **POST** /v1/teams/{teamId}/integrations/typeform | Configure a Typeform form
+*IntegrationsApi* | [**configureWarehouse**](https://docs.reacon.io/api-reference/configureWarehouse) | **POST** /v1/teams/{teamId}/integrations/warehouses | Configure a warehouse connection
+*IntegrationsApi* | [**configureWebflowForm**](https://docs.reacon.io/api-reference/configureWebflowForm) | **POST** /v1/teams/{teamId}/integrations/webflow | Configure a Webflow form
+*IntegrationsApi* | [**disableMcpIdentity**](https://docs.reacon.io/api-reference/disableMcpIdentity) | **DELETE** /v1/teams/{teamId}/integrations/mcp-identities/{identityId} | Disable an MCP identity
+*IntegrationsApi* | [**executeIntegrationCapability**](https://docs.reacon.io/api-reference/executeIntegrationCapability) | **POST** /v1/actions/{capability} | Execute an integration capability
+*IntegrationsApi* | [**getAirtableMappingOptions**](https://docs.reacon.io/api-reference/getAirtableMappingOptions) | **GET** /v1/teams/{teamId}/integrations/connections/{connectionId}/airtable-mapping-options | Get Airtable mapping options
+*IntegrationsApi* | [**getCrmMappingOptions**](https://docs.reacon.io/api-reference/getCrmMappingOptions) | **GET** /v1/teams/{teamId}/integrations/connections/{connectionId}/crm-mapping-options | Get CRM mapping options
+*IntegrationsApi* | [**getHubSpotConfigurationOptions**](https://docs.reacon.io/api-reference/getHubSpotConfigurationOptions) | **GET** /v1/teams/{teamId}/integrations/connections/{connectionId}/hubspot-configuration-options | Get HubSpot configuration options
+*IntegrationsApi* | [**getIntegrationJob**](https://docs.reacon.io/api-reference/getIntegrationJob) | **GET** /v1/teams/{teamId}/integrations/jobs/{jobId} | Get an integration job
+*IntegrationsApi* | [**inspectCodaTable**](https://docs.reacon.io/api-reference/inspectCodaTable) | **POST** /v1/teams/{teamId}/integrations/coda/inspect | Inspect Coda table columns
+*IntegrationsApi* | [**inspectExcelWorkbook**](https://docs.reacon.io/api-reference/inspectExcelWorkbook) | **POST** /v1/teams/{teamId}/integrations/microsoft-excel/inspect | Inspect an Excel workbook
+*IntegrationsApi* | [**inspectGoogleSheet**](https://docs.reacon.io/api-reference/inspectGoogleSheet) | **POST** /v1/teams/{teamId}/integrations/google-sheets/inspect | Inspect a Google spreadsheet
+*IntegrationsApi* | [**linkMcpIdentity**](https://docs.reacon.io/api-reference/linkMcpIdentity) | **POST** /v1/teams/{teamId}/integrations/mcp-identities | Link an MCP identity
+*IntegrationsApi* | [**listIntegrationConnections**](https://docs.reacon.io/api-reference/listIntegrationConnections) | **GET** /v1/teams/{teamId}/integrations/connections | List integration connections
+*IntegrationsApi* | [**listIntegrationJobs**](https://docs.reacon.io/api-reference/listIntegrationJobs) | **GET** /v1/teams/{teamId}/integrations/jobs | List integration jobs
+*IntegrationsApi* | [**listIntegrationProviders**](https://docs.reacon.io/api-reference/listIntegrationProviders) | **GET** /v1/integrations/providers | List integration providers
+*IntegrationsApi* | [**listMcpIdentities**](https://docs.reacon.io/api-reference/listMcpIdentities) | **GET** /v1/teams/{teamId}/integrations/mcp-identities | List linked MCP identities
+*IntegrationsApi* | [**listSheetWorkflows**](https://docs.reacon.io/api-reference/listSheetWorkflows) | **GET** /v1/teams/{teamId}/integrations/spreadsheet-workflows | List spreadsheet workflows
+*IntegrationsApi* | [**previewSheetWorkflow**](https://docs.reacon.io/api-reference/previewSheetWorkflow) | **POST** /v1/teams/{teamId}/integrations/spreadsheet-workflows/{workflowId}/preview | Preview spreadsheet workflow inputs
+*IntegrationsApi* | [**queueIntegrationLeadExport**](https://docs.reacon.io/api-reference/queueIntegrationLeadExport) | **POST** /v1/teams/{teamId}/integrations/connections/{connectionId}/export-leads | Queue lead export to an integration
+*IntegrationsApi* | [**queueNotificationTest**](https://docs.reacon.io/api-reference/queueNotificationTest) | **POST** /v1/teams/{teamId}/integrations/connections/{connectionId}/notification-test | Queue a test notification
+*IntegrationsApi* | [**rotateCodaCredential**](https://docs.reacon.io/api-reference/rotateCodaCredential) | **POST** /v1/teams/{teamId}/integrations/connections/{connectionId}/credentials/coda/rotate | Rotate a Coda credential
+*IntegrationsApi* | [**rotateFreshsalesCredential**](https://docs.reacon.io/api-reference/rotateFreshsalesCredential) | **POST** /v1/teams/{teamId}/integrations/connections/{connectionId}/credentials/freshsales/rotate | Rotate a Freshsales credential
+*IntegrationsApi* | [**runSheetWorkflow**](https://docs.reacon.io/api-reference/runSheetWorkflow) | **POST** /v1/teams/{teamId}/integrations/spreadsheet-workflows/{workflowId}/run | Queue a spreadsheet workflow
+*IntegrationsApi* | [**saveSheetWorkflow**](https://docs.reacon.io/api-reference/saveSheetWorkflow) | **POST** /v1/teams/{teamId}/integrations/spreadsheet-workflows | Create or update a spreadsheet workflow
+*IntegrationsApi* | [**startAttioOAuth**](https://docs.reacon.io/api-reference/startAttioOAuth) | **POST** /v1/teams/{teamId}/integrations/attio/oauth/start | Start Attio authorization
+*IntegrationsApi* | [**startGoogleSheetsOAuth**](https://docs.reacon.io/api-reference/startGoogleSheetsOAuth) | **POST** /v1/teams/{teamId}/integrations/google-sheets/oauth/start | Start Google Sheets authorization
+*IntegrationsApi* | [**startIntegrationOAuth**](https://docs.reacon.io/api-reference/startIntegrationOAuth) | **POST** /v1/teams/{teamId}/integrations/{provider}/oauth/start | Start provider authorization
+*IntegrationsApi* | [**testIntegrationConnection**](https://docs.reacon.io/api-reference/testIntegrationConnection) | **POST** /v1/teams/{teamId}/integrations/connections/{connectionId}/test | Test an integration connection
+*IntegrationsApi* | [**updateIntegrationConnectionState**](https://docs.reacon.io/api-reference/updateIntegrationConnectionState) | **POST** /v1/teams/{teamId}/integrations/connections/{connectionId}/state | Change integration connection state
+*IntegrationsApi* | [**updateSheetWorkflowState**](https://docs.reacon.io/api-reference/updateSheetWorkflowState) | **POST** /v1/teams/{teamId}/integrations/spreadsheet-workflows/{workflowId}/state | Change spreadsheet workflow state
+*LeadsApi* | [**createLead**](https://docs.reacon.io/api-reference/createLead) | **POST** /v1/teams/{teamId}/leads | Create a lead in a team
+*LeadsApi* | [**deleteLead**](https://docs.reacon.io/api-reference/deleteLead) | **DELETE** /v1/leads/{leadId} | Delete a lead
+*LeadsApi* | [**exportLeads**](https://docs.reacon.io/api-reference/exportLeads) | **POST** /v1/teams/{teamId}/leads/export | Export selected leads
+*LeadsApi* | [**getLead**](https://docs.reacon.io/api-reference/getLead) | **GET** /v1/leads/{leadId} | Retrieve a lead
+*LeadsApi* | [**listLeads**](https://docs.reacon.io/api-reference/listLeads) | **GET** /v1/teams/{teamId}/leads | List team leads
+*LeadsApi* | [**updateLead**](https://docs.reacon.io/api-reference/updateLead) | **POST** /v1/leads/{leadId}/update | Update a lead
+*MailApi* | [**addMailPortfolioTeam**](https://docs.reacon.io/api-reference/addMailPortfolioTeam) | **POST** /v1/teams/{teamId}/mail/portfolio/teams | Add a team to a portfolio
+*MailApi* | [**archiveMailExperiment**](https://docs.reacon.io/api-reference/archiveMailExperiment) | **POST** /v1/teams/{teamId}/mail/experiments/{experimentKey}/archive | Archive an experiment
+*MailApi* | [**cancelMailMessage**](https://docs.reacon.io/api-reference/cancelMailMessage) | **POST** /v1/teams/{teamId}/mail/messages/{messageId}/cancel | Cancel a queued message
+*MailApi* | [**changeMailCadenceCampaignState**](https://docs.reacon.io/api-reference/changeMailCadenceCampaignState) | **POST** /v1/teams/{teamId}/mail/cadence-campaigns/{campaignId}/state | Change a cadence campaign state
+*MailApi* | [**changeMailCadenceRunState**](https://docs.reacon.io/api-reference/changeMailCadenceRunState) | **POST** /v1/teams/{teamId}/mail/cadence-runs/{runId}/state | Change a cadence run state
+*MailApi* | [**changeMailCampaignState**](https://docs.reacon.io/api-reference/changeMailCampaignState) | **POST** /v1/teams/{teamId}/mail/campaigns/{campaignId}/state | Change a campaign state
+*MailApi* | [**classifyMailReply**](https://docs.reacon.io/api-reference/classifyMailReply) | **POST** /v1/teams/{teamId}/mail/crm/classify-reply | Classify a reply
+*MailApi* | [**completeMailCrmTask**](https://docs.reacon.io/api-reference/completeMailCrmTask) | **POST** /v1/teams/{teamId}/mail/crm/tasks/{taskId}/complete | Complete a CRM task
+*MailApi* | [**configureMailDeliverability**](https://docs.reacon.io/api-reference/configureMailDeliverability) | **POST** /v1/teams/{teamId}/mail/deliverability/mailboxes/{mailboxId} | Configure a mailbox sending ramp
+*MailApi* | [**configureMailTrackingDomain**](https://docs.reacon.io/api-reference/configureMailTrackingDomain) | **POST** /v1/teams/{teamId}/mail/tracking-domain | Configure a tracking domain
+*MailApi* | [**copyMailCadence**](https://docs.reacon.io/api-reference/copyMailCadence) | **POST** /v1/teams/{teamId}/mail/cadences/{cadenceId}/copy | Copy a cadence to another team
+*MailApi* | [**copyMailTemplate**](https://docs.reacon.io/api-reference/copyMailTemplate) | **POST** /v1/teams/{teamId}/mail/templates/{templateId}/copy | Copy a template to another team
+*MailApi* | [**createMailCampaignDraft**](https://docs.reacon.io/api-reference/createMailCampaignDraft) | **POST** /v1/teams/{teamId}/mail/campaigns | Create a campaign draft
+*MailApi* | [**createMailCrmNote**](https://docs.reacon.io/api-reference/createMailCrmNote) | **POST** /v1/teams/{teamId}/mail/crm/notes | Add a contact note
+*MailApi* | [**createMailCrmTask**](https://docs.reacon.io/api-reference/createMailCrmTask) | **POST** /v1/teams/{teamId}/mail/crm/tasks | Create a CRM task
+*MailApi* | [**createMailMailboxPool**](https://docs.reacon.io/api-reference/createMailMailboxPool) | **POST** /v1/teams/{teamId}/mail/deliverability/pools | Create a mailbox pool
+*MailApi* | [**createMailPortfolio**](https://docs.reacon.io/api-reference/createMailPortfolio) | **POST** /v1/teams/{teamId}/mail/portfolio | Create a mail portfolio
+*MailApi* | [**createMailPortfolioSuppression**](https://docs.reacon.io/api-reference/createMailPortfolioSuppression) | **POST** /v1/teams/{teamId}/mail/portfolio/suppressions | Create a portfolio suppression
+*MailApi* | [**createMailSuppression**](https://docs.reacon.io/api-reference/createMailSuppression) | **POST** /v1/teams/{teamId}/mail/suppressions | Suppress an email or domain
+*MailApi* | [**createMailWebhook**](https://docs.reacon.io/api-reference/createMailWebhook) | **POST** /v1/teams/{teamId}/mail/webhooks | Create a mail webhook
+*MailApi* | [**decideMailExperiment**](https://docs.reacon.io/api-reference/decideMailExperiment) | **POST** /v1/teams/{teamId}/mail/experiments/{experimentKey}/decide | Record an experiment decision
+*MailApi* | [**deleteMailCampaignDraft**](https://docs.reacon.io/api-reference/deleteMailCampaignDraft) | **DELETE** /v1/teams/{teamId}/mail/campaigns/{campaignId} | Delete a campaign draft
+*MailApi* | [**deleteMailReplyAutomation**](https://docs.reacon.io/api-reference/deleteMailReplyAutomation) | **DELETE** /v1/teams/{teamId}/mail/reply-automations/{automationId} | Delete a reply automation
+*MailApi* | [**deleteMailTrackingDomain**](https://docs.reacon.io/api-reference/deleteMailTrackingDomain) | **DELETE** /v1/teams/{teamId}/mail/tracking-domain | Delete a tracking domain
+*MailApi* | [**deleteMailWebhook**](https://docs.reacon.io/api-reference/deleteMailWebhook) | **DELETE** /v1/teams/{teamId}/mail/webhooks/{subscriptionId} | Delete a mail webhook
+*MailApi* | [**disconnectMailMailbox**](https://docs.reacon.io/api-reference/disconnectMailMailbox) | **DELETE** /v1/teams/{teamId}/mail/mailboxes/{mailboxId} | Disconnect a mailbox
+*MailApi* | [**duplicateMailCampaignDraft**](https://docs.reacon.io/api-reference/duplicateMailCampaignDraft) | **POST** /v1/teams/{teamId}/mail/campaigns/{campaignId}/duplicate | Duplicate a campaign draft
+*MailApi* | [**enqueueMailMessage**](https://docs.reacon.io/api-reference/enqueueMailMessage) | **POST** /v1/teams/{teamId}/mail/messages | Queue an outbound message
+*MailApi* | [**enrollMailCadence**](https://docs.reacon.io/api-reference/enrollMailCadence) | **POST** /v1/teams/{teamId}/mail/cadence-runs | Enroll contacts in a cadence
+*MailApi* | [**exportMailAnalytics**](https://docs.reacon.io/api-reference/exportMailAnalytics) | **POST** /v1/teams/{teamId}/mail/analytics/export | Export mail analytics
+*MailApi* | [**exportMailPortfolio**](https://docs.reacon.io/api-reference/exportMailPortfolio) | **POST** /v1/teams/{teamId}/mail/portfolio/export | Export portfolio analytics
+*MailApi* | [**getMailAnalytics**](https://docs.reacon.io/api-reference/getMailAnalytics) | **GET** /v1/teams/{teamId}/mail/analytics | Get mail analytics
+*MailApi* | [**getMailCampaignDraft**](https://docs.reacon.io/api-reference/getMailCampaignDraft) | **GET** /v1/teams/{teamId}/mail/campaigns/{campaignId} | Get a campaign draft
+*MailApi* | [**getMailCampaignProgress**](https://docs.reacon.io/api-reference/getMailCampaignProgress) | **GET** /v1/teams/{teamId}/mail/campaign-progress | Get campaign progress
+*MailApi* | [**getMailChannels**](https://docs.reacon.io/api-reference/getMailChannels) | **GET** /v1/teams/{teamId}/mail/channels | Get channel availability
+*MailApi* | [**getMailContactStates**](https://docs.reacon.io/api-reference/getMailContactStates) | **POST** /v1/teams/{teamId}/mail/crm/states/batch | Get contact CRM states in a batch
+*MailApi* | [**getMailContacts**](https://docs.reacon.io/api-reference/getMailContacts) | **POST** /v1/teams/{teamId}/mail/crm/contacts/batch | Get mail contacts in a batch
+*MailApi* | [**getMailDeliverability**](https://docs.reacon.io/api-reference/getMailDeliverability) | **GET** /v1/teams/{teamId}/mail/deliverability | Get deliverability configuration
+*MailApi* | [**getMailExperimentReport**](https://docs.reacon.io/api-reference/getMailExperimentReport) | **GET** /v1/teams/{teamId}/mail/experiments/{experimentKey}/report | Get an experiment report
+*MailApi* | [**getMailExperimentsOverview**](https://docs.reacon.io/api-reference/getMailExperimentsOverview) | **GET** /v1/teams/{teamId}/mail/experiments-overview | Get experiment overview
+*MailApi* | [**getMailOverview**](https://docs.reacon.io/api-reference/getMailOverview) | **GET** /v1/teams/{teamId}/mail/overview | Get mail overview
+*MailApi* | [**getMailPortfolio**](https://docs.reacon.io/api-reference/getMailPortfolio) | **GET** /v1/teams/{teamId}/mail/portfolio | Get a mail portfolio
+*MailApi* | [**getMailPortfolioOverview**](https://docs.reacon.io/api-reference/getMailPortfolioOverview) | **GET** /v1/teams/{teamId}/mail/portfolio/overview | Get portfolio analytics
+*MailApi* | [**getMailQueue**](https://docs.reacon.io/api-reference/getMailQueue) | **GET** /v1/teams/{teamId}/mail/queue | Get mail queue status
+*MailApi* | [**getMailTrackingDomain**](https://docs.reacon.io/api-reference/getMailTrackingDomain) | **GET** /v1/teams/{teamId}/mail/tracking-domain | Get tracking domain configuration
+*MailApi* | [**inspectMailDomainHealth**](https://docs.reacon.io/api-reference/inspectMailDomainHealth) | **POST** /v1/teams/{teamId}/mail/deliverability/domain-health | Inspect domain authentication
+*MailApi* | [**launchMailCadenceCampaign**](https://docs.reacon.io/api-reference/launchMailCadenceCampaign) | **POST** /v1/teams/{teamId}/mail/cadence-campaigns | Queue a cadence campaign
+*MailApi* | [**launchMailCampaignDraft**](https://docs.reacon.io/api-reference/launchMailCampaignDraft) | **POST** /v1/teams/{teamId}/mail/campaigns/{campaignId}/launch | Launch a campaign draft
+*MailApi* | [**listMailAudienceLists**](https://docs.reacon.io/api-reference/listMailAudienceLists) | **GET** /v1/teams/{teamId}/mail/audience-lists | List campaign audience lists
+*MailApi* | [**listMailCadenceCampaigns**](https://docs.reacon.io/api-reference/listMailCadenceCampaigns) | **GET** /v1/teams/{teamId}/mail/cadence-campaigns | List cadence campaigns
+*MailApi* | [**listMailCadenceRuns**](https://docs.reacon.io/api-reference/listMailCadenceRuns) | **GET** /v1/teams/{teamId}/mail/cadence-runs | List cadence runs
+*MailApi* | [**listMailCadences**](https://docs.reacon.io/api-reference/listMailCadences) | **GET** /v1/teams/{teamId}/mail/cadences | List cadences
+*MailApi* | [**listMailCampaignDrafts**](https://docs.reacon.io/api-reference/listMailCampaignDrafts) | **GET** /v1/teams/{teamId}/mail/campaigns | List campaign drafts
+*MailApi* | [**listMailContactStates**](https://docs.reacon.io/api-reference/listMailContactStates) | **GET** /v1/teams/{teamId}/mail/crm/states | List contact CRM states
+*MailApi* | [**listMailCrmTasks**](https://docs.reacon.io/api-reference/listMailCrmTasks) | **GET** /v1/teams/{teamId}/mail/crm/tasks | List CRM tasks
+*MailApi* | [**listMailCrmTimeline**](https://docs.reacon.io/api-reference/listMailCrmTimeline) | **GET** /v1/teams/{teamId}/mail/crm/timeline | List CRM timeline events
+*MailApi* | [**listMailExperiments**](https://docs.reacon.io/api-reference/listMailExperiments) | **GET** /v1/teams/{teamId}/mail/experiments | List mail experiments
+*MailApi* | [**listMailInbox**](https://docs.reacon.io/api-reference/listMailInbox) | **GET** /v1/teams/{teamId}/mail/inbox | List inbox messages
+*MailApi* | [**listMailInboxThreads**](https://docs.reacon.io/api-reference/listMailInboxThreads) | **GET** /v1/teams/{teamId}/mail/inbox/threads | List inbox conversation threads
+*MailApi* | [**listMailMailboxes**](https://docs.reacon.io/api-reference/listMailMailboxes) | **GET** /v1/teams/{teamId}/mail/mailboxes | List mailboxes and connections
+*MailApi* | [**listMailMessages**](https://docs.reacon.io/api-reference/listMailMessages) | **GET** /v1/teams/{teamId}/mail/messages | List mail delivery activity
+*MailApi* | [**listMailReplyAutomations**](https://docs.reacon.io/api-reference/listMailReplyAutomations) | **GET** /v1/teams/{teamId}/mail/reply-automations | List reply automations
+*MailApi* | [**listMailSignatures**](https://docs.reacon.io/api-reference/listMailSignatures) | **GET** /v1/teams/{teamId}/mail/signatures | List extracted signatures
+*MailApi* | [**listMailSuppressions**](https://docs.reacon.io/api-reference/listMailSuppressions) | **GET** /v1/teams/{teamId}/mail/suppressions | List mail suppressions
+*MailApi* | [**listMailTemplates**](https://docs.reacon.io/api-reference/listMailTemplates) | **GET** /v1/teams/{teamId}/mail/templates | List message templates
+*MailApi* | [**listMailWebhooks**](https://docs.reacon.io/api-reference/listMailWebhooks) | **GET** /v1/teams/{teamId}/mail/webhooks | List mail webhooks and deliveries
+*MailApi* | [**pauseMailExperiment**](https://docs.reacon.io/api-reference/pauseMailExperiment) | **POST** /v1/teams/{teamId}/mail/experiments/{experimentKey}/pause | Pause an experiment
+*MailApi* | [**pauseMailMailbox**](https://docs.reacon.io/api-reference/pauseMailMailbox) | **POST** /v1/teams/{teamId}/mail/deliverability/mailboxes/{mailboxId}/pause | Pause a mailbox
+*MailApi* | [**preflightMailCadenceEnrollment**](https://docs.reacon.io/api-reference/preflightMailCadenceEnrollment) | **POST** /v1/teams/{teamId}/mail/cadence-runs/preflight | Check cadence enrollment
+*MailApi* | [**provisionMailMailbox**](https://docs.reacon.io/api-reference/provisionMailMailbox) | **POST** /v1/teams/{teamId}/mail/mailboxes/manual | Connect an SMTP/IMAP mailbox
+*MailApi* | [**reconcileMailMailboxHealth**](https://docs.reacon.io/api-reference/reconcileMailMailboxHealth) | **POST** /v1/teams/{teamId}/mail/deliverability/mailboxes/{mailboxId}/reconcile | Reconcile mailbox health
+*MailApi* | [**reconcileMailWebhook**](https://docs.reacon.io/api-reference/reconcileMailWebhook) | **POST** /v1/teams/{teamId}/mail/webhooks/{subscriptionId}/reconcile | Reconcile a mail webhook
+*MailApi* | [**recordMailExperimentConversion**](https://docs.reacon.io/api-reference/recordMailExperimentConversion) | **POST** /v1/teams/{teamId}/mail/experiments/{experimentKey}/conversions | Record an experiment conversion
+*MailApi* | [**removeMailMailboxPoolMember**](https://docs.reacon.io/api-reference/removeMailMailboxPoolMember) | **DELETE** /v1/teams/{teamId}/mail/deliverability/pools/{poolId}/members/{mailboxId} | Remove a mailbox pool member
+*MailApi* | [**removeMailPortfolioTeam**](https://docs.reacon.io/api-reference/removeMailPortfolioTeam) | **DELETE** /v1/teams/{teamId}/mail/portfolio/teams/{memberTeamId} | Remove a team from a portfolio
+*MailApi* | [**replayMailWebhookDelivery**](https://docs.reacon.io/api-reference/replayMailWebhookDelivery) | **POST** /v1/teams/{teamId}/mail/webhooks/deliveries/{deliveryId}/replay | Replay a webhook delivery
+*MailApi* | [**replyToMailInboxMessage**](https://docs.reacon.io/api-reference/replyToMailInboxMessage) | **POST** /v1/teams/{teamId}/mail/inbox/{messageId}/reply | Queue an inbox reply
+*MailApi* | [**resumeMailExperiment**](https://docs.reacon.io/api-reference/resumeMailExperiment) | **POST** /v1/teams/{teamId}/mail/experiments/{experimentKey}/resume | Resume an experiment
+*MailApi* | [**resumeMailMailbox**](https://docs.reacon.io/api-reference/resumeMailMailbox) | **POST** /v1/teams/{teamId}/mail/deliverability/mailboxes/{mailboxId}/resume | Resume a mailbox
+*MailApi* | [**retryMailMessage**](https://docs.reacon.io/api-reference/retryMailMessage) | **POST** /v1/teams/{teamId}/mail/messages/{messageId}/retry | Retry a message explicitly
+*MailApi* | [**rotateMailWebhookSecret**](https://docs.reacon.io/api-reference/rotateMailWebhookSecret) | **POST** /v1/teams/{teamId}/mail/webhooks/{subscriptionId}/rotate-secret | Rotate a mail webhook secret
+*MailApi* | [**saveMailCadence**](https://docs.reacon.io/api-reference/saveMailCadence) | **POST** /v1/teams/{teamId}/mail/cadences | Save a cadence version
+*MailApi* | [**saveMailReplyAutomation**](https://docs.reacon.io/api-reference/saveMailReplyAutomation) | **POST** /v1/teams/{teamId}/mail/reply-automations | Save a reply automation
+*MailApi* | [**saveMailTemplate**](https://docs.reacon.io/api-reference/saveMailTemplate) | **POST** /v1/teams/{teamId}/mail/templates | Save a message template
+*MailApi* | [**setMailContactState**](https://docs.reacon.io/api-reference/setMailContactState) | **PUT** /v1/teams/{teamId}/mail/crm/states | Set a contact CRM state
+*MailApi* | [**setMailMailboxPoolMember**](https://docs.reacon.io/api-reference/setMailMailboxPoolMember) | **PUT** /v1/teams/{teamId}/mail/deliverability/pools/{poolId}/members/{mailboxId} | Set a mailbox pool member
+*MailApi* | [**setMailWebhookStatus**](https://docs.reacon.io/api-reference/setMailWebhookStatus) | **POST** /v1/teams/{teamId}/mail/webhooks/{subscriptionId}/status | Set a mail webhook status
+*MailApi* | [**startMailOAuth**](https://docs.reacon.io/api-reference/startMailOAuth) | **POST** /v1/teams/{teamId}/mail/oauth/begin | Start mailbox authorization
+*MailApi* | [**updateMailCampaignDraft**](https://docs.reacon.io/api-reference/updateMailCampaignDraft) | **PATCH** /v1/teams/{teamId}/mail/campaigns/{campaignId} | Update a campaign draft
+*MailApi* | [**updateMailInboxMessage**](https://docs.reacon.io/api-reference/updateMailInboxMessage) | **POST** /v1/teams/{teamId}/mail/inbox/{messageId} | Update an inbox message
+*MailApi* | [**updateMailWebhook**](https://docs.reacon.io/api-reference/updateMailWebhook) | **PATCH** /v1/teams/{teamId}/mail/webhooks/{subscriptionId} | Update a mail webhook
+*MailApi* | [**verifyMailTrackingDomain**](https://docs.reacon.io/api-reference/verifyMailTrackingDomain) | **POST** /v1/teams/{teamId}/mail/tracking-domain/verify | Verify a tracking domain
+*NamesApi* | [**listNamePatterns**](https://docs.reacon.io/api-reference/listNamePatterns) | **GET** /v1/name/schemas | List supported email name patterns
+*NamesApi* | [**verifyName**](https://docs.reacon.io/api-reference/verifyName) | **GET** /v1/name/verify | Verify name-based email patterns
+*ProductToolsApi* | [**executeProductTool**](https://docs.reacon.io/api-reference/executeProductTool) | **POST** /v1/product/tools/{tool} | Execute a product tool
+*StatsApi* | [**getStats**](https://docs.reacon.io/api-reference/getStats) | **GET** /v1/stats | Get public dataset statistics
+*VerificationApi* | [**verifyBatch**](https://docs.reacon.io/api-reference/verifyBatch) | **POST** /v1/verify/batch | Verify a batch of email addresses
+*VerificationApi* | [**verifyEmail**](https://docs.reacon.io/api-reference/verifyEmail) | **GET** /v1/verify | Verify an email address
+*WebhooksApi* | [**createAutomationHook**](https://docs.reacon.io/api-reference/createAutomationHook) | **POST** /v1/hooks | Create an automation webhook
+*WebhooksApi* | [**createSegmentInstallation**](https://docs.reacon.io/api-reference/createSegmentInstallation) | **POST** /v1/origin-installations/segment | Create a Segment origin installation
+*WebhooksApi* | [**deleteAutomationHook**](https://docs.reacon.io/api-reference/deleteAutomationHook) | **DELETE** /v1/hooks/{hookId} | Delete an automation webhook
+*WebhooksApi* | [**deleteSegmentInstallation**](https://docs.reacon.io/api-reference/deleteSegmentInstallation) | **DELETE** /v1/origin-installations/segment/{installationId} | Delete a Segment origin installation
 
 ## Models
 
-- [AirtableMappingOptionsResponse](docs/Model/AirtableMappingOptionsResponse.md)
-- [AirtableMappingOptionsResponseOptions](docs/Model/AirtableMappingOptionsResponseOptions.md)
-- [AirtableMappingOptionsResponseOptionsBasesInner](docs/Model/AirtableMappingOptionsResponseOptionsBasesInner.md)
-- [AirtableMappingOptionsResponseOptionsTablesInner](docs/Model/AirtableMappingOptionsResponseOptionsTablesInner.md)
-- [AirtableMappingOptionsResponseOptionsTablesInnerFieldsInner](docs/Model/AirtableMappingOptionsResponseOptionsTablesInnerFieldsInner.md)
-- [ApiError](docs/Model/ApiError.md)
-- [ApiKeyIdentity](docs/Model/ApiKeyIdentity.md)
-- [ApiValidationIssue](docs/Model/ApiValidationIssue.md)
-- [AutomationHookCreated](docs/Model/AutomationHookCreated.md)
-- [BatchVerificationError](docs/Model/BatchVerificationError.md)
-- [BatchVerificationItem](docs/Model/BatchVerificationItem.md)
-- [BatchVerificationRequest](docs/Model/BatchVerificationRequest.md)
-- [BatchVerificationRequestOnlyIfFree](docs/Model/BatchVerificationRequestOnlyIfFree.md)
-- [BatchVerificationResponse](docs/Model/BatchVerificationResponse.md)
-- [BindTypeformFormRequest](docs/Model/BindTypeformFormRequest.md)
-- [BindWebflowFormRequest](docs/Model/BindWebflowFormRequest.md)
-- [CapabilityDomainSearch](docs/Model/CapabilityDomainSearch.md)
-- [CapabilityDomainSearchContactsInner](docs/Model/CapabilityDomainSearchContactsInner.md)
-- [CapabilityEmailFound](docs/Model/CapabilityEmailFound.md)
-- [CapabilityEmailVerified](docs/Model/CapabilityEmailVerified.md)
-- [CapabilityEmailVerifiedDetails](docs/Model/CapabilityEmailVerifiedDetails.md)
-- [CodaTableInspectionResponse](docs/Model/CodaTableInspectionResponse.md)
-- [CodaTableInspectionResponseInspection](docs/Model/CodaTableInspectionResponseInspection.md)
-- [CompanyContextAddress](docs/Model/CompanyContextAddress.md)
-- [CompanyContextJob](docs/Model/CompanyContextJob.md)
-- [CompanyContextSource](docs/Model/CompanyContextSource.md)
-- [CompanyList](docs/Model/CompanyList.md)
-- [CompanyListResultsInner](docs/Model/CompanyListResultsInner.md)
-- [CompanyListResultsInnerAddressesInner](docs/Model/CompanyListResultsInnerAddressesInner.md)
-- [ConfigureAirtableMappingRequest](docs/Model/ConfigureAirtableMappingRequest.md)
-- [ConfigureCodaRequest](docs/Model/ConfigureCodaRequest.md)
-- [ConfigureCodaRequestMapping](docs/Model/ConfigureCodaRequestMapping.md)
-- [ConfigureCrmMappingRequest](docs/Model/ConfigureCrmMappingRequest.md)
-- [ConfigureCrmSyncRequest](docs/Model/ConfigureCrmSyncRequest.md)
-- [ConfigureCrmSyncRequestConfiguration](docs/Model/ConfigureCrmSyncRequestConfiguration.md)
-- [ConfigureCrmSyncRequestConfigurationHubspot](docs/Model/ConfigureCrmSyncRequestConfigurationHubspot.md)
-- [ConfigureCrmSyncRequestConfigurationHubspotDeal](docs/Model/ConfigureCrmSyncRequestConfigurationHubspotDeal.md)
-- [ConfigureCrmSyncRequestConfigurationPolicy](docs/Model/ConfigureCrmSyncRequestConfigurationPolicy.md)
-- [ConfigureFreshsalesRequest](docs/Model/ConfigureFreshsalesRequest.md)
-- [ConfigureNotificationRoutesRequest](docs/Model/ConfigureNotificationRoutesRequest.md)
-- [ConfigureSlackDestinationRequest](docs/Model/ConfigureSlackDestinationRequest.md)
-- [ConfigureTeamsWorkflowRequest](docs/Model/ConfigureTeamsWorkflowRequest.md)
-- [ConfigureTypeformFormRequest](docs/Model/ConfigureTypeformFormRequest.md)
-- [ConfigureWarehouseRequest](docs/Model/ConfigureWarehouseRequest.md)
-- [ConfigureWebflowFormRequest](docs/Model/ConfigureWebflowFormRequest.md)
-- [CreateAutomationHookRequest](docs/Model/CreateAutomationHookRequest.md)
-- [CreateLeadRequest](docs/Model/CreateLeadRequest.md)
-- [CreateLeadRequestCompany](docs/Model/CreateLeadRequestCompany.md)
-- [CreateLeadRequestPerson](docs/Model/CreateLeadRequestPerson.md)
-- [CreateLeadResponse](docs/Model/CreateLeadResponse.md)
-- [CreateLeadResponseLead](docs/Model/CreateLeadResponseLead.md)
-- [CreateSegmentInstallationRequest](docs/Model/CreateSegmentInstallationRequest.md)
-- [CrmMappingOptionsResponse](docs/Model/CrmMappingOptionsResponse.md)
-- [CrmMappingOptionsResponseOptions](docs/Model/CrmMappingOptionsResponseOptions.md)
-- [CrmMappingOptionsResponseOptionsObjectsInner](docs/Model/CrmMappingOptionsResponseOptionsObjectsInner.md)
-- [CrmRemoteField](docs/Model/CrmRemoteField.md)
-- [CrmSyncConfiguration](docs/Model/CrmSyncConfiguration.md)
-- [CrmSyncConfigurationHubspot](docs/Model/CrmSyncConfigurationHubspot.md)
-- [CrmSyncConfigurationHubspotDeal](docs/Model/CrmSyncConfigurationHubspotDeal.md)
-- [CrmSyncConfigurationPolicy](docs/Model/CrmSyncConfigurationPolicy.md)
-- [CrmSyncConfigurationResponse](docs/Model/CrmSyncConfigurationResponse.md)
-- [DeleteEmailResponse](docs/Model/DeleteEmailResponse.md)
-- [DeleteLeadResponse](docs/Model/DeleteLeadResponse.md)
-- [DomainCatchAll](docs/Model/DomainCatchAll.md)
-- [DomainCompanyContext](docs/Model/DomainCompanyContext.md)
-- [DomainCompanyContextCompany](docs/Model/DomainCompanyContextCompany.md)
-- [DomainCounts](docs/Model/DomainCounts.md)
-- [EmailMention](docs/Model/EmailMention.md)
-- [EmailMentionsPage](docs/Model/EmailMentionsPage.md)
-- [EmailNotFoundError](docs/Model/EmailNotFoundError.md)
-- [EmailNotFoundErrorError](docs/Model/EmailNotFoundErrorError.md)
-- [EmailPage](docs/Model/EmailPage.md)
-- [EmailPageResultsInner](docs/Model/EmailPageResultsInner.md)
-- [EmailPageResultsInnerSourcesInner](docs/Model/EmailPageResultsInnerSourcesInner.md)
-- [EmailRevealResponse](docs/Model/EmailRevealResponse.md)
-- [EmailRevealResponseProfile](docs/Model/EmailRevealResponseProfile.md)
-- [ExcelWorkbookInspectionResponse](docs/Model/ExcelWorkbookInspectionResponse.md)
-- [ExcelWorkbookInspectionResponseInspection](docs/Model/ExcelWorkbookInspectionResponseInspection.md)
-- [ExecuteIntegrationCapabilityRequest](docs/Model/ExecuteIntegrationCapabilityRequest.md)
-- [ExportLeadsRequest](docs/Model/ExportLeadsRequest.md)
-- [ExportLeadsRequestSelectionScopesInner](docs/Model/ExportLeadsRequestSelectionScopesInner.md)
-- [GetLeadResponse](docs/Model/GetLeadResponse.md)
-- [GetLeadResponseLead](docs/Model/GetLeadResponseLead.md)
-- [GetLeadResponseLeadCompany](docs/Model/GetLeadResponseLeadCompany.md)
-- [GetLeadResponseLeadSync](docs/Model/GetLeadResponseLeadSync.md)
-- [GetLeadResponseLeadVerification](docs/Model/GetLeadResponseLeadVerification.md)
-- [GoogleSheetInspectionResponse](docs/Model/GoogleSheetInspectionResponse.md)
-- [GoogleSheetInspectionResponseInspection](docs/Model/GoogleSheetInspectionResponseInspection.md)
-- [HubSpotConfigurationOptionsResponse](docs/Model/HubSpotConfigurationOptionsResponse.md)
-- [HubSpotConfigurationOptionsResponseOptions](docs/Model/HubSpotConfigurationOptionsResponseOptions.md)
-- [HubSpotConfigurationOptionsResponseOptionsOwnersInner](docs/Model/HubSpotConfigurationOptionsResponseOptionsOwnersInner.md)
-- [HubSpotConfigurationOptionsResponseOptionsPipelinesInner](docs/Model/HubSpotConfigurationOptionsResponseOptionsPipelinesInner.md)
-- [HubSpotConfigurationOptionsResponseOptionsPipelinesInnerStagesInner](docs/Model/HubSpotConfigurationOptionsResponseOptionsPipelinesInnerStagesInner.md)
-- [InsightAddress](docs/Model/InsightAddress.md)
-- [InsightAddressEntry](docs/Model/InsightAddressEntry.md)
-- [InsightAttribute](docs/Model/InsightAttribute.md)
-- [InsightErrorEvent](docs/Model/InsightErrorEvent.md)
-- [InsightEvidence](docs/Model/InsightEvidence.md)
-- [InsightFinalEvent](docs/Model/InsightFinalEvent.md)
-- [InsightGeo](docs/Model/InsightGeo.md)
-- [InsightIdentifier](docs/Model/InsightIdentifier.md)
-- [InsightJurisdiction](docs/Model/InsightJurisdiction.md)
-- [InsightMention](docs/Model/InsightMention.md)
-- [InsightMentionErrorEvent](docs/Model/InsightMentionErrorEvent.md)
-- [InsightMentionExtractedEvent](docs/Model/InsightMentionExtractedEvent.md)
-- [InsightMentionInsightEvent](docs/Model/InsightMentionInsightEvent.md)
-- [InsightOffice](docs/Model/InsightOffice.md)
-- [InsightOrganization](docs/Model/InsightOrganization.md)
-- [InsightPhone](docs/Model/InsightPhone.md)
-- [InsightPlatformDetectedEvent](docs/Model/InsightPlatformDetectedEvent.md)
-- [InsightPlatformProgressEvent](docs/Model/InsightPlatformProgressEvent.md)
-- [InsightPlatformScan](docs/Model/InsightPlatformScan.md)
-- [InsightPlatformScanEvent](docs/Model/InsightPlatformScanEvent.md)
-- [InsightRole](docs/Model/InsightRole.md)
-- [InsightSocialProfile](docs/Model/InsightSocialProfile.md)
-- [InsightSource](docs/Model/InsightSource.md)
-- [InsightStartedEvent](docs/Model/InsightStartedEvent.md)
-- [InsightsResponse](docs/Model/InsightsResponse.md)
-- [InspectCodaTableRequest](docs/Model/InspectCodaTableRequest.md)
-- [InspectExcelWorkbookRequest](docs/Model/InspectExcelWorkbookRequest.md)
-- [InspectGoogleSheetRequest](docs/Model/InspectGoogleSheetRequest.md)
-- [IntegrationCapabilityResponse](docs/Model/IntegrationCapabilityResponse.md)
-- [IntegrationCapabilityResponseOutput](docs/Model/IntegrationCapabilityResponseOutput.md)
-- [IntegrationCapabilityResponseOutputNonNull](docs/Model/IntegrationCapabilityResponseOutputNonNull.md)
-- [IntegrationConnection](docs/Model/IntegrationConnection.md)
-- [IntegrationConnectionHealth](docs/Model/IntegrationConnectionHealth.md)
-- [IntegrationConnectionList](docs/Model/IntegrationConnectionList.md)
-- [IntegrationConnectionResponse](docs/Model/IntegrationConnectionResponse.md)
-- [IntegrationConnectionStateResponse](docs/Model/IntegrationConnectionStateResponse.md)
-- [IntegrationConnectionTest](docs/Model/IntegrationConnectionTest.md)
-- [IntegrationConnectionTestResponse](docs/Model/IntegrationConnectionTestResponse.md)
-- [IntegrationFormConnectionResponse](docs/Model/IntegrationFormConnectionResponse.md)
-- [IntegrationJob](docs/Model/IntegrationJob.md)
-- [IntegrationJobCancellation](docs/Model/IntegrationJobCancellation.md)
-- [IntegrationJobCounters](docs/Model/IntegrationJobCounters.md)
-- [IntegrationJobPage](docs/Model/IntegrationJobPage.md)
-- [IntegrationJobResponse](docs/Model/IntegrationJobResponse.md)
-- [IntegrationLeadExportResponse](docs/Model/IntegrationLeadExportResponse.md)
-- [IntegrationOAuthStartResponse](docs/Model/IntegrationOAuthStartResponse.md)
-- [IntegrationProviderList](docs/Model/IntegrationProviderList.md)
-- [IntegrationProviderListProvidersInner](docs/Model/IntegrationProviderListProvidersInner.md)
-- [IntegrationProviderListProvidersInnerConnectability](docs/Model/IntegrationProviderListProvidersInnerConnectability.md)
-- [IntegrationProviderListProvidersInnerReadiness](docs/Model/IntegrationProviderListProvidersInnerReadiness.md)
-- [LeadExportInner](docs/Model/LeadExportInner.md)
-- [LeadExportInnerCompany](docs/Model/LeadExportInnerCompany.md)
-- [LeadExportInnerPerson](docs/Model/LeadExportInnerPerson.md)
-- [LeadExportTooLargeError](docs/Model/LeadExportTooLargeError.md)
-- [LeadPage](docs/Model/LeadPage.md)
-- [LeadPageResultsInner](docs/Model/LeadPageResultsInner.md)
-- [LeadPageResultsInnerCompany](docs/Model/LeadPageResultsInnerCompany.md)
-- [LinkMcpIdentityRequest](docs/Model/LinkMcpIdentityRequest.md)
-- [MailCadenceCampaignRecord](docs/Model/MailCadenceCampaignRecord.md)
-- [MailCadenceDefinition](docs/Model/MailCadenceDefinition.md)
-- [MailCadenceEnrollmentVariableGap](docs/Model/MailCadenceEnrollmentVariableGap.md)
-- [MailCadenceExperimentContext](docs/Model/MailCadenceExperimentContext.md)
-- [MailCadenceMessageExperiment](docs/Model/MailCadenceMessageExperiment.md)
-- [MailCadenceMessageExperimentVariant](docs/Model/MailCadenceMessageExperimentVariant.md)
-- [MailCadenceNode](docs/Model/MailCadenceNode.md)
-- [MailCadenceNodeAnyOf](docs/Model/MailCadenceNodeAnyOf.md)
-- [MailCadenceNodeAnyOf1](docs/Model/MailCadenceNodeAnyOf1.md)
-- [MailCadenceNodeAnyOf2](docs/Model/MailCadenceNodeAnyOf2.md)
-- [MailCadenceNodeAnyOf3](docs/Model/MailCadenceNodeAnyOf3.md)
-- [MailCadenceNodeAnyOf4](docs/Model/MailCadenceNodeAnyOf4.md)
-- [MailCadenceNodeAnyOf4AllOfCondition](docs/Model/MailCadenceNodeAnyOf4AllOfCondition.md)
-- [MailCadenceNodeAnyOf5](docs/Model/MailCadenceNodeAnyOf5.md)
-- [MailCadenceNodeAnyOf6](docs/Model/MailCadenceNodeAnyOf6.md)
-- [MailCadenceNodeBase](docs/Model/MailCadenceNodeBase.md)
-- [MailCadenceRunRecord](docs/Model/MailCadenceRunRecord.md)
-- [MailCadenceStopConditions](docs/Model/MailCadenceStopConditions.md)
-- [MailCadenceWorkflowExperiment](docs/Model/MailCadenceWorkflowExperiment.md)
-- [MailCadenceWorkflowExperimentVariant](docs/Model/MailCadenceWorkflowExperimentVariant.md)
-- [MailCampaignDraftRecord](docs/Model/MailCampaignDraftRecord.md)
-- [MailCampaignDraftStep](docs/Model/MailCampaignDraftStep.md)
-- [MailCampaignProgress](docs/Model/MailCampaignProgress.md)
-- [MailCampaignProgressMessageCounts](docs/Model/MailCampaignProgressMessageCounts.md)
-- [MailContactCrmState](docs/Model/MailContactCrmState.md)
-- [MailContactListSummaryRecord](docs/Model/MailContactListSummaryRecord.md)
-- [MailContactRecord](docs/Model/MailContactRecord.md)
-- [MailConversationEntry](docs/Model/MailConversationEntry.md)
-- [MailConversationEntryFrom](docs/Model/MailConversationEntryFrom.md)
-- [MailConversationEntryLastError](docs/Model/MailConversationEntryLastError.md)
-- [MailConversationEntryLastErrorAnyOf](docs/Model/MailConversationEntryLastErrorAnyOf.md)
-- [MailConversationEntryLastErrorAnyOf1](docs/Model/MailConversationEntryLastErrorAnyOf1.md)
-- [MailConversationEntryLastErrorAnyOf2](docs/Model/MailConversationEntryLastErrorAnyOf2.md)
-- [MailConversationThread](docs/Model/MailConversationThread.md)
-- [MailCrmTask](docs/Model/MailCrmTask.md)
-- [MailCrmTimelineEvent](docs/Model/MailCrmTimelineEvent.md)
-- [MailDeleteCampaignsByCampaignIdRequest](docs/Model/MailDeleteCampaignsByCampaignIdRequest.md)
-- [MailDeleteCampaignsByCampaignIdResponse200](docs/Model/MailDeleteCampaignsByCampaignIdResponse200.md)
-- [MailDeleteDeliverabilityPoolsByPoolIdMembersByMailboxIdResponse200](docs/Model/MailDeleteDeliverabilityPoolsByPoolIdMembersByMailboxIdResponse200.md)
-- [MailDeleteMailboxesByMailboxIdResponse200](docs/Model/MailDeleteMailboxesByMailboxIdResponse200.md)
-- [MailDeletePortfolioTeamsByMemberTeamIdResponse200](docs/Model/MailDeletePortfolioTeamsByMemberTeamIdResponse200.md)
-- [MailDeleteReplyAutomationsByAutomationIdResponse200](docs/Model/MailDeleteReplyAutomationsByAutomationIdResponse200.md)
-- [MailDeleteTrackingDomainResponse200](docs/Model/MailDeleteTrackingDomainResponse200.md)
-- [MailDeleteWebhooksBySubscriptionIdResponse200](docs/Model/MailDeleteWebhooksBySubscriptionIdResponse200.md)
-- [MailDomainHealthCheck](docs/Model/MailDomainHealthCheck.md)
-- [MailDomainHealthReport](docs/Model/MailDomainHealthReport.md)
-- [MailEvidenceField](docs/Model/MailEvidenceField.md)
-- [MailExperimentDecisionRecord](docs/Model/MailExperimentDecisionRecord.md)
-- [MailExperimentDefinitionRecord](docs/Model/MailExperimentDefinitionRecord.md)
-- [MailExperimentOutcomeRecord](docs/Model/MailExperimentOutcomeRecord.md)
-- [MailExperimentReport](docs/Model/MailExperimentReport.md)
-- [MailExperimentReportDecision](docs/Model/MailExperimentReportDecision.md)
-- [MailExperimentRevisionRecord](docs/Model/MailExperimentRevisionRecord.md)
-- [MailExperimentVariant](docs/Model/MailExperimentVariant.md)
-- [MailExperimentVariantReport](docs/Model/MailExperimentVariantReport.md)
-- [MailExperimentVariantReportConfidenceInterval95](docs/Model/MailExperimentVariantReportConfidenceInterval95.md)
-- [MailExperimentVariantReportGuardrails](docs/Model/MailExperimentVariantReportGuardrails.md)
-- [MailGetAnalyticsResponse200](docs/Model/MailGetAnalyticsResponse200.md)
-- [MailGetAudienceListsResponse200](docs/Model/MailGetAudienceListsResponse200.md)
-- [MailGetCadenceCampaignsResponse200](docs/Model/MailGetCadenceCampaignsResponse200.md)
-- [MailGetCadenceRunsResponse200](docs/Model/MailGetCadenceRunsResponse200.md)
-- [MailGetCadencesResponse200](docs/Model/MailGetCadencesResponse200.md)
-- [MailGetCampaignProgressResponse200](docs/Model/MailGetCampaignProgressResponse200.md)
-- [MailGetCampaignsByCampaignIdResponse200](docs/Model/MailGetCampaignsByCampaignIdResponse200.md)
-- [MailGetCampaignsResponse200](docs/Model/MailGetCampaignsResponse200.md)
-- [MailGetChannelsResponse200](docs/Model/MailGetChannelsResponse200.md)
-- [MailGetChannelsResponse200Email](docs/Model/MailGetChannelsResponse200Email.md)
-- [MailGetChannelsResponse200Execution](docs/Model/MailGetChannelsResponse200Execution.md)
-- [MailGetChannelsResponse200Sms](docs/Model/MailGetChannelsResponse200Sms.md)
-- [MailGetChannelsResponse200Whatsapp](docs/Model/MailGetChannelsResponse200Whatsapp.md)
-- [MailGetCrmStatesResponse200](docs/Model/MailGetCrmStatesResponse200.md)
-- [MailGetCrmTasksResponse200](docs/Model/MailGetCrmTasksResponse200.md)
-- [MailGetCrmTimelineResponse200](docs/Model/MailGetCrmTimelineResponse200.md)
-- [MailGetDeliverabilityResponse200](docs/Model/MailGetDeliverabilityResponse200.md)
-- [MailGetDeliverabilityResponse200PoolsInner](docs/Model/MailGetDeliverabilityResponse200PoolsInner.md)
-- [MailGetExperimentsByExperimentKeyReportResponse200](docs/Model/MailGetExperimentsByExperimentKeyReportResponse200.md)
-- [MailGetExperimentsOverviewResponse200](docs/Model/MailGetExperimentsOverviewResponse200.md)
-- [MailGetExperimentsResponse200](docs/Model/MailGetExperimentsResponse200.md)
-- [MailGetExperimentsResponse200ResultsInner](docs/Model/MailGetExperimentsResponse200ResultsInner.md)
-- [MailGetInboxResponse200](docs/Model/MailGetInboxResponse200.md)
-- [MailGetInboxThreadsResponse200](docs/Model/MailGetInboxThreadsResponse200.md)
-- [MailGetMailboxesResponse200](docs/Model/MailGetMailboxesResponse200.md)
-- [MailGetMessagesResponse200](docs/Model/MailGetMessagesResponse200.md)
-- [MailGetOverviewResponse200](docs/Model/MailGetOverviewResponse200.md)
-- [MailGetOverviewResponse200Inbox](docs/Model/MailGetOverviewResponse200Inbox.md)
-- [MailGetPortfolioOverviewResponse200](docs/Model/MailGetPortfolioOverviewResponse200.md)
-- [MailGetPortfolioResponse200](docs/Model/MailGetPortfolioResponse200.md)
-- [MailGetPortfolioResponse200AnyOf](docs/Model/MailGetPortfolioResponse200AnyOf.md)
-- [MailGetPortfolioResponse200AnyOf1](docs/Model/MailGetPortfolioResponse200AnyOf1.md)
-- [MailGetPortfolioResponse200Portfolio](docs/Model/MailGetPortfolioResponse200Portfolio.md)
-- [MailGetQueueResponse200](docs/Model/MailGetQueueResponse200.md)
-- [MailGetReplyAutomationsResponse200](docs/Model/MailGetReplyAutomationsResponse200.md)
-- [MailGetSignaturesResponse200](docs/Model/MailGetSignaturesResponse200.md)
-- [MailGetSuppressionsResponse200](docs/Model/MailGetSuppressionsResponse200.md)
-- [MailGetTemplatesResponse200](docs/Model/MailGetTemplatesResponse200.md)
-- [MailGetTrackingDomainResponse200](docs/Model/MailGetTrackingDomainResponse200.md)
-- [MailGetTrackingDomainResponse200Domain](docs/Model/MailGetTrackingDomainResponse200Domain.md)
-- [MailGetWebhooksResponse200](docs/Model/MailGetWebhooksResponse200.md)
-- [MailGetWebhooksResponse200SubscriptionsInner](docs/Model/MailGetWebhooksResponse200SubscriptionsInner.md)
-- [MailImapCursor](docs/Model/MailImapCursor.md)
-- [MailInboxMessageRecord](docs/Model/MailInboxMessageRecord.md)
-- [MailMailAddress](docs/Model/MailMailAddress.md)
-- [MailMailPortfolio](docs/Model/MailMailPortfolio.md)
-- [MailMailPortfolioOverviewRow](docs/Model/MailMailPortfolioOverviewRow.md)
-- [MailMailPortfolioSuppression](docs/Model/MailMailPortfolioSuppression.md)
-- [MailMailPortfolioTeam](docs/Model/MailMailPortfolioTeam.md)
-- [MailMailboxConnectionRecord](docs/Model/MailMailboxConnectionRecord.md)
-- [MailMailboxHealthRecord](docs/Model/MailMailboxHealthRecord.md)
-- [MailMailboxPoolMember](docs/Model/MailMailboxPoolMember.md)
-- [MailMailboxProviderKind](docs/Model/MailMailboxProviderKind.md)
-- [MailMailboxRecord](docs/Model/MailMailboxRecord.md)
-- [MailMessageAnalyticsOverview](docs/Model/MailMessageAnalyticsOverview.md)
-- [MailMessageAnalyticsOverviewDailyInner](docs/Model/MailMessageAnalyticsOverviewDailyInner.md)
-- [MailMessageAnalyticsOverviewMailboxesInner](docs/Model/MailMessageAnalyticsOverviewMailboxesInner.md)
-- [MailMessageAnalyticsOverviewVariantsInner](docs/Model/MailMessageAnalyticsOverviewVariantsInner.md)
-- [MailMessagePolicy](docs/Model/MailMessagePolicy.md)
-- [MailMessagePolicyInput](docs/Model/MailMessagePolicyInput.md)
-- [MailMessageRecord](docs/Model/MailMessageRecord.md)
-- [MailMessageTemplateVersion](docs/Model/MailMessageTemplateVersion.md)
-- [MailMessageTemplateVersionWhatsappApproval](docs/Model/MailMessageTemplateVersionWhatsappApproval.md)
-- [MailMessageVariantInput](docs/Model/MailMessageVariantInput.md)
-- [MailOperationalAnalyticsOverview](docs/Model/MailOperationalAnalyticsOverview.md)
-- [MailOperationalAnalyticsOverviewCadenceStepsInner](docs/Model/MailOperationalAnalyticsOverviewCadenceStepsInner.md)
-- [MailPatchCampaignsByCampaignIdRequest](docs/Model/MailPatchCampaignsByCampaignIdRequest.md)
-- [MailPatchCampaignsByCampaignIdRequestPolicy](docs/Model/MailPatchCampaignsByCampaignIdRequestPolicy.md)
-- [MailPatchCampaignsByCampaignIdRequestPolicyDomainQuotasInner](docs/Model/MailPatchCampaignsByCampaignIdRequestPolicyDomainQuotasInner.md)
-- [MailPatchCampaignsByCampaignIdRequestPolicySendingWindowsInner](docs/Model/MailPatchCampaignsByCampaignIdRequestPolicySendingWindowsInner.md)
-- [MailPatchCampaignsByCampaignIdRequestStepsInner](docs/Model/MailPatchCampaignsByCampaignIdRequestStepsInner.md)
-- [MailPatchCampaignsByCampaignIdRequestStepsInnerVariantsInner](docs/Model/MailPatchCampaignsByCampaignIdRequestStepsInnerVariantsInner.md)
-- [MailPatchCampaignsByCampaignIdResponse200](docs/Model/MailPatchCampaignsByCampaignIdResponse200.md)
-- [MailPatchWebhooksBySubscriptionIdRequest](docs/Model/MailPatchWebhooksBySubscriptionIdRequest.md)
-- [MailPatchWebhooksBySubscriptionIdResponse200](docs/Model/MailPatchWebhooksBySubscriptionIdResponse200.md)
-- [MailPhoneNumberValue](docs/Model/MailPhoneNumberValue.md)
-- [MailPostAnalyticsExportRequest](docs/Model/MailPostAnalyticsExportRequest.md)
-- [MailPostAnalyticsExportRequestAfter](docs/Model/MailPostAnalyticsExportRequestAfter.md)
-- [MailPostAnalyticsExportResponse200](docs/Model/MailPostAnalyticsExportResponse200.md)
-- [MailPostAnalyticsExportResponse200NextCursor](docs/Model/MailPostAnalyticsExportResponse200NextCursor.md)
-- [MailPostCadenceCampaignsByCampaignIdStateRequest](docs/Model/MailPostCadenceCampaignsByCampaignIdStateRequest.md)
-- [MailPostCadenceCampaignsByCampaignIdStateResponse200](docs/Model/MailPostCadenceCampaignsByCampaignIdStateResponse200.md)
-- [MailPostCadenceCampaignsByCampaignIdStateResponse200AnyOf](docs/Model/MailPostCadenceCampaignsByCampaignIdStateResponse200AnyOf.md)
-- [MailPostCadenceCampaignsByCampaignIdStateResponse200AnyOf1](docs/Model/MailPostCadenceCampaignsByCampaignIdStateResponse200AnyOf1.md)
-- [MailPostCadenceCampaignsRequest](docs/Model/MailPostCadenceCampaignsRequest.md)
-- [MailPostCadenceCampaignsResponse202](docs/Model/MailPostCadenceCampaignsResponse202.md)
-- [MailPostCadenceRunsByRunIdStateRequest](docs/Model/MailPostCadenceRunsByRunIdStateRequest.md)
-- [MailPostCadenceRunsByRunIdStateResponse200](docs/Model/MailPostCadenceRunsByRunIdStateResponse200.md)
-- [MailPostCadenceRunsPreflightRequest](docs/Model/MailPostCadenceRunsPreflightRequest.md)
-- [MailPostCadenceRunsPreflightResponse200](docs/Model/MailPostCadenceRunsPreflightResponse200.md)
-- [MailPostCadenceRunsRequest](docs/Model/MailPostCadenceRunsRequest.md)
-- [MailPostCadenceRunsResponse200](docs/Model/MailPostCadenceRunsResponse200.md)
-- [MailPostCadencesByCadenceIdCopyRequest](docs/Model/MailPostCadencesByCadenceIdCopyRequest.md)
-- [MailPostCadencesByCadenceIdCopyResponse200](docs/Model/MailPostCadencesByCadenceIdCopyResponse200.md)
-- [MailPostCadencesRequest](docs/Model/MailPostCadencesRequest.md)
-- [MailPostCadencesRequestNodesInner](docs/Model/MailPostCadencesRequestNodesInner.md)
-- [MailPostCadencesRequestNodesInnerAnyOf](docs/Model/MailPostCadencesRequestNodesInnerAnyOf.md)
-- [MailPostCadencesRequestNodesInnerAnyOf1](docs/Model/MailPostCadencesRequestNodesInnerAnyOf1.md)
-- [MailPostCadencesRequestNodesInnerAnyOf1Experiment](docs/Model/MailPostCadencesRequestNodesInnerAnyOf1Experiment.md)
-- [MailPostCadencesRequestNodesInnerAnyOf1ExperimentVariantsInner](docs/Model/MailPostCadencesRequestNodesInnerAnyOf1ExperimentVariantsInner.md)
-- [MailPostCadencesRequestNodesInnerAnyOf2](docs/Model/MailPostCadencesRequestNodesInnerAnyOf2.md)
-- [MailPostCadencesRequestNodesInnerAnyOf3](docs/Model/MailPostCadencesRequestNodesInnerAnyOf3.md)
-- [MailPostCadencesRequestNodesInnerAnyOf4](docs/Model/MailPostCadencesRequestNodesInnerAnyOf4.md)
-- [MailPostCadencesRequestNodesInnerAnyOf4Condition](docs/Model/MailPostCadencesRequestNodesInnerAnyOf4Condition.md)
-- [MailPostCadencesRequestNodesInnerAnyOf5](docs/Model/MailPostCadencesRequestNodesInnerAnyOf5.md)
-- [MailPostCadencesRequestNodesInnerAnyOf5Experiment](docs/Model/MailPostCadencesRequestNodesInnerAnyOf5Experiment.md)
-- [MailPostCadencesRequestNodesInnerAnyOf5ExperimentVariantsInner](docs/Model/MailPostCadencesRequestNodesInnerAnyOf5ExperimentVariantsInner.md)
-- [MailPostCadencesRequestNodesInnerAnyOf6](docs/Model/MailPostCadencesRequestNodesInnerAnyOf6.md)
-- [MailPostCadencesRequestStopConditions](docs/Model/MailPostCadencesRequestStopConditions.md)
-- [MailPostCadencesResponse200](docs/Model/MailPostCadencesResponse200.md)
-- [MailPostCampaignsByCampaignIdDuplicateResponse201](docs/Model/MailPostCampaignsByCampaignIdDuplicateResponse201.md)
-- [MailPostCampaignsByCampaignIdLaunchRequest](docs/Model/MailPostCampaignsByCampaignIdLaunchRequest.md)
-- [MailPostCampaignsByCampaignIdLaunchResponse200](docs/Model/MailPostCampaignsByCampaignIdLaunchResponse200.md)
-- [MailPostCampaignsByCampaignIdLaunchResponse200Campaign](docs/Model/MailPostCampaignsByCampaignIdLaunchResponse200Campaign.md)
-- [MailPostCampaignsByCampaignIdStateRequest](docs/Model/MailPostCampaignsByCampaignIdStateRequest.md)
-- [MailPostCampaignsByCampaignIdStateResponse200](docs/Model/MailPostCampaignsByCampaignIdStateResponse200.md)
-- [MailPostCampaignsRequest](docs/Model/MailPostCampaignsRequest.md)
-- [MailPostCampaignsResponse201](docs/Model/MailPostCampaignsResponse201.md)
-- [MailPostCrmClassifyReplyRequest](docs/Model/MailPostCrmClassifyReplyRequest.md)
-- [MailPostCrmClassifyReplyResponse200](docs/Model/MailPostCrmClassifyReplyResponse200.md)
-- [MailPostCrmContactsBatchRequest](docs/Model/MailPostCrmContactsBatchRequest.md)
-- [MailPostCrmContactsBatchResponse200](docs/Model/MailPostCrmContactsBatchResponse200.md)
-- [MailPostCrmNotesRequest](docs/Model/MailPostCrmNotesRequest.md)
-- [MailPostCrmNotesResponse200](docs/Model/MailPostCrmNotesResponse200.md)
-- [MailPostCrmNotesResponse200Event](docs/Model/MailPostCrmNotesResponse200Event.md)
-- [MailPostCrmNotesResponse200EventPayload](docs/Model/MailPostCrmNotesResponse200EventPayload.md)
-- [MailPostCrmStatesBatchRequest](docs/Model/MailPostCrmStatesBatchRequest.md)
-- [MailPostCrmStatesBatchResponse200](docs/Model/MailPostCrmStatesBatchResponse200.md)
-- [MailPostCrmTasksByTaskIdCompleteRequest](docs/Model/MailPostCrmTasksByTaskIdCompleteRequest.md)
-- [MailPostCrmTasksByTaskIdCompleteResponse200](docs/Model/MailPostCrmTasksByTaskIdCompleteResponse200.md)
-- [MailPostCrmTasksRequest](docs/Model/MailPostCrmTasksRequest.md)
-- [MailPostCrmTasksResponse201](docs/Model/MailPostCrmTasksResponse201.md)
-- [MailPostDeliverabilityDomainHealthRequest](docs/Model/MailPostDeliverabilityDomainHealthRequest.md)
-- [MailPostDeliverabilityDomainHealthResponse200](docs/Model/MailPostDeliverabilityDomainHealthResponse200.md)
-- [MailPostDeliverabilityMailboxesByMailboxIdPauseRequest](docs/Model/MailPostDeliverabilityMailboxesByMailboxIdPauseRequest.md)
-- [MailPostDeliverabilityMailboxesByMailboxIdPauseResponse200](docs/Model/MailPostDeliverabilityMailboxesByMailboxIdPauseResponse200.md)
-- [MailPostDeliverabilityMailboxesByMailboxIdReconcileResponse200](docs/Model/MailPostDeliverabilityMailboxesByMailboxIdReconcileResponse200.md)
-- [MailPostDeliverabilityMailboxesByMailboxIdRequest](docs/Model/MailPostDeliverabilityMailboxesByMailboxIdRequest.md)
-- [MailPostDeliverabilityMailboxesByMailboxIdResponse200](docs/Model/MailPostDeliverabilityMailboxesByMailboxIdResponse200.md)
-- [MailPostDeliverabilityMailboxesByMailboxIdResumeResponse200](docs/Model/MailPostDeliverabilityMailboxesByMailboxIdResumeResponse200.md)
-- [MailPostDeliverabilityPoolsRequest](docs/Model/MailPostDeliverabilityPoolsRequest.md)
-- [MailPostDeliverabilityPoolsResponse201](docs/Model/MailPostDeliverabilityPoolsResponse201.md)
-- [MailPostDeliverabilityPoolsResponse201Pool](docs/Model/MailPostDeliverabilityPoolsResponse201Pool.md)
-- [MailPostExperimentsByExperimentKeyArchiveResponse200](docs/Model/MailPostExperimentsByExperimentKeyArchiveResponse200.md)
-- [MailPostExperimentsByExperimentKeyConversionsRequest](docs/Model/MailPostExperimentsByExperimentKeyConversionsRequest.md)
-- [MailPostExperimentsByExperimentKeyConversionsResponse200](docs/Model/MailPostExperimentsByExperimentKeyConversionsResponse200.md)
-- [MailPostExperimentsByExperimentKeyDecideRequest](docs/Model/MailPostExperimentsByExperimentKeyDecideRequest.md)
-- [MailPostExperimentsByExperimentKeyDecideResponse200](docs/Model/MailPostExperimentsByExperimentKeyDecideResponse200.md)
-- [MailPostExperimentsByExperimentKeyPauseResponse200](docs/Model/MailPostExperimentsByExperimentKeyPauseResponse200.md)
-- [MailPostExperimentsByExperimentKeyResumeResponse200](docs/Model/MailPostExperimentsByExperimentKeyResumeResponse200.md)
-- [MailPostInboxByMessageIdReplyRequest](docs/Model/MailPostInboxByMessageIdReplyRequest.md)
-- [MailPostInboxByMessageIdReplyResponse200](docs/Model/MailPostInboxByMessageIdReplyResponse200.md)
-- [MailPostInboxByMessageIdRequest](docs/Model/MailPostInboxByMessageIdRequest.md)
-- [MailPostInboxByMessageIdResponse200](docs/Model/MailPostInboxByMessageIdResponse200.md)
-- [MailPostInboxByMessageIdResponse200Message](docs/Model/MailPostInboxByMessageIdResponse200Message.md)
-- [MailPostMailboxesManualRequest](docs/Model/MailPostMailboxesManualRequest.md)
-- [MailPostMailboxesManualRequestImap](docs/Model/MailPostMailboxesManualRequestImap.md)
-- [MailPostMailboxesManualRequestSmtp](docs/Model/MailPostMailboxesManualRequestSmtp.md)
-- [MailPostMailboxesManualResponse200](docs/Model/MailPostMailboxesManualResponse200.md)
-- [MailPostMessagesByMessageIdCancelResponse200](docs/Model/MailPostMessagesByMessageIdCancelResponse200.md)
-- [MailPostMessagesByMessageIdRetryResponse200](docs/Model/MailPostMessagesByMessageIdRetryResponse200.md)
-- [MailPostMessagesRequest](docs/Model/MailPostMessagesRequest.md)
-- [MailPostMessagesRequestTo](docs/Model/MailPostMessagesRequestTo.md)
-- [MailPostMessagesResponse201](docs/Model/MailPostMessagesResponse201.md)
-- [MailPostOauthBeginRequest](docs/Model/MailPostOauthBeginRequest.md)
-- [MailPostOauthBeginResponse200](docs/Model/MailPostOauthBeginResponse200.md)
-- [MailPostPortfolioExportResponse200](docs/Model/MailPostPortfolioExportResponse200.md)
-- [MailPostPortfolioRequest](docs/Model/MailPostPortfolioRequest.md)
-- [MailPostPortfolioResponse200](docs/Model/MailPostPortfolioResponse200.md)
-- [MailPostPortfolioSuppressionsRequest](docs/Model/MailPostPortfolioSuppressionsRequest.md)
-- [MailPostPortfolioSuppressionsRequestAnyOf](docs/Model/MailPostPortfolioSuppressionsRequestAnyOf.md)
-- [MailPostPortfolioSuppressionsRequestAnyOf1](docs/Model/MailPostPortfolioSuppressionsRequestAnyOf1.md)
-- [MailPostPortfolioSuppressionsResponse200](docs/Model/MailPostPortfolioSuppressionsResponse200.md)
-- [MailPostPortfolioTeamsRequest](docs/Model/MailPostPortfolioTeamsRequest.md)
-- [MailPostPortfolioTeamsResponse200](docs/Model/MailPostPortfolioTeamsResponse200.md)
-- [MailPostReplyAutomationsRequest](docs/Model/MailPostReplyAutomationsRequest.md)
-- [MailPostReplyAutomationsRequestActions](docs/Model/MailPostReplyAutomationsRequestActions.md)
-- [MailPostReplyAutomationsRequestActionsTask](docs/Model/MailPostReplyAutomationsRequestActionsTask.md)
-- [MailPostReplyAutomationsResponse200](docs/Model/MailPostReplyAutomationsResponse200.md)
-- [MailPostSuppressionsRequest](docs/Model/MailPostSuppressionsRequest.md)
-- [MailPostSuppressionsRequestAnyOf](docs/Model/MailPostSuppressionsRequestAnyOf.md)
-- [MailPostSuppressionsRequestAnyOf1](docs/Model/MailPostSuppressionsRequestAnyOf1.md)
-- [MailPostSuppressionsResponse200](docs/Model/MailPostSuppressionsResponse200.md)
-- [MailPostTemplatesByTemplateIdCopyRequest](docs/Model/MailPostTemplatesByTemplateIdCopyRequest.md)
-- [MailPostTemplatesByTemplateIdCopyResponse200](docs/Model/MailPostTemplatesByTemplateIdCopyResponse200.md)
-- [MailPostTemplatesRequest](docs/Model/MailPostTemplatesRequest.md)
-- [MailPostTemplatesRequestWhatsappApproval](docs/Model/MailPostTemplatesRequestWhatsappApproval.md)
-- [MailPostTemplatesResponse200](docs/Model/MailPostTemplatesResponse200.md)
-- [MailPostTrackingDomainRequest](docs/Model/MailPostTrackingDomainRequest.md)
-- [MailPostTrackingDomainResponse200](docs/Model/MailPostTrackingDomainResponse200.md)
-- [MailPostTrackingDomainVerifyResponse200](docs/Model/MailPostTrackingDomainVerifyResponse200.md)
-- [MailPostWebhooksBySubscriptionIdReconcileResponse200](docs/Model/MailPostWebhooksBySubscriptionIdReconcileResponse200.md)
-- [MailPostWebhooksBySubscriptionIdRotateSecretResponse200](docs/Model/MailPostWebhooksBySubscriptionIdRotateSecretResponse200.md)
-- [MailPostWebhooksBySubscriptionIdStatusRequest](docs/Model/MailPostWebhooksBySubscriptionIdStatusRequest.md)
-- [MailPostWebhooksBySubscriptionIdStatusResponse200](docs/Model/MailPostWebhooksBySubscriptionIdStatusResponse200.md)
-- [MailPostWebhooksDeliveriesByDeliveryIdReplayResponse200](docs/Model/MailPostWebhooksDeliveriesByDeliveryIdReplayResponse200.md)
-- [MailPostWebhooksRequest](docs/Model/MailPostWebhooksRequest.md)
-- [MailPostWebhooksResponse201](docs/Model/MailPostWebhooksResponse201.md)
-- [MailProviderFailure](docs/Model/MailProviderFailure.md)
-- [MailPutCrmStatesRequest](docs/Model/MailPutCrmStatesRequest.md)
-- [MailPutCrmStatesResponse200](docs/Model/MailPutCrmStatesResponse200.md)
-- [MailPutDeliverabilityPoolsByPoolIdMembersByMailboxIdRequest](docs/Model/MailPutDeliverabilityPoolsByPoolIdMembersByMailboxIdRequest.md)
-- [MailPutDeliverabilityPoolsByPoolIdMembersByMailboxIdResponse200](docs/Model/MailPutDeliverabilityPoolsByPoolIdMembersByMailboxIdResponse200.md)
-- [MailQueueSnapshot](docs/Model/MailQueueSnapshot.md)
-- [MailQuotaRule](docs/Model/MailQuotaRule.md)
-- [MailRenderedMessage](docs/Model/MailRenderedMessage.md)
-- [MailReplyAutomationRule](docs/Model/MailReplyAutomationRule.md)
-- [MailReplyAutomationRuleActions](docs/Model/MailReplyAutomationRuleActions.md)
-- [MailReplyAutomationRuleActionsTask](docs/Model/MailReplyAutomationRuleActionsTask.md)
-- [MailReplyClassificationResult](docs/Model/MailReplyClassificationResult.md)
-- [MailSendingWindow](docs/Model/MailSendingWindow.md)
-- [MailSequenceRunRecord](docs/Model/MailSequenceRunRecord.md)
-- [MailSignatureCandidate](docs/Model/MailSignatureCandidate.md)
-- [MailSignatureCandidateFields](docs/Model/MailSignatureCandidateFields.md)
-- [MailSignatureCandidateFieldsPhonesInner](docs/Model/MailSignatureCandidateFieldsPhonesInner.md)
-- [MailStoredImapSettings](docs/Model/MailStoredImapSettings.md)
-- [MailStoredSmtpSettings](docs/Model/MailStoredSmtpSettings.md)
-- [MailSuppressionRecord](docs/Model/MailSuppressionRecord.md)
-- [MailTrackingDomainRecord](docs/Model/MailTrackingDomainRecord.md)
-- [MailWebhookDelivery](docs/Model/MailWebhookDelivery.md)
-- [MailWebhookEventSnapshot](docs/Model/MailWebhookEventSnapshot.md)
-- [McpIdentity](docs/Model/McpIdentity.md)
-- [McpIdentityList](docs/Model/McpIdentityList.md)
-- [McpIdentityResponse](docs/Model/McpIdentityResponse.md)
-- [NamePattern](docs/Model/NamePattern.md)
-- [NamePatternsResponse](docs/Model/NamePatternsResponse.md)
-- [NameVerificationEmptyFinal](docs/Model/NameVerificationEmptyFinal.md)
-- [NameVerificationItem](docs/Model/NameVerificationItem.md)
-- [NameVerificationResponse](docs/Model/NameVerificationResponse.md)
-- [PersonInsight](docs/Model/PersonInsight.md)
-- [PreviewSheetWorkflowRequest](docs/Model/PreviewSheetWorkflowRequest.md)
-- [ProductAccountInfoExecution](docs/Model/ProductAccountInfoExecution.md)
-- [ProductAccountInfoOutput](docs/Model/ProductAccountInfoOutput.md)
-- [ProductCombinedEnrichExecution](docs/Model/ProductCombinedEnrichExecution.md)
-- [ProductCombinedEnrichInput](docs/Model/ProductCombinedEnrichInput.md)
-- [ProductCombinedEnrichOutput](docs/Model/ProductCombinedEnrichOutput.md)
-- [ProductCompaniesListExecution](docs/Model/ProductCompaniesListExecution.md)
-- [ProductCompaniesListInput](docs/Model/ProductCompaniesListInput.md)
-- [ProductCompaniesListOutput](docs/Model/ProductCompaniesListOutput.md)
-- [ProductCompany](docs/Model/ProductCompany.md)
-- [ProductCompanyDeleteExecution](docs/Model/ProductCompanyDeleteExecution.md)
-- [ProductCompanyDeleteInput](docs/Model/ProductCompanyDeleteInput.md)
-- [ProductCompanyDeleteOutput](docs/Model/ProductCompanyDeleteOutput.md)
-- [ProductCompanyEnrichExecution](docs/Model/ProductCompanyEnrichExecution.md)
-- [ProductCompanyEnrichInput](docs/Model/ProductCompanyEnrichInput.md)
-- [ProductCompanyList](docs/Model/ProductCompanyList.md)
-- [ProductCompanyListAddExecution](docs/Model/ProductCompanyListAddExecution.md)
-- [ProductCompanyListAddInput](docs/Model/ProductCompanyListAddInput.md)
-- [ProductCompanyListAddOutput](docs/Model/ProductCompanyListAddOutput.md)
-- [ProductCompanyListCreateExecution](docs/Model/ProductCompanyListCreateExecution.md)
-- [ProductCompanyListCreateInput](docs/Model/ProductCompanyListCreateInput.md)
-- [ProductCompanyListRemoveExecution](docs/Model/ProductCompanyListRemoveExecution.md)
-- [ProductCompanyListRemoveInput](docs/Model/ProductCompanyListRemoveInput.md)
-- [ProductCompanyListRemoveOutput](docs/Model/ProductCompanyListRemoveOutput.md)
-- [ProductCompanyListsListExecution](docs/Model/ProductCompanyListsListExecution.md)
-- [ProductCompanyListsListOutput](docs/Model/ProductCompanyListsListOutput.md)
-- [ProductCompanySummary](docs/Model/ProductCompanySummary.md)
-- [ProductCompanyTrackExecution](docs/Model/ProductCompanyTrackExecution.md)
-- [ProductCompanyTrackInput](docs/Model/ProductCompanyTrackInput.md)
-- [ProductCompanyTrackOutput](docs/Model/ProductCompanyTrackOutput.md)
-- [ProductCompanyUpdateExecution](docs/Model/ProductCompanyUpdateExecution.md)
-- [ProductCompanyUpdateInput](docs/Model/ProductCompanyUpdateInput.md)
-- [ProductCompanyUpdateOutput](docs/Model/ProductCompanyUpdateOutput.md)
-- [ProductConnectedApp](docs/Model/ProductConnectedApp.md)
-- [ProductConnectedAppPushExecution](docs/Model/ProductConnectedAppPushExecution.md)
-- [ProductConnectedAppPushInput](docs/Model/ProductConnectedAppPushInput.md)
-- [ProductConnectedAppPushOutput](docs/Model/ProductConnectedAppPushOutput.md)
-- [ProductConnectedAppsExecution](docs/Model/ProductConnectedAppsExecution.md)
-- [ProductConnectedAppsOutput](docs/Model/ProductConnectedAppsOutput.md)
-- [ProductCustomAttribute](docs/Model/ProductCustomAttribute.md)
-- [ProductCustomAttributeCreateExecution](docs/Model/ProductCustomAttributeCreateExecution.md)
-- [ProductCustomAttributeCreateInput](docs/Model/ProductCustomAttributeCreateInput.md)
-- [ProductCustomAttributesListExecution](docs/Model/ProductCustomAttributesListExecution.md)
-- [ProductCustomAttributesListOutput](docs/Model/ProductCustomAttributesListOutput.md)
-- [ProductDatedRecipient](docs/Model/ProductDatedRecipient.md)
-- [ProductDiscoverCompaniesExecution](docs/Model/ProductDiscoverCompaniesExecution.md)
-- [ProductDiscoverCompaniesInput](docs/Model/ProductDiscoverCompaniesInput.md)
-- [ProductDiscoverCompaniesOutput](docs/Model/ProductDiscoverCompaniesOutput.md)
-- [ProductDiscoverPeopleExecution](docs/Model/ProductDiscoverPeopleExecution.md)
-- [ProductDiscoverPeopleInput](docs/Model/ProductDiscoverPeopleInput.md)
-- [ProductDiscoverPeopleOutput](docs/Model/ProductDiscoverPeopleOutput.md)
-- [ProductDomainFinderExecution](docs/Model/ProductDomainFinderExecution.md)
-- [ProductDomainFinderInput](docs/Model/ProductDomainFinderInput.md)
-- [ProductDomainFinderOutput](docs/Model/ProductDomainFinderOutput.md)
-- [ProductEmailCountExecution](docs/Model/ProductEmailCountExecution.md)
-- [ProductEmailCountInput](docs/Model/ProductEmailCountInput.md)
-- [ProductEmailCountOutput](docs/Model/ProductEmailCountOutput.md)
-- [ProductLead](docs/Model/ProductLead.md)
-- [ProductLeadBulkDeleteExecution](docs/Model/ProductLeadBulkDeleteExecution.md)
-- [ProductLeadBulkDeleteInput](docs/Model/ProductLeadBulkDeleteInput.md)
-- [ProductLeadBulkDeleteOutput](docs/Model/ProductLeadBulkDeleteOutput.md)
-- [ProductLeadCreateExecution](docs/Model/ProductLeadCreateExecution.md)
-- [ProductLeadCreateInput](docs/Model/ProductLeadCreateInput.md)
-- [ProductLeadDeleteExecution](docs/Model/ProductLeadDeleteExecution.md)
-- [ProductLeadDeleteInput](docs/Model/ProductLeadDeleteInput.md)
-- [ProductLeadDeleteOutput](docs/Model/ProductLeadDeleteOutput.md)
-- [ProductLeadEnrichExecution](docs/Model/ProductLeadEnrichExecution.md)
-- [ProductLeadEnrichInput](docs/Model/ProductLeadEnrichInput.md)
-- [ProductLeadGetExecution](docs/Model/ProductLeadGetExecution.md)
-- [ProductLeadGetInput](docs/Model/ProductLeadGetInput.md)
-- [ProductLeadList](docs/Model/ProductLeadList.md)
-- [ProductLeadListAddLeadExecution](docs/Model/ProductLeadListAddLeadExecution.md)
-- [ProductLeadListAddLeadInput](docs/Model/ProductLeadListAddLeadInput.md)
-- [ProductLeadListAddLeadOutput](docs/Model/ProductLeadListAddLeadOutput.md)
-- [ProductLeadListCreateExecution](docs/Model/ProductLeadListCreateExecution.md)
-- [ProductLeadListCreateInput](docs/Model/ProductLeadListCreateInput.md)
-- [ProductLeadListDeleteExecution](docs/Model/ProductLeadListDeleteExecution.md)
-- [ProductLeadListDeleteInput](docs/Model/ProductLeadListDeleteInput.md)
-- [ProductLeadListDeleteOutput](docs/Model/ProductLeadListDeleteOutput.md)
-- [ProductLeadListRemoveLeadExecution](docs/Model/ProductLeadListRemoveLeadExecution.md)
-- [ProductLeadListRemoveLeadInput](docs/Model/ProductLeadListRemoveLeadInput.md)
-- [ProductLeadListRemoveLeadOutput](docs/Model/ProductLeadListRemoveLeadOutput.md)
-- [ProductLeadListUpdateExecution](docs/Model/ProductLeadListUpdateExecution.md)
-- [ProductLeadListUpdateInput](docs/Model/ProductLeadListUpdateInput.md)
-- [ProductLeadListsListExecution](docs/Model/ProductLeadListsListExecution.md)
-- [ProductLeadListsListOutput](docs/Model/ProductLeadListsListOutput.md)
-- [ProductLeadTagAssignExecution](docs/Model/ProductLeadTagAssignExecution.md)
-- [ProductLeadTagAssignInput](docs/Model/ProductLeadTagAssignInput.md)
-- [ProductLeadTagAssignOutput](docs/Model/ProductLeadTagAssignOutput.md)
-- [ProductLeadTagCreateExecution](docs/Model/ProductLeadTagCreateExecution.md)
-- [ProductLeadTagCreateInput](docs/Model/ProductLeadTagCreateInput.md)
-- [ProductLeadTagRemoveExecution](docs/Model/ProductLeadTagRemoveExecution.md)
-- [ProductLeadTagRemoveInput](docs/Model/ProductLeadTagRemoveInput.md)
-- [ProductLeadTagRemoveOutput](docs/Model/ProductLeadTagRemoveOutput.md)
-- [ProductLeadTagsListExecution](docs/Model/ProductLeadTagsListExecution.md)
-- [ProductLeadTagsListOutput](docs/Model/ProductLeadTagsListOutput.md)
-- [ProductLeadUpdateExecution](docs/Model/ProductLeadUpdateExecution.md)
-- [ProductLeadUpdateInput](docs/Model/ProductLeadUpdateInput.md)
-- [ProductLeadUpsertExecution](docs/Model/ProductLeadUpsertExecution.md)
-- [ProductLeadUpsertInput](docs/Model/ProductLeadUpsertInput.md)
-- [ProductLeadWithAttributes](docs/Model/ProductLeadWithAttributes.md)
-- [ProductLeadsListExecution](docs/Model/ProductLeadsListExecution.md)
-- [ProductLeadsListInput](docs/Model/ProductLeadsListInput.md)
-- [ProductLeadsListOutput](docs/Model/ProductLeadsListOutput.md)
-- [ProductNamedResource](docs/Model/ProductNamedResource.md)
-- [ProductPerson](docs/Model/ProductPerson.md)
-- [ProductPersonEnrichExecution](docs/Model/ProductPersonEnrichExecution.md)
-- [ProductPersonEnrichInput](docs/Model/ProductPersonEnrichInput.md)
-- [ProductPersonSummary](docs/Model/ProductPersonSummary.md)
-- [ProductRecipient](docs/Model/ProductRecipient.md)
-- [ProductSavedSearchesListExecution](docs/Model/ProductSavedSearchesListExecution.md)
-- [ProductSavedSearchesListOutput](docs/Model/ProductSavedSearchesListOutput.md)
-- [ProductSequence](docs/Model/ProductSequence.md)
-- [ProductSequenceRecipientAddExecution](docs/Model/ProductSequenceRecipientAddExecution.md)
-- [ProductSequenceRecipientAddInput](docs/Model/ProductSequenceRecipientAddInput.md)
-- [ProductSequenceRecipientAddOutput](docs/Model/ProductSequenceRecipientAddOutput.md)
-- [ProductSequenceRecipientCancelExecution](docs/Model/ProductSequenceRecipientCancelExecution.md)
-- [ProductSequenceRecipientCancelInput](docs/Model/ProductSequenceRecipientCancelInput.md)
-- [ProductSequenceRecipientsAddExecution](docs/Model/ProductSequenceRecipientsAddExecution.md)
-- [ProductSequenceRecipientsAddInput](docs/Model/ProductSequenceRecipientsAddInput.md)
-- [ProductSequenceRecipientsAddInputRecipientsInner](docs/Model/ProductSequenceRecipientsAddInputRecipientsInner.md)
-- [ProductSequenceRecipientsAddOutput](docs/Model/ProductSequenceRecipientsAddOutput.md)
-- [ProductSequenceRecipientsListExecution](docs/Model/ProductSequenceRecipientsListExecution.md)
-- [ProductSequenceRecipientsListInput](docs/Model/ProductSequenceRecipientsListInput.md)
-- [ProductSequenceRecipientsListOutput](docs/Model/ProductSequenceRecipientsListOutput.md)
-- [ProductSequenceStartExecution](docs/Model/ProductSequenceStartExecution.md)
-- [ProductSequenceStartInput](docs/Model/ProductSequenceStartInput.md)
-- [ProductSequenceStartOutput](docs/Model/ProductSequenceStartOutput.md)
-- [ProductSequencesListExecution](docs/Model/ProductSequencesListExecution.md)
-- [ProductSequencesListOutput](docs/Model/ProductSequencesListOutput.md)
-- [ProductTeamMember](docs/Model/ProductTeamMember.md)
-- [ProductTeamMembersExecution](docs/Model/ProductTeamMembersExecution.md)
-- [ProductTeamMembersOutput](docs/Model/ProductTeamMembersOutput.md)
-- [ProductToolExecution](docs/Model/ProductToolExecution.md)
-- [ProductToolRequest](docs/Model/ProductToolRequest.md)
-- [ProductToolRequestInput](docs/Model/ProductToolRequestInput.md)
-- [ProductTrackedCompany](docs/Model/ProductTrackedCompany.md)
-- [ProductUsageExecution](docs/Model/ProductUsageExecution.md)
-- [ProductUsageHistoryExecution](docs/Model/ProductUsageHistoryExecution.md)
-- [ProductUsageHistoryInput](docs/Model/ProductUsageHistoryInput.md)
-- [ProductUsageHistoryOutput](docs/Model/ProductUsageHistoryOutput.md)
-- [ProductUsageOutput](docs/Model/ProductUsageOutput.md)
-- [ProductUsageTransaction](docs/Model/ProductUsageTransaction.md)
-- [PublicStats](docs/Model/PublicStats.md)
-- [QueueIntegrationLeadExportRequest](docs/Model/QueueIntegrationLeadExportRequest.md)
-- [QueueIntegrationLeadExportRequestSelectionScopesInner](docs/Model/QueueIntegrationLeadExportRequestSelectionScopesInner.md)
-- [QueueNotificationTestRequest](docs/Model/QueueNotificationTestRequest.md)
-- [QueuedIntegrationJob](docs/Model/QueuedIntegrationJob.md)
-- [QueuedIntegrationJobResponse](docs/Model/QueuedIntegrationJobResponse.md)
-- [QueuedIntegrationJobStreamPosition](docs/Model/QueuedIntegrationJobStreamPosition.md)
-- [RotateCodaCredentialRequest](docs/Model/RotateCodaCredentialRequest.md)
-- [RotateFreshsalesCredentialRequest](docs/Model/RotateFreshsalesCredentialRequest.md)
-- [RunSheetWorkflowRequest](docs/Model/RunSheetWorkflowRequest.md)
-- [SaveSheetWorkflowRequest](docs/Model/SaveSheetWorkflowRequest.md)
-- [SegmentInstallationCreated](docs/Model/SegmentInstallationCreated.md)
-- [SheetWorkflow](docs/Model/SheetWorkflow.md)
-- [SheetWorkflowDeleted](docs/Model/SheetWorkflowDeleted.md)
-- [SheetWorkflowList](docs/Model/SheetWorkflowList.md)
-- [SheetWorkflowPreview](docs/Model/SheetWorkflowPreview.md)
-- [SheetWorkflowPreviewRowsInner](docs/Model/SheetWorkflowPreviewRowsInner.md)
-- [SheetWorkflowResponse](docs/Model/SheetWorkflowResponse.md)
-- [SheetWorkflowStateResponse](docs/Model/SheetWorkflowStateResponse.md)
-- [SheetWorkflowValidation](docs/Model/SheetWorkflowValidation.md)
-- [StartAttioOAuthRequest](docs/Model/StartAttioOAuthRequest.md)
-- [StartGoogleSheetsOAuthRequest](docs/Model/StartGoogleSheetsOAuthRequest.md)
-- [StartIntegrationOAuthRequest](docs/Model/StartIntegrationOAuthRequest.md)
-- [UpdateIntegrationConnectionStateRequest](docs/Model/UpdateIntegrationConnectionStateRequest.md)
-- [UpdateLeadRequest](docs/Model/UpdateLeadRequest.md)
-- [UpdateLeadRequestCompany](docs/Model/UpdateLeadRequestCompany.md)
-- [UpdateLeadRequestPerson](docs/Model/UpdateLeadRequestPerson.md)
-- [UpdateLeadResponse](docs/Model/UpdateLeadResponse.md)
-- [UpdateLeadResponseLead](docs/Model/UpdateLeadResponseLead.md)
-- [UpdateSheetWorkflowStateRequest](docs/Model/UpdateSheetWorkflowStateRequest.md)
-- [VerificationFinal](docs/Model/VerificationFinal.md)
-- [VerificationProgress](docs/Model/VerificationProgress.md)
-- [VerificationResponse](docs/Model/VerificationResponse.md)
-- [VerificationResult](docs/Model/VerificationResult.md)
-- [VerificationStage](docs/Model/VerificationStage.md)
-- [VerificationStreamError](docs/Model/VerificationStreamError.md)
+- AirtableMappingOptionsResponse
+- AirtableMappingOptionsResponseOptions
+- AirtableMappingOptionsResponseOptionsBasesInner
+- AirtableMappingOptionsResponseOptionsTablesInner
+- AirtableMappingOptionsResponseOptionsTablesInnerFieldsInner
+- ApiError
+- ApiKeyIdentity
+- ApiValidationIssue
+- AutomationHookCreated
+- BatchVerificationError
+- BatchVerificationItem
+- BatchVerificationRequest
+- BatchVerificationRequestOnlyIfFree
+- BatchVerificationResponse
+- BindTypeformFormRequest
+- BindWebflowFormRequest
+- CapabilityDomainSearch
+- CapabilityDomainSearchContactsInner
+- CapabilityEmailFound
+- CapabilityEmailVerified
+- CapabilityEmailVerifiedDetails
+- CodaTableInspectionResponse
+- CodaTableInspectionResponseInspection
+- CompanyContextAddress
+- CompanyContextJob
+- CompanyContextSource
+- CompanyList
+- CompanyListResultsInner
+- CompanyListResultsInnerAddressesInner
+- ConfigureAirtableMappingRequest
+- ConfigureCodaRequest
+- ConfigureCodaRequestMapping
+- ConfigureCrmMappingRequest
+- ConfigureCrmSyncRequest
+- ConfigureCrmSyncRequestConfiguration
+- ConfigureCrmSyncRequestConfigurationHubspot
+- ConfigureCrmSyncRequestConfigurationHubspotDeal
+- ConfigureCrmSyncRequestConfigurationPolicy
+- ConfigureFreshsalesRequest
+- ConfigureNotificationRoutesRequest
+- ConfigureSlackDestinationRequest
+- ConfigureTeamsWorkflowRequest
+- ConfigureTypeformFormRequest
+- ConfigureWarehouseRequest
+- ConfigureWebflowFormRequest
+- CreateAutomationHookRequest
+- CreateLeadRequest
+- CreateLeadRequestCompany
+- CreateLeadRequestPerson
+- CreateLeadResponse
+- CreateLeadResponseLead
+- CreateSegmentInstallationRequest
+- CrmMappingOptionsResponse
+- CrmMappingOptionsResponseOptions
+- CrmMappingOptionsResponseOptionsObjectsInner
+- CrmRemoteField
+- CrmSyncConfiguration
+- CrmSyncConfigurationHubspot
+- CrmSyncConfigurationHubspotDeal
+- CrmSyncConfigurationPolicy
+- CrmSyncConfigurationResponse
+- DeleteEmailResponse
+- DeleteLeadResponse
+- DomainCatchAll
+- DomainCompanyContext
+- DomainCompanyContextCompany
+- DomainCounts
+- EmailMention
+- EmailMentionsPage
+- EmailNotFoundError
+- EmailNotFoundErrorError
+- EmailPage
+- EmailPageResultsInner
+- EmailPageResultsInnerSourcesInner
+- EmailRevealResponse
+- EmailRevealResponseProfile
+- ExcelWorkbookInspectionResponse
+- ExcelWorkbookInspectionResponseInspection
+- ExecuteIntegrationCapabilityRequest
+- ExportLeadsRequest
+- ExportLeadsRequestSelectionScopesInner
+- GetLeadResponse
+- GetLeadResponseLead
+- GetLeadResponseLeadCompany
+- GetLeadResponseLeadSync
+- GetLeadResponseLeadVerification
+- GoogleSheetInspectionResponse
+- GoogleSheetInspectionResponseInspection
+- HubSpotConfigurationOptionsResponse
+- HubSpotConfigurationOptionsResponseOptions
+- HubSpotConfigurationOptionsResponseOptionsOwnersInner
+- HubSpotConfigurationOptionsResponseOptionsPipelinesInner
+- HubSpotConfigurationOptionsResponseOptionsPipelinesInnerStagesInner
+- InsightAddress
+- InsightAddressEntry
+- InsightAttribute
+- InsightErrorEvent
+- InsightEvidence
+- InsightFinalEvent
+- InsightGeo
+- InsightIdentifier
+- InsightJurisdiction
+- InsightMention
+- InsightMentionErrorEvent
+- InsightMentionExtractedEvent
+- InsightMentionInsightEvent
+- InsightOffice
+- InsightOrganization
+- InsightPhone
+- InsightPlatformDetectedEvent
+- InsightPlatformProgressEvent
+- InsightPlatformScan
+- InsightPlatformScanEvent
+- InsightRole
+- InsightSocialProfile
+- InsightSource
+- InsightStartedEvent
+- InsightsResponse
+- InspectCodaTableRequest
+- InspectExcelWorkbookRequest
+- InspectGoogleSheetRequest
+- IntegrationCapabilityResponse
+- IntegrationCapabilityResponseOutput
+- IntegrationCapabilityResponseOutputNonNull
+- IntegrationConnection
+- IntegrationConnectionHealth
+- IntegrationConnectionList
+- IntegrationConnectionResponse
+- IntegrationConnectionStateResponse
+- IntegrationConnectionTest
+- IntegrationConnectionTestResponse
+- IntegrationFormConnectionResponse
+- IntegrationJob
+- IntegrationJobCancellation
+- IntegrationJobCounters
+- IntegrationJobPage
+- IntegrationJobResponse
+- IntegrationLeadExportResponse
+- IntegrationOAuthStartResponse
+- IntegrationProviderList
+- IntegrationProviderListProvidersInner
+- IntegrationProviderListProvidersInnerConnectability
+- IntegrationProviderListProvidersInnerReadiness
+- LeadExportInner
+- LeadExportInnerCompany
+- LeadExportInnerPerson
+- LeadExportTooLargeError
+- LeadPage
+- LeadPageResultsInner
+- LeadPageResultsInnerCompany
+- LinkMcpIdentityRequest
+- MailCadenceCampaignRecord
+- MailCadenceDefinition
+- MailCadenceEnrollmentVariableGap
+- MailCadenceExperimentContext
+- MailCadenceMessageExperiment
+- MailCadenceMessageExperimentVariant
+- MailCadenceNode
+- MailCadenceNodeAnyOf
+- MailCadenceNodeAnyOf1
+- MailCadenceNodeAnyOf2
+- MailCadenceNodeAnyOf3
+- MailCadenceNodeAnyOf4
+- MailCadenceNodeAnyOf4AllOfCondition
+- MailCadenceNodeAnyOf5
+- MailCadenceNodeAnyOf6
+- MailCadenceNodeBase
+- MailCadenceRunRecord
+- MailCadenceStopConditions
+- MailCadenceWorkflowExperiment
+- MailCadenceWorkflowExperimentVariant
+- MailCampaignDraftRecord
+- MailCampaignDraftStep
+- MailCampaignProgress
+- MailCampaignProgressMessageCounts
+- MailContactCrmState
+- MailContactListSummaryRecord
+- MailContactRecord
+- MailConversationEntry
+- MailConversationEntryFrom
+- MailConversationEntryLastError
+- MailConversationEntryLastErrorAnyOf
+- MailConversationEntryLastErrorAnyOf1
+- MailConversationEntryLastErrorAnyOf2
+- MailConversationThread
+- MailCrmTask
+- MailCrmTimelineEvent
+- MailDeleteCampaignsByCampaignIdRequest
+- MailDeleteCampaignsByCampaignIdResponse200
+- MailDeleteDeliverabilityPoolsByPoolIdMembersByMailboxIdResponse200
+- MailDeleteMailboxesByMailboxIdResponse200
+- MailDeletePortfolioTeamsByMemberTeamIdResponse200
+- MailDeleteReplyAutomationsByAutomationIdResponse200
+- MailDeleteTrackingDomainResponse200
+- MailDeleteWebhooksBySubscriptionIdResponse200
+- MailDomainHealthCheck
+- MailDomainHealthReport
+- MailEvidenceField
+- MailExperimentDecisionRecord
+- MailExperimentDefinitionRecord
+- MailExperimentOutcomeRecord
+- MailExperimentReport
+- MailExperimentReportDecision
+- MailExperimentRevisionRecord
+- MailExperimentVariant
+- MailExperimentVariantReport
+- MailExperimentVariantReportConfidenceInterval95
+- MailExperimentVariantReportGuardrails
+- MailGetAnalyticsResponse200
+- MailGetAudienceListsResponse200
+- MailGetCadenceCampaignsResponse200
+- MailGetCadenceRunsResponse200
+- MailGetCadencesResponse200
+- MailGetCampaignProgressResponse200
+- MailGetCampaignsByCampaignIdResponse200
+- MailGetCampaignsResponse200
+- MailGetChannelsResponse200
+- MailGetChannelsResponse200Email
+- MailGetChannelsResponse200Execution
+- MailGetChannelsResponse200Sms
+- MailGetChannelsResponse200Whatsapp
+- MailGetCrmStatesResponse200
+- MailGetCrmTasksResponse200
+- MailGetCrmTimelineResponse200
+- MailGetDeliverabilityResponse200
+- MailGetDeliverabilityResponse200PoolsInner
+- MailGetExperimentsByExperimentKeyReportResponse200
+- MailGetExperimentsOverviewResponse200
+- MailGetExperimentsResponse200
+- MailGetExperimentsResponse200ResultsInner
+- MailGetInboxResponse200
+- MailGetInboxThreadsResponse200
+- MailGetMailboxesResponse200
+- MailGetMessagesResponse200
+- MailGetOverviewResponse200
+- MailGetOverviewResponse200Inbox
+- MailGetPortfolioOverviewResponse200
+- MailGetPortfolioResponse200
+- MailGetPortfolioResponse200AnyOf
+- MailGetPortfolioResponse200AnyOf1
+- MailGetPortfolioResponse200Portfolio
+- MailGetQueueResponse200
+- MailGetReplyAutomationsResponse200
+- MailGetSignaturesResponse200
+- MailGetSuppressionsResponse200
+- MailGetTemplatesResponse200
+- MailGetTrackingDomainResponse200
+- MailGetTrackingDomainResponse200Domain
+- MailGetWebhooksResponse200
+- MailGetWebhooksResponse200SubscriptionsInner
+- MailImapCursor
+- MailInboxMessageRecord
+- MailMailAddress
+- MailMailPortfolio
+- MailMailPortfolioOverviewRow
+- MailMailPortfolioSuppression
+- MailMailPortfolioTeam
+- MailMailboxConnectionRecord
+- MailMailboxHealthRecord
+- MailMailboxPoolMember
+- MailMailboxProviderKind
+- MailMailboxRecord
+- MailMessageAnalyticsOverview
+- MailMessageAnalyticsOverviewDailyInner
+- MailMessageAnalyticsOverviewMailboxesInner
+- MailMessageAnalyticsOverviewVariantsInner
+- MailMessagePolicy
+- MailMessagePolicyInput
+- MailMessageRecord
+- MailMessageTemplateVersion
+- MailMessageTemplateVersionWhatsappApproval
+- MailMessageVariantInput
+- MailOperationalAnalyticsOverview
+- MailOperationalAnalyticsOverviewCadenceStepsInner
+- MailPatchCampaignsByCampaignIdRequest
+- MailPatchCampaignsByCampaignIdRequestPolicy
+- MailPatchCampaignsByCampaignIdRequestPolicyDomainQuotasInner
+- MailPatchCampaignsByCampaignIdRequestPolicySendingWindowsInner
+- MailPatchCampaignsByCampaignIdRequestStepsInner
+- MailPatchCampaignsByCampaignIdRequestStepsInnerVariantsInner
+- MailPatchCampaignsByCampaignIdResponse200
+- MailPatchWebhooksBySubscriptionIdRequest
+- MailPatchWebhooksBySubscriptionIdResponse200
+- MailPhoneNumberValue
+- MailPostAnalyticsExportRequest
+- MailPostAnalyticsExportRequestAfter
+- MailPostAnalyticsExportResponse200
+- MailPostAnalyticsExportResponse200NextCursor
+- MailPostCadenceCampaignsByCampaignIdStateRequest
+- MailPostCadenceCampaignsByCampaignIdStateResponse200
+- MailPostCadenceCampaignsByCampaignIdStateResponse200AnyOf
+- MailPostCadenceCampaignsByCampaignIdStateResponse200AnyOf1
+- MailPostCadenceCampaignsRequest
+- MailPostCadenceCampaignsResponse202
+- MailPostCadenceRunsByRunIdStateRequest
+- MailPostCadenceRunsByRunIdStateResponse200
+- MailPostCadenceRunsPreflightRequest
+- MailPostCadenceRunsPreflightResponse200
+- MailPostCadenceRunsRequest
+- MailPostCadenceRunsResponse200
+- MailPostCadencesByCadenceIdCopyRequest
+- MailPostCadencesByCadenceIdCopyResponse200
+- MailPostCadencesRequest
+- MailPostCadencesRequestNodesInner
+- MailPostCadencesRequestNodesInnerAnyOf
+- MailPostCadencesRequestNodesInnerAnyOf1
+- MailPostCadencesRequestNodesInnerAnyOf1Experiment
+- MailPostCadencesRequestNodesInnerAnyOf1ExperimentVariantsInner
+- MailPostCadencesRequestNodesInnerAnyOf2
+- MailPostCadencesRequestNodesInnerAnyOf3
+- MailPostCadencesRequestNodesInnerAnyOf4
+- MailPostCadencesRequestNodesInnerAnyOf4Condition
+- MailPostCadencesRequestNodesInnerAnyOf5
+- MailPostCadencesRequestNodesInnerAnyOf5Experiment
+- MailPostCadencesRequestNodesInnerAnyOf5ExperimentVariantsInner
+- MailPostCadencesRequestNodesInnerAnyOf6
+- MailPostCadencesRequestStopConditions
+- MailPostCadencesResponse200
+- MailPostCampaignsByCampaignIdDuplicateResponse201
+- MailPostCampaignsByCampaignIdLaunchRequest
+- MailPostCampaignsByCampaignIdLaunchResponse200
+- MailPostCampaignsByCampaignIdLaunchResponse200Campaign
+- MailPostCampaignsByCampaignIdStateRequest
+- MailPostCampaignsByCampaignIdStateResponse200
+- MailPostCampaignsRequest
+- MailPostCampaignsResponse201
+- MailPostCrmClassifyReplyRequest
+- MailPostCrmClassifyReplyResponse200
+- MailPostCrmContactsBatchRequest
+- MailPostCrmContactsBatchResponse200
+- MailPostCrmNotesRequest
+- MailPostCrmNotesResponse200
+- MailPostCrmNotesResponse200Event
+- MailPostCrmNotesResponse200EventPayload
+- MailPostCrmStatesBatchRequest
+- MailPostCrmStatesBatchResponse200
+- MailPostCrmTasksByTaskIdCompleteRequest
+- MailPostCrmTasksByTaskIdCompleteResponse200
+- MailPostCrmTasksRequest
+- MailPostCrmTasksResponse201
+- MailPostDeliverabilityDomainHealthRequest
+- MailPostDeliverabilityDomainHealthResponse200
+- MailPostDeliverabilityMailboxesByMailboxIdPauseRequest
+- MailPostDeliverabilityMailboxesByMailboxIdPauseResponse200
+- MailPostDeliverabilityMailboxesByMailboxIdReconcileResponse200
+- MailPostDeliverabilityMailboxesByMailboxIdRequest
+- MailPostDeliverabilityMailboxesByMailboxIdResponse200
+- MailPostDeliverabilityMailboxesByMailboxIdResumeResponse200
+- MailPostDeliverabilityPoolsRequest
+- MailPostDeliverabilityPoolsResponse201
+- MailPostDeliverabilityPoolsResponse201Pool
+- MailPostExperimentsByExperimentKeyArchiveResponse200
+- MailPostExperimentsByExperimentKeyConversionsRequest
+- MailPostExperimentsByExperimentKeyConversionsResponse200
+- MailPostExperimentsByExperimentKeyDecideRequest
+- MailPostExperimentsByExperimentKeyDecideResponse200
+- MailPostExperimentsByExperimentKeyPauseResponse200
+- MailPostExperimentsByExperimentKeyResumeResponse200
+- MailPostInboxByMessageIdReplyRequest
+- MailPostInboxByMessageIdReplyResponse200
+- MailPostInboxByMessageIdRequest
+- MailPostInboxByMessageIdResponse200
+- MailPostInboxByMessageIdResponse200Message
+- MailPostMailboxesManualRequest
+- MailPostMailboxesManualRequestImap
+- MailPostMailboxesManualRequestSmtp
+- MailPostMailboxesManualResponse200
+- MailPostMessagesByMessageIdCancelResponse200
+- MailPostMessagesByMessageIdRetryResponse200
+- MailPostMessagesRequest
+- MailPostMessagesRequestTo
+- MailPostMessagesResponse201
+- MailPostOauthBeginRequest
+- MailPostOauthBeginResponse200
+- MailPostPortfolioExportResponse200
+- MailPostPortfolioRequest
+- MailPostPortfolioResponse200
+- MailPostPortfolioSuppressionsRequest
+- MailPostPortfolioSuppressionsRequestAnyOf
+- MailPostPortfolioSuppressionsRequestAnyOf1
+- MailPostPortfolioSuppressionsResponse200
+- MailPostPortfolioTeamsRequest
+- MailPostPortfolioTeamsResponse200
+- MailPostReplyAutomationsRequest
+- MailPostReplyAutomationsRequestActions
+- MailPostReplyAutomationsRequestActionsTask
+- MailPostReplyAutomationsResponse200
+- MailPostSuppressionsRequest
+- MailPostSuppressionsRequestAnyOf
+- MailPostSuppressionsRequestAnyOf1
+- MailPostSuppressionsResponse200
+- MailPostTemplatesByTemplateIdCopyRequest
+- MailPostTemplatesByTemplateIdCopyResponse200
+- MailPostTemplatesRequest
+- MailPostTemplatesRequestWhatsappApproval
+- MailPostTemplatesResponse200
+- MailPostTrackingDomainRequest
+- MailPostTrackingDomainResponse200
+- MailPostTrackingDomainVerifyResponse200
+- MailPostWebhooksBySubscriptionIdReconcileResponse200
+- MailPostWebhooksBySubscriptionIdRotateSecretResponse200
+- MailPostWebhooksBySubscriptionIdStatusRequest
+- MailPostWebhooksBySubscriptionIdStatusResponse200
+- MailPostWebhooksDeliveriesByDeliveryIdReplayResponse200
+- MailPostWebhooksRequest
+- MailPostWebhooksResponse201
+- MailProviderFailure
+- MailPutCrmStatesRequest
+- MailPutCrmStatesResponse200
+- MailPutDeliverabilityPoolsByPoolIdMembersByMailboxIdRequest
+- MailPutDeliverabilityPoolsByPoolIdMembersByMailboxIdResponse200
+- MailQueueSnapshot
+- MailQuotaRule
+- MailRenderedMessage
+- MailReplyAutomationRule
+- MailReplyAutomationRuleActions
+- MailReplyAutomationRuleActionsTask
+- MailReplyClassificationResult
+- MailSendingWindow
+- MailSequenceRunRecord
+- MailSignatureCandidate
+- MailSignatureCandidateFields
+- MailSignatureCandidateFieldsPhonesInner
+- MailStoredImapSettings
+- MailStoredSmtpSettings
+- MailSuppressionRecord
+- MailTrackingDomainRecord
+- MailWebhookDelivery
+- MailWebhookEventSnapshot
+- McpIdentity
+- McpIdentityList
+- McpIdentityResponse
+- NamePattern
+- NamePatternsResponse
+- NameVerificationEmptyFinal
+- NameVerificationItem
+- NameVerificationResponse
+- PersonInsight
+- PreviewSheetWorkflowRequest
+- ProductAccountInfoExecution
+- ProductAccountInfoOutput
+- ProductCombinedEnrichExecution
+- ProductCombinedEnrichInput
+- ProductCombinedEnrichOutput
+- ProductCompaniesListExecution
+- ProductCompaniesListInput
+- ProductCompaniesListOutput
+- ProductCompany
+- ProductCompanyDeleteExecution
+- ProductCompanyDeleteInput
+- ProductCompanyDeleteOutput
+- ProductCompanyEnrichExecution
+- ProductCompanyEnrichInput
+- ProductCompanyList
+- ProductCompanyListAddExecution
+- ProductCompanyListAddInput
+- ProductCompanyListAddOutput
+- ProductCompanyListCreateExecution
+- ProductCompanyListCreateInput
+- ProductCompanyListRemoveExecution
+- ProductCompanyListRemoveInput
+- ProductCompanyListRemoveOutput
+- ProductCompanyListsListExecution
+- ProductCompanyListsListOutput
+- ProductCompanySummary
+- ProductCompanyTrackExecution
+- ProductCompanyTrackInput
+- ProductCompanyTrackOutput
+- ProductCompanyUpdateExecution
+- ProductCompanyUpdateInput
+- ProductCompanyUpdateOutput
+- ProductConnectedApp
+- ProductConnectedAppPushExecution
+- ProductConnectedAppPushInput
+- ProductConnectedAppPushOutput
+- ProductConnectedAppsExecution
+- ProductConnectedAppsOutput
+- ProductCustomAttribute
+- ProductCustomAttributeCreateExecution
+- ProductCustomAttributeCreateInput
+- ProductCustomAttributesListExecution
+- ProductCustomAttributesListOutput
+- ProductDatedRecipient
+- ProductDiscoverCompaniesExecution
+- ProductDiscoverCompaniesInput
+- ProductDiscoverCompaniesOutput
+- ProductDiscoverPeopleExecution
+- ProductDiscoverPeopleInput
+- ProductDiscoverPeopleOutput
+- ProductDomainFinderExecution
+- ProductDomainFinderInput
+- ProductDomainFinderOutput
+- ProductEmailCountExecution
+- ProductEmailCountInput
+- ProductEmailCountOutput
+- ProductLead
+- ProductLeadBulkDeleteExecution
+- ProductLeadBulkDeleteInput
+- ProductLeadBulkDeleteOutput
+- ProductLeadCreateExecution
+- ProductLeadCreateInput
+- ProductLeadDeleteExecution
+- ProductLeadDeleteInput
+- ProductLeadDeleteOutput
+- ProductLeadEnrichExecution
+- ProductLeadEnrichInput
+- ProductLeadGetExecution
+- ProductLeadGetInput
+- ProductLeadList
+- ProductLeadListAddLeadExecution
+- ProductLeadListAddLeadInput
+- ProductLeadListAddLeadOutput
+- ProductLeadListCreateExecution
+- ProductLeadListCreateInput
+- ProductLeadListDeleteExecution
+- ProductLeadListDeleteInput
+- ProductLeadListDeleteOutput
+- ProductLeadListRemoveLeadExecution
+- ProductLeadListRemoveLeadInput
+- ProductLeadListRemoveLeadOutput
+- ProductLeadListUpdateExecution
+- ProductLeadListUpdateInput
+- ProductLeadListsListExecution
+- ProductLeadListsListOutput
+- ProductLeadTagAssignExecution
+- ProductLeadTagAssignInput
+- ProductLeadTagAssignOutput
+- ProductLeadTagCreateExecution
+- ProductLeadTagCreateInput
+- ProductLeadTagRemoveExecution
+- ProductLeadTagRemoveInput
+- ProductLeadTagRemoveOutput
+- ProductLeadTagsListExecution
+- ProductLeadTagsListOutput
+- ProductLeadUpdateExecution
+- ProductLeadUpdateInput
+- ProductLeadUpsertExecution
+- ProductLeadUpsertInput
+- ProductLeadWithAttributes
+- ProductLeadsListExecution
+- ProductLeadsListInput
+- ProductLeadsListOutput
+- ProductNamedResource
+- ProductPerson
+- ProductPersonEnrichExecution
+- ProductPersonEnrichInput
+- ProductPersonSummary
+- ProductRecipient
+- ProductSavedSearchesListExecution
+- ProductSavedSearchesListOutput
+- ProductSequence
+- ProductSequenceRecipientAddExecution
+- ProductSequenceRecipientAddInput
+- ProductSequenceRecipientAddOutput
+- ProductSequenceRecipientCancelExecution
+- ProductSequenceRecipientCancelInput
+- ProductSequenceRecipientsAddExecution
+- ProductSequenceRecipientsAddInput
+- ProductSequenceRecipientsAddInputRecipientsInner
+- ProductSequenceRecipientsAddOutput
+- ProductSequenceRecipientsListExecution
+- ProductSequenceRecipientsListInput
+- ProductSequenceRecipientsListOutput
+- ProductSequenceStartExecution
+- ProductSequenceStartInput
+- ProductSequenceStartOutput
+- ProductSequencesListExecution
+- ProductSequencesListOutput
+- ProductTeamMember
+- ProductTeamMembersExecution
+- ProductTeamMembersOutput
+- ProductToolExecution
+- ProductToolRequest
+- ProductToolRequestInput
+- ProductTrackedCompany
+- ProductUsageExecution
+- ProductUsageHistoryExecution
+- ProductUsageHistoryInput
+- ProductUsageHistoryOutput
+- ProductUsageOutput
+- ProductUsageTransaction
+- PublicStats
+- QueueIntegrationLeadExportRequest
+- QueueIntegrationLeadExportRequestSelectionScopesInner
+- QueueNotificationTestRequest
+- QueuedIntegrationJob
+- QueuedIntegrationJobResponse
+- QueuedIntegrationJobStreamPosition
+- RotateCodaCredentialRequest
+- RotateFreshsalesCredentialRequest
+- RunSheetWorkflowRequest
+- SaveSheetWorkflowRequest
+- SegmentInstallationCreated
+- SheetWorkflow
+- SheetWorkflowDeleted
+- SheetWorkflowList
+- SheetWorkflowPreview
+- SheetWorkflowPreviewRowsInner
+- SheetWorkflowResponse
+- SheetWorkflowStateResponse
+- SheetWorkflowValidation
+- StartAttioOAuthRequest
+- StartGoogleSheetsOAuthRequest
+- StartIntegrationOAuthRequest
+- UpdateIntegrationConnectionStateRequest
+- UpdateLeadRequest
+- UpdateLeadRequestCompany
+- UpdateLeadRequestPerson
+- UpdateLeadResponse
+- UpdateLeadResponseLead
+- UpdateSheetWorkflowStateRequest
+- VerificationFinal
+- VerificationProgress
+- VerificationResponse
+- VerificationResult
+- VerificationStage
+- VerificationStreamError
 
 ## Authorization
 
@@ -877,7 +877,7 @@ vendor/bin/phpunit
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
 - API version: `0.1.0`
-    - Package version: `2.0.6-beta.1`
+    - Package version: `2.0.7-beta.1`
     - Generator version: `7.25.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`
 
