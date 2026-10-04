@@ -59,7 +59,7 @@ class MailPostDeliverabilityPoolsResponse201Pool implements ModelInterface, Arra
     protected static $openAPITypes = [
         'created_at' => '\DateTime',
         'id' => 'string',
-        'members' => 'object[]',
+        'members' => '\Reacon\Sdk\Model\MailMailboxPoolMember[]',
         'name' => 'string',
         'strategy' => 'string',
         'tenant_id' => 'string',
@@ -417,7 +417,7 @@ class MailPostDeliverabilityPoolsResponse201Pool implements ModelInterface, Arra
     /**
      * Gets members
      *
-     * @return object[]
+     * @return \Reacon\Sdk\Model\MailMailboxPoolMember[]
      */
     public function getMembers()
     {
@@ -427,7 +427,7 @@ class MailPostDeliverabilityPoolsResponse201Pool implements ModelInterface, Arra
     /**
      * Sets members
      *
-     * @param object[] $members members
+     * @param \Reacon\Sdk\Model\MailMailboxPoolMember[] $members members
      *
      * @return self
      */
