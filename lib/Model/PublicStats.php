@@ -57,6 +57,7 @@ class PublicStats implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $openAPITypes = [
+        'api_protocol_version' => 'int',
         'emails' => 'int',
         'mentions' => 'int',
         'version' => 'string'
@@ -70,6 +71,7 @@ class PublicStats implements ModelInterface, ArrayAccess, \JsonSerializable
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
+        'api_protocol_version' => null,
         'emails' => null,
         'mentions' => null,
         'version' => null
@@ -81,6 +83,7 @@ class PublicStats implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var boolean[]
      */
     protected static array $openAPINullables = [
+        'api_protocol_version' => false,
         'emails' => false,
         'mentions' => false,
         'version' => false
@@ -172,6 +175,7 @@ class PublicStats implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'api_protocol_version' => 'apiProtocolVersion',
         'emails' => 'emails',
         'mentions' => 'mentions',
         'version' => 'version'
@@ -183,6 +187,7 @@ class PublicStats implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'api_protocol_version' => 'setApiProtocolVersion',
         'emails' => 'setEmails',
         'mentions' => 'setMentions',
         'version' => 'setVersion'
@@ -194,6 +199,7 @@ class PublicStats implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'api_protocol_version' => 'getApiProtocolVersion',
         'emails' => 'getEmails',
         'mentions' => 'getMentions',
         'version' => 'getVersion'
@@ -256,6 +262,7 @@ class PublicStats implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('api_protocol_version', $data ?? [], null);
         $this->setIfExists('emails', $data ?? [], null);
         $this->setIfExists('mentions', $data ?? [], null);
         $this->setIfExists('version', $data ?? [], null);
@@ -288,6 +295,10 @@ class PublicStats implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if (!is_null($this->container['api_protocol_version']) && ($this->container['api_protocol_version'] < 1)) {
+            $invalidProperties[] = "invalid value for 'api_protocol_version', must be bigger than or equal to 1.";
+        }
+
         if ($this->container['emails'] === null) {
             $invalidProperties[] = "'emails' can't be null";
         }
@@ -311,6 +322,37 @@ class PublicStats implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets api_protocol_version
+     *
+     * @return int|null
+     */
+    public function getApiProtocolVersion()
+    {
+        return $this->container['api_protocol_version'];
+    }
+
+    /**
+     * Sets api_protocol_version
+     *
+     * @param int|null $api_protocol_version Wire protocol major version, independent of SDK and actions-package versions.
+     *
+     * @return self
+     */
+    public function setApiProtocolVersion($api_protocol_version)
+    {
+        if (is_null($api_protocol_version)) {
+            throw new \InvalidArgumentException('non-nullable api_protocol_version cannot be null');
+        }
+        if (($api_protocol_version < 1)) {
+            throw new \InvalidArgumentException('invalid value for $api_protocol_version when calling PublicStats., must be bigger than or equal to 1.');
+        }
+
+        $this->container['api_protocol_version'] = $api_protocol_version;
+
+        return $this;
+    }
 
     /**
      * Gets emails
