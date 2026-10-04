@@ -58,7 +58,7 @@ class MailPostPortfolioResponse200 implements ModelInterface, ArrayAccess, \Json
      */
     protected static $openAPITypes = [
         'portfolio' => '\Reacon\Sdk\Model\MailMailPortfolio',
-        'suppressions' => 'object[]',
+        'suppressions' => '\Reacon\Sdk\Model\MailMailPortfolioSuppression[]',
         'teams' => '\Reacon\Sdk\Model\MailMailPortfolioTeam[]'
     ];
 
@@ -350,7 +350,7 @@ class MailPostPortfolioResponse200 implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets suppressions
      *
-     * @return object[]
+     * @return \Reacon\Sdk\Model\MailMailPortfolioSuppression[]
      */
     public function getSuppressions()
     {
@@ -360,7 +360,7 @@ class MailPostPortfolioResponse200 implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets suppressions
      *
-     * @param object[] $suppressions suppressions
+     * @param \Reacon\Sdk\Model\MailMailPortfolioSuppression[] $suppressions suppressions
      *
      * @return self
      */
