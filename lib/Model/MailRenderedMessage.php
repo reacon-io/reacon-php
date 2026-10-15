@@ -57,6 +57,7 @@ class MailRenderedMessage implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $openAPITypes = [
+        'attachments' => '\Reacon\Sdk\Model\MailMailAttachmentReference[]',
         'html' => 'string',
         'subject' => 'string',
         'text' => 'string'
@@ -70,6 +71,7 @@ class MailRenderedMessage implements ModelInterface, ArrayAccess, \JsonSerializa
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
+        'attachments' => null,
         'html' => null,
         'subject' => null,
         'text' => null
@@ -81,6 +83,7 @@ class MailRenderedMessage implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var boolean[]
      */
     protected static array $openAPINullables = [
+        'attachments' => false,
         'html' => false,
         'subject' => false,
         'text' => false
@@ -172,6 +175,7 @@ class MailRenderedMessage implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
+        'attachments' => 'attachments',
         'html' => 'html',
         'subject' => 'subject',
         'text' => 'text'
@@ -183,6 +187,7 @@ class MailRenderedMessage implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
+        'attachments' => 'setAttachments',
         'html' => 'setHtml',
         'subject' => 'setSubject',
         'text' => 'setText'
@@ -194,6 +199,7 @@ class MailRenderedMessage implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
+        'attachments' => 'getAttachments',
         'html' => 'getHtml',
         'subject' => 'getSubject',
         'text' => 'getText'
@@ -256,6 +262,7 @@ class MailRenderedMessage implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('attachments', $data ?? [], null);
         $this->setIfExists('html', $data ?? [], null);
         $this->setIfExists('subject', $data ?? [], null);
         $this->setIfExists('text', $data ?? [], null);
@@ -308,6 +315,33 @@ class MailRenderedMessage implements ModelInterface, ArrayAccess, \JsonSerializa
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets attachments
+     *
+     * @return \Reacon\Sdk\Model\MailMailAttachmentReference[]|null
+     */
+    public function getAttachments()
+    {
+        return $this->container['attachments'];
+    }
+
+    /**
+     * Sets attachments
+     *
+     * @param \Reacon\Sdk\Model\MailMailAttachmentReference[]|null $attachments attachments
+     *
+     * @return self
+     */
+    public function setAttachments($attachments)
+    {
+        if (is_null($attachments)) {
+            throw new \InvalidArgumentException('non-nullable attachments cannot be null');
+        }
+        $this->container['attachments'] = $attachments;
+
+        return $this;
+    }
 
     /**
      * Gets html

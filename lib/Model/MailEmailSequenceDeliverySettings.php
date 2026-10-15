@@ -1,6 +1,6 @@
 <?php
 /**
- * MailSignatureCandidateFieldsPhonesInner
+ * MailEmailSequenceDeliverySettings
  *
  * PHP version 8.1
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Reacon\Sdk\ObjectSerializer;
 
 /**
- * MailSignatureCandidateFieldsPhonesInner Class Doc Comment
+ * MailEmailSequenceDeliverySettings Class Doc Comment
  *
  * @category Class
  * @package  Reacon\Sdk
@@ -40,7 +40,7 @@ use \Reacon\Sdk\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class MailSignatureCandidateFieldsPhonesInner implements ModelInterface, ArrayAccess, \JsonSerializable
+class MailEmailSequenceDeliverySettings implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class MailSignatureCandidateFieldsPhonesInner implements ModelInterface, ArrayAc
      *
      * @var string
      */
-    protected static $openAPIModelName = 'MailSignatureCandidate_fields_phones_inner';
+    protected static $openAPIModelName = 'MailEmailSequenceDeliverySettings';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -57,12 +57,16 @@ class MailSignatureCandidateFieldsPhonesInner implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $openAPITypes = [
-        'confidence' => 'float',
-        'method' => 'string',
-        'normalized_value' => '\Reacon\Sdk\Model\MailPhoneNumberValue',
-        'source_end' => 'float',
-        'source_start' => 'float',
-        'value' => '\Reacon\Sdk\Model\MailPhoneNumberValue'
+        'end_minute' => 'float',
+        'format' => 'string',
+        'signature' => 'string',
+        'start_minute' => 'float',
+        'time_zone' => 'string',
+        'track_clicks' => 'bool',
+        'track_opens' => 'bool',
+        'unsubscribe_text' => 'string',
+        'verification_policy' => 'string',
+        'weekdays' => 'string[]'
     ];
 
     /**
@@ -73,12 +77,16 @@ class MailSignatureCandidateFieldsPhonesInner implements ModelInterface, ArrayAc
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'confidence' => null,
-        'method' => null,
-        'normalized_value' => null,
-        'source_end' => null,
-        'source_start' => null,
-        'value' => null
+        'end_minute' => null,
+        'format' => null,
+        'signature' => null,
+        'start_minute' => null,
+        'time_zone' => null,
+        'track_clicks' => null,
+        'track_opens' => null,
+        'unsubscribe_text' => null,
+        'verification_policy' => null,
+        'weekdays' => null
     ];
 
     /**
@@ -87,12 +95,16 @@ class MailSignatureCandidateFieldsPhonesInner implements ModelInterface, ArrayAc
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'confidence' => false,
-        'method' => false,
-        'normalized_value' => false,
-        'source_end' => false,
-        'source_start' => false,
-        'value' => false
+        'end_minute' => false,
+        'format' => false,
+        'signature' => false,
+        'start_minute' => false,
+        'time_zone' => false,
+        'track_clicks' => false,
+        'track_opens' => false,
+        'unsubscribe_text' => false,
+        'verification_policy' => false,
+        'weekdays' => false
     ];
 
     /**
@@ -181,12 +193,16 @@ class MailSignatureCandidateFieldsPhonesInner implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $attributeMap = [
-        'confidence' => 'confidence',
-        'method' => 'method',
-        'normalized_value' => 'normalizedValue',
-        'source_end' => 'sourceEnd',
-        'source_start' => 'sourceStart',
-        'value' => 'value'
+        'end_minute' => 'endMinute',
+        'format' => 'format',
+        'signature' => 'signature',
+        'start_minute' => 'startMinute',
+        'time_zone' => 'timeZone',
+        'track_clicks' => 'trackClicks',
+        'track_opens' => 'trackOpens',
+        'unsubscribe_text' => 'unsubscribeText',
+        'verification_policy' => 'verificationPolicy',
+        'weekdays' => 'weekdays'
     ];
 
     /**
@@ -195,12 +211,16 @@ class MailSignatureCandidateFieldsPhonesInner implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $setters = [
-        'confidence' => 'setConfidence',
-        'method' => 'setMethod',
-        'normalized_value' => 'setNormalizedValue',
-        'source_end' => 'setSourceEnd',
-        'source_start' => 'setSourceStart',
-        'value' => 'setValue'
+        'end_minute' => 'setEndMinute',
+        'format' => 'setFormat',
+        'signature' => 'setSignature',
+        'start_minute' => 'setStartMinute',
+        'time_zone' => 'setTimeZone',
+        'track_clicks' => 'setTrackClicks',
+        'track_opens' => 'setTrackOpens',
+        'unsubscribe_text' => 'setUnsubscribeText',
+        'verification_policy' => 'setVerificationPolicy',
+        'weekdays' => 'setWeekdays'
     ];
 
     /**
@@ -209,12 +229,16 @@ class MailSignatureCandidateFieldsPhonesInner implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $getters = [
-        'confidence' => 'getConfidence',
-        'method' => 'getMethod',
-        'normalized_value' => 'getNormalizedValue',
-        'source_end' => 'getSourceEnd',
-        'source_start' => 'getSourceStart',
-        'value' => 'getValue'
+        'end_minute' => 'getEndMinute',
+        'format' => 'getFormat',
+        'signature' => 'getSignature',
+        'start_minute' => 'getStartMinute',
+        'time_zone' => 'getTimeZone',
+        'track_clicks' => 'getTrackClicks',
+        'track_opens' => 'getTrackOpens',
+        'unsubscribe_text' => 'getUnsubscribeText',
+        'verification_policy' => 'getVerificationPolicy',
+        'weekdays' => 'getWeekdays'
     ];
 
     /**
@@ -274,12 +298,16 @@ class MailSignatureCandidateFieldsPhonesInner implements ModelInterface, ArrayAc
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('confidence', $data ?? [], null);
-        $this->setIfExists('method', $data ?? [], null);
-        $this->setIfExists('normalized_value', $data ?? [], null);
-        $this->setIfExists('source_end', $data ?? [], null);
-        $this->setIfExists('source_start', $data ?? [], null);
-        $this->setIfExists('value', $data ?? [], null);
+        $this->setIfExists('end_minute', $data ?? [], null);
+        $this->setIfExists('format', $data ?? [], null);
+        $this->setIfExists('signature', $data ?? [], null);
+        $this->setIfExists('start_minute', $data ?? [], null);
+        $this->setIfExists('time_zone', $data ?? [], null);
+        $this->setIfExists('track_clicks', $data ?? [], null);
+        $this->setIfExists('track_opens', $data ?? [], null);
+        $this->setIfExists('unsubscribe_text', $data ?? [], null);
+        $this->setIfExists('verification_policy', $data ?? [], null);
+        $this->setIfExists('weekdays', $data ?? [], null);
     }
 
     /**
@@ -309,23 +337,32 @@ class MailSignatureCandidateFieldsPhonesInner implements ModelInterface, ArrayAc
     {
         $invalidProperties = [];
 
-        if ($this->container['confidence'] === null) {
-            $invalidProperties[] = "'confidence' can't be null";
+        if ($this->container['end_minute'] === null) {
+            $invalidProperties[] = "'end_minute' can't be null";
         }
-        if ($this->container['method'] === null) {
-            $invalidProperties[] = "'method' can't be null";
+        if ($this->container['format'] === null) {
+            $invalidProperties[] = "'format' can't be null";
         }
-        if ($this->container['normalized_value'] === null) {
-            $invalidProperties[] = "'normalized_value' can't be null";
+        if ($this->container['signature'] === null) {
+            $invalidProperties[] = "'signature' can't be null";
         }
-        if ($this->container['source_end'] === null) {
-            $invalidProperties[] = "'source_end' can't be null";
+        if ($this->container['start_minute'] === null) {
+            $invalidProperties[] = "'start_minute' can't be null";
         }
-        if ($this->container['source_start'] === null) {
-            $invalidProperties[] = "'source_start' can't be null";
+        if ($this->container['time_zone'] === null) {
+            $invalidProperties[] = "'time_zone' can't be null";
         }
-        if ($this->container['value'] === null) {
-            $invalidProperties[] = "'value' can't be null";
+        if ($this->container['track_clicks'] === null) {
+            $invalidProperties[] = "'track_clicks' can't be null";
+        }
+        if ($this->container['track_opens'] === null) {
+            $invalidProperties[] = "'track_opens' can't be null";
+        }
+        if ($this->container['unsubscribe_text'] === null) {
+            $invalidProperties[] = "'unsubscribe_text' can't be null";
+        }
+        if ($this->container['weekdays'] === null) {
+            $invalidProperties[] = "'weekdays' can't be null";
         }
         return $invalidProperties;
     }
@@ -343,163 +380,271 @@ class MailSignatureCandidateFieldsPhonesInner implements ModelInterface, ArrayAc
 
 
     /**
-     * Gets confidence
+     * Gets end_minute
      *
      * @return float
      */
-    public function getConfidence()
+    public function getEndMinute()
     {
-        return $this->container['confidence'];
+        return $this->container['end_minute'];
     }
 
     /**
-     * Sets confidence
+     * Sets end_minute
      *
-     * @param float $confidence confidence
+     * @param float $end_minute end_minute
      *
      * @return self
      */
-    public function setConfidence($confidence)
+    public function setEndMinute($end_minute)
     {
-        if (is_null($confidence)) {
-            throw new \InvalidArgumentException('non-nullable confidence cannot be null');
+        if (is_null($end_minute)) {
+            throw new \InvalidArgumentException('non-nullable end_minute cannot be null');
         }
-        $this->container['confidence'] = $confidence;
+        $this->container['end_minute'] = $end_minute;
 
         return $this;
     }
 
     /**
-     * Gets method
+     * Gets format
      *
      * @return string
      */
-    public function getMethod()
+    public function getFormat()
     {
-        return $this->container['method'];
+        return $this->container['format'];
     }
 
     /**
-     * Sets method
+     * Sets format
      *
-     * @param string $method method
+     * @param string $format format
      *
      * @return self
      */
-    public function setMethod($method)
+    public function setFormat($format)
     {
-        if (is_null($method)) {
-            throw new \InvalidArgumentException('non-nullable method cannot be null');
+        if (is_null($format)) {
+            throw new \InvalidArgumentException('non-nullable format cannot be null');
         }
-        $this->container['method'] = $method;
+        $this->container['format'] = $format;
 
         return $this;
     }
 
     /**
-     * Gets normalized_value
+     * Gets signature
      *
-     * @return \Reacon\Sdk\Model\MailPhoneNumberValue
+     * @return string
      */
-    public function getNormalizedValue()
+    public function getSignature()
     {
-        return $this->container['normalized_value'];
+        return $this->container['signature'];
     }
 
     /**
-     * Sets normalized_value
+     * Sets signature
      *
-     * @param \Reacon\Sdk\Model\MailPhoneNumberValue $normalized_value normalized_value
+     * @param string $signature signature
      *
      * @return self
      */
-    public function setNormalizedValue($normalized_value)
+    public function setSignature($signature)
     {
-        if (is_null($normalized_value)) {
-            throw new \InvalidArgumentException('non-nullable normalized_value cannot be null');
+        if (is_null($signature)) {
+            throw new \InvalidArgumentException('non-nullable signature cannot be null');
         }
-        $this->container['normalized_value'] = $normalized_value;
+        $this->container['signature'] = $signature;
 
         return $this;
     }
 
     /**
-     * Gets source_end
+     * Gets start_minute
      *
      * @return float
      */
-    public function getSourceEnd()
+    public function getStartMinute()
     {
-        return $this->container['source_end'];
+        return $this->container['start_minute'];
     }
 
     /**
-     * Sets source_end
+     * Sets start_minute
      *
-     * @param float $source_end source_end
+     * @param float $start_minute start_minute
      *
      * @return self
      */
-    public function setSourceEnd($source_end)
+    public function setStartMinute($start_minute)
     {
-        if (is_null($source_end)) {
-            throw new \InvalidArgumentException('non-nullable source_end cannot be null');
+        if (is_null($start_minute)) {
+            throw new \InvalidArgumentException('non-nullable start_minute cannot be null');
         }
-        $this->container['source_end'] = $source_end;
+        $this->container['start_minute'] = $start_minute;
 
         return $this;
     }
 
     /**
-     * Gets source_start
+     * Gets time_zone
      *
-     * @return float
+     * @return string
      */
-    public function getSourceStart()
+    public function getTimeZone()
     {
-        return $this->container['source_start'];
+        return $this->container['time_zone'];
     }
 
     /**
-     * Sets source_start
+     * Sets time_zone
      *
-     * @param float $source_start source_start
+     * @param string $time_zone time_zone
      *
      * @return self
      */
-    public function setSourceStart($source_start)
+    public function setTimeZone($time_zone)
     {
-        if (is_null($source_start)) {
-            throw new \InvalidArgumentException('non-nullable source_start cannot be null');
+        if (is_null($time_zone)) {
+            throw new \InvalidArgumentException('non-nullable time_zone cannot be null');
         }
-        $this->container['source_start'] = $source_start;
+        $this->container['time_zone'] = $time_zone;
 
         return $this;
     }
 
     /**
-     * Gets value
+     * Gets track_clicks
      *
-     * @return \Reacon\Sdk\Model\MailPhoneNumberValue
+     * @return bool
      */
-    public function getValue()
+    public function getTrackClicks()
     {
-        return $this->container['value'];
+        return $this->container['track_clicks'];
     }
 
     /**
-     * Sets value
+     * Sets track_clicks
      *
-     * @param \Reacon\Sdk\Model\MailPhoneNumberValue $value value
+     * @param bool $track_clicks track_clicks
      *
      * @return self
      */
-    public function setValue($value)
+    public function setTrackClicks($track_clicks)
     {
-        if (is_null($value)) {
-            throw new \InvalidArgumentException('non-nullable value cannot be null');
+        if (is_null($track_clicks)) {
+            throw new \InvalidArgumentException('non-nullable track_clicks cannot be null');
         }
-        $this->container['value'] = $value;
+        $this->container['track_clicks'] = $track_clicks;
+
+        return $this;
+    }
+
+    /**
+     * Gets track_opens
+     *
+     * @return bool
+     */
+    public function getTrackOpens()
+    {
+        return $this->container['track_opens'];
+    }
+
+    /**
+     * Sets track_opens
+     *
+     * @param bool $track_opens track_opens
+     *
+     * @return self
+     */
+    public function setTrackOpens($track_opens)
+    {
+        if (is_null($track_opens)) {
+            throw new \InvalidArgumentException('non-nullable track_opens cannot be null');
+        }
+        $this->container['track_opens'] = $track_opens;
+
+        return $this;
+    }
+
+    /**
+     * Gets unsubscribe_text
+     *
+     * @return string
+     */
+    public function getUnsubscribeText()
+    {
+        return $this->container['unsubscribe_text'];
+    }
+
+    /**
+     * Sets unsubscribe_text
+     *
+     * @param string $unsubscribe_text unsubscribe_text
+     *
+     * @return self
+     */
+    public function setUnsubscribeText($unsubscribe_text)
+    {
+        if (is_null($unsubscribe_text)) {
+            throw new \InvalidArgumentException('non-nullable unsubscribe_text cannot be null');
+        }
+        $this->container['unsubscribe_text'] = $unsubscribe_text;
+
+        return $this;
+    }
+
+    /**
+     * Gets verification_policy
+     *
+     * @return string|null
+     */
+    public function getVerificationPolicy()
+    {
+        return $this->container['verification_policy'];
+    }
+
+    /**
+     * Sets verification_policy
+     *
+     * @param string|null $verification_policy verification_policy
+     *
+     * @return self
+     */
+    public function setVerificationPolicy($verification_policy)
+    {
+        if (is_null($verification_policy)) {
+            throw new \InvalidArgumentException('non-nullable verification_policy cannot be null');
+        }
+        $this->container['verification_policy'] = $verification_policy;
+
+        return $this;
+    }
+
+    /**
+     * Gets weekdays
+     *
+     * @return string[]
+     */
+    public function getWeekdays()
+    {
+        return $this->container['weekdays'];
+    }
+
+    /**
+     * Sets weekdays
+     *
+     * @param string[] $weekdays weekdays
+     *
+     * @return self
+     */
+    public function setWeekdays($weekdays)
+    {
+        if (is_null($weekdays)) {
+            throw new \InvalidArgumentException('non-nullable weekdays cannot be null');
+        }
+        $this->container['weekdays'] = $weekdays;
 
         return $this;
     }

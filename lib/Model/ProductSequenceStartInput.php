@@ -57,8 +57,15 @@ class ProductSequenceStartInput implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $openAPITypes = [
+        'audience_list_id' => 'string',
+        'cadence_id' => 'string',
+        'cadence_version' => 'int',
+        'enrollment_mode' => 'string',
         'idempotency_key' => 'string',
-        'sequence_id' => 'string'
+        'mailbox_id' => 'string',
+        'mailbox_pool_id' => 'string',
+        'name' => 'string',
+        'scheduled_at' => '\DateTime'
     ];
 
     /**
@@ -69,8 +76,15 @@ class ProductSequenceStartInput implements ModelInterface, ArrayAccess, \JsonSer
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
+        'audience_list_id' => null,
+        'cadence_id' => null,
+        'cadence_version' => null,
+        'enrollment_mode' => null,
         'idempotency_key' => null,
-        'sequence_id' => 'uuid'
+        'mailbox_id' => null,
+        'mailbox_pool_id' => null,
+        'name' => null,
+        'scheduled_at' => 'date-time'
     ];
 
     /**
@@ -79,8 +93,15 @@ class ProductSequenceStartInput implements ModelInterface, ArrayAccess, \JsonSer
      * @var boolean[]
      */
     protected static array $openAPINullables = [
+        'audience_list_id' => false,
+        'cadence_id' => false,
+        'cadence_version' => false,
+        'enrollment_mode' => false,
         'idempotency_key' => false,
-        'sequence_id' => false
+        'mailbox_id' => false,
+        'mailbox_pool_id' => false,
+        'name' => false,
+        'scheduled_at' => false
     ];
 
     /**
@@ -169,8 +190,15 @@ class ProductSequenceStartInput implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $attributeMap = [
+        'audience_list_id' => 'audienceListId',
+        'cadence_id' => 'cadenceId',
+        'cadence_version' => 'cadenceVersion',
+        'enrollment_mode' => 'enrollmentMode',
         'idempotency_key' => 'idempotencyKey',
-        'sequence_id' => 'sequenceId'
+        'mailbox_id' => 'mailboxId',
+        'mailbox_pool_id' => 'mailboxPoolId',
+        'name' => 'name',
+        'scheduled_at' => 'scheduledAt'
     ];
 
     /**
@@ -179,8 +207,15 @@ class ProductSequenceStartInput implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $setters = [
+        'audience_list_id' => 'setAudienceListId',
+        'cadence_id' => 'setCadenceId',
+        'cadence_version' => 'setCadenceVersion',
+        'enrollment_mode' => 'setEnrollmentMode',
         'idempotency_key' => 'setIdempotencyKey',
-        'sequence_id' => 'setSequenceId'
+        'mailbox_id' => 'setMailboxId',
+        'mailbox_pool_id' => 'setMailboxPoolId',
+        'name' => 'setName',
+        'scheduled_at' => 'setScheduledAt'
     ];
 
     /**
@@ -189,8 +224,15 @@ class ProductSequenceStartInput implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $getters = [
+        'audience_list_id' => 'getAudienceListId',
+        'cadence_id' => 'getCadenceId',
+        'cadence_version' => 'getCadenceVersion',
+        'enrollment_mode' => 'getEnrollmentMode',
         'idempotency_key' => 'getIdempotencyKey',
-        'sequence_id' => 'getSequenceId'
+        'mailbox_id' => 'getMailboxId',
+        'mailbox_pool_id' => 'getMailboxPoolId',
+        'name' => 'getName',
+        'scheduled_at' => 'getScheduledAt'
     ];
 
     /**
@@ -234,6 +276,21 @@ class ProductSequenceStartInput implements ModelInterface, ArrayAccess, \JsonSer
         return self::$openAPIModelName;
     }
 
+    public const ENROLLMENT_MODE_NEW_ONLY = 'new_only';
+    public const ENROLLMENT_MODE_REENROLL = 'reenroll';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getEnrollmentModeAllowableValues()
+    {
+        return [
+            self::ENROLLMENT_MODE_NEW_ONLY,
+            self::ENROLLMENT_MODE_REENROLL,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -250,8 +307,15 @@ class ProductSequenceStartInput implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('audience_list_id', $data ?? [], null);
+        $this->setIfExists('cadence_id', $data ?? [], null);
+        $this->setIfExists('cadence_version', $data ?? [], null);
+        $this->setIfExists('enrollment_mode', $data ?? [], null);
         $this->setIfExists('idempotency_key', $data ?? [], null);
-        $this->setIfExists('sequence_id', $data ?? [], null);
+        $this->setIfExists('mailbox_id', $data ?? [], null);
+        $this->setIfExists('mailbox_pool_id', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('scheduled_at', $data ?? [], null);
     }
 
     /**
@@ -281,6 +345,56 @@ class ProductSequenceStartInput implements ModelInterface, ArrayAccess, \JsonSer
     {
         $invalidProperties = [];
 
+        if ($this->container['audience_list_id'] === null) {
+            $invalidProperties[] = "'audience_list_id' can't be null";
+        }
+        if ((mb_strlen($this->container['audience_list_id']) > 200)) {
+            $invalidProperties[] = "invalid value for 'audience_list_id', the character length must be smaller than or equal to 200.";
+        }
+
+        if ((mb_strlen($this->container['audience_list_id']) < 1)) {
+            $invalidProperties[] = "invalid value for 'audience_list_id', the character length must be bigger than or equal to 1.";
+        }
+
+        if (!preg_match("/^[a-zA-Z0-9_-]+$/", $this->container['audience_list_id'])) {
+            $invalidProperties[] = "invalid value for 'audience_list_id', must be conform to the pattern /^[a-zA-Z0-9_-]+$/.";
+        }
+
+        if ($this->container['cadence_id'] === null) {
+            $invalidProperties[] = "'cadence_id' can't be null";
+        }
+        if ((mb_strlen($this->container['cadence_id']) > 200)) {
+            $invalidProperties[] = "invalid value for 'cadence_id', the character length must be smaller than or equal to 200.";
+        }
+
+        if ((mb_strlen($this->container['cadence_id']) < 1)) {
+            $invalidProperties[] = "invalid value for 'cadence_id', the character length must be bigger than or equal to 1.";
+        }
+
+        if (!preg_match("/^[a-zA-Z0-9_-]+$/", $this->container['cadence_id'])) {
+            $invalidProperties[] = "invalid value for 'cadence_id', must be conform to the pattern /^[a-zA-Z0-9_-]+$/.";
+        }
+
+        if ($this->container['cadence_version'] === null) {
+            $invalidProperties[] = "'cadence_version' can't be null";
+        }
+        if (($this->container['cadence_version'] > 9007199254740991)) {
+            $invalidProperties[] = "invalid value for 'cadence_version', must be smaller than or equal to 9007199254740991.";
+        }
+
+        if (($this->container['cadence_version'] <= 0)) {
+            $invalidProperties[] = "invalid value for 'cadence_version', must be bigger than 0.";
+        }
+
+        $allowedValues = $this->getEnrollmentModeAllowableValues();
+        if (!is_null($this->container['enrollment_mode']) && !in_array($this->container['enrollment_mode'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'enrollment_mode', must be one of '%s'",
+                $this->container['enrollment_mode'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['idempotency_key'] === null) {
             $invalidProperties[] = "'idempotency_key' can't be null";
         }
@@ -292,13 +406,33 @@ class ProductSequenceStartInput implements ModelInterface, ArrayAccess, \JsonSer
             $invalidProperties[] = "invalid value for 'idempotency_key', the character length must be bigger than or equal to 16.";
         }
 
-        if ($this->container['sequence_id'] === null) {
-            $invalidProperties[] = "'sequence_id' can't be null";
-        }
-        if (!preg_match("/^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$/", $this->container['sequence_id'])) {
-            $invalidProperties[] = "invalid value for 'sequence_id', must be conform to the pattern /^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$/.";
+        if (!is_null($this->container['mailbox_id']) && (mb_strlen($this->container['mailbox_id']) > 200)) {
+            $invalidProperties[] = "invalid value for 'mailbox_id', the character length must be smaller than or equal to 200.";
         }
 
+        if (!is_null($this->container['mailbox_id']) && (mb_strlen($this->container['mailbox_id']) < 1)) {
+            $invalidProperties[] = "invalid value for 'mailbox_id', the character length must be bigger than or equal to 1.";
+        }
+
+        if (!is_null($this->container['mailbox_id']) && !preg_match("/^[a-zA-Z0-9_-]+$/", $this->container['mailbox_id'])) {
+            $invalidProperties[] = "invalid value for 'mailbox_id', must be conform to the pattern /^[a-zA-Z0-9_-]+$/.";
+        }
+
+        if (!is_null($this->container['mailbox_pool_id']) && (mb_strlen($this->container['mailbox_pool_id']) > 200)) {
+            $invalidProperties[] = "invalid value for 'mailbox_pool_id', the character length must be smaller than or equal to 200.";
+        }
+
+        if (!is_null($this->container['mailbox_pool_id']) && (mb_strlen($this->container['mailbox_pool_id']) < 1)) {
+            $invalidProperties[] = "invalid value for 'mailbox_pool_id', the character length must be bigger than or equal to 1.";
+        }
+
+        if (!is_null($this->container['mailbox_pool_id']) && !preg_match("/^[a-zA-Z0-9_-]+$/", $this->container['mailbox_pool_id'])) {
+            $invalidProperties[] = "invalid value for 'mailbox_pool_id', must be conform to the pattern /^[a-zA-Z0-9_-]+$/.";
+        }
+
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -313,6 +447,151 @@ class ProductSequenceStartInput implements ModelInterface, ArrayAccess, \JsonSer
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets audience_list_id
+     *
+     * @return string
+     */
+    public function getAudienceListId()
+    {
+        return $this->container['audience_list_id'];
+    }
+
+    /**
+     * Sets audience_list_id
+     *
+     * @param string $audience_list_id audience_list_id
+     *
+     * @return self
+     */
+    public function setAudienceListId($audience_list_id)
+    {
+        if (is_null($audience_list_id)) {
+            throw new \InvalidArgumentException('non-nullable audience_list_id cannot be null');
+        }
+        if ((mb_strlen($audience_list_id) > 200)) {
+            throw new \InvalidArgumentException('invalid length for $audience_list_id when calling ProductSequenceStartInput., must be smaller than or equal to 200.');
+        }
+        if ((mb_strlen($audience_list_id) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $audience_list_id when calling ProductSequenceStartInput., must be bigger than or equal to 1.');
+        }
+        if ((!preg_match("/^[a-zA-Z0-9_-]+$/", ObjectSerializer::toString($audience_list_id)))) {
+            throw new \InvalidArgumentException("invalid value for \$audience_list_id when calling ProductSequenceStartInput., must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
+        }
+
+        $this->container['audience_list_id'] = $audience_list_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets cadence_id
+     *
+     * @return string
+     */
+    public function getCadenceId()
+    {
+        return $this->container['cadence_id'];
+    }
+
+    /**
+     * Sets cadence_id
+     *
+     * @param string $cadence_id cadence_id
+     *
+     * @return self
+     */
+    public function setCadenceId($cadence_id)
+    {
+        if (is_null($cadence_id)) {
+            throw new \InvalidArgumentException('non-nullable cadence_id cannot be null');
+        }
+        if ((mb_strlen($cadence_id) > 200)) {
+            throw new \InvalidArgumentException('invalid length for $cadence_id when calling ProductSequenceStartInput., must be smaller than or equal to 200.');
+        }
+        if ((mb_strlen($cadence_id) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $cadence_id when calling ProductSequenceStartInput., must be bigger than or equal to 1.');
+        }
+        if ((!preg_match("/^[a-zA-Z0-9_-]+$/", ObjectSerializer::toString($cadence_id)))) {
+            throw new \InvalidArgumentException("invalid value for \$cadence_id when calling ProductSequenceStartInput., must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
+        }
+
+        $this->container['cadence_id'] = $cadence_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets cadence_version
+     *
+     * @return int
+     */
+    public function getCadenceVersion()
+    {
+        return $this->container['cadence_version'];
+    }
+
+    /**
+     * Sets cadence_version
+     *
+     * @param int $cadence_version cadence_version
+     *
+     * @return self
+     */
+    public function setCadenceVersion($cadence_version)
+    {
+        if (is_null($cadence_version)) {
+            throw new \InvalidArgumentException('non-nullable cadence_version cannot be null');
+        }
+        if (($cadence_version > 9007199254740991)) {
+            throw new \InvalidArgumentException('invalid value for $cadence_version when calling ProductSequenceStartInput., must be smaller than or equal to 9007199254740991.');
+        }
+        if (($cadence_version <= 0)) {
+            throw new \InvalidArgumentException('invalid value for $cadence_version when calling ProductSequenceStartInput., must be bigger than 0.');
+        }
+
+        $this->container['cadence_version'] = $cadence_version;
+
+        return $this;
+    }
+
+    /**
+     * Gets enrollment_mode
+     *
+     * @return string|null
+     */
+    public function getEnrollmentMode()
+    {
+        return $this->container['enrollment_mode'];
+    }
+
+    /**
+     * Sets enrollment_mode
+     *
+     * @param string|null $enrollment_mode enrollment_mode
+     *
+     * @return self
+     */
+    public function setEnrollmentMode($enrollment_mode)
+    {
+        if (is_null($enrollment_mode)) {
+            throw new \InvalidArgumentException('non-nullable enrollment_mode cannot be null');
+        }
+        $allowedValues = $this->getEnrollmentModeAllowableValues();
+        if (!in_array($enrollment_mode, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'enrollment_mode', must be one of '%s'",
+                    $enrollment_mode,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['enrollment_mode'] = $enrollment_mode;
+
+        return $this;
+    }
 
     /**
      * Gets idempotency_key
@@ -349,33 +628,129 @@ class ProductSequenceStartInput implements ModelInterface, ArrayAccess, \JsonSer
     }
 
     /**
-     * Gets sequence_id
+     * Gets mailbox_id
      *
-     * @return string
+     * @return string|null
      */
-    public function getSequenceId()
+    public function getMailboxId()
     {
-        return $this->container['sequence_id'];
+        return $this->container['mailbox_id'];
     }
 
     /**
-     * Sets sequence_id
+     * Sets mailbox_id
      *
-     * @param string $sequence_id sequence_id
+     * @param string|null $mailbox_id mailbox_id
      *
      * @return self
      */
-    public function setSequenceId($sequence_id)
+    public function setMailboxId($mailbox_id)
     {
-        if (is_null($sequence_id)) {
-            throw new \InvalidArgumentException('non-nullable sequence_id cannot be null');
+        if (is_null($mailbox_id)) {
+            throw new \InvalidArgumentException('non-nullable mailbox_id cannot be null');
+        }
+        if ((mb_strlen($mailbox_id) > 200)) {
+            throw new \InvalidArgumentException('invalid length for $mailbox_id when calling ProductSequenceStartInput., must be smaller than or equal to 200.');
+        }
+        if ((mb_strlen($mailbox_id) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $mailbox_id when calling ProductSequenceStartInput., must be bigger than or equal to 1.');
+        }
+        if ((!preg_match("/^[a-zA-Z0-9_-]+$/", ObjectSerializer::toString($mailbox_id)))) {
+            throw new \InvalidArgumentException("invalid value for \$mailbox_id when calling ProductSequenceStartInput., must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
 
-        if ((!preg_match("/^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$/", ObjectSerializer::toString($sequence_id)))) {
-            throw new \InvalidArgumentException("invalid value for \$sequence_id when calling ProductSequenceStartInput., must conform to the pattern /^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$/.");
+        $this->container['mailbox_id'] = $mailbox_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets mailbox_pool_id
+     *
+     * @return string|null
+     */
+    public function getMailboxPoolId()
+    {
+        return $this->container['mailbox_pool_id'];
+    }
+
+    /**
+     * Sets mailbox_pool_id
+     *
+     * @param string|null $mailbox_pool_id mailbox_pool_id
+     *
+     * @return self
+     */
+    public function setMailboxPoolId($mailbox_pool_id)
+    {
+        if (is_null($mailbox_pool_id)) {
+            throw new \InvalidArgumentException('non-nullable mailbox_pool_id cannot be null');
+        }
+        if ((mb_strlen($mailbox_pool_id) > 200)) {
+            throw new \InvalidArgumentException('invalid length for $mailbox_pool_id when calling ProductSequenceStartInput., must be smaller than or equal to 200.');
+        }
+        if ((mb_strlen($mailbox_pool_id) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $mailbox_pool_id when calling ProductSequenceStartInput., must be bigger than or equal to 1.');
+        }
+        if ((!preg_match("/^[a-zA-Z0-9_-]+$/", ObjectSerializer::toString($mailbox_pool_id)))) {
+            throw new \InvalidArgumentException("invalid value for \$mailbox_pool_id when calling ProductSequenceStartInput., must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
 
-        $this->container['sequence_id'] = $sequence_id;
+        $this->container['mailbox_pool_id'] = $mailbox_pool_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name The server applies trim before validating {\"type\":\"string\",\"minLength\":1,\"maxLength\":200}.
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        if (is_null($name)) {
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        }
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets scheduled_at
+     *
+     * @return \DateTime|null
+     */
+    public function getScheduledAt()
+    {
+        return $this->container['scheduled_at'];
+    }
+
+    /**
+     * Sets scheduled_at
+     *
+     * @param \DateTime|null $scheduled_at scheduled_at
+     *
+     * @return self
+     */
+    public function setScheduledAt($scheduled_at)
+    {
+        if (is_null($scheduled_at)) {
+            throw new \InvalidArgumentException('non-nullable scheduled_at cannot be null');
+        }
+        $this->container['scheduled_at'] = $scheduled_at;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * ProductSequenceRecipientsListOutput
+ * ProductMailSequenceLaunchExecution
  *
  * PHP version 8.1
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Reacon\Sdk\ObjectSerializer;
 
 /**
- * ProductSequenceRecipientsListOutput Class Doc Comment
+ * ProductMailSequenceLaunchExecution Class Doc Comment
  *
  * @category Class
  * @package  Reacon\Sdk
@@ -40,7 +40,7 @@ use \Reacon\Sdk\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ProductSequenceRecipientsListOutput implements ModelInterface, ArrayAccess, \JsonSerializable
+class ProductMailSequenceLaunchExecution implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class ProductSequenceRecipientsListOutput implements ModelInterface, ArrayAccess
      *
      * @var string
      */
-    protected static $openAPIModelName = 'ProductSequenceRecipientsListOutput';
+    protected static $openAPIModelName = 'ProductMailSequenceLaunchExecution';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,10 @@ class ProductSequenceRecipientsListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $openAPITypes = [
-        'items' => '\Reacon\Sdk\Model\ProductDatedRecipient[]'
+        'execution_id' => 'string',
+        'output' => 'array<string,mixed>',
+        'replay' => 'bool',
+        'tool' => 'string'
     ];
 
     /**
@@ -68,7 +71,10 @@ class ProductSequenceRecipientsListOutput implements ModelInterface, ArrayAccess
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'items' => null
+        'execution_id' => 'uuid',
+        'output' => null,
+        'replay' => null,
+        'tool' => null
     ];
 
     /**
@@ -77,7 +83,10 @@ class ProductSequenceRecipientsListOutput implements ModelInterface, ArrayAccess
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'items' => false
+        'execution_id' => false,
+        'output' => false,
+        'replay' => false,
+        'tool' => false
     ];
 
     /**
@@ -166,7 +175,10 @@ class ProductSequenceRecipientsListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'items' => 'items'
+        'execution_id' => 'executionId',
+        'output' => 'output',
+        'replay' => 'replay',
+        'tool' => 'tool'
     ];
 
     /**
@@ -175,7 +187,10 @@ class ProductSequenceRecipientsListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'items' => 'setItems'
+        'execution_id' => 'setExecutionId',
+        'output' => 'setOutput',
+        'replay' => 'setReplay',
+        'tool' => 'setTool'
     ];
 
     /**
@@ -184,7 +199,10 @@ class ProductSequenceRecipientsListOutput implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'items' => 'getItems'
+        'execution_id' => 'getExecutionId',
+        'output' => 'getOutput',
+        'replay' => 'getReplay',
+        'tool' => 'getTool'
     ];
 
     /**
@@ -228,6 +246,19 @@ class ProductSequenceRecipientsListOutput implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    public const TOOL_MAIL_SEQUENCE_LAUNCH = 'mail_sequence_launch';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getToolAllowableValues()
+    {
+        return [
+            self::TOOL_MAIL_SEQUENCE_LAUNCH,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -244,7 +275,10 @@ class ProductSequenceRecipientsListOutput implements ModelInterface, ArrayAccess
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('items', $data ?? [], null);
+        $this->setIfExists('execution_id', $data ?? [], null);
+        $this->setIfExists('output', $data ?? [], null);
+        $this->setIfExists('replay', $data ?? [], null);
+        $this->setIfExists('tool', $data ?? [], null);
     }
 
     /**
@@ -274,9 +308,27 @@ class ProductSequenceRecipientsListOutput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['items'] === null) {
-            $invalidProperties[] = "'items' can't be null";
+        if ($this->container['execution_id'] === null) {
+            $invalidProperties[] = "'execution_id' can't be null";
         }
+        if ($this->container['output'] === null) {
+            $invalidProperties[] = "'output' can't be null";
+        }
+        if ($this->container['replay'] === null) {
+            $invalidProperties[] = "'replay' can't be null";
+        }
+        if ($this->container['tool'] === null) {
+            $invalidProperties[] = "'tool' can't be null";
+        }
+        $allowedValues = $this->getToolAllowableValues();
+        if (!is_null($this->container['tool']) && !in_array($this->container['tool'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'tool', must be one of '%s'",
+                $this->container['tool'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -293,28 +345,119 @@ class ProductSequenceRecipientsListOutput implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets items
+     * Gets execution_id
      *
-     * @return \Reacon\Sdk\Model\ProductDatedRecipient[]
+     * @return string
      */
-    public function getItems()
+    public function getExecutionId()
     {
-        return $this->container['items'];
+        return $this->container['execution_id'];
     }
 
     /**
-     * Sets items
+     * Sets execution_id
      *
-     * @param \Reacon\Sdk\Model\ProductDatedRecipient[] $items items
+     * @param string $execution_id execution_id
      *
      * @return self
      */
-    public function setItems($items)
+    public function setExecutionId($execution_id)
     {
-        if (is_null($items)) {
-            throw new \InvalidArgumentException('non-nullable items cannot be null');
+        if (is_null($execution_id)) {
+            throw new \InvalidArgumentException('non-nullable execution_id cannot be null');
         }
-        $this->container['items'] = $items;
+        $this->container['execution_id'] = $execution_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets output
+     *
+     * @return array<string,mixed>
+     */
+    public function getOutput()
+    {
+        return $this->container['output'];
+    }
+
+    /**
+     * Sets output
+     *
+     * @param array<string,mixed> $output Response body of the Mail API operation POST /v1/teams/{teamId}/mail/cadence-campaigns, returned unchanged.
+     *
+     * @return self
+     */
+    public function setOutput($output)
+    {
+        if (is_null($output)) {
+            throw new \InvalidArgumentException('non-nullable output cannot be null');
+        }
+        $this->container['output'] = $output;
+
+        return $this;
+    }
+
+    /**
+     * Gets replay
+     *
+     * @return bool
+     */
+    public function getReplay()
+    {
+        return $this->container['replay'];
+    }
+
+    /**
+     * Sets replay
+     *
+     * @param bool $replay replay
+     *
+     * @return self
+     */
+    public function setReplay($replay)
+    {
+        if (is_null($replay)) {
+            throw new \InvalidArgumentException('non-nullable replay cannot be null');
+        }
+        $this->container['replay'] = $replay;
+
+        return $this;
+    }
+
+    /**
+     * Gets tool
+     *
+     * @return string
+     */
+    public function getTool()
+    {
+        return $this->container['tool'];
+    }
+
+    /**
+     * Sets tool
+     *
+     * @param string $tool tool
+     *
+     * @return self
+     */
+    public function setTool($tool)
+    {
+        if (is_null($tool)) {
+            throw new \InvalidArgumentException('non-nullable tool cannot be null');
+        }
+        $allowedValues = $this->getToolAllowableValues();
+        if (!in_array($tool, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'tool', must be one of '%s'",
+                    $tool,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['tool'] = $tool;
 
         return $this;
     }

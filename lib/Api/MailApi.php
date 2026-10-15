@@ -12411,15 +12411,18 @@ class MailApi
      * @param  string $team_id team_id (required)
      * @param  int|null $limit limit (optional, default to 100)
      * @param  string|null $cursor cursor (optional)
+     * @param  string|null $query query (optional)
+     * @param  string|null $status status (optional)
+     * @param  string|null $sequence_id sequence_id (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listMailMessages'] to see the possible values for this operation
      *
      * @throws \Reacon\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Reacon\Sdk\Model\MailGetMessagesResponse200|\Reacon\Sdk\Model\ApiError|\Reacon\Sdk\Model\ApiError|\Reacon\Sdk\Model\ApiError|\Reacon\Sdk\Model\ApiError|\Reacon\Sdk\Model\ApiError|\Reacon\Sdk\Model\ApiError|\Reacon\Sdk\Model\ApiError|\Reacon\Sdk\Model\ApiError|\Reacon\Sdk\Model\ApiError
      */
-    public function listMailMessages($team_id, $limit = null, $cursor = null, string $contentType = self::contentTypes['listMailMessages'][0])
+    public function listMailMessages($team_id, $limit = null, $cursor = null, $query = null, $status = null, $sequence_id = null, string $contentType = self::contentTypes['listMailMessages'][0])
     {
-        list($response) = $this->listMailMessagesWithHttpInfo($team_id, $limit, $cursor, $contentType);
+        list($response) = $this->listMailMessagesWithHttpInfo($team_id, $limit, $cursor, $query, $status, $sequence_id, $contentType);
         return $response;
     }
 
@@ -12431,15 +12434,18 @@ class MailApi
      * @param  string $team_id (required)
      * @param  int|null $limit (optional, default to 100)
      * @param  string|null $cursor (optional)
+     * @param  string|null $query (optional)
+     * @param  string|null $status (optional)
+     * @param  string|null $sequence_id (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listMailMessages'] to see the possible values for this operation
      *
      * @throws \Reacon\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Reacon\Sdk\Model\MailGetMessagesResponse200|\Reacon\Sdk\Model\ApiError|\Reacon\Sdk\Model\ApiError|\Reacon\Sdk\Model\ApiError|\Reacon\Sdk\Model\ApiError|\Reacon\Sdk\Model\ApiError|\Reacon\Sdk\Model\ApiError|\Reacon\Sdk\Model\ApiError|\Reacon\Sdk\Model\ApiError|\Reacon\Sdk\Model\ApiError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listMailMessagesWithHttpInfo($team_id, $limit = null, $cursor = null, string $contentType = self::contentTypes['listMailMessages'][0])
+    public function listMailMessagesWithHttpInfo($team_id, $limit = null, $cursor = null, $query = null, $status = null, $sequence_id = null, string $contentType = self::contentTypes['listMailMessages'][0])
     {
-        $request = $this->listMailMessagesRequest($team_id, $limit, $cursor, $contentType);
+        $request = $this->listMailMessagesRequest($team_id, $limit, $cursor, $query, $status, $sequence_id, $contentType);
         $response = \Reacon\Sdk\Http\RequestPolicy::send($this->client, $request, $this->config, $this->createHttpClientOption())->wait();
         return \Reacon\Sdk\Http\RequestPolicy::decode($response, '\Reacon\Sdk\Model\MailGetMessagesResponse200');
     }
@@ -12452,14 +12458,17 @@ class MailApi
      * @param  string $team_id (required)
      * @param  int|null $limit (optional, default to 100)
      * @param  string|null $cursor (optional)
+     * @param  string|null $query (optional)
+     * @param  string|null $status (optional)
+     * @param  string|null $sequence_id (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listMailMessages'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listMailMessagesAsync($team_id, $limit = null, $cursor = null, string $contentType = self::contentTypes['listMailMessages'][0])
+    public function listMailMessagesAsync($team_id, $limit = null, $cursor = null, $query = null, $status = null, $sequence_id = null, string $contentType = self::contentTypes['listMailMessages'][0])
     {
-        return $this->listMailMessagesAsyncWithHttpInfo($team_id, $limit, $cursor, $contentType)
+        return $this->listMailMessagesAsyncWithHttpInfo($team_id, $limit, $cursor, $query, $status, $sequence_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -12475,14 +12484,17 @@ class MailApi
      * @param  string $team_id (required)
      * @param  int|null $limit (optional, default to 100)
      * @param  string|null $cursor (optional)
+     * @param  string|null $query (optional)
+     * @param  string|null $status (optional)
+     * @param  string|null $sequence_id (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listMailMessages'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listMailMessagesAsyncWithHttpInfo($team_id, $limit = null, $cursor = null, string $contentType = self::contentTypes['listMailMessages'][0])
+    public function listMailMessagesAsyncWithHttpInfo($team_id, $limit = null, $cursor = null, $query = null, $status = null, $sequence_id = null, string $contentType = self::contentTypes['listMailMessages'][0])
     {
-        $request = $this->listMailMessagesRequest($team_id, $limit, $cursor, $contentType);
+        $request = $this->listMailMessagesRequest($team_id, $limit, $cursor, $query, $status, $sequence_id, $contentType);
         return \Reacon\Sdk\Http\RequestPolicy::send($this->client, $request, $this->config, $this->createHttpClientOption())
             ->then(static fn ($response) => \Reacon\Sdk\Http\RequestPolicy::decode($response, '\Reacon\Sdk\Model\MailGetMessagesResponse200'));
     }
@@ -12493,12 +12505,15 @@ class MailApi
      * @param  string $team_id (required)
      * @param  int|null $limit (optional, default to 100)
      * @param  string|null $cursor (optional)
+     * @param  string|null $query (optional)
+     * @param  string|null $status (optional)
+     * @param  string|null $sequence_id (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listMailMessages'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listMailMessagesRequest($team_id, $limit = null, $cursor = null, string $contentType = self::contentTypes['listMailMessages'][0])
+    public function listMailMessagesRequest($team_id, $limit = null, $cursor = null, $query = null, $status = null, $sequence_id = null, string $contentType = self::contentTypes['listMailMessages'][0])
     {
 
         // verify the required parameter 'team_id' is set
@@ -12516,6 +12531,15 @@ class MailApi
         }
         
 
+        if ($query !== null && strlen($query) > 200) {
+            throw new \InvalidArgumentException('invalid length for "$query" when calling MailApi.listMailMessages, must be smaller than or equal to 200.');
+        }
+        
+
+        if ($sequence_id !== null && strlen($sequence_id) > 200) {
+            throw new \InvalidArgumentException('invalid length for "$sequence_id" when calling MailApi.listMailMessages, must be smaller than or equal to 200.');
+        }
+        
 
         $resourcePath = '/v1/teams/{teamId}/mail/messages';
         $formParams = [];
@@ -12537,6 +12561,33 @@ class MailApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $cursor,
             'cursor', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $query,
+            'query', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $status,
+            'status', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $sequence_id,
+            'sequenceId', // param base name
             'string', // openApiType
             'form', // style
             true, // explode

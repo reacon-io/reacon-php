@@ -63,7 +63,8 @@ class MailContactRecord implements ModelInterface, ArrayAccess, \JsonSerializabl
         'id' => 'string',
         'name' => 'string',
         'tenant_id' => 'string',
-        'updated_at' => '\DateTime'
+        'updated_at' => '\DateTime',
+        'verification' => '\Reacon\Sdk\Model\MailContactRecordVerification'
     ];
 
     /**
@@ -80,7 +81,8 @@ class MailContactRecord implements ModelInterface, ArrayAccess, \JsonSerializabl
         'id' => null,
         'name' => null,
         'tenant_id' => null,
-        'updated_at' => 'date-time'
+        'updated_at' => 'date-time',
+        'verification' => null
     ];
 
     /**
@@ -95,7 +97,8 @@ class MailContactRecord implements ModelInterface, ArrayAccess, \JsonSerializabl
         'id' => false,
         'name' => false,
         'tenant_id' => false,
-        'updated_at' => false
+        'updated_at' => false,
+        'verification' => false
     ];
 
     /**
@@ -190,7 +193,8 @@ class MailContactRecord implements ModelInterface, ArrayAccess, \JsonSerializabl
         'id' => 'id',
         'name' => 'name',
         'tenant_id' => 'tenantId',
-        'updated_at' => 'updatedAt'
+        'updated_at' => 'updatedAt',
+        'verification' => 'verification'
     ];
 
     /**
@@ -205,7 +209,8 @@ class MailContactRecord implements ModelInterface, ArrayAccess, \JsonSerializabl
         'id' => 'setId',
         'name' => 'setName',
         'tenant_id' => 'setTenantId',
-        'updated_at' => 'setUpdatedAt'
+        'updated_at' => 'setUpdatedAt',
+        'verification' => 'setVerification'
     ];
 
     /**
@@ -220,7 +225,8 @@ class MailContactRecord implements ModelInterface, ArrayAccess, \JsonSerializabl
         'id' => 'getId',
         'name' => 'getName',
         'tenant_id' => 'getTenantId',
-        'updated_at' => 'getUpdatedAt'
+        'updated_at' => 'getUpdatedAt',
+        'verification' => 'getVerification'
     ];
 
     /**
@@ -287,6 +293,7 @@ class MailContactRecord implements ModelInterface, ArrayAccess, \JsonSerializabl
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('tenant_id', $data ?? [], null);
         $this->setIfExists('updated_at', $data ?? [], null);
+        $this->setIfExists('verification', $data ?? [], null);
     }
 
     /**
@@ -534,6 +541,33 @@ class MailContactRecord implements ModelInterface, ArrayAccess, \JsonSerializabl
             throw new \InvalidArgumentException('non-nullable updated_at cannot be null');
         }
         $this->container['updated_at'] = $updated_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets verification
+     *
+     * @return \Reacon\Sdk\Model\MailContactRecordVerification|null
+     */
+    public function getVerification()
+    {
+        return $this->container['verification'];
+    }
+
+    /**
+     * Sets verification
+     *
+     * @param \Reacon\Sdk\Model\MailContactRecordVerification|null $verification verification
+     *
+     * @return self
+     */
+    public function setVerification($verification)
+    {
+        if (is_null($verification)) {
+            throw new \InvalidArgumentException('non-nullable verification cannot be null');
+        }
+        $this->container['verification'] = $verification;
 
         return $this;
     }

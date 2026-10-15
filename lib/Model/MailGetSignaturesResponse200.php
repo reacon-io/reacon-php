@@ -57,7 +57,7 @@ class MailGetSignaturesResponse200 implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $openAPITypes = [
-        'candidates' => '\Reacon\Sdk\Model\MailSignatureCandidate[]',
+        'candidates' => '\Reacon\Sdk\Model\MailGetSignaturesResponse200CandidatesInner[]',
         'next_cursor' => 'string'
     ];
 
@@ -302,7 +302,7 @@ class MailGetSignaturesResponse200 implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets candidates
      *
-     * @return \Reacon\Sdk\Model\MailSignatureCandidate[]
+     * @return \Reacon\Sdk\Model\MailGetSignaturesResponse200CandidatesInner[]
      */
     public function getCandidates()
     {
@@ -312,7 +312,7 @@ class MailGetSignaturesResponse200 implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets candidates
      *
-     * @param \Reacon\Sdk\Model\MailSignatureCandidate[] $candidates candidates
+     * @param \Reacon\Sdk\Model\MailGetSignaturesResponse200CandidatesInner[] $candidates candidates
      *
      * @return self
      */

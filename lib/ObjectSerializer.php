@@ -78,7 +78,7 @@ class ObjectSerializer
             foreach ($data as $property => $value) {
                 $data[$property] = self::sanitizeForSerialization($value);
             }
-            return is_string($type) && str_starts_with($type, "array<string,") ? (object) $data : $data;
+            return is_string($type) && str_starts_with($type, "array<string,") && !str_ends_with($type, "[]") ? (object) $data : $data;
         }
 
         if (is_object($data)) {

@@ -60,7 +60,8 @@ class MailGetChannelsResponse200 implements ModelInterface, ArrayAccess, \JsonSe
         'email' => '\Reacon\Sdk\Model\MailGetChannelsResponse200Email',
         'execution' => '\Reacon\Sdk\Model\MailGetChannelsResponse200Execution',
         'sms' => '\Reacon\Sdk\Model\MailGetChannelsResponse200Sms',
-        'whatsapp' => '\Reacon\Sdk\Model\MailGetChannelsResponse200Whatsapp'
+        'whatsapp' => '\Reacon\Sdk\Model\MailGetChannelsResponse200Whatsapp',
+        'worker' => '\Reacon\Sdk\Model\MailMailExecutionWorkerStatus'
     ];
 
     /**
@@ -74,7 +75,8 @@ class MailGetChannelsResponse200 implements ModelInterface, ArrayAccess, \JsonSe
         'email' => null,
         'execution' => null,
         'sms' => null,
-        'whatsapp' => null
+        'whatsapp' => null,
+        'worker' => null
     ];
 
     /**
@@ -86,7 +88,8 @@ class MailGetChannelsResponse200 implements ModelInterface, ArrayAccess, \JsonSe
         'email' => false,
         'execution' => false,
         'sms' => false,
-        'whatsapp' => false
+        'whatsapp' => false,
+        'worker' => false
     ];
 
     /**
@@ -178,7 +181,8 @@ class MailGetChannelsResponse200 implements ModelInterface, ArrayAccess, \JsonSe
         'email' => 'email',
         'execution' => 'execution',
         'sms' => 'sms',
-        'whatsapp' => 'whatsapp'
+        'whatsapp' => 'whatsapp',
+        'worker' => 'worker'
     ];
 
     /**
@@ -190,7 +194,8 @@ class MailGetChannelsResponse200 implements ModelInterface, ArrayAccess, \JsonSe
         'email' => 'setEmail',
         'execution' => 'setExecution',
         'sms' => 'setSms',
-        'whatsapp' => 'setWhatsapp'
+        'whatsapp' => 'setWhatsapp',
+        'worker' => 'setWorker'
     ];
 
     /**
@@ -202,7 +207,8 @@ class MailGetChannelsResponse200 implements ModelInterface, ArrayAccess, \JsonSe
         'email' => 'getEmail',
         'execution' => 'getExecution',
         'sms' => 'getSms',
-        'whatsapp' => 'getWhatsapp'
+        'whatsapp' => 'getWhatsapp',
+        'worker' => 'getWorker'
     ];
 
     /**
@@ -266,6 +272,7 @@ class MailGetChannelsResponse200 implements ModelInterface, ArrayAccess, \JsonSe
         $this->setIfExists('execution', $data ?? [], null);
         $this->setIfExists('sms', $data ?? [], null);
         $this->setIfExists('whatsapp', $data ?? [], null);
+        $this->setIfExists('worker', $data ?? [], null);
     }
 
     /**
@@ -306,6 +313,9 @@ class MailGetChannelsResponse200 implements ModelInterface, ArrayAccess, \JsonSe
         }
         if ($this->container['whatsapp'] === null) {
             $invalidProperties[] = "'whatsapp' can't be null";
+        }
+        if ($this->container['worker'] === null) {
+            $invalidProperties[] = "'worker' can't be null";
         }
         return $invalidProperties;
     }
@@ -426,6 +436,33 @@ class MailGetChannelsResponse200 implements ModelInterface, ArrayAccess, \JsonSe
             throw new \InvalidArgumentException('non-nullable whatsapp cannot be null');
         }
         $this->container['whatsapp'] = $whatsapp;
+
+        return $this;
+    }
+
+    /**
+     * Gets worker
+     *
+     * @return \Reacon\Sdk\Model\MailMailExecutionWorkerStatus
+     */
+    public function getWorker()
+    {
+        return $this->container['worker'];
+    }
+
+    /**
+     * Sets worker
+     *
+     * @param \Reacon\Sdk\Model\MailMailExecutionWorkerStatus $worker worker
+     *
+     * @return self
+     */
+    public function setWorker($worker)
+    {
+        if (is_null($worker)) {
+            throw new \InvalidArgumentException('non-nullable worker cannot be null');
+        }
+        $this->container['worker'] = $worker;
 
         return $this;
     }

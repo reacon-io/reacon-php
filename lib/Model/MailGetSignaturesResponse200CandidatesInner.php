@@ -1,6 +1,6 @@
 <?php
 /**
- * MailSignatureCandidate
+ * MailGetSignaturesResponse200CandidatesInner
  *
  * PHP version 8.1
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Reacon\Sdk\ObjectSerializer;
 
 /**
- * MailSignatureCandidate Class Doc Comment
+ * MailGetSignaturesResponse200CandidatesInner Class Doc Comment
  *
  * @category Class
  * @package  Reacon\Sdk
@@ -40,7 +40,7 @@ use \Reacon\Sdk\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class MailSignatureCandidate implements ModelInterface, ArrayAccess, \JsonSerializable
+class MailGetSignaturesResponse200CandidatesInner implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class MailSignatureCandidate implements ModelInterface, ArrayAccess, \JsonSerial
      *
      * @var string
      */
-    protected static $openAPIModelName = 'MailSignatureCandidate';
+    protected static $openAPIModelName = 'MailGetSignaturesResponse200_candidates_inner';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -60,7 +60,7 @@ class MailSignatureCandidate implements ModelInterface, ArrayAccess, \JsonSerial
         'confidence' => 'float',
         'created_at' => '\DateTime',
         'extractor_version' => 'string',
-        'fields' => '\Reacon\Sdk\Model\MailSignatureCandidateFields',
+        'fields' => '\Reacon\Sdk\Model\MailGetSignaturesResponse200CandidatesInnerFields',
         'id' => 'string',
         'signature_fingerprint' => 'string',
         'signature_text' => 'string',
@@ -476,7 +476,7 @@ class MailSignatureCandidate implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets fields
      *
-     * @return \Reacon\Sdk\Model\MailSignatureCandidateFields
+     * @return \Reacon\Sdk\Model\MailGetSignaturesResponse200CandidatesInnerFields
      */
     public function getFields()
     {
@@ -486,7 +486,7 @@ class MailSignatureCandidate implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets fields
      *
-     * @param \Reacon\Sdk\Model\MailSignatureCandidateFields $fields fields
+     * @param \Reacon\Sdk\Model\MailGetSignaturesResponse200CandidatesInnerFields $fields fields
      *
      * @return self
      */

@@ -1,6 +1,6 @@
 <?php
 /**
- * ProductSequence
+ * ProductMailSequenceAddAbExecution
  *
  * PHP version 8.1
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Reacon\Sdk\ObjectSerializer;
 
 /**
- * ProductSequence Class Doc Comment
+ * ProductMailSequenceAddAbExecution Class Doc Comment
  *
  * @category Class
  * @package  Reacon\Sdk
@@ -40,7 +40,7 @@ use \Reacon\Sdk\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ProductSequence implements ModelInterface, ArrayAccess, \JsonSerializable
+class ProductMailSequenceAddAbExecution implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class ProductSequence implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @var string
      */
-    protected static $openAPIModelName = 'ProductSequence';
+    protected static $openAPIModelName = 'ProductMailSequenceAddAbExecution';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -57,12 +57,10 @@ class ProductSequence implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $openAPITypes = [
-        'created_at' => '\DateTime',
-        'id' => 'string',
-        'name' => 'string',
-        'recipient_count' => 'int',
-        'status' => 'string',
-        'updated_at' => '\DateTime'
+        'execution_id' => 'string',
+        'output' => 'array<string,mixed>',
+        'replay' => 'bool',
+        'tool' => 'string'
     ];
 
     /**
@@ -73,12 +71,10 @@ class ProductSequence implements ModelInterface, ArrayAccess, \JsonSerializable
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'created_at' => 'date-time',
-        'id' => 'uuid',
-        'name' => null,
-        'recipient_count' => null,
-        'status' => null,
-        'updated_at' => 'date-time'
+        'execution_id' => 'uuid',
+        'output' => null,
+        'replay' => null,
+        'tool' => null
     ];
 
     /**
@@ -87,12 +83,10 @@ class ProductSequence implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'created_at' => false,
-        'id' => false,
-        'name' => false,
-        'recipient_count' => false,
-        'status' => false,
-        'updated_at' => false
+        'execution_id' => false,
+        'output' => false,
+        'replay' => false,
+        'tool' => false
     ];
 
     /**
@@ -181,12 +175,10 @@ class ProductSequence implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'created_at' => 'createdAt',
-        'id' => 'id',
-        'name' => 'name',
-        'recipient_count' => 'recipientCount',
-        'status' => 'status',
-        'updated_at' => 'updatedAt'
+        'execution_id' => 'executionId',
+        'output' => 'output',
+        'replay' => 'replay',
+        'tool' => 'tool'
     ];
 
     /**
@@ -195,12 +187,10 @@ class ProductSequence implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'created_at' => 'setCreatedAt',
-        'id' => 'setId',
-        'name' => 'setName',
-        'recipient_count' => 'setRecipientCount',
-        'status' => 'setStatus',
-        'updated_at' => 'setUpdatedAt'
+        'execution_id' => 'setExecutionId',
+        'output' => 'setOutput',
+        'replay' => 'setReplay',
+        'tool' => 'setTool'
     ];
 
     /**
@@ -209,12 +199,10 @@ class ProductSequence implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'created_at' => 'getCreatedAt',
-        'id' => 'getId',
-        'name' => 'getName',
-        'recipient_count' => 'getRecipientCount',
-        'status' => 'getStatus',
-        'updated_at' => 'getUpdatedAt'
+        'execution_id' => 'getExecutionId',
+        'output' => 'getOutput',
+        'replay' => 'getReplay',
+        'tool' => 'getTool'
     ];
 
     /**
@@ -258,6 +246,19 @@ class ProductSequence implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const TOOL_MAIL_SEQUENCE_ADD_AB = 'mail_sequence_add_ab';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getToolAllowableValues()
+    {
+        return [
+            self::TOOL_MAIL_SEQUENCE_ADD_AB,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -274,12 +275,10 @@ class ProductSequence implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('created_at', $data ?? [], null);
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('recipient_count', $data ?? [], null);
-        $this->setIfExists('status', $data ?? [], null);
-        $this->setIfExists('updated_at', $data ?? [], null);
+        $this->setIfExists('execution_id', $data ?? [], null);
+        $this->setIfExists('output', $data ?? [], null);
+        $this->setIfExists('replay', $data ?? [], null);
+        $this->setIfExists('tool', $data ?? [], null);
     }
 
     /**
@@ -309,24 +308,27 @@ class ProductSequence implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['created_at'] === null) {
-            $invalidProperties[] = "'created_at' can't be null";
+        if ($this->container['execution_id'] === null) {
+            $invalidProperties[] = "'execution_id' can't be null";
         }
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
+        if ($this->container['output'] === null) {
+            $invalidProperties[] = "'output' can't be null";
         }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
+        if ($this->container['replay'] === null) {
+            $invalidProperties[] = "'replay' can't be null";
         }
-        if ($this->container['recipient_count'] === null) {
-            $invalidProperties[] = "'recipient_count' can't be null";
+        if ($this->container['tool'] === null) {
+            $invalidProperties[] = "'tool' can't be null";
         }
-        if ($this->container['status'] === null) {
-            $invalidProperties[] = "'status' can't be null";
+        $allowedValues = $this->getToolAllowableValues();
+        if (!is_null($this->container['tool']) && !in_array($this->container['tool'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'tool', must be one of '%s'",
+                $this->container['tool'],
+                implode("', '", $allowedValues)
+            );
         }
-        if ($this->container['updated_at'] === null) {
-            $invalidProperties[] = "'updated_at' can't be null";
-        }
+
         return $invalidProperties;
     }
 
@@ -343,163 +345,119 @@ class ProductSequence implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets created_at
-     *
-     * @return \DateTime
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['created_at'];
-    }
-
-    /**
-     * Sets created_at
-     *
-     * @param \DateTime $created_at created_at
-     *
-     * @return self
-     */
-    public function setCreatedAt($created_at)
-    {
-        if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
-        }
-        $this->container['created_at'] = $created_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
+     * Gets execution_id
      *
      * @return string
      */
-    public function getId()
+    public function getExecutionId()
     {
-        return $this->container['id'];
+        return $this->container['execution_id'];
     }
 
     /**
-     * Sets id
+     * Sets execution_id
      *
-     * @param string $id id
+     * @param string $execution_id execution_id
      *
      * @return self
      */
-    public function setId($id)
+    public function setExecutionId($execution_id)
     {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        if (is_null($execution_id)) {
+            throw new \InvalidArgumentException('non-nullable execution_id cannot be null');
         }
-        $this->container['id'] = $id;
+        $this->container['execution_id'] = $execution_id;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets output
+     *
+     * @return array<string,mixed>
+     */
+    public function getOutput()
+    {
+        return $this->container['output'];
+    }
+
+    /**
+     * Sets output
+     *
+     * @param array<string,mixed> $output Response body of the Mail API operation POST /v1/teams/{teamId}/mail/cadence-campaigns/{campaignId}/manage, returned unchanged.
+     *
+     * @return self
+     */
+    public function setOutput($output)
+    {
+        if (is_null($output)) {
+            throw new \InvalidArgumentException('non-nullable output cannot be null');
+        }
+        $this->container['output'] = $output;
+
+        return $this;
+    }
+
+    /**
+     * Gets replay
+     *
+     * @return bool
+     */
+    public function getReplay()
+    {
+        return $this->container['replay'];
+    }
+
+    /**
+     * Sets replay
+     *
+     * @param bool $replay replay
+     *
+     * @return self
+     */
+    public function setReplay($replay)
+    {
+        if (is_null($replay)) {
+            throw new \InvalidArgumentException('non-nullable replay cannot be null');
+        }
+        $this->container['replay'] = $replay;
+
+        return $this;
+    }
+
+    /**
+     * Gets tool
      *
      * @return string
      */
-    public function getName()
+    public function getTool()
     {
-        return $this->container['name'];
+        return $this->container['tool'];
     }
 
     /**
-     * Sets name
+     * Sets tool
      *
-     * @param string $name name
+     * @param string $tool tool
      *
      * @return self
      */
-    public function setName($name)
+    public function setTool($tool)
     {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        if (is_null($tool)) {
+            throw new \InvalidArgumentException('non-nullable tool cannot be null');
         }
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets recipient_count
-     *
-     * @return int
-     */
-    public function getRecipientCount()
-    {
-        return $this->container['recipient_count'];
-    }
-
-    /**
-     * Sets recipient_count
-     *
-     * @param int $recipient_count recipient_count
-     *
-     * @return self
-     */
-    public function setRecipientCount($recipient_count)
-    {
-        if (is_null($recipient_count)) {
-            throw new \InvalidArgumentException('non-nullable recipient_count cannot be null');
+        $allowedValues = $this->getToolAllowableValues();
+        if (!in_array($tool, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'tool', must be one of '%s'",
+                    $tool,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
-        $this->container['recipient_count'] = $recipient_count;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param string $status status
-     *
-     * @return self
-     */
-    public function setStatus($status)
-    {
-        if (is_null($status)) {
-            throw new \InvalidArgumentException('non-nullable status cannot be null');
-        }
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets updated_at
-     *
-     * @return \DateTime
-     */
-    public function getUpdatedAt()
-    {
-        return $this->container['updated_at'];
-    }
-
-    /**
-     * Sets updated_at
-     *
-     * @param \DateTime $updated_at updated_at
-     *
-     * @return self
-     */
-    public function setUpdatedAt($updated_at)
-    {
-        if (is_null($updated_at)) {
-            throw new \InvalidArgumentException('non-nullable updated_at cannot be null');
-        }
-        $this->container['updated_at'] = $updated_at;
+        $this->container['tool'] = $tool;
 
         return $this;
     }

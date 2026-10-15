@@ -57,7 +57,11 @@ class ProductSequencesListOutput implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $openAPITypes = [
-        'items' => '\Reacon\Sdk\Model\ProductSequence[]'
+        'cadences' => 'array<string,mixed>[]',
+        'campaigns' => 'array<string,mixed>[]',
+        'drafts' => 'array<string,mixed>[]',
+        'items' => 'array<string,mixed>[]',
+        'source' => 'string'
     ];
 
     /**
@@ -68,7 +72,11 @@ class ProductSequencesListOutput implements ModelInterface, ArrayAccess, \JsonSe
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'items' => null
+        'cadences' => null,
+        'campaigns' => null,
+        'drafts' => null,
+        'items' => null,
+        'source' => null
     ];
 
     /**
@@ -77,7 +85,11 @@ class ProductSequencesListOutput implements ModelInterface, ArrayAccess, \JsonSe
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'items' => false
+        'cadences' => false,
+        'campaigns' => false,
+        'drafts' => false,
+        'items' => false,
+        'source' => false
     ];
 
     /**
@@ -166,7 +178,11 @@ class ProductSequencesListOutput implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $attributeMap = [
-        'items' => 'items'
+        'cadences' => 'cadences',
+        'campaigns' => 'campaigns',
+        'drafts' => 'drafts',
+        'items' => 'items',
+        'source' => 'source'
     ];
 
     /**
@@ -175,7 +191,11 @@ class ProductSequencesListOutput implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $setters = [
-        'items' => 'setItems'
+        'cadences' => 'setCadences',
+        'campaigns' => 'setCampaigns',
+        'drafts' => 'setDrafts',
+        'items' => 'setItems',
+        'source' => 'setSource'
     ];
 
     /**
@@ -184,7 +204,11 @@ class ProductSequencesListOutput implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $getters = [
-        'items' => 'getItems'
+        'cadences' => 'getCadences',
+        'campaigns' => 'getCampaigns',
+        'drafts' => 'getDrafts',
+        'items' => 'getItems',
+        'source' => 'getSource'
     ];
 
     /**
@@ -228,6 +252,19 @@ class ProductSequencesListOutput implements ModelInterface, ArrayAccess, \JsonSe
         return self::$openAPIModelName;
     }
 
+    public const SOURCE_CANONICAL_MAIL = 'canonical_mail';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getSourceAllowableValues()
+    {
+        return [
+            self::SOURCE_CANONICAL_MAIL,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -244,7 +281,11 @@ class ProductSequencesListOutput implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('cadences', $data ?? [], null);
+        $this->setIfExists('campaigns', $data ?? [], null);
+        $this->setIfExists('drafts', $data ?? [], null);
         $this->setIfExists('items', $data ?? [], null);
+        $this->setIfExists('source', $data ?? [], null);
     }
 
     /**
@@ -274,9 +315,30 @@ class ProductSequencesListOutput implements ModelInterface, ArrayAccess, \JsonSe
     {
         $invalidProperties = [];
 
+        if ($this->container['cadences'] === null) {
+            $invalidProperties[] = "'cadences' can't be null";
+        }
+        if ($this->container['campaigns'] === null) {
+            $invalidProperties[] = "'campaigns' can't be null";
+        }
+        if ($this->container['drafts'] === null) {
+            $invalidProperties[] = "'drafts' can't be null";
+        }
         if ($this->container['items'] === null) {
             $invalidProperties[] = "'items' can't be null";
         }
+        if ($this->container['source'] === null) {
+            $invalidProperties[] = "'source' can't be null";
+        }
+        $allowedValues = $this->getSourceAllowableValues();
+        if (!is_null($this->container['source']) && !in_array($this->container['source'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'source', must be one of '%s'",
+                $this->container['source'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -293,9 +355,90 @@ class ProductSequencesListOutput implements ModelInterface, ArrayAccess, \JsonSe
 
 
     /**
+     * Gets cadences
+     *
+     * @return array<string,mixed>[]
+     */
+    public function getCadences()
+    {
+        return $this->container['cadences'];
+    }
+
+    /**
+     * Sets cadences
+     *
+     * @param array<string,mixed>[] $cadences cadences
+     *
+     * @return self
+     */
+    public function setCadences($cadences)
+    {
+        if (is_null($cadences)) {
+            throw new \InvalidArgumentException('non-nullable cadences cannot be null');
+        }
+        $this->container['cadences'] = $cadences;
+
+        return $this;
+    }
+
+    /**
+     * Gets campaigns
+     *
+     * @return array<string,mixed>[]
+     */
+    public function getCampaigns()
+    {
+        return $this->container['campaigns'];
+    }
+
+    /**
+     * Sets campaigns
+     *
+     * @param array<string,mixed>[] $campaigns campaigns
+     *
+     * @return self
+     */
+    public function setCampaigns($campaigns)
+    {
+        if (is_null($campaigns)) {
+            throw new \InvalidArgumentException('non-nullable campaigns cannot be null');
+        }
+        $this->container['campaigns'] = $campaigns;
+
+        return $this;
+    }
+
+    /**
+     * Gets drafts
+     *
+     * @return array<string,mixed>[]
+     */
+    public function getDrafts()
+    {
+        return $this->container['drafts'];
+    }
+
+    /**
+     * Sets drafts
+     *
+     * @param array<string,mixed>[] $drafts drafts
+     *
+     * @return self
+     */
+    public function setDrafts($drafts)
+    {
+        if (is_null($drafts)) {
+            throw new \InvalidArgumentException('non-nullable drafts cannot be null');
+        }
+        $this->container['drafts'] = $drafts;
+
+        return $this;
+    }
+
+    /**
      * Gets items
      *
-     * @return \Reacon\Sdk\Model\ProductSequence[]
+     * @return array<string,mixed>[]
      */
     public function getItems()
     {
@@ -305,7 +448,7 @@ class ProductSequencesListOutput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets items
      *
-     * @param \Reacon\Sdk\Model\ProductSequence[] $items items
+     * @param array<string,mixed>[] $items items
      *
      * @return self
      */
@@ -315,6 +458,43 @@ class ProductSequencesListOutput implements ModelInterface, ArrayAccess, \JsonSe
             throw new \InvalidArgumentException('non-nullable items cannot be null');
         }
         $this->container['items'] = $items;
+
+        return $this;
+    }
+
+    /**
+     * Gets source
+     *
+     * @return string
+     */
+    public function getSource()
+    {
+        return $this->container['source'];
+    }
+
+    /**
+     * Sets source
+     *
+     * @param string $source source
+     *
+     * @return self
+     */
+    public function setSource($source)
+    {
+        if (is_null($source)) {
+            throw new \InvalidArgumentException('non-nullable source cannot be null');
+        }
+        $allowedValues = $this->getSourceAllowableValues();
+        if (!in_array($source, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'source', must be one of '%s'",
+                    $source,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['source'] = $source;
 
         return $this;
     }
