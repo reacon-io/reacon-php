@@ -57,8 +57,13 @@ class MailCadenceDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $openAPITypes = [
+        'authoring_revision' => 'float',
         'created_at' => '\DateTime',
         'created_by_actor_id' => 'string',
+        'email_delivery' => '\Reacon\Sdk\Model\MailEmailSequenceDeliverySettings',
+        'email_excluded_contact_ids' => 'string[]',
+        'email_recipient_overrides' => '\Reacon\Sdk\Model\MailEmailSequenceRecipientOverride[]',
+        'email_render_seed' => 'string',
         'id' => 'string',
         'name' => 'string',
         'nodes' => '\Reacon\Sdk\Model\MailCadenceNode[]',
@@ -76,8 +81,13 @@ class MailCadenceDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
+        'authoring_revision' => null,
         'created_at' => 'date-time',
         'created_by_actor_id' => null,
+        'email_delivery' => null,
+        'email_excluded_contact_ids' => null,
+        'email_recipient_overrides' => null,
+        'email_render_seed' => null,
         'id' => null,
         'name' => null,
         'nodes' => null,
@@ -93,8 +103,13 @@ class MailCadenceDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var boolean[]
      */
     protected static array $openAPINullables = [
+        'authoring_revision' => false,
         'created_at' => false,
         'created_by_actor_id' => false,
+        'email_delivery' => false,
+        'email_excluded_contact_ids' => false,
+        'email_recipient_overrides' => false,
+        'email_render_seed' => false,
         'id' => false,
         'name' => false,
         'nodes' => false,
@@ -190,8 +205,13 @@ class MailCadenceDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
+        'authoring_revision' => 'authoringRevision',
         'created_at' => 'createdAt',
         'created_by_actor_id' => 'createdByActorId',
+        'email_delivery' => 'emailDelivery',
+        'email_excluded_contact_ids' => 'emailExcludedContactIds',
+        'email_recipient_overrides' => 'emailRecipientOverrides',
+        'email_render_seed' => 'emailRenderSeed',
         'id' => 'id',
         'name' => 'name',
         'nodes' => 'nodes',
@@ -207,8 +227,13 @@ class MailCadenceDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $setters = [
+        'authoring_revision' => 'setAuthoringRevision',
         'created_at' => 'setCreatedAt',
         'created_by_actor_id' => 'setCreatedByActorId',
+        'email_delivery' => 'setEmailDelivery',
+        'email_excluded_contact_ids' => 'setEmailExcludedContactIds',
+        'email_recipient_overrides' => 'setEmailRecipientOverrides',
+        'email_render_seed' => 'setEmailRenderSeed',
         'id' => 'setId',
         'name' => 'setName',
         'nodes' => 'setNodes',
@@ -224,8 +249,13 @@ class MailCadenceDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $getters = [
+        'authoring_revision' => 'getAuthoringRevision',
         'created_at' => 'getCreatedAt',
         'created_by_actor_id' => 'getCreatedByActorId',
+        'email_delivery' => 'getEmailDelivery',
+        'email_excluded_contact_ids' => 'getEmailExcludedContactIds',
+        'email_recipient_overrides' => 'getEmailRecipientOverrides',
+        'email_render_seed' => 'getEmailRenderSeed',
         'id' => 'getId',
         'name' => 'getName',
         'nodes' => 'getNodes',
@@ -292,8 +322,13 @@ class MailCadenceDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('authoring_revision', $data ?? [], null);
         $this->setIfExists('created_at', $data ?? [], null);
         $this->setIfExists('created_by_actor_id', $data ?? [], null);
+        $this->setIfExists('email_delivery', $data ?? [], null);
+        $this->setIfExists('email_excluded_contact_ids', $data ?? [], null);
+        $this->setIfExists('email_recipient_overrides', $data ?? [], null);
+        $this->setIfExists('email_render_seed', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('nodes', $data ?? [], null);
@@ -370,6 +405,33 @@ class MailCadenceDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
 
 
     /**
+     * Gets authoring_revision
+     *
+     * @return float|null
+     */
+    public function getAuthoringRevision()
+    {
+        return $this->container['authoring_revision'];
+    }
+
+    /**
+     * Sets authoring_revision
+     *
+     * @param float|null $authoring_revision authoring_revision
+     *
+     * @return self
+     */
+    public function setAuthoringRevision($authoring_revision)
+    {
+        if (is_null($authoring_revision)) {
+            throw new \InvalidArgumentException('non-nullable authoring_revision cannot be null');
+        }
+        $this->container['authoring_revision'] = $authoring_revision;
+
+        return $this;
+    }
+
+    /**
      * Gets created_at
      *
      * @return \DateTime
@@ -419,6 +481,114 @@ class MailCadenceDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
             throw new \InvalidArgumentException('non-nullable created_by_actor_id cannot be null');
         }
         $this->container['created_by_actor_id'] = $created_by_actor_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets email_delivery
+     *
+     * @return \Reacon\Sdk\Model\MailEmailSequenceDeliverySettings|null
+     */
+    public function getEmailDelivery()
+    {
+        return $this->container['email_delivery'];
+    }
+
+    /**
+     * Sets email_delivery
+     *
+     * @param \Reacon\Sdk\Model\MailEmailSequenceDeliverySettings|null $email_delivery email_delivery
+     *
+     * @return self
+     */
+    public function setEmailDelivery($email_delivery)
+    {
+        if (is_null($email_delivery)) {
+            throw new \InvalidArgumentException('non-nullable email_delivery cannot be null');
+        }
+        $this->container['email_delivery'] = $email_delivery;
+
+        return $this;
+    }
+
+    /**
+     * Gets email_excluded_contact_ids
+     *
+     * @return string[]|null
+     */
+    public function getEmailExcludedContactIds()
+    {
+        return $this->container['email_excluded_contact_ids'];
+    }
+
+    /**
+     * Sets email_excluded_contact_ids
+     *
+     * @param string[]|null $email_excluded_contact_ids email_excluded_contact_ids
+     *
+     * @return self
+     */
+    public function setEmailExcludedContactIds($email_excluded_contact_ids)
+    {
+        if (is_null($email_excluded_contact_ids)) {
+            throw new \InvalidArgumentException('non-nullable email_excluded_contact_ids cannot be null');
+        }
+        $this->container['email_excluded_contact_ids'] = $email_excluded_contact_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets email_recipient_overrides
+     *
+     * @return \Reacon\Sdk\Model\MailEmailSequenceRecipientOverride[]|null
+     */
+    public function getEmailRecipientOverrides()
+    {
+        return $this->container['email_recipient_overrides'];
+    }
+
+    /**
+     * Sets email_recipient_overrides
+     *
+     * @param \Reacon\Sdk\Model\MailEmailSequenceRecipientOverride[]|null $email_recipient_overrides email_recipient_overrides
+     *
+     * @return self
+     */
+    public function setEmailRecipientOverrides($email_recipient_overrides)
+    {
+        if (is_null($email_recipient_overrides)) {
+            throw new \InvalidArgumentException('non-nullable email_recipient_overrides cannot be null');
+        }
+        $this->container['email_recipient_overrides'] = $email_recipient_overrides;
+
+        return $this;
+    }
+
+    /**
+     * Gets email_render_seed
+     *
+     * @return string|null
+     */
+    public function getEmailRenderSeed()
+    {
+        return $this->container['email_render_seed'];
+    }
+
+    /**
+     * Sets email_render_seed
+     *
+     * @param string|null $email_render_seed email_render_seed
+     *
+     * @return self
+     */
+    public function setEmailRenderSeed($email_render_seed)
+    {
+        if (is_null($email_render_seed)) {
+            throw new \InvalidArgumentException('non-nullable email_render_seed cannot be null');
+        }
+        $this->container['email_render_seed'] = $email_render_seed;
 
         return $this;
     }

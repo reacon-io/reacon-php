@@ -57,6 +57,8 @@ class ProductSequenceRecipientsListInput implements ModelInterface, ArrayAccess,
      * @var string[]
      */
     protected static $openAPITypes = [
+        'limit' => 'int',
+        'offset' => 'int',
         'sequence_id' => 'string'
     ];
 
@@ -68,7 +70,9 @@ class ProductSequenceRecipientsListInput implements ModelInterface, ArrayAccess,
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'sequence_id' => 'uuid'
+        'limit' => null,
+        'offset' => null,
+        'sequence_id' => null
     ];
 
     /**
@@ -77,6 +81,8 @@ class ProductSequenceRecipientsListInput implements ModelInterface, ArrayAccess,
      * @var boolean[]
      */
     protected static array $openAPINullables = [
+        'limit' => false,
+        'offset' => false,
         'sequence_id' => false
     ];
 
@@ -166,6 +172,8 @@ class ProductSequenceRecipientsListInput implements ModelInterface, ArrayAccess,
      * @var string[]
      */
     protected static $attributeMap = [
+        'limit' => 'limit',
+        'offset' => 'offset',
         'sequence_id' => 'sequenceId'
     ];
 
@@ -175,6 +183,8 @@ class ProductSequenceRecipientsListInput implements ModelInterface, ArrayAccess,
      * @var string[]
      */
     protected static $setters = [
+        'limit' => 'setLimit',
+        'offset' => 'setOffset',
         'sequence_id' => 'setSequenceId'
     ];
 
@@ -184,6 +194,8 @@ class ProductSequenceRecipientsListInput implements ModelInterface, ArrayAccess,
      * @var string[]
      */
     protected static $getters = [
+        'limit' => 'getLimit',
+        'offset' => 'getOffset',
         'sequence_id' => 'getSequenceId'
     ];
 
@@ -244,6 +256,8 @@ class ProductSequenceRecipientsListInput implements ModelInterface, ArrayAccess,
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('limit', $data ?? [], null);
+        $this->setIfExists('offset', $data ?? [], null);
         $this->setIfExists('sequence_id', $data ?? [], null);
     }
 
@@ -274,11 +288,35 @@ class ProductSequenceRecipientsListInput implements ModelInterface, ArrayAccess,
     {
         $invalidProperties = [];
 
+        if (!is_null($this->container['limit']) && ($this->container['limit'] > 100)) {
+            $invalidProperties[] = "invalid value for 'limit', must be smaller than or equal to 100.";
+        }
+
+        if (!is_null($this->container['limit']) && ($this->container['limit'] < 1)) {
+            $invalidProperties[] = "invalid value for 'limit', must be bigger than or equal to 1.";
+        }
+
+        if (!is_null($this->container['offset']) && ($this->container['offset'] > 10000)) {
+            $invalidProperties[] = "invalid value for 'offset', must be smaller than or equal to 10000.";
+        }
+
+        if (!is_null($this->container['offset']) && ($this->container['offset'] < 0)) {
+            $invalidProperties[] = "invalid value for 'offset', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['sequence_id'] === null) {
             $invalidProperties[] = "'sequence_id' can't be null";
         }
-        if (!preg_match("/^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$/", $this->container['sequence_id'])) {
-            $invalidProperties[] = "invalid value for 'sequence_id', must be conform to the pattern /^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$/.";
+        if ((mb_strlen($this->container['sequence_id']) > 200)) {
+            $invalidProperties[] = "invalid value for 'sequence_id', the character length must be smaller than or equal to 200.";
+        }
+
+        if ((mb_strlen($this->container['sequence_id']) < 1)) {
+            $invalidProperties[] = "invalid value for 'sequence_id', the character length must be bigger than or equal to 1.";
+        }
+
+        if (!preg_match("/^[a-zA-Z0-9_-]+$/", $this->container['sequence_id'])) {
+            $invalidProperties[] = "invalid value for 'sequence_id', must be conform to the pattern /^[a-zA-Z0-9_-]+$/.";
         }
 
         return $invalidProperties;
@@ -295,6 +333,74 @@ class ProductSequenceRecipientsListInput implements ModelInterface, ArrayAccess,
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets limit
+     *
+     * @return int|null
+     */
+    public function getLimit()
+    {
+        return $this->container['limit'];
+    }
+
+    /**
+     * Sets limit
+     *
+     * @param int|null $limit limit
+     *
+     * @return self
+     */
+    public function setLimit($limit)
+    {
+        if (is_null($limit)) {
+            throw new \InvalidArgumentException('non-nullable limit cannot be null');
+        }
+        if (($limit > 100)) {
+            throw new \InvalidArgumentException('invalid value for $limit when calling ProductSequenceRecipientsListInput., must be smaller than or equal to 100.');
+        }
+        if (($limit < 1)) {
+            throw new \InvalidArgumentException('invalid value for $limit when calling ProductSequenceRecipientsListInput., must be bigger than or equal to 1.');
+        }
+
+        $this->container['limit'] = $limit;
+
+        return $this;
+    }
+
+    /**
+     * Gets offset
+     *
+     * @return int|null
+     */
+    public function getOffset()
+    {
+        return $this->container['offset'];
+    }
+
+    /**
+     * Sets offset
+     *
+     * @param int|null $offset offset
+     *
+     * @return self
+     */
+    public function setOffset($offset)
+    {
+        if (is_null($offset)) {
+            throw new \InvalidArgumentException('non-nullable offset cannot be null');
+        }
+        if (($offset > 10000)) {
+            throw new \InvalidArgumentException('invalid value for $offset when calling ProductSequenceRecipientsListInput., must be smaller than or equal to 10000.');
+        }
+        if (($offset < 0)) {
+            throw new \InvalidArgumentException('invalid value for $offset when calling ProductSequenceRecipientsListInput., must be bigger than or equal to 0.');
+        }
+
+        $this->container['offset'] = $offset;
+
+        return $this;
+    }
 
     /**
      * Gets sequence_id
@@ -318,9 +424,14 @@ class ProductSequenceRecipientsListInput implements ModelInterface, ArrayAccess,
         if (is_null($sequence_id)) {
             throw new \InvalidArgumentException('non-nullable sequence_id cannot be null');
         }
-
-        if ((!preg_match("/^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$/", ObjectSerializer::toString($sequence_id)))) {
-            throw new \InvalidArgumentException("invalid value for \$sequence_id when calling ProductSequenceRecipientsListInput., must conform to the pattern /^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$/.");
+        if ((mb_strlen($sequence_id) > 200)) {
+            throw new \InvalidArgumentException('invalid length for $sequence_id when calling ProductSequenceRecipientsListInput., must be smaller than or equal to 200.');
+        }
+        if ((mb_strlen($sequence_id) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $sequence_id when calling ProductSequenceRecipientsListInput., must be bigger than or equal to 1.');
+        }
+        if ((!preg_match("/^[a-zA-Z0-9_-]+$/", ObjectSerializer::toString($sequence_id)))) {
+            throw new \InvalidArgumentException("invalid value for \$sequence_id when calling ProductSequenceRecipientsListInput., must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
 
         $this->container['sequence_id'] = $sequence_id;

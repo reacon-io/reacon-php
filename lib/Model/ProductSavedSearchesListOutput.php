@@ -57,7 +57,9 @@ class ProductSavedSearchesListOutput implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $openAPITypes = [
-        'items' => 'object[]'
+        'items' => 'object[]',
+        'reason' => 'string',
+        'supported' => 'bool'
     ];
 
     /**
@@ -68,7 +70,9 @@ class ProductSavedSearchesListOutput implements ModelInterface, ArrayAccess, \Js
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'items' => null
+        'items' => null,
+        'reason' => null,
+        'supported' => null
     ];
 
     /**
@@ -77,7 +81,9 @@ class ProductSavedSearchesListOutput implements ModelInterface, ArrayAccess, \Js
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'items' => false
+        'items' => false,
+        'reason' => false,
+        'supported' => false
     ];
 
     /**
@@ -166,7 +172,9 @@ class ProductSavedSearchesListOutput implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $attributeMap = [
-        'items' => 'items'
+        'items' => 'items',
+        'reason' => 'reason',
+        'supported' => 'supported'
     ];
 
     /**
@@ -175,7 +183,9 @@ class ProductSavedSearchesListOutput implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $setters = [
-        'items' => 'setItems'
+        'items' => 'setItems',
+        'reason' => 'setReason',
+        'supported' => 'setSupported'
     ];
 
     /**
@@ -184,7 +194,9 @@ class ProductSavedSearchesListOutput implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $getters = [
-        'items' => 'getItems'
+        'items' => 'getItems',
+        'reason' => 'getReason',
+        'supported' => 'getSupported'
     ];
 
     /**
@@ -245,6 +257,8 @@ class ProductSavedSearchesListOutput implements ModelInterface, ArrayAccess, \Js
     public function __construct(?array $data = null)
     {
         $this->setIfExists('items', $data ?? [], null);
+        $this->setIfExists('reason', $data ?? [], null);
+        $this->setIfExists('supported', $data ?? [], null);
     }
 
     /**
@@ -281,6 +295,12 @@ class ProductSavedSearchesListOutput implements ModelInterface, ArrayAccess, \Js
             $invalidProperties[] = "invalid value for 'items', number of items must be less than or equal to 0.";
         }
 
+        if ($this->container['reason'] === null) {
+            $invalidProperties[] = "'reason' can't be null";
+        }
+        if ($this->container['supported'] === null) {
+            $invalidProperties[] = "'supported' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -322,6 +342,60 @@ class ProductSavedSearchesListOutput implements ModelInterface, ArrayAccess, \Js
             throw new \InvalidArgumentException('invalid value for $items when calling ProductSavedSearchesListOutput., number of items must be less than or equal to 0.');
         }
         $this->container['items'] = $items;
+
+        return $this;
+    }
+
+    /**
+     * Gets reason
+     *
+     * @return string
+     */
+    public function getReason()
+    {
+        return $this->container['reason'];
+    }
+
+    /**
+     * Sets reason
+     *
+     * @param string $reason reason
+     *
+     * @return self
+     */
+    public function setReason($reason)
+    {
+        if (is_null($reason)) {
+            throw new \InvalidArgumentException('non-nullable reason cannot be null');
+        }
+        $this->container['reason'] = $reason;
+
+        return $this;
+    }
+
+    /**
+     * Gets supported
+     *
+     * @return bool
+     */
+    public function getSupported()
+    {
+        return $this->container['supported'];
+    }
+
+    /**
+     * Sets supported
+     *
+     * @param bool $supported supported
+     *
+     * @return self
+     */
+    public function setSupported($supported)
+    {
+        if (is_null($supported)) {
+            throw new \InvalidArgumentException('non-nullable supported cannot be null');
+        }
+        $this->container['supported'] = $supported;
 
         return $this;
     }

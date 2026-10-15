@@ -57,6 +57,7 @@ class MailMessageTemplateVersion implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $openAPITypes = [
+        'attachments' => '\Reacon\Sdk\Model\MailEmailAssetReference[]',
         'body' => 'string',
         'channel' => 'string',
         'created_at' => '\DateTime',
@@ -79,6 +80,7 @@ class MailMessageTemplateVersion implements ModelInterface, ArrayAccess, \JsonSe
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
+        'attachments' => null,
         'body' => null,
         'channel' => null,
         'created_at' => 'date-time',
@@ -99,6 +101,7 @@ class MailMessageTemplateVersion implements ModelInterface, ArrayAccess, \JsonSe
      * @var boolean[]
      */
     protected static array $openAPINullables = [
+        'attachments' => false,
         'body' => false,
         'channel' => false,
         'created_at' => false,
@@ -199,6 +202,7 @@ class MailMessageTemplateVersion implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $attributeMap = [
+        'attachments' => 'attachments',
         'body' => 'body',
         'channel' => 'channel',
         'created_at' => 'createdAt',
@@ -219,6 +223,7 @@ class MailMessageTemplateVersion implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $setters = [
+        'attachments' => 'setAttachments',
         'body' => 'setBody',
         'channel' => 'setChannel',
         'created_at' => 'setCreatedAt',
@@ -239,6 +244,7 @@ class MailMessageTemplateVersion implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $getters = [
+        'attachments' => 'getAttachments',
         'body' => 'getBody',
         'channel' => 'getChannel',
         'created_at' => 'getCreatedAt',
@@ -310,6 +316,7 @@ class MailMessageTemplateVersion implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('attachments', $data ?? [], null);
         $this->setIfExists('body', $data ?? [], null);
         $this->setIfExists('channel', $data ?? [], null);
         $this->setIfExists('created_at', $data ?? [], null);
@@ -395,6 +402,33 @@ class MailMessageTemplateVersion implements ModelInterface, ArrayAccess, \JsonSe
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets attachments
+     *
+     * @return \Reacon\Sdk\Model\MailEmailAssetReference[]|null
+     */
+    public function getAttachments()
+    {
+        return $this->container['attachments'];
+    }
+
+    /**
+     * Sets attachments
+     *
+     * @param \Reacon\Sdk\Model\MailEmailAssetReference[]|null $attachments attachments
+     *
+     * @return self
+     */
+    public function setAttachments($attachments)
+    {
+        if (is_null($attachments)) {
+            throw new \InvalidArgumentException('non-nullable attachments cannot be null');
+        }
+        $this->container['attachments'] = $attachments;
+
+        return $this;
+    }
 
     /**
      * Gets body

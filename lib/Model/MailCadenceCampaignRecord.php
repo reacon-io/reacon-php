@@ -59,6 +59,7 @@ class MailCadenceCampaignRecord implements ModelInterface, ArrayAccess, \JsonSer
     protected static $openAPITypes = [
         'activated_at' => '\DateTime',
         'actor_id' => 'string',
+        'archived_at' => '\DateTime',
         'attempt_count' => 'float',
         'audience_count' => 'float',
         'audience_list_id' => 'string',
@@ -98,6 +99,7 @@ class MailCadenceCampaignRecord implements ModelInterface, ArrayAccess, \JsonSer
     protected static $openAPIFormats = [
         'activated_at' => 'date-time',
         'actor_id' => null,
+        'archived_at' => 'date-time',
         'attempt_count' => null,
         'audience_count' => null,
         'audience_list_id' => null,
@@ -135,6 +137,7 @@ class MailCadenceCampaignRecord implements ModelInterface, ArrayAccess, \JsonSer
     protected static array $openAPINullables = [
         'activated_at' => false,
         'actor_id' => false,
+        'archived_at' => false,
         'attempt_count' => false,
         'audience_count' => false,
         'audience_list_id' => false,
@@ -252,6 +255,7 @@ class MailCadenceCampaignRecord implements ModelInterface, ArrayAccess, \JsonSer
     protected static $attributeMap = [
         'activated_at' => 'activatedAt',
         'actor_id' => 'actorId',
+        'archived_at' => 'archivedAt',
         'attempt_count' => 'attemptCount',
         'audience_count' => 'audienceCount',
         'audience_list_id' => 'audienceListId',
@@ -289,6 +293,7 @@ class MailCadenceCampaignRecord implements ModelInterface, ArrayAccess, \JsonSer
     protected static $setters = [
         'activated_at' => 'setActivatedAt',
         'actor_id' => 'setActorId',
+        'archived_at' => 'setArchivedAt',
         'attempt_count' => 'setAttemptCount',
         'audience_count' => 'setAudienceCount',
         'audience_list_id' => 'setAudienceListId',
@@ -326,6 +331,7 @@ class MailCadenceCampaignRecord implements ModelInterface, ArrayAccess, \JsonSer
     protected static $getters = [
         'activated_at' => 'getActivatedAt',
         'actor_id' => 'getActorId',
+        'archived_at' => 'getArchivedAt',
         'attempt_count' => 'getAttemptCount',
         'audience_count' => 'getAudienceCount',
         'audience_list_id' => 'getAudienceListId',
@@ -414,6 +420,7 @@ class MailCadenceCampaignRecord implements ModelInterface, ArrayAccess, \JsonSer
     {
         $this->setIfExists('activated_at', $data ?? [], null);
         $this->setIfExists('actor_id', $data ?? [], null);
+        $this->setIfExists('archived_at', $data ?? [], null);
         $this->setIfExists('attempt_count', $data ?? [], null);
         $this->setIfExists('audience_count', $data ?? [], null);
         $this->setIfExists('audience_list_id', $data ?? [], null);
@@ -601,6 +608,33 @@ class MailCadenceCampaignRecord implements ModelInterface, ArrayAccess, \JsonSer
             throw new \InvalidArgumentException('non-nullable actor_id cannot be null');
         }
         $this->container['actor_id'] = $actor_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets archived_at
+     *
+     * @return \DateTime|null
+     */
+    public function getArchivedAt()
+    {
+        return $this->container['archived_at'];
+    }
+
+    /**
+     * Sets archived_at
+     *
+     * @param \DateTime|null $archived_at archived_at
+     *
+     * @return self
+     */
+    public function setArchivedAt($archived_at)
+    {
+        if (is_null($archived_at)) {
+            throw new \InvalidArgumentException('non-nullable archived_at cannot be null');
+        }
+        $this->container['archived_at'] = $archived_at;
 
         return $this;
     }

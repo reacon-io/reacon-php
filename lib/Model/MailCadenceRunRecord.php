@@ -76,6 +76,7 @@ class MailCadenceRunRecord implements ModelInterface, ArrayAccess, \JsonSerializ
         'lease_expires_at' => '\DateTime',
         'lease_owner' => 'string',
         'mailbox_id' => 'string',
+        'message_edit_revision' => 'float',
         'outcome' => 'string',
         'pending_message_id' => 'string',
         'pending_next_node_id' => 'string',
@@ -113,6 +114,7 @@ class MailCadenceRunRecord implements ModelInterface, ArrayAccess, \JsonSerializ
         'lease_expires_at' => 'date-time',
         'lease_owner' => null,
         'mailbox_id' => null,
+        'message_edit_revision' => null,
         'outcome' => null,
         'pending_message_id' => null,
         'pending_next_node_id' => null,
@@ -148,6 +150,7 @@ class MailCadenceRunRecord implements ModelInterface, ArrayAccess, \JsonSerializ
         'lease_expires_at' => false,
         'lease_owner' => false,
         'mailbox_id' => false,
+        'message_edit_revision' => false,
         'outcome' => false,
         'pending_message_id' => false,
         'pending_next_node_id' => false,
@@ -263,6 +266,7 @@ class MailCadenceRunRecord implements ModelInterface, ArrayAccess, \JsonSerializ
         'lease_expires_at' => 'leaseExpiresAt',
         'lease_owner' => 'leaseOwner',
         'mailbox_id' => 'mailboxId',
+        'message_edit_revision' => 'messageEditRevision',
         'outcome' => 'outcome',
         'pending_message_id' => 'pendingMessageId',
         'pending_next_node_id' => 'pendingNextNodeId',
@@ -298,6 +302,7 @@ class MailCadenceRunRecord implements ModelInterface, ArrayAccess, \JsonSerializ
         'lease_expires_at' => 'setLeaseExpiresAt',
         'lease_owner' => 'setLeaseOwner',
         'mailbox_id' => 'setMailboxId',
+        'message_edit_revision' => 'setMessageEditRevision',
         'outcome' => 'setOutcome',
         'pending_message_id' => 'setPendingMessageId',
         'pending_next_node_id' => 'setPendingNextNodeId',
@@ -333,6 +338,7 @@ class MailCadenceRunRecord implements ModelInterface, ArrayAccess, \JsonSerializ
         'lease_expires_at' => 'getLeaseExpiresAt',
         'lease_owner' => 'getLeaseOwner',
         'mailbox_id' => 'getMailboxId',
+        'message_edit_revision' => 'getMessageEditRevision',
         'outcome' => 'getOutcome',
         'pending_message_id' => 'getPendingMessageId',
         'pending_next_node_id' => 'getPendingNextNodeId',
@@ -419,6 +425,7 @@ class MailCadenceRunRecord implements ModelInterface, ArrayAccess, \JsonSerializ
         $this->setIfExists('lease_expires_at', $data ?? [], null);
         $this->setIfExists('lease_owner', $data ?? [], null);
         $this->setIfExists('mailbox_id', $data ?? [], null);
+        $this->setIfExists('message_edit_revision', $data ?? [], null);
         $this->setIfExists('outcome', $data ?? [], null);
         $this->setIfExists('pending_message_id', $data ?? [], null);
         $this->setIfExists('pending_next_node_id', $data ?? [], null);
@@ -1025,6 +1032,33 @@ class MailCadenceRunRecord implements ModelInterface, ArrayAccess, \JsonSerializ
             throw new \InvalidArgumentException('non-nullable mailbox_id cannot be null');
         }
         $this->container['mailbox_id'] = $mailbox_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets message_edit_revision
+     *
+     * @return float|null
+     */
+    public function getMessageEditRevision()
+    {
+        return $this->container['message_edit_revision'];
+    }
+
+    /**
+     * Sets message_edit_revision
+     *
+     * @param float|null $message_edit_revision message_edit_revision
+     *
+     * @return self
+     */
+    public function setMessageEditRevision($message_edit_revision)
+    {
+        if (is_null($message_edit_revision)) {
+            throw new \InvalidArgumentException('non-nullable message_edit_revision cannot be null');
+        }
+        $this->container['message_edit_revision'] = $message_edit_revision;
 
         return $this;
     }

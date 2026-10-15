@@ -58,6 +58,7 @@ class MailPostInboxByMessageIdReplyRequest implements ModelInterface, ArrayAcces
      */
     protected static $openAPITypes = [
         'client_request_id' => 'string',
+        'draft_revision' => 'int',
         'text' => 'string'
     ];
 
@@ -70,6 +71,7 @@ class MailPostInboxByMessageIdReplyRequest implements ModelInterface, ArrayAcces
      */
     protected static $openAPIFormats = [
         'client_request_id' => null,
+        'draft_revision' => null,
         'text' => null
     ];
 
@@ -80,6 +82,7 @@ class MailPostInboxByMessageIdReplyRequest implements ModelInterface, ArrayAcces
      */
     protected static array $openAPINullables = [
         'client_request_id' => false,
+        'draft_revision' => false,
         'text' => false
     ];
 
@@ -170,6 +173,7 @@ class MailPostInboxByMessageIdReplyRequest implements ModelInterface, ArrayAcces
      */
     protected static $attributeMap = [
         'client_request_id' => 'clientRequestId',
+        'draft_revision' => 'draftRevision',
         'text' => 'text'
     ];
 
@@ -180,6 +184,7 @@ class MailPostInboxByMessageIdReplyRequest implements ModelInterface, ArrayAcces
      */
     protected static $setters = [
         'client_request_id' => 'setClientRequestId',
+        'draft_revision' => 'setDraftRevision',
         'text' => 'setText'
     ];
 
@@ -190,6 +195,7 @@ class MailPostInboxByMessageIdReplyRequest implements ModelInterface, ArrayAcces
      */
     protected static $getters = [
         'client_request_id' => 'getClientRequestId',
+        'draft_revision' => 'getDraftRevision',
         'text' => 'getText'
     ];
 
@@ -251,6 +257,7 @@ class MailPostInboxByMessageIdReplyRequest implements ModelInterface, ArrayAcces
     public function __construct(?array $data = null)
     {
         $this->setIfExists('client_request_id', $data ?? [], null);
+        $this->setIfExists('draft_revision', $data ?? [], null);
         $this->setIfExists('text', $data ?? [], null);
     }
 
@@ -290,6 +297,10 @@ class MailPostInboxByMessageIdReplyRequest implements ModelInterface, ArrayAcces
 
         if ((mb_strlen($this->container['client_request_id']) < 8)) {
             $invalidProperties[] = "invalid value for 'client_request_id', the character length must be bigger than or equal to 8.";
+        }
+
+        if (!is_null($this->container['draft_revision']) && ($this->container['draft_revision'] <= 0)) {
+            $invalidProperties[] = "invalid value for 'draft_revision', must be bigger than 0.";
         }
 
         if ($this->container['text'] === null) {
@@ -348,6 +359,37 @@ class MailPostInboxByMessageIdReplyRequest implements ModelInterface, ArrayAcces
         }
 
         $this->container['client_request_id'] = $client_request_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets draft_revision
+     *
+     * @return int|null
+     */
+    public function getDraftRevision()
+    {
+        return $this->container['draft_revision'];
+    }
+
+    /**
+     * Sets draft_revision
+     *
+     * @param int|null $draft_revision draft_revision
+     *
+     * @return self
+     */
+    public function setDraftRevision($draft_revision)
+    {
+        if (is_null($draft_revision)) {
+            throw new \InvalidArgumentException('non-nullable draft_revision cannot be null');
+        }
+        if (($draft_revision <= 0)) {
+            throw new \InvalidArgumentException('invalid value for $draft_revision when calling MailPostInboxByMessageIdReplyRequest., must be bigger than 0.');
+        }
+
+        $this->container['draft_revision'] = $draft_revision;
 
         return $this;
     }

@@ -58,7 +58,7 @@ class ProductSequenceRecipientsListExecution implements ModelInterface, ArrayAcc
      */
     protected static $openAPITypes = [
         'execution_id' => 'string',
-        'output' => '\Reacon\Sdk\Model\ProductSequenceRecipientsListOutput',
+        'output' => 'array<string,mixed>',
         'replay' => 'bool',
         'tool' => 'string'
     ];
@@ -381,7 +381,7 @@ class ProductSequenceRecipientsListExecution implements ModelInterface, ArrayAcc
     /**
      * Gets output
      *
-     * @return \Reacon\Sdk\Model\ProductSequenceRecipientsListOutput
+     * @return array<string,mixed>
      */
     public function getOutput()
     {
@@ -391,7 +391,7 @@ class ProductSequenceRecipientsListExecution implements ModelInterface, ArrayAcc
     /**
      * Sets output
      *
-     * @param \Reacon\Sdk\Model\ProductSequenceRecipientsListOutput $output output
+     * @param array<string,mixed> $output Response body of the Mail API operation GET /v1/teams/{teamId}/mail/cadence-recipients, returned unchanged.
      *
      * @return self
      */

@@ -66,7 +66,9 @@ class MailMessageAnalyticsOverview implements ModelInterface, ArrayAccess, \Json
         'delivery_rate' => 'float',
         'from' => '\DateTime',
         'mailboxes' => '\Reacon\Sdk\Model\MailMessageAnalyticsOverviewMailboxesInner[]',
+        'recipients' => '\Reacon\Sdk\Model\MailRecipientEngagement',
         'reply_rate' => 'float',
+        'sequences' => '\Reacon\Sdk\Model\MailSequenceRecipientEngagement[]',
         'to' => '\DateTime',
         'total' => 'float',
         'variants' => '\Reacon\Sdk\Model\MailMessageAnalyticsOverviewVariantsInner[]'
@@ -89,7 +91,9 @@ class MailMessageAnalyticsOverview implements ModelInterface, ArrayAccess, \Json
         'delivery_rate' => null,
         'from' => 'date-time',
         'mailboxes' => null,
+        'recipients' => null,
         'reply_rate' => null,
+        'sequences' => null,
         'to' => 'date-time',
         'total' => null,
         'variants' => null
@@ -110,7 +114,9 @@ class MailMessageAnalyticsOverview implements ModelInterface, ArrayAccess, \Json
         'delivery_rate' => false,
         'from' => false,
         'mailboxes' => false,
+        'recipients' => false,
         'reply_rate' => false,
+        'sequences' => false,
         'to' => false,
         'total' => false,
         'variants' => false
@@ -211,7 +217,9 @@ class MailMessageAnalyticsOverview implements ModelInterface, ArrayAccess, \Json
         'delivery_rate' => 'deliveryRate',
         'from' => 'from',
         'mailboxes' => 'mailboxes',
+        'recipients' => 'recipients',
         'reply_rate' => 'replyRate',
+        'sequences' => 'sequences',
         'to' => 'to',
         'total' => 'total',
         'variants' => 'variants'
@@ -232,7 +240,9 @@ class MailMessageAnalyticsOverview implements ModelInterface, ArrayAccess, \Json
         'delivery_rate' => 'setDeliveryRate',
         'from' => 'setFrom',
         'mailboxes' => 'setMailboxes',
+        'recipients' => 'setRecipients',
         'reply_rate' => 'setReplyRate',
+        'sequences' => 'setSequences',
         'to' => 'setTo',
         'total' => 'setTotal',
         'variants' => 'setVariants'
@@ -253,7 +263,9 @@ class MailMessageAnalyticsOverview implements ModelInterface, ArrayAccess, \Json
         'delivery_rate' => 'getDeliveryRate',
         'from' => 'getFrom',
         'mailboxes' => 'getMailboxes',
+        'recipients' => 'getRecipients',
         'reply_rate' => 'getReplyRate',
+        'sequences' => 'getSequences',
         'to' => 'getTo',
         'total' => 'getTotal',
         'variants' => 'getVariants'
@@ -325,7 +337,9 @@ class MailMessageAnalyticsOverview implements ModelInterface, ArrayAccess, \Json
         $this->setIfExists('delivery_rate', $data ?? [], null);
         $this->setIfExists('from', $data ?? [], null);
         $this->setIfExists('mailboxes', $data ?? [], null);
+        $this->setIfExists('recipients', $data ?? [], null);
         $this->setIfExists('reply_rate', $data ?? [], null);
+        $this->setIfExists('sequences', $data ?? [], null);
         $this->setIfExists('to', $data ?? [], null);
         $this->setIfExists('total', $data ?? [], null);
         $this->setIfExists('variants', $data ?? [], null);
@@ -663,6 +677,33 @@ class MailMessageAnalyticsOverview implements ModelInterface, ArrayAccess, \Json
     }
 
     /**
+     * Gets recipients
+     *
+     * @return \Reacon\Sdk\Model\MailRecipientEngagement|null
+     */
+    public function getRecipients()
+    {
+        return $this->container['recipients'];
+    }
+
+    /**
+     * Sets recipients
+     *
+     * @param \Reacon\Sdk\Model\MailRecipientEngagement|null $recipients recipients
+     *
+     * @return self
+     */
+    public function setRecipients($recipients)
+    {
+        if (is_null($recipients)) {
+            throw new \InvalidArgumentException('non-nullable recipients cannot be null');
+        }
+        $this->container['recipients'] = $recipients;
+
+        return $this;
+    }
+
+    /**
      * Gets reply_rate
      *
      * @return float
@@ -675,7 +716,7 @@ class MailMessageAnalyticsOverview implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets reply_rate
      *
-     * @param float $reply_rate reply_rate
+     * @param float $reply_rate Legacy message-based rate, retained for API compatibility.
      *
      * @return self
      */
@@ -685,6 +726,33 @@ class MailMessageAnalyticsOverview implements ModelInterface, ArrayAccess, \Json
             throw new \InvalidArgumentException('non-nullable reply_rate cannot be null');
         }
         $this->container['reply_rate'] = $reply_rate;
+
+        return $this;
+    }
+
+    /**
+     * Gets sequences
+     *
+     * @return \Reacon\Sdk\Model\MailSequenceRecipientEngagement[]|null
+     */
+    public function getSequences()
+    {
+        return $this->container['sequences'];
+    }
+
+    /**
+     * Sets sequences
+     *
+     * @param \Reacon\Sdk\Model\MailSequenceRecipientEngagement[]|null $sequences sequences
+     *
+     * @return self
+     */
+    public function setSequences($sequences)
+    {
+        if (is_null($sequences)) {
+            throw new \InvalidArgumentException('non-nullable sequences cannot be null');
+        }
+        $this->container['sequences'] = $sequences;
 
         return $this;
     }

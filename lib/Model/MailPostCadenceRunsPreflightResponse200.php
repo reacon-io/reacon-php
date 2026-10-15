@@ -60,6 +60,7 @@ class MailPostCadenceRunsPreflightResponse200 implements ModelInterface, ArrayAc
         'audience_count' => 'float',
         'cadence_id' => 'string',
         'cadence_version' => 'float',
+        'eligibility' => '\Reacon\Sdk\Model\MailRecipientEligibilitySummary',
         'missing_variables' => '\Reacon\Sdk\Model\MailCadenceEnrollmentVariableGap[]',
         'ready' => 'bool',
         'required_variables' => 'string[]',
@@ -77,6 +78,7 @@ class MailPostCadenceRunsPreflightResponse200 implements ModelInterface, ArrayAc
         'audience_count' => null,
         'cadence_id' => null,
         'cadence_version' => null,
+        'eligibility' => null,
         'missing_variables' => null,
         'ready' => null,
         'required_variables' => null,
@@ -92,6 +94,7 @@ class MailPostCadenceRunsPreflightResponse200 implements ModelInterface, ArrayAc
         'audience_count' => false,
         'cadence_id' => false,
         'cadence_version' => false,
+        'eligibility' => false,
         'missing_variables' => false,
         'ready' => false,
         'required_variables' => false,
@@ -187,6 +190,7 @@ class MailPostCadenceRunsPreflightResponse200 implements ModelInterface, ArrayAc
         'audience_count' => 'audienceCount',
         'cadence_id' => 'cadenceId',
         'cadence_version' => 'cadenceVersion',
+        'eligibility' => 'eligibility',
         'missing_variables' => 'missingVariables',
         'ready' => 'ready',
         'required_variables' => 'requiredVariables',
@@ -202,6 +206,7 @@ class MailPostCadenceRunsPreflightResponse200 implements ModelInterface, ArrayAc
         'audience_count' => 'setAudienceCount',
         'cadence_id' => 'setCadenceId',
         'cadence_version' => 'setCadenceVersion',
+        'eligibility' => 'setEligibility',
         'missing_variables' => 'setMissingVariables',
         'ready' => 'setReady',
         'required_variables' => 'setRequiredVariables',
@@ -217,6 +222,7 @@ class MailPostCadenceRunsPreflightResponse200 implements ModelInterface, ArrayAc
         'audience_count' => 'getAudienceCount',
         'cadence_id' => 'getCadenceId',
         'cadence_version' => 'getCadenceVersion',
+        'eligibility' => 'getEligibility',
         'missing_variables' => 'getMissingVariables',
         'ready' => 'getReady',
         'required_variables' => 'getRequiredVariables',
@@ -283,6 +289,7 @@ class MailPostCadenceRunsPreflightResponse200 implements ModelInterface, ArrayAc
         $this->setIfExists('audience_count', $data ?? [], null);
         $this->setIfExists('cadence_id', $data ?? [], null);
         $this->setIfExists('cadence_version', $data ?? [], null);
+        $this->setIfExists('eligibility', $data ?? [], null);
         $this->setIfExists('missing_variables', $data ?? [], null);
         $this->setIfExists('ready', $data ?? [], null);
         $this->setIfExists('required_variables', $data ?? [], null);
@@ -429,6 +436,33 @@ class MailPostCadenceRunsPreflightResponse200 implements ModelInterface, ArrayAc
             throw new \InvalidArgumentException('non-nullable cadence_version cannot be null');
         }
         $this->container['cadence_version'] = $cadence_version;
+
+        return $this;
+    }
+
+    /**
+     * Gets eligibility
+     *
+     * @return \Reacon\Sdk\Model\MailRecipientEligibilitySummary|null
+     */
+    public function getEligibility()
+    {
+        return $this->container['eligibility'];
+    }
+
+    /**
+     * Sets eligibility
+     *
+     * @param \Reacon\Sdk\Model\MailRecipientEligibilitySummary|null $eligibility eligibility
+     *
+     * @return self
+     */
+    public function setEligibility($eligibility)
+    {
+        if (is_null($eligibility)) {
+            throw new \InvalidArgumentException('non-nullable eligibility cannot be null');
+        }
+        $this->container['eligibility'] = $eligibility;
 
         return $this;
     }

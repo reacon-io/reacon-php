@@ -60,6 +60,7 @@ class MailCadenceNodeAnyOf1 implements ModelInterface, ArrayAccess, \JsonSeriali
         'id' => 'string',
         'name' => 'string',
         'channel' => 'string',
+        'email_thread' => 'string',
         'experiment' => '\Reacon\Sdk\Model\MailCadenceMessageExperiment',
         'kind' => 'string',
         'next_node_id' => 'string',
@@ -78,6 +79,7 @@ class MailCadenceNodeAnyOf1 implements ModelInterface, ArrayAccess, \JsonSeriali
         'id' => null,
         'name' => null,
         'channel' => null,
+        'email_thread' => null,
         'experiment' => null,
         'kind' => null,
         'next_node_id' => null,
@@ -94,6 +96,7 @@ class MailCadenceNodeAnyOf1 implements ModelInterface, ArrayAccess, \JsonSeriali
         'id' => false,
         'name' => false,
         'channel' => false,
+        'email_thread' => false,
         'experiment' => false,
         'kind' => false,
         'next_node_id' => false,
@@ -190,6 +193,7 @@ class MailCadenceNodeAnyOf1 implements ModelInterface, ArrayAccess, \JsonSeriali
         'id' => 'id',
         'name' => 'name',
         'channel' => 'channel',
+        'email_thread' => 'emailThread',
         'experiment' => 'experiment',
         'kind' => 'kind',
         'next_node_id' => 'nextNodeId',
@@ -206,6 +210,7 @@ class MailCadenceNodeAnyOf1 implements ModelInterface, ArrayAccess, \JsonSeriali
         'id' => 'setId',
         'name' => 'setName',
         'channel' => 'setChannel',
+        'email_thread' => 'setEmailThread',
         'experiment' => 'setExperiment',
         'kind' => 'setKind',
         'next_node_id' => 'setNextNodeId',
@@ -222,6 +227,7 @@ class MailCadenceNodeAnyOf1 implements ModelInterface, ArrayAccess, \JsonSeriali
         'id' => 'getId',
         'name' => 'getName',
         'channel' => 'getChannel',
+        'email_thread' => 'getEmailThread',
         'experiment' => 'getExperiment',
         'kind' => 'getKind',
         'next_node_id' => 'getNextNodeId',
@@ -302,6 +308,7 @@ class MailCadenceNodeAnyOf1 implements ModelInterface, ArrayAccess, \JsonSeriali
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('channel', $data ?? [], null);
+        $this->setIfExists('email_thread', $data ?? [], null);
         $this->setIfExists('experiment', $data ?? [], null);
         $this->setIfExists('kind', $data ?? [], null);
         $this->setIfExists('next_node_id', $data ?? [], null);
@@ -458,6 +465,33 @@ class MailCadenceNodeAnyOf1 implements ModelInterface, ArrayAccess, \JsonSeriali
             throw new \InvalidArgumentException('non-nullable channel cannot be null');
         }
         $this->container['channel'] = $channel;
+
+        return $this;
+    }
+
+    /**
+     * Gets email_thread
+     *
+     * @return string|null
+     */
+    public function getEmailThread()
+    {
+        return $this->container['email_thread'];
+    }
+
+    /**
+     * Sets email_thread
+     *
+     * @param string|null $email_thread email_thread
+     *
+     * @return self
+     */
+    public function setEmailThread($email_thread)
+    {
+        if (is_null($email_thread)) {
+            throw new \InvalidArgumentException('non-nullable email_thread cannot be null');
+        }
+        $this->container['email_thread'] = $email_thread;
 
         return $this;
     }

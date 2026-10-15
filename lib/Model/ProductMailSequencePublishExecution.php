@@ -1,6 +1,6 @@
 <?php
 /**
- * ProductSequenceStartOutput
+ * ProductMailSequencePublishExecution
  *
  * PHP version 8.1
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Reacon\Sdk\ObjectSerializer;
 
 /**
- * ProductSequenceStartOutput Class Doc Comment
+ * ProductMailSequencePublishExecution Class Doc Comment
  *
  * @category Class
  * @package  Reacon\Sdk
@@ -40,7 +40,7 @@ use \Reacon\Sdk\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ProductSequenceStartOutput implements ModelInterface, ArrayAccess, \JsonSerializable
+class ProductMailSequencePublishExecution implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class ProductSequenceStartOutput implements ModelInterface, ArrayAccess, \JsonSe
      *
      * @var string
      */
-    protected static $openAPIModelName = 'ProductSequenceStartOutput';
+    protected static $openAPIModelName = 'ProductMailSequencePublishExecution';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +57,10 @@ class ProductSequenceStartOutput implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $openAPITypes = [
-        'id' => 'string',
-        'name' => 'string',
-        'status' => 'string'
+        'execution_id' => 'string',
+        'output' => 'array<string,mixed>',
+        'replay' => 'bool',
+        'tool' => 'string'
     ];
 
     /**
@@ -70,9 +71,10 @@ class ProductSequenceStartOutput implements ModelInterface, ArrayAccess, \JsonSe
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'id' => 'uuid',
-        'name' => null,
-        'status' => null
+        'execution_id' => 'uuid',
+        'output' => null,
+        'replay' => null,
+        'tool' => null
     ];
 
     /**
@@ -81,9 +83,10 @@ class ProductSequenceStartOutput implements ModelInterface, ArrayAccess, \JsonSe
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'id' => false,
-        'name' => false,
-        'status' => false
+        'execution_id' => false,
+        'output' => false,
+        'replay' => false,
+        'tool' => false
     ];
 
     /**
@@ -172,9 +175,10 @@ class ProductSequenceStartOutput implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'name' => 'name',
-        'status' => 'status'
+        'execution_id' => 'executionId',
+        'output' => 'output',
+        'replay' => 'replay',
+        'tool' => 'tool'
     ];
 
     /**
@@ -183,9 +187,10 @@ class ProductSequenceStartOutput implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'name' => 'setName',
-        'status' => 'setStatus'
+        'execution_id' => 'setExecutionId',
+        'output' => 'setOutput',
+        'replay' => 'setReplay',
+        'tool' => 'setTool'
     ];
 
     /**
@@ -194,9 +199,10 @@ class ProductSequenceStartOutput implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'name' => 'getName',
-        'status' => 'getStatus'
+        'execution_id' => 'getExecutionId',
+        'output' => 'getOutput',
+        'replay' => 'getReplay',
+        'tool' => 'getTool'
     ];
 
     /**
@@ -240,6 +246,19 @@ class ProductSequenceStartOutput implements ModelInterface, ArrayAccess, \JsonSe
         return self::$openAPIModelName;
     }
 
+    public const TOOL_MAIL_SEQUENCE_PUBLISH = 'mail_sequence_publish';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getToolAllowableValues()
+    {
+        return [
+            self::TOOL_MAIL_SEQUENCE_PUBLISH,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -256,9 +275,10 @@ class ProductSequenceStartOutput implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('status', $data ?? [], null);
+        $this->setIfExists('execution_id', $data ?? [], null);
+        $this->setIfExists('output', $data ?? [], null);
+        $this->setIfExists('replay', $data ?? [], null);
+        $this->setIfExists('tool', $data ?? [], null);
     }
 
     /**
@@ -288,15 +308,27 @@ class ProductSequenceStartOutput implements ModelInterface, ArrayAccess, \JsonSe
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
+        if ($this->container['execution_id'] === null) {
+            $invalidProperties[] = "'execution_id' can't be null";
         }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
+        if ($this->container['output'] === null) {
+            $invalidProperties[] = "'output' can't be null";
         }
-        if ($this->container['status'] === null) {
-            $invalidProperties[] = "'status' can't be null";
+        if ($this->container['replay'] === null) {
+            $invalidProperties[] = "'replay' can't be null";
         }
+        if ($this->container['tool'] === null) {
+            $invalidProperties[] = "'tool' can't be null";
+        }
+        $allowedValues = $this->getToolAllowableValues();
+        if (!is_null($this->container['tool']) && !in_array($this->container['tool'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'tool', must be one of '%s'",
+                $this->container['tool'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -313,82 +345,119 @@ class ProductSequenceStartOutput implements ModelInterface, ArrayAccess, \JsonSe
 
 
     /**
-     * Gets id
+     * Gets execution_id
      *
      * @return string
      */
-    public function getId()
+    public function getExecutionId()
     {
-        return $this->container['id'];
+        return $this->container['execution_id'];
     }
 
     /**
-     * Sets id
+     * Sets execution_id
      *
-     * @param string $id id
+     * @param string $execution_id execution_id
      *
      * @return self
      */
-    public function setId($id)
+    public function setExecutionId($execution_id)
     {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        if (is_null($execution_id)) {
+            throw new \InvalidArgumentException('non-nullable execution_id cannot be null');
         }
-        $this->container['id'] = $id;
+        $this->container['execution_id'] = $execution_id;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets output
      *
-     * @return string
+     * @return array<string,mixed>
      */
-    public function getName()
+    public function getOutput()
     {
-        return $this->container['name'];
+        return $this->container['output'];
     }
 
     /**
-     * Sets name
+     * Sets output
      *
-     * @param string $name name
+     * @param array<string,mixed> $output Response body of the Mail API operation POST /v1/teams/{teamId}/mail/sequence-drafts/{draftId}/publish, returned unchanged.
      *
      * @return self
      */
-    public function setName($name)
+    public function setOutput($output)
     {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        if (is_null($output)) {
+            throw new \InvalidArgumentException('non-nullable output cannot be null');
         }
-        $this->container['name'] = $name;
+        $this->container['output'] = $output;
 
         return $this;
     }
 
     /**
-     * Gets status
+     * Gets replay
      *
-     * @return string
+     * @return bool
      */
-    public function getStatus()
+    public function getReplay()
     {
-        return $this->container['status'];
+        return $this->container['replay'];
     }
 
     /**
-     * Sets status
+     * Sets replay
      *
-     * @param string $status status
+     * @param bool $replay replay
      *
      * @return self
      */
-    public function setStatus($status)
+    public function setReplay($replay)
     {
-        if (is_null($status)) {
-            throw new \InvalidArgumentException('non-nullable status cannot be null');
+        if (is_null($replay)) {
+            throw new \InvalidArgumentException('non-nullable replay cannot be null');
         }
-        $this->container['status'] = $status;
+        $this->container['replay'] = $replay;
+
+        return $this;
+    }
+
+    /**
+     * Gets tool
+     *
+     * @return string
+     */
+    public function getTool()
+    {
+        return $this->container['tool'];
+    }
+
+    /**
+     * Sets tool
+     *
+     * @param string $tool tool
+     *
+     * @return self
+     */
+    public function setTool($tool)
+    {
+        if (is_null($tool)) {
+            throw new \InvalidArgumentException('non-nullable tool cannot be null');
+        }
+        $allowedValues = $this->getToolAllowableValues();
+        if (!in_array($tool, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'tool', must be one of '%s'",
+                    $tool,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['tool'] = $tool;
 
         return $this;
     }
