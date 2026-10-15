@@ -1,6 +1,6 @@
 <?php
 /**
- * MailSignatureCandidateFields
+ * MailRecipientEngagement
  *
  * PHP version 8.1
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Reacon\Sdk\ObjectSerializer;
 
 /**
- * MailSignatureCandidateFields Class Doc Comment
+ * MailRecipientEngagement Class Doc Comment
  *
  * @category Class
  * @package  Reacon\Sdk
@@ -40,7 +40,7 @@ use \Reacon\Sdk\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class MailSignatureCandidateFields implements ModelInterface, ArrayAccess, \JsonSerializable
+class MailRecipientEngagement implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class MailSignatureCandidateFields implements ModelInterface, ArrayAccess, \Json
      *
      * @var string
      */
-    protected static $openAPIModelName = 'MailSignatureCandidate_fields';
+    protected static $openAPIModelName = 'MailRecipientEngagement';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -57,14 +57,15 @@ class MailSignatureCandidateFields implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $openAPITypes = [
-        'address' => '\Reacon\Sdk\Model\MailEvidenceField',
-        'company' => '\Reacon\Sdk\Model\MailEvidenceField',
-        'emails' => '\Reacon\Sdk\Model\MailEvidenceField[]',
-        'job_title' => '\Reacon\Sdk\Model\MailEvidenceField',
-        'person_name' => '\Reacon\Sdk\Model\MailEvidenceField',
-        'phones' => '\Reacon\Sdk\Model\MailSignatureCandidateFieldsPhonesInner[]',
-        'social_profiles' => '\Reacon\Sdk\Model\MailEvidenceField[]',
-        'websites' => '\Reacon\Sdk\Model\MailEvidenceField[]'
+        'accepted' => 'float',
+        'clicked' => 'float',
+        'click_rate' => 'float',
+        'click_tracked' => 'float',
+        'opened' => 'float',
+        'open_rate' => 'float',
+        'open_tracked' => 'float',
+        'replied' => 'float',
+        'reply_rate' => 'float'
     ];
 
     /**
@@ -75,14 +76,15 @@ class MailSignatureCandidateFields implements ModelInterface, ArrayAccess, \Json
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'address' => null,
-        'company' => null,
-        'emails' => null,
-        'job_title' => null,
-        'person_name' => null,
-        'phones' => null,
-        'social_profiles' => null,
-        'websites' => null
+        'accepted' => null,
+        'clicked' => null,
+        'click_rate' => null,
+        'click_tracked' => null,
+        'opened' => null,
+        'open_rate' => null,
+        'open_tracked' => null,
+        'replied' => null,
+        'reply_rate' => null
     ];
 
     /**
@@ -91,14 +93,15 @@ class MailSignatureCandidateFields implements ModelInterface, ArrayAccess, \Json
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'address' => false,
-        'company' => false,
-        'emails' => false,
-        'job_title' => false,
-        'person_name' => false,
-        'phones' => false,
-        'social_profiles' => false,
-        'websites' => false
+        'accepted' => false,
+        'clicked' => false,
+        'click_rate' => true,
+        'click_tracked' => false,
+        'opened' => false,
+        'open_rate' => true,
+        'open_tracked' => false,
+        'replied' => false,
+        'reply_rate' => true
     ];
 
     /**
@@ -187,14 +190,15 @@ class MailSignatureCandidateFields implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $attributeMap = [
-        'address' => 'address',
-        'company' => 'company',
-        'emails' => 'emails',
-        'job_title' => 'jobTitle',
-        'person_name' => 'personName',
-        'phones' => 'phones',
-        'social_profiles' => 'socialProfiles',
-        'websites' => 'websites'
+        'accepted' => 'accepted',
+        'clicked' => 'clicked',
+        'click_rate' => 'clickRate',
+        'click_tracked' => 'clickTracked',
+        'opened' => 'opened',
+        'open_rate' => 'openRate',
+        'open_tracked' => 'openTracked',
+        'replied' => 'replied',
+        'reply_rate' => 'replyRate'
     ];
 
     /**
@@ -203,14 +207,15 @@ class MailSignatureCandidateFields implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $setters = [
-        'address' => 'setAddress',
-        'company' => 'setCompany',
-        'emails' => 'setEmails',
-        'job_title' => 'setJobTitle',
-        'person_name' => 'setPersonName',
-        'phones' => 'setPhones',
-        'social_profiles' => 'setSocialProfiles',
-        'websites' => 'setWebsites'
+        'accepted' => 'setAccepted',
+        'clicked' => 'setClicked',
+        'click_rate' => 'setClickRate',
+        'click_tracked' => 'setClickTracked',
+        'opened' => 'setOpened',
+        'open_rate' => 'setOpenRate',
+        'open_tracked' => 'setOpenTracked',
+        'replied' => 'setReplied',
+        'reply_rate' => 'setReplyRate'
     ];
 
     /**
@@ -219,14 +224,15 @@ class MailSignatureCandidateFields implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $getters = [
-        'address' => 'getAddress',
-        'company' => 'getCompany',
-        'emails' => 'getEmails',
-        'job_title' => 'getJobTitle',
-        'person_name' => 'getPersonName',
-        'phones' => 'getPhones',
-        'social_profiles' => 'getSocialProfiles',
-        'websites' => 'getWebsites'
+        'accepted' => 'getAccepted',
+        'clicked' => 'getClicked',
+        'click_rate' => 'getClickRate',
+        'click_tracked' => 'getClickTracked',
+        'opened' => 'getOpened',
+        'open_rate' => 'getOpenRate',
+        'open_tracked' => 'getOpenTracked',
+        'replied' => 'getReplied',
+        'reply_rate' => 'getReplyRate'
     ];
 
     /**
@@ -286,14 +292,15 @@ class MailSignatureCandidateFields implements ModelInterface, ArrayAccess, \Json
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('address', $data ?? [], null);
-        $this->setIfExists('company', $data ?? [], null);
-        $this->setIfExists('emails', $data ?? [], null);
-        $this->setIfExists('job_title', $data ?? [], null);
-        $this->setIfExists('person_name', $data ?? [], null);
-        $this->setIfExists('phones', $data ?? [], null);
-        $this->setIfExists('social_profiles', $data ?? [], null);
-        $this->setIfExists('websites', $data ?? [], null);
+        $this->setIfExists('accepted', $data ?? [], null);
+        $this->setIfExists('clicked', $data ?? [], null);
+        $this->setIfExists('click_rate', $data ?? [], null);
+        $this->setIfExists('click_tracked', $data ?? [], null);
+        $this->setIfExists('opened', $data ?? [], null);
+        $this->setIfExists('open_rate', $data ?? [], null);
+        $this->setIfExists('open_tracked', $data ?? [], null);
+        $this->setIfExists('replied', $data ?? [], null);
+        $this->setIfExists('reply_rate', $data ?? [], null);
     }
 
     /**
@@ -323,17 +330,32 @@ class MailSignatureCandidateFields implements ModelInterface, ArrayAccess, \Json
     {
         $invalidProperties = [];
 
-        if ($this->container['emails'] === null) {
-            $invalidProperties[] = "'emails' can't be null";
+        if ($this->container['accepted'] === null) {
+            $invalidProperties[] = "'accepted' can't be null";
         }
-        if ($this->container['phones'] === null) {
-            $invalidProperties[] = "'phones' can't be null";
+        if ($this->container['clicked'] === null) {
+            $invalidProperties[] = "'clicked' can't be null";
         }
-        if ($this->container['social_profiles'] === null) {
-            $invalidProperties[] = "'social_profiles' can't be null";
+        if ($this->container['click_rate'] === null && !$this->isNullableSetToNull('click_rate')) {
+            $invalidProperties[] = "'click_rate' is required";
         }
-        if ($this->container['websites'] === null) {
-            $invalidProperties[] = "'websites' can't be null";
+        if ($this->container['click_tracked'] === null) {
+            $invalidProperties[] = "'click_tracked' can't be null";
+        }
+        if ($this->container['opened'] === null) {
+            $invalidProperties[] = "'opened' can't be null";
+        }
+        if ($this->container['open_rate'] === null && !$this->isNullableSetToNull('open_rate')) {
+            $invalidProperties[] = "'open_rate' is required";
+        }
+        if ($this->container['open_tracked'] === null) {
+            $invalidProperties[] = "'open_tracked' can't be null";
+        }
+        if ($this->container['replied'] === null) {
+            $invalidProperties[] = "'replied' can't be null";
+        }
+        if ($this->container['reply_rate'] === null && !$this->isNullableSetToNull('reply_rate')) {
+            $invalidProperties[] = "'reply_rate' is required";
         }
         return $invalidProperties;
     }
@@ -351,217 +373,265 @@ class MailSignatureCandidateFields implements ModelInterface, ArrayAccess, \Json
 
 
     /**
-     * Gets address
+     * Gets accepted
      *
-     * @return \Reacon\Sdk\Model\MailEvidenceField|null
+     * @return float
      */
-    public function getAddress()
+    public function getAccepted()
     {
-        return $this->container['address'];
+        return $this->container['accepted'];
     }
 
     /**
-     * Sets address
+     * Sets accepted
      *
-     * @param \Reacon\Sdk\Model\MailEvidenceField|null $address address
+     * @param float $accepted Normalized email identities with an accepted message created in the report interval.
      *
      * @return self
      */
-    public function setAddress($address)
+    public function setAccepted($accepted)
     {
-        if (is_null($address)) {
-            throw new \InvalidArgumentException('non-nullable address cannot be null');
+        if (is_null($accepted)) {
+            throw new \InvalidArgumentException('non-nullable accepted cannot be null');
         }
-        $this->container['address'] = $address;
+        $this->container['accepted'] = $accepted;
 
         return $this;
     }
 
     /**
-     * Gets company
+     * Gets clicked
      *
-     * @return \Reacon\Sdk\Model\MailEvidenceField|null
+     * @return float
      */
-    public function getCompany()
+    public function getClicked()
     {
-        return $this->container['company'];
+        return $this->container['clicked'];
     }
 
     /**
-     * Sets company
+     * Sets clicked
      *
-     * @param \Reacon\Sdk\Model\MailEvidenceField|null $company company
+     * @param float $clicked clicked
      *
      * @return self
      */
-    public function setCompany($company)
+    public function setClicked($clicked)
     {
-        if (is_null($company)) {
-            throw new \InvalidArgumentException('non-nullable company cannot be null');
+        if (is_null($clicked)) {
+            throw new \InvalidArgumentException('non-nullable clicked cannot be null');
         }
-        $this->container['company'] = $company;
+        $this->container['clicked'] = $clicked;
 
         return $this;
     }
 
     /**
-     * Gets emails
+     * Gets click_rate
      *
-     * @return \Reacon\Sdk\Model\MailEvidenceField[]
+     * @return float|null
      */
-    public function getEmails()
+    public function getClickRate()
     {
-        return $this->container['emails'];
+        return $this->container['click_rate'];
     }
 
     /**
-     * Sets emails
+     * Sets click_rate
      *
-     * @param \Reacon\Sdk\Model\MailEvidenceField[] $emails emails
+     * @param float|null $click_rate click_rate
      *
      * @return self
      */
-    public function setEmails($emails)
+    public function setClickRate($click_rate)
     {
-        if (is_null($emails)) {
-            throw new \InvalidArgumentException('non-nullable emails cannot be null');
+        if (is_null($click_rate)) {
+            array_push($this->openAPINullablesSetToNull, 'click_rate');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('click_rate', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['emails'] = $emails;
+        $this->container['click_rate'] = $click_rate;
 
         return $this;
     }
 
     /**
-     * Gets job_title
+     * Gets click_tracked
      *
-     * @return \Reacon\Sdk\Model\MailEvidenceField|null
+     * @return float
      */
-    public function getJobTitle()
+    public function getClickTracked()
     {
-        return $this->container['job_title'];
+        return $this->container['click_tracked'];
     }
 
     /**
-     * Sets job_title
+     * Sets click_tracked
      *
-     * @param \Reacon\Sdk\Model\MailEvidenceField|null $job_title job_title
+     * @param float $click_tracked click_tracked
      *
      * @return self
      */
-    public function setJobTitle($job_title)
+    public function setClickTracked($click_tracked)
     {
-        if (is_null($job_title)) {
-            throw new \InvalidArgumentException('non-nullable job_title cannot be null');
+        if (is_null($click_tracked)) {
+            throw new \InvalidArgumentException('non-nullable click_tracked cannot be null');
         }
-        $this->container['job_title'] = $job_title;
+        $this->container['click_tracked'] = $click_tracked;
 
         return $this;
     }
 
     /**
-     * Gets person_name
+     * Gets opened
      *
-     * @return \Reacon\Sdk\Model\MailEvidenceField|null
+     * @return float
      */
-    public function getPersonName()
+    public function getOpened()
     {
-        return $this->container['person_name'];
+        return $this->container['opened'];
     }
 
     /**
-     * Sets person_name
+     * Sets opened
      *
-     * @param \Reacon\Sdk\Model\MailEvidenceField|null $person_name person_name
+     * @param float $opened opened
      *
      * @return self
      */
-    public function setPersonName($person_name)
+    public function setOpened($opened)
     {
-        if (is_null($person_name)) {
-            throw new \InvalidArgumentException('non-nullable person_name cannot be null');
+        if (is_null($opened)) {
+            throw new \InvalidArgumentException('non-nullable opened cannot be null');
         }
-        $this->container['person_name'] = $person_name;
+        $this->container['opened'] = $opened;
 
         return $this;
     }
 
     /**
-     * Gets phones
+     * Gets open_rate
      *
-     * @return \Reacon\Sdk\Model\MailSignatureCandidateFieldsPhonesInner[]
+     * @return float|null
      */
-    public function getPhones()
+    public function getOpenRate()
     {
-        return $this->container['phones'];
+        return $this->container['open_rate'];
     }
 
     /**
-     * Sets phones
+     * Sets open_rate
      *
-     * @param \Reacon\Sdk\Model\MailSignatureCandidateFieldsPhonesInner[] $phones phones
+     * @param float|null $open_rate open_rate
      *
      * @return self
      */
-    public function setPhones($phones)
+    public function setOpenRate($open_rate)
     {
-        if (is_null($phones)) {
-            throw new \InvalidArgumentException('non-nullable phones cannot be null');
+        if (is_null($open_rate)) {
+            array_push($this->openAPINullablesSetToNull, 'open_rate');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('open_rate', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['phones'] = $phones;
+        $this->container['open_rate'] = $open_rate;
 
         return $this;
     }
 
     /**
-     * Gets social_profiles
+     * Gets open_tracked
      *
-     * @return \Reacon\Sdk\Model\MailEvidenceField[]
+     * @return float
      */
-    public function getSocialProfiles()
+    public function getOpenTracked()
     {
-        return $this->container['social_profiles'];
+        return $this->container['open_tracked'];
     }
 
     /**
-     * Sets social_profiles
+     * Sets open_tracked
      *
-     * @param \Reacon\Sdk\Model\MailEvidenceField[] $social_profiles social_profiles
+     * @param float $open_tracked open_tracked
      *
      * @return self
      */
-    public function setSocialProfiles($social_profiles)
+    public function setOpenTracked($open_tracked)
     {
-        if (is_null($social_profiles)) {
-            throw new \InvalidArgumentException('non-nullable social_profiles cannot be null');
+        if (is_null($open_tracked)) {
+            throw new \InvalidArgumentException('non-nullable open_tracked cannot be null');
         }
-        $this->container['social_profiles'] = $social_profiles;
+        $this->container['open_tracked'] = $open_tracked;
 
         return $this;
     }
 
     /**
-     * Gets websites
+     * Gets replied
      *
-     * @return \Reacon\Sdk\Model\MailEvidenceField[]
+     * @return float
      */
-    public function getWebsites()
+    public function getReplied()
     {
-        return $this->container['websites'];
+        return $this->container['replied'];
     }
 
     /**
-     * Sets websites
+     * Sets replied
      *
-     * @param \Reacon\Sdk\Model\MailEvidenceField[] $websites websites
+     * @param float $replied replied
      *
      * @return self
      */
-    public function setWebsites($websites)
+    public function setReplied($replied)
     {
-        if (is_null($websites)) {
-            throw new \InvalidArgumentException('non-nullable websites cannot be null');
+        if (is_null($replied)) {
+            throw new \InvalidArgumentException('non-nullable replied cannot be null');
         }
-        $this->container['websites'] = $websites;
+        $this->container['replied'] = $replied;
+
+        return $this;
+    }
+
+    /**
+     * Gets reply_rate
+     *
+     * @return float|null
+     */
+    public function getReplyRate()
+    {
+        return $this->container['reply_rate'];
+    }
+
+    /**
+     * Sets reply_rate
+     *
+     * @param float|null $reply_rate reply_rate
+     *
+     * @return self
+     */
+    public function setReplyRate($reply_rate)
+    {
+        if (is_null($reply_rate)) {
+            array_push($this->openAPINullablesSetToNull, 'reply_rate');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('reply_rate', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['reply_rate'] = $reply_rate;
 
         return $this;
     }

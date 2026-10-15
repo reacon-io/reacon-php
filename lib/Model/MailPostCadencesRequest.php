@@ -57,6 +57,8 @@ class MailPostCadencesRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $openAPITypes = [
+        'email_excluded_contact_ids' => 'string[]',
+        'email_recipient_overrides' => '\Reacon\Sdk\Model\MailPostCadencesRequestEmailRecipientOverridesInner[]',
         'id' => 'string',
         'name' => 'string',
         'nodes' => '\Reacon\Sdk\Model\MailPostCadencesRequestNodesInner[]',
@@ -72,6 +74,8 @@ class MailPostCadencesRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
+        'email_excluded_contact_ids' => 'uuid',
+        'email_recipient_overrides' => null,
         'id' => null,
         'name' => null,
         'nodes' => null,
@@ -85,6 +89,8 @@ class MailPostCadencesRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * @var boolean[]
      */
     protected static array $openAPINullables = [
+        'email_excluded_contact_ids' => false,
+        'email_recipient_overrides' => false,
         'id' => false,
         'name' => false,
         'nodes' => false,
@@ -178,6 +184,8 @@ class MailPostCadencesRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $attributeMap = [
+        'email_excluded_contact_ids' => 'emailExcludedContactIds',
+        'email_recipient_overrides' => 'emailRecipientOverrides',
         'id' => 'id',
         'name' => 'name',
         'nodes' => 'nodes',
@@ -191,6 +199,8 @@ class MailPostCadencesRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $setters = [
+        'email_excluded_contact_ids' => 'setEmailExcludedContactIds',
+        'email_recipient_overrides' => 'setEmailRecipientOverrides',
         'id' => 'setId',
         'name' => 'setName',
         'nodes' => 'setNodes',
@@ -204,6 +214,8 @@ class MailPostCadencesRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $getters = [
+        'email_excluded_contact_ids' => 'getEmailExcludedContactIds',
+        'email_recipient_overrides' => 'getEmailRecipientOverrides',
         'id' => 'getId',
         'name' => 'getName',
         'nodes' => 'getNodes',
@@ -285,6 +297,8 @@ class MailPostCadencesRequest implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('email_excluded_contact_ids', $data ?? [], null);
+        $this->setIfExists('email_recipient_overrides', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('nodes', $data ?? [], null);
@@ -318,6 +332,14 @@ class MailPostCadencesRequest implements ModelInterface, ArrayAccess, \JsonSeria
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if (!is_null($this->container['email_excluded_contact_ids']) && (count($this->container['email_excluded_contact_ids']) > 15000)) {
+            $invalidProperties[] = "invalid value for 'email_excluded_contact_ids', number of items must be less than or equal to 15000.";
+        }
+
+        if (!is_null($this->container['email_recipient_overrides']) && (count($this->container['email_recipient_overrides']) > 500)) {
+            $invalidProperties[] = "invalid value for 'email_recipient_overrides', number of items must be less than or equal to 500.";
+        }
 
         if (!is_null($this->container['id']) && (mb_strlen($this->container['id']) > 200)) {
             $invalidProperties[] = "invalid value for 'id', the character length must be smaller than or equal to 200.";
@@ -375,6 +397,66 @@ class MailPostCadencesRequest implements ModelInterface, ArrayAccess, \JsonSeria
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets email_excluded_contact_ids
+     *
+     * @return string[]|null
+     */
+    public function getEmailExcludedContactIds()
+    {
+        return $this->container['email_excluded_contact_ids'];
+    }
+
+    /**
+     * Sets email_excluded_contact_ids
+     *
+     * @param string[]|null $email_excluded_contact_ids email_excluded_contact_ids
+     *
+     * @return self
+     */
+    public function setEmailExcludedContactIds($email_excluded_contact_ids)
+    {
+        if (is_null($email_excluded_contact_ids)) {
+            throw new \InvalidArgumentException('non-nullable email_excluded_contact_ids cannot be null');
+        }
+        if ((count($email_excluded_contact_ids) > 15000)) {
+            throw new \InvalidArgumentException('invalid value for $email_excluded_contact_ids when calling MailPostCadencesRequest., number of items must be less than or equal to 15000.');
+        }
+        $this->container['email_excluded_contact_ids'] = $email_excluded_contact_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets email_recipient_overrides
+     *
+     * @return \Reacon\Sdk\Model\MailPostCadencesRequestEmailRecipientOverridesInner[]|null
+     */
+    public function getEmailRecipientOverrides()
+    {
+        return $this->container['email_recipient_overrides'];
+    }
+
+    /**
+     * Sets email_recipient_overrides
+     *
+     * @param \Reacon\Sdk\Model\MailPostCadencesRequestEmailRecipientOverridesInner[]|null $email_recipient_overrides email_recipient_overrides
+     *
+     * @return self
+     */
+    public function setEmailRecipientOverrides($email_recipient_overrides)
+    {
+        if (is_null($email_recipient_overrides)) {
+            throw new \InvalidArgumentException('non-nullable email_recipient_overrides cannot be null');
+        }
+        if ((count($email_recipient_overrides) > 500)) {
+            throw new \InvalidArgumentException('invalid value for $email_recipient_overrides when calling MailPostCadencesRequest., number of items must be less than or equal to 500.');
+        }
+        $this->container['email_recipient_overrides'] = $email_recipient_overrides;
+
+        return $this;
+    }
 
     /**
      * Gets id

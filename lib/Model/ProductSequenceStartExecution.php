@@ -58,7 +58,7 @@ class ProductSequenceStartExecution implements ModelInterface, ArrayAccess, \Jso
      */
     protected static $openAPITypes = [
         'execution_id' => 'string',
-        'output' => '\Reacon\Sdk\Model\ProductSequenceStartOutput',
+        'output' => 'array<string,mixed>',
         'replay' => 'bool',
         'tool' => 'string'
     ];
@@ -374,7 +374,7 @@ class ProductSequenceStartExecution implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets output
      *
-     * @return \Reacon\Sdk\Model\ProductSequenceStartOutput
+     * @return array<string,mixed>
      */
     public function getOutput()
     {
@@ -384,7 +384,7 @@ class ProductSequenceStartExecution implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets output
      *
-     * @param \Reacon\Sdk\Model\ProductSequenceStartOutput $output output
+     * @param array<string,mixed> $output Response body of the Mail API operation POST /v1/teams/{teamId}/mail/cadence-campaigns, returned unchanged.
      *
      * @return self
      */

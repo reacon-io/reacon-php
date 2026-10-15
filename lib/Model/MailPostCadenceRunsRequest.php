@@ -399,8 +399,8 @@ class MailPostCadenceRunsRequest implements ModelInterface, ArrayAccess, \JsonSe
             $invalidProperties[] = "invalid value for 'campaign_name', the character length must be bigger than or equal to 1.";
         }
 
-        if (!is_null($this->container['contact_ids']) && (count($this->container['contact_ids']) > 500)) {
-            $invalidProperties[] = "invalid value for 'contact_ids', number of items must be less than or equal to 500.";
+        if (!is_null($this->container['contact_ids']) && (count($this->container['contact_ids']) > 15000)) {
+            $invalidProperties[] = "invalid value for 'contact_ids', number of items must be less than or equal to 15000.";
         }
 
         if (!is_null($this->container['contact_ids']) && (count($this->container['contact_ids']) < 1)) {
@@ -647,8 +647,8 @@ class MailPostCadenceRunsRequest implements ModelInterface, ArrayAccess, \JsonSe
         if (is_null($contact_ids)) {
             throw new \InvalidArgumentException('non-nullable contact_ids cannot be null');
         }
-        if ((count($contact_ids) > 500)) {
-            throw new \InvalidArgumentException('invalid value for $contact_ids when calling MailPostCadenceRunsRequest., number of items must be less than or equal to 500.');
+        if ((count($contact_ids) > 15000)) {
+            throw new \InvalidArgumentException('invalid value for $contact_ids when calling MailPostCadenceRunsRequest., number of items must be less than or equal to 15000.');
         }
         if ((count($contact_ids) < 1)) {
             throw new \InvalidArgumentException('invalid length for $contact_ids when calling MailPostCadenceRunsRequest., number of items must be greater than or equal to 1.');

@@ -1,6 +1,6 @@
 <?php
 /**
- * ProductDatedRecipient
+ * ProductMailSequenceStateInput
  *
  * PHP version 8.1
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Reacon\Sdk\ObjectSerializer;
 
 /**
- * ProductDatedRecipient Class Doc Comment
+ * ProductMailSequenceStateInput Class Doc Comment
  *
  * @category Class
  * @package  Reacon\Sdk
@@ -40,7 +40,7 @@ use \Reacon\Sdk\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ProductDatedRecipient implements ModelInterface, ArrayAccess, \JsonSerializable
+class ProductMailSequenceStateInput implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class ProductDatedRecipient implements ModelInterface, ArrayAccess, \JsonSeriali
      *
      * @var string
      */
-    protected static $openAPIModelName = 'ProductDatedRecipient';
+    protected static $openAPIModelName = 'ProductMailSequenceStateInput';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -57,13 +57,10 @@ class ProductDatedRecipient implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $openAPITypes = [
-        'created_at' => '\DateTime',
-        'email' => 'string',
-        'id' => 'string',
-        'lead_id' => 'string',
-        'sequence_id' => 'string',
-        'status' => 'string',
-        'updated_at' => '\DateTime'
+        'action' => 'string',
+        'campaign_id' => 'string',
+        'expected_version' => 'int',
+        'idempotency_key' => 'string'
     ];
 
     /**
@@ -74,13 +71,10 @@ class ProductDatedRecipient implements ModelInterface, ArrayAccess, \JsonSeriali
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'created_at' => 'date-time',
-        'email' => null,
-        'id' => 'uuid',
-        'lead_id' => 'uuid',
-        'sequence_id' => 'uuid',
-        'status' => null,
-        'updated_at' => 'date-time'
+        'action' => null,
+        'campaign_id' => null,
+        'expected_version' => null,
+        'idempotency_key' => null
     ];
 
     /**
@@ -89,13 +83,10 @@ class ProductDatedRecipient implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'created_at' => false,
-        'email' => false,
-        'id' => false,
-        'lead_id' => true,
-        'sequence_id' => false,
-        'status' => false,
-        'updated_at' => false
+        'action' => false,
+        'campaign_id' => false,
+        'expected_version' => false,
+        'idempotency_key' => false
     ];
 
     /**
@@ -184,13 +175,10 @@ class ProductDatedRecipient implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
-        'created_at' => 'createdAt',
-        'email' => 'email',
-        'id' => 'id',
-        'lead_id' => 'leadId',
-        'sequence_id' => 'sequenceId',
-        'status' => 'status',
-        'updated_at' => 'updatedAt'
+        'action' => 'action',
+        'campaign_id' => 'campaignId',
+        'expected_version' => 'expectedVersion',
+        'idempotency_key' => 'idempotencyKey'
     ];
 
     /**
@@ -199,13 +187,10 @@ class ProductDatedRecipient implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $setters = [
-        'created_at' => 'setCreatedAt',
-        'email' => 'setEmail',
-        'id' => 'setId',
-        'lead_id' => 'setLeadId',
-        'sequence_id' => 'setSequenceId',
-        'status' => 'setStatus',
-        'updated_at' => 'setUpdatedAt'
+        'action' => 'setAction',
+        'campaign_id' => 'setCampaignId',
+        'expected_version' => 'setExpectedVersion',
+        'idempotency_key' => 'setIdempotencyKey'
     ];
 
     /**
@@ -214,13 +199,10 @@ class ProductDatedRecipient implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $getters = [
-        'created_at' => 'getCreatedAt',
-        'email' => 'getEmail',
-        'id' => 'getId',
-        'lead_id' => 'getLeadId',
-        'sequence_id' => 'getSequenceId',
-        'status' => 'getStatus',
-        'updated_at' => 'getUpdatedAt'
+        'action' => 'getAction',
+        'campaign_id' => 'getCampaignId',
+        'expected_version' => 'getExpectedVersion',
+        'idempotency_key' => 'getIdempotencyKey'
     ];
 
     /**
@@ -264,6 +246,23 @@ class ProductDatedRecipient implements ModelInterface, ArrayAccess, \JsonSeriali
         return self::$openAPIModelName;
     }
 
+    public const ACTION_PAUSE = 'pause';
+    public const ACTION_RESUME = 'resume';
+    public const ACTION_CANCEL = 'cancel';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getActionAllowableValues()
+    {
+        return [
+            self::ACTION_PAUSE,
+            self::ACTION_RESUME,
+            self::ACTION_CANCEL,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -280,13 +279,10 @@ class ProductDatedRecipient implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('created_at', $data ?? [], null);
-        $this->setIfExists('email', $data ?? [], null);
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('lead_id', $data ?? [], null);
-        $this->setIfExists('sequence_id', $data ?? [], null);
-        $this->setIfExists('status', $data ?? [], null);
-        $this->setIfExists('updated_at', $data ?? [], null);
+        $this->setIfExists('action', $data ?? [], null);
+        $this->setIfExists('campaign_id', $data ?? [], null);
+        $this->setIfExists('expected_version', $data ?? [], null);
+        $this->setIfExists('idempotency_key', $data ?? [], null);
     }
 
     /**
@@ -316,27 +312,55 @@ class ProductDatedRecipient implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $invalidProperties = [];
 
-        if ($this->container['created_at'] === null) {
-            $invalidProperties[] = "'created_at' can't be null";
+        if ($this->container['action'] === null) {
+            $invalidProperties[] = "'action' can't be null";
         }
-        if ($this->container['email'] === null) {
-            $invalidProperties[] = "'email' can't be null";
+        $allowedValues = $this->getActionAllowableValues();
+        if (!is_null($this->container['action']) && !in_array($this->container['action'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'action', must be one of '%s'",
+                $this->container['action'],
+                implode("', '", $allowedValues)
+            );
         }
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
+
+        if ($this->container['campaign_id'] === null) {
+            $invalidProperties[] = "'campaign_id' can't be null";
         }
-        if ($this->container['lead_id'] === null && !$this->isNullableSetToNull('lead_id')) {
-            $invalidProperties[] = "'lead_id' is required";
+        if ((mb_strlen($this->container['campaign_id']) > 200)) {
+            $invalidProperties[] = "invalid value for 'campaign_id', the character length must be smaller than or equal to 200.";
         }
-        if ($this->container['sequence_id'] === null) {
-            $invalidProperties[] = "'sequence_id' can't be null";
+
+        if ((mb_strlen($this->container['campaign_id']) < 1)) {
+            $invalidProperties[] = "invalid value for 'campaign_id', the character length must be bigger than or equal to 1.";
         }
-        if ($this->container['status'] === null) {
-            $invalidProperties[] = "'status' can't be null";
+
+        if (!preg_match("/^[a-zA-Z0-9_-]+$/", $this->container['campaign_id'])) {
+            $invalidProperties[] = "invalid value for 'campaign_id', must be conform to the pattern /^[a-zA-Z0-9_-]+$/.";
         }
-        if ($this->container['updated_at'] === null) {
-            $invalidProperties[] = "'updated_at' can't be null";
+
+        if ($this->container['expected_version'] === null) {
+            $invalidProperties[] = "'expected_version' can't be null";
         }
+        if (($this->container['expected_version'] > 9007199254740991)) {
+            $invalidProperties[] = "invalid value for 'expected_version', must be smaller than or equal to 9007199254740991.";
+        }
+
+        if (($this->container['expected_version'] <= 0)) {
+            $invalidProperties[] = "invalid value for 'expected_version', must be bigger than 0.";
+        }
+
+        if ($this->container['idempotency_key'] === null) {
+            $invalidProperties[] = "'idempotency_key' can't be null";
+        }
+        if ((mb_strlen($this->container['idempotency_key']) > 200)) {
+            $invalidProperties[] = "invalid value for 'idempotency_key', the character length must be smaller than or equal to 200.";
+        }
+
+        if ((mb_strlen($this->container['idempotency_key']) < 16)) {
+            $invalidProperties[] = "invalid value for 'idempotency_key', the character length must be bigger than or equal to 16.";
+        }
+
         return $invalidProperties;
     }
 
@@ -353,197 +377,143 @@ class ProductDatedRecipient implements ModelInterface, ArrayAccess, \JsonSeriali
 
 
     /**
-     * Gets created_at
-     *
-     * @return \DateTime
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['created_at'];
-    }
-
-    /**
-     * Sets created_at
-     *
-     * @param \DateTime $created_at created_at
-     *
-     * @return self
-     */
-    public function setCreatedAt($created_at)
-    {
-        if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
-        }
-        $this->container['created_at'] = $created_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets email
+     * Gets action
      *
      * @return string
      */
-    public function getEmail()
+    public function getAction()
     {
-        return $this->container['email'];
+        return $this->container['action'];
     }
 
     /**
-     * Sets email
+     * Sets action
      *
-     * @param string $email email
+     * @param string $action action
      *
      * @return self
      */
-    public function setEmail($email)
+    public function setAction($action)
     {
-        if (is_null($email)) {
-            throw new \InvalidArgumentException('non-nullable email cannot be null');
+        if (is_null($action)) {
+            throw new \InvalidArgumentException('non-nullable action cannot be null');
         }
-        $this->container['email'] = $email;
+        $allowedValues = $this->getActionAllowableValues();
+        if (!in_array($action, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'action', must be one of '%s'",
+                    $action,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['action'] = $action;
 
         return $this;
     }
 
     /**
-     * Gets id
+     * Gets campaign_id
      *
      * @return string
      */
-    public function getId()
+    public function getCampaignId()
     {
-        return $this->container['id'];
+        return $this->container['campaign_id'];
     }
 
     /**
-     * Sets id
+     * Sets campaign_id
      *
-     * @param string $id id
+     * @param string $campaign_id campaign_id
      *
      * @return self
      */
-    public function setId($id)
+    public function setCampaignId($campaign_id)
     {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        if (is_null($campaign_id)) {
+            throw new \InvalidArgumentException('non-nullable campaign_id cannot be null');
         }
-        $this->container['id'] = $id;
+        if ((mb_strlen($campaign_id) > 200)) {
+            throw new \InvalidArgumentException('invalid length for $campaign_id when calling ProductMailSequenceStateInput., must be smaller than or equal to 200.');
+        }
+        if ((mb_strlen($campaign_id) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $campaign_id when calling ProductMailSequenceStateInput., must be bigger than or equal to 1.');
+        }
+        if ((!preg_match("/^[a-zA-Z0-9_-]+$/", ObjectSerializer::toString($campaign_id)))) {
+            throw new \InvalidArgumentException("invalid value for \$campaign_id when calling ProductMailSequenceStateInput., must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
+        }
+
+        $this->container['campaign_id'] = $campaign_id;
 
         return $this;
     }
 
     /**
-     * Gets lead_id
+     * Gets expected_version
      *
-     * @return string|null
+     * @return int
      */
-    public function getLeadId()
+    public function getExpectedVersion()
     {
-        return $this->container['lead_id'];
+        return $this->container['expected_version'];
     }
 
     /**
-     * Sets lead_id
+     * Sets expected_version
      *
-     * @param string|null $lead_id lead_id
+     * @param int $expected_version expected_version
      *
      * @return self
      */
-    public function setLeadId($lead_id)
+    public function setExpectedVersion($expected_version)
     {
-        if (is_null($lead_id)) {
-            array_push($this->openAPINullablesSetToNull, 'lead_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('lead_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($expected_version)) {
+            throw new \InvalidArgumentException('non-nullable expected_version cannot be null');
         }
-        $this->container['lead_id'] = $lead_id;
+        if (($expected_version > 9007199254740991)) {
+            throw new \InvalidArgumentException('invalid value for $expected_version when calling ProductMailSequenceStateInput., must be smaller than or equal to 9007199254740991.');
+        }
+        if (($expected_version <= 0)) {
+            throw new \InvalidArgumentException('invalid value for $expected_version when calling ProductMailSequenceStateInput., must be bigger than 0.');
+        }
+
+        $this->container['expected_version'] = $expected_version;
 
         return $this;
     }
 
     /**
-     * Gets sequence_id
+     * Gets idempotency_key
      *
      * @return string
      */
-    public function getSequenceId()
+    public function getIdempotencyKey()
     {
-        return $this->container['sequence_id'];
+        return $this->container['idempotency_key'];
     }
 
     /**
-     * Sets sequence_id
+     * Sets idempotency_key
      *
-     * @param string $sequence_id sequence_id
+     * @param string $idempotency_key idempotency_key
      *
      * @return self
      */
-    public function setSequenceId($sequence_id)
+    public function setIdempotencyKey($idempotency_key)
     {
-        if (is_null($sequence_id)) {
-            throw new \InvalidArgumentException('non-nullable sequence_id cannot be null');
+        if (is_null($idempotency_key)) {
+            throw new \InvalidArgumentException('non-nullable idempotency_key cannot be null');
         }
-        $this->container['sequence_id'] = $sequence_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param string $status status
-     *
-     * @return self
-     */
-    public function setStatus($status)
-    {
-        if (is_null($status)) {
-            throw new \InvalidArgumentException('non-nullable status cannot be null');
+        if ((mb_strlen($idempotency_key) > 200)) {
+            throw new \InvalidArgumentException('invalid length for $idempotency_key when calling ProductMailSequenceStateInput., must be smaller than or equal to 200.');
         }
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets updated_at
-     *
-     * @return \DateTime
-     */
-    public function getUpdatedAt()
-    {
-        return $this->container['updated_at'];
-    }
-
-    /**
-     * Sets updated_at
-     *
-     * @param \DateTime $updated_at updated_at
-     *
-     * @return self
-     */
-    public function setUpdatedAt($updated_at)
-    {
-        if (is_null($updated_at)) {
-            throw new \InvalidArgumentException('non-nullable updated_at cannot be null');
+        if ((mb_strlen($idempotency_key) < 16)) {
+            throw new \InvalidArgumentException('invalid length for $idempotency_key when calling ProductMailSequenceStateInput., must be bigger than or equal to 16.');
         }
-        $this->container['updated_at'] = $updated_at;
+
+        $this->container['idempotency_key'] = $idempotency_key;
 
         return $this;
     }
